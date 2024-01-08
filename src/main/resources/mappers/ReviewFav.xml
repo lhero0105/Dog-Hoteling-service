@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.hoteldog.review.ReviewFavMapper">
+
+    <insert id="insReviewFav">
+        insert into t_review_fav
+        set review_pk= #{reviewPk}
+        , user_pk= #{userPk}
+
+    </insert>
+
+    <delete id="delReviewFav">
+        DELETE
+        FROM t_review_fav
+        WHERE review_pk= #{reviewPk}
+        and user_pk= #{userPk}
+    </delete>
+
+</mapper>

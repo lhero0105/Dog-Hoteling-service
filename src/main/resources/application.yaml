@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/doghotel
+    url: jdbc:mariadb://localhost:3306/dog-hoteling-service
     username: root
     password: green502
 
@@ -16,3 +16,8 @@ mybatis:
 springdoc:
   swagger-ui:
     path: /swagger.html
+server:
+  port: 9090
+  #주파수 맞추기위해 작업하고있음
+fcm:
+  certification: serviceAccountKey.json

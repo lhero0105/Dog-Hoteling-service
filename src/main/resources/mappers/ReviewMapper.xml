@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.hoteldog.review.ReviewMapper">
+
+    <delete id="delUserReveiw">
+        DELETE a
+        FROM t_review a
+        join t_reservation b
+        ON  a.res_pk = b.res_pk
+        WHERE a.res_pk =#{resPk} AND
+        a.review_pk =#{revirePk} AND
+        b.user_pk =#{userPk}
+    </delete>
+
+</mapper>
