@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.hoteldog.review.ReviewMapper">
+    <select id="selHotelReview">
+        SELECT C.nick_name AS nickName, C.pic AS userPic
+        , D.review_pk AS reviewPk, D.comment, D.score, D.created_at AS createdAt
+        FROM t_hotel A
+        JOIN t_reservation B
+        ON A.hotel_pk = B.hotel_pk
+        JOIN t_user C
+        ON B.user_pk = C.user_pk
+        JOIN t_review D
+        ON B.res_pk = D.res_pk
+        WHERE A.hotel_pk = #{hotelPk}
+        LIMIT #{stardIdx},#{rowCount}
+    </select>
+    <!--호텔 pk -> 예약 pk에 관련 된 사진들만 셀렉트-->
+    <select id="selHotelReviewPics">
+        SELECT reviewPk, pic
+    </select>
+</mapper>

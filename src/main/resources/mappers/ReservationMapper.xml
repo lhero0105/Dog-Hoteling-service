@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.hoteldog.reservation.ReservationMapper">
+    <insert id="insHotelReservation" useGeneratedKeys="true" keyProperty="resPk">
+        INSERT INTO t_reservation
+        SET user_pk = #{userPk}
+        , hotel_pk = #{hotelPk}
+        , from_date = #{fromDate}
+        , to_date = 1
+        <!--0. 잔행 중, 1. 승인, 2. 확정, 3. 본인 취소, 4. 호텔 취소-->
+    </insert>
+    <insert id="insHotelReservationDogInfo">
+        INSERT INTO t_reservation_dog_info
+        (
+            size_pk, age, information
+        )
+        VALUES (
+        <foreach collection="dogInfo" item="item" separator="),(">
+            #{item.}
+        </foreach>
+        )
+    </insert>
+
+<!--    INSERT INTO KTF_COMPARE_RESULT(
+    IDX
+    , TIMESTAMP_ACCIDENT
+    , VIN
+    , DATA_GB
+    ) VALUES
+    <foreach collection="list" item="item" separator=",">
+        (
+        #{item.idx}
+        , #{item.timestampAccident}
+        , #{item.vin}
+        , #{item.dataGb}
+        )
+    </foreach>-->
+</mapper>
