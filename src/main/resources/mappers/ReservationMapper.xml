@@ -2,38 +2,64 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.hoteldog.reservation.ReservationMapper">
+
+    <!--호텔 예약-->
     <insert id="insHotelReservation" useGeneratedKeys="true" keyProperty="resPk">
         INSERT INTO t_reservation
-        SET user_pk = #{userPk}
-        , hotel_pk = #{hotelPk}
-        , from_date = #{fromDate}
-        , to_date = 1
-        <!--0. 잔행 중, 1. 승인, 2. 확정, 3. 본인 취소, 4. 호텔 취소-->
-    </insert>
-    <insert id="insHotelReservationDogInfo">
-        INSERT INTO t_reservation_dog_info
-        (
-            size_pk, age, information
-        )
+        (hotel_room_pk, user_pk, hotel_pk, from_date, to_date, dog_ea)
         VALUES (
-        <foreach collection="dogInfo" item="item" separator="),(">
-            #{item.}
-        </foreach>
+          #{hotelRoomPk}
+        , #{userPk}
+        , #{hotelPk}
+        , #{fromDate}
+        , #{toDate}
+        , #{dogEa}
         )
+        <!--0. 잔행 중, 1. 승인, 2. 퇴실, 3. 본인 취소, 4. 호텔 취소-->
     </insert>
 
-<!--    INSERT INTO KTF_COMPARE_RESULT(
-    IDX
-    , TIMESTAMP_ACCIDENT
-    , VIN
-    , DATA_GB
-    ) VALUES
-    <foreach collection="list" item="item" separator=",">
-        (
-        #{item.idx}
-        , #{item.timestampAccident}
-        , #{item.vin}
-        , #{item.dataGb}
-        )
-    </foreach>-->
+    <insert id="insHotelReservationDogMineInfo">
+        INSERT INTO t_reservation_dog_mine_info
+        SET res_pk = #{resPk}
+        , user_dog_info = #{userDogInfo}
+        , information = #{information}
+    </insert>
+
+    <insert id="insHotelReservationDogWriteInfo">
+        INSERT INTO t_reservation_dog_handwriting_info
+        SET res_pk = #{resPk}
+        , size_pk = #{sizePk}
+        , dog_nm = #{dogNm}
+        , dog_age = #{dogAge}
+        , information = #{information}
+    </insert>
+    <!---->
+
+
+    <!--예약 취소-->
+    <select id="selHotelReservation">
+        SELECT res_pk AS resPk FROM t_reservation
+        WHERE user_pk = #{userPk}
+        AND hotel_pk = #{hotelPk}
+        AND hotel_room_pk = #{hotelRoomPk}
+    </select>
+
+    <delete id="delHotelReservationDogMineInfo">
+        DELETE FROM t_reservation_dog_mine_info
+        WHERE res_pk = #{resPk}
+    </delete>
+
+    <delete id="delHotelReservationDogWriteInfo">
+        DELETE FROM t_reservation_dog_handwriting_info
+        WHERE res_pk = #{resPk}
+    </delete>
+
+    <delete id="delHotelReservation">
+        DELETE FROM t_reservation
+        WHERE user_pk = #{userPk}
+        AND hotel_pk = #{hotelPk}
+        AND hotel_room_pk = #{hotelRoomPk}
+    </delete>
+    <!---->
+
 </mapper>

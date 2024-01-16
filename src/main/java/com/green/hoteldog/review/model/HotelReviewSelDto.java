@@ -1,17 +1,21 @@
 package com.green.hoteldog.review.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 public class HotelReviewSelDto {
     private int hotelPk;
-    private int page;
-    private int stardIdx;
+    private int startIdx;
     private int rowCount;
+    @JsonIgnore
+    private List<Integer> reviewPk = new ArrayList<>();
     public void setPage(int page){
-        this.page = page;
-        this.stardIdx = (page - 1) * rowCount;
+        this.startIdx = (page - 1) * rowCount;
     }
 }

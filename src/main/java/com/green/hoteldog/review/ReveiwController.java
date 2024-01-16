@@ -1,5 +1,6 @@
 package com.green.hoteldog.review;
 
+import com.green.hoteldog.common.Const;
 import com.green.hoteldog.review.model.HotelReviewSelDto;
 import com.green.hoteldog.review.model.HotelReviewSelVo;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +19,11 @@ import java.util.List;
 public class ReveiwController {
     private final ReveiwService service;
 
+    // 상세페이지 리뷰 페이지네이션
     @GetMapping("/{hotel_pk}/review/{page}")
     public List<HotelReviewSelVo> getHotelReview(@RequestParam ("hotel_pk") int hotelPk, @RequestParam int page){
         HotelReviewSelDto dto = new HotelReviewSelDto();
-        dto.setRowCount(3);
+        dto.setRowCount(Const.REVIEW_COUNT_PER_PAGE);
         dto.setHotelPk(hotelPk);
         dto.setPage(page);
         return service.getHotelReview(dto);
