@@ -33,11 +33,20 @@ public class HotelController {
     // 브랜치 작업 하는법
     /*
     깃허브에서 브랜치 생성, 그 브랜치에서 작업.
-    좌상단 브랜치 이름 확인하고 커밋&푸쉬
-    좌상단 브랜치 자기이름 > Merge "자기이름" into "master" 클릭.
+    좌상단 Remote >브랜치 이름 확인하고 커밋&푸쉬
+    좌상단 브랜치 Remote > master > Merge "master" into "자기이름" 클릭.
 
 
-    좌상단 브랜치 master 접속.
+        깃허브 Comparing changes 접속. base: master , compare : "자기 브랜치 이름" 으로 설정.
+
+         오른쪽 created pull request 클릭
+
+         변경사항 작성 후 pull
+
+      ..
+
+      받을려는 사람은 Merge pull request 클릭해야 받아짐ㅋ.
+
      */
 
 }
