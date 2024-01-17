@@ -28,4 +28,13 @@ public class HotelController {
         return service.getHotelList(dto);
     }
     //영웅
+
+
+
+    // 브랜치 작업 하는법
+    /*
+    깃허브에서 브랜치 생성, 그 브랜치에서 작업.
+    좌상단 브랜치 이름 확인하고 커밋&푸쉬
+     */
+
 }
