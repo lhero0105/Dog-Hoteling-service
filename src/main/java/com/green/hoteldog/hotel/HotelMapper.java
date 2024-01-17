@@ -14,4 +14,5 @@ public interface HotelMapper {
     List<HotelListSelVo> selHotelListToMember(HotelListSelProcDto pDto);
     List<HotelListSelVo> selHotelListToSearch(HotelListSelDto Dto);
     List<HotelListSelVo> selHotelListToFilter(HotelListSelDto Dto);
+    //영웅
 }
