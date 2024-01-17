@@ -7,7 +7,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//영웅
 @Data
 public class HotelReviewSelDto {
     private int hotelPk;

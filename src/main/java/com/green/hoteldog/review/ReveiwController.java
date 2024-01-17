@@ -28,4 +28,5 @@ public class ReveiwController {
         dto.setPage(page);
         return service.getHotelReview(dto);
     }
+    //영웅
 }

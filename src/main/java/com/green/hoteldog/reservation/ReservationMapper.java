@@ -18,4 +18,5 @@ public interface ReservationMapper {
     int delHotelReservationDogMineInfo(HotelReservationDelDto dto);
     int delHotelReservationDogWriteInfo(HotelReservationDelDto dto);
     int delHotelReservation(HotelReservationDelDto dto);
+    //영웅
 }

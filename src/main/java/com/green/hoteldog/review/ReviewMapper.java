@@ -11,4 +11,5 @@ import java.util.List;
 public interface ReviewMapper {
     List<HotelReviewSelVo> selHotelReview(HotelReviewSelDto dto);
     List<HotelReviewPicsSelVo> selHotelReviewPics(HotelReviewSelDto dto);
+    //영웅
 }

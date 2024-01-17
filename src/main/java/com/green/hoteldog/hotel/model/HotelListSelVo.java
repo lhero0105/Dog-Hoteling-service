@@ -2,7 +2,7 @@ package com.green.hoteldog.hotel.model;
 
 import lombok.Builder;
 import lombok.Getter;
-
+//영웅
 @Builder
 @Getter
 public class HotelListSelVo {

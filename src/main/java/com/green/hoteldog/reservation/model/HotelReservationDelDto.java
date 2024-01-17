@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
-
+//영웅
 @Data
 public class HotelReservationDelDto {
     @Size(min = 1)

@@ -27,4 +27,5 @@ public class HotelController {
         dto.setPage(page);
         return service.getHotelList(dto);
     }
+    //영웅
 }

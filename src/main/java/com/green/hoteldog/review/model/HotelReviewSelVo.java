@@ -6,7 +6,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//영웅
 @Builder
 @Getter
 public class HotelReviewSelVo {

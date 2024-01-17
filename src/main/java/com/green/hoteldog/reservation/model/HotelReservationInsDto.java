@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.util.List;
-
+//영웅
 @Data
 public class HotelReservationInsDto{
     private int hotelPk;
