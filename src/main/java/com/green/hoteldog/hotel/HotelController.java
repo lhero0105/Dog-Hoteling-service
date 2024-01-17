@@ -34,7 +34,7 @@ public class HotelController {
     /*
     깃허브에서 브랜치 생성, 그 브랜치에서 작업.
     좌상단 Remote >브랜치 이름 확인하고 커밋&푸쉬
-    좌상단 브랜치 Remote >자기이름 > Merge "자기이름" into "master" 클릭.
+    좌상단 브랜치 Remote > master > Merge "master" into "자기이름" 클릭.
 
 
         깃허브 Comparing changes 접속. base: master , compare : "자기 브랜치 이름" 으로 설정.
