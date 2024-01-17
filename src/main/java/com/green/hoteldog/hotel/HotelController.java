@@ -48,5 +48,6 @@ public class HotelController {
       받을려는 사람은 Merge pull request 클릭해야 받아짐ㅋ.
 
      */
+    //수정사항
 
 }
