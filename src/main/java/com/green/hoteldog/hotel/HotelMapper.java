@@ -25,6 +25,6 @@ public interface HotelMapper {
     int insHotelBookMark(UserHotelFavDto dto);
     Integer isMoreHotelReview(int hotelPk);
     List<HotelRoomResInfoByMonth> getHotelRoomResInfo(int hotelPk, String startDate, String endDate);
+    List<HotelRoomResInfoByMonth> getHotelFilterRoomResInfo(int hotelPk,String startDate, String endDate,int howMany,int large );
     //승준
-
 }

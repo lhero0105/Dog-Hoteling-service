@@ -10,9 +10,9 @@ import java.util.List;
 @Setter
 @Builder
 public class HotelRoomAbleListDto {
-    int hotelPk;
-    String startDate;
-    String endDate;
-    List<Integer> dogPks;
+    private int hotelPk;
+    private String startDate;
+    private String endDate;
+    private List<Integer> dogPks;
 }
 //승준
