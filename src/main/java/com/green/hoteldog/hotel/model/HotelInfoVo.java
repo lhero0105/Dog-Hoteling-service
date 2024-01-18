@@ -53,7 +53,6 @@ public class HotelInfoVo {
     @Schema(name = "호텔 옵션")
     private List<String> hotelOption;
 
-
     @NotNull
     @Schema(name = "호텔 방 정보 리스트.")
     private List<HotelRoomInfoVo> roomList;
