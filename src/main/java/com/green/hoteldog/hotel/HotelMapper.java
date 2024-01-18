@@ -1,8 +1,7 @@
 package com.green.hoteldog.hotel;
 
-import com.green.hoteldog.hotel.model.HotelListSelDto;
-import com.green.hoteldog.hotel.model.HotelListSelProcDto;
-import com.green.hoteldog.hotel.model.HotelListSelVo;
+import com.green.hoteldog.hotel.model.*;
+import com.green.hoteldog.user.models.UserHotelFavDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -15,4 +14,17 @@ public interface HotelMapper {
     List<HotelListSelVo> selHotelListToSearch(HotelListSelDto Dto);
     List<HotelListSelVo> selHotelListToFilter(HotelListSelDto Dto);
     //영웅
+
+    List<HotelReviewVo> getHotelReviewThree(int hotelPk);
+    HotelInfoVo getHotelDetail(int hotelPk);
+    List<String> getHotelPics(int hotelPk);
+    List<String> hotelOptionInfo(int hotelPk);
+    List<MyDog> getMyDogs(int userPk);
+    List<String> getReviewPics(HotelReviewDto dto);
+    int delHotelBookMark(UserHotelFavDto dto);
+    int insHotelBookMark(UserHotelFavDto dto);
+    Integer isMoreHotelReview(int hotelPk);
+    List<HotelRoomResInfoByMonth> getHotelRoomResInfo(int hotelPk, String startDate, String endDate);
+    //승준
+
 }

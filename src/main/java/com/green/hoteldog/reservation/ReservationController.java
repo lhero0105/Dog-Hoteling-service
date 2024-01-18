@@ -3,6 +3,8 @@ package com.green.hoteldog.reservation;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.reservation.model.HotelReservationDelDto;
 import com.green.hoteldog.reservation.model.HotelReservationInsDto;
+import com.green.hoteldog.reservation.model.ResInfoDto;
+import com.green.hoteldog.reservation.model.ResInfoVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -29,4 +31,12 @@ public class ReservationController {
         return service.delHotelReservation(dto);
     }
     //영웅
+
+    @GetMapping
+    public List<ResInfoVo> getUserReservation(@RequestBody ResInfoDto dto){
+
+        return service.getUserReservation(dto);
+    }
+    //승준
+
 }

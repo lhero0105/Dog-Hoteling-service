@@ -1,7 +1,6 @@
 package com.green.hoteldog.reservation;
 
-import com.green.hoteldog.reservation.model.HotelReservationDelDto;
-import com.green.hoteldog.reservation.model.HotelReservationInsDto;
+import com.green.hoteldog.reservation.model.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -19,4 +18,9 @@ public interface ReservationMapper {
     int delHotelReservationDogWriteInfo(HotelReservationDelDto dto);
     int delHotelReservation(HotelReservationDelDto dto);
     //영웅
+
+
+    List<ResInfoVo> getUserReservation(ResInfoDto dto);
+    List<ResDogInfoVo> getDogInfoReservation(List<Integer> resPk);
+    //승준
 }

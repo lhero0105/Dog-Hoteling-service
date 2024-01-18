@@ -60,6 +60,31 @@
         AND hotel_pk = #{hotelPk}
         AND hotel_room_pk = #{hotelRoomPk}
     </delete>
-    <!---->
+    <!--이름-->
+
+    <select id="getDogInfoReservation">
+        SELECT A.res_pk AS resPk, B.dog_nm AS dogNm
+        FROM t_res_comprehensive_info A
+        JOIN t_res_dog_info B
+        ON A.res_dog_pk=B.res_dog_pk
+        WHERE A.res_pk IN
+        <foreach collection="list" item="resPk" open="(" close=")" separator=",">
+            #{resPk}
+        </foreach>
+    </select>
+    <select id="getUserReservation">
+        SELECT D.hotel_nm AS hotelNm,D.hotel_call AS hotelCall
+        ,   C.hotel_room_nm AS hotelRoomNm ,A.from_date AS fromDate
+        ,   A.to_date AS toDate,C.room_pic AS roomPic ,A.res_pk AS resPk
+        FROM t_reservation A
+        JOIN t_res_comprehensive_info B
+        ON A.res_pk=B.res_pk
+        JOIN t_hotel_room_info C
+        ON B.hotel_room_pk=C.hotel_room_pk
+        JOIN t_hotel D
+        ON A.hotel_pk=D.hotel_pk
+        WHERE A.user_pk=#{userPk} AND A.res_status=1
+    </select>
+    <!--승준-->
 
 </mapper>

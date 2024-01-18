@@ -2,15 +2,15 @@ package com.green.hoteldog.reservation;
 
 import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
-import com.green.hoteldog.reservation.model.DogInfo;
-import com.green.hoteldog.reservation.model.HotelReservationDelDto;
-import com.green.hoteldog.reservation.model.HotelReservationInsDto;
+import com.green.hoteldog.reservation.model.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Service
@@ -74,4 +74,20 @@ public class ReservationService {
         return new ResVo(Const.SUCCESS);
     }
     //영웅
+
+    public List<ResInfoVo> getUserReservation(ResInfoDto dto){
+        //유저 예약 정보 가져옴
+        List<ResInfoVo> resInfoVos=mapper.getUserReservation(dto);
+        List<Integer> resPkList=new ArrayList<>();
+
+        Map<Integer,ResInfoVo> resInfoList=new HashMap<>();
+        for (ResInfoVo vo:resInfoVos) {
+            resInfoList.put(vo.getResPk(),vo);
+            resPkList.add(vo.getResPk());
+        }
+        List<ResDogInfoVo> resDogInfo=mapper.getDogInfoReservation(resPkList);
+
+        return resInfoVos;
+    }
+    //승준
 }

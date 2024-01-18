@@ -43,5 +43,7 @@
         GROUP BY B.review_pk
         ORDER BY COUNT(D.user_pk) DESC
     </select>
+    <!-- 영웅 -->
+
 
 </mapper>

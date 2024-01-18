@@ -4,6 +4,12 @@ import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.hotel.model.HotelListSelDto;
 import com.green.hoteldog.hotel.model.HotelListSelVo;
+import com.green.hoteldog.hotel.model.HotelMainPage;
+import com.green.hoteldog.hotel.model.HotelMainPageDto;
+import com.green.hoteldog.user.models.UserHotelFavDto;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +34,29 @@ public class HotelController {
         return service.getHotelList(dto);
     }
     //영웅
+
+
+    @GetMapping()
+    public HotelMainPage getHotelDetail(@RequestBody HotelMainPageDto dto){
+        if(dto.getHotelPk()==0){
+            //예외
+        }
+        HotelMainPage mainPage=service.getHotelDetail(dto);
+        return mainPage;
+    }
+
+    @GetMapping("/hotel/{page}/mark")
+    @Operation(summary = "좋아요 toggle", description = "toggle로 처리함<br>")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "좋아요 처리: result(1), 좋아요 취소: result(2)")
+    })
+    public ResVo toggleHotelBookMark(@RequestBody UserHotelFavDto dto){
+        return service.toggleHotelBookMark(dto);
+    }
+    //승준
+
+
+
 
 
     // 브랜치 작업 하는법
