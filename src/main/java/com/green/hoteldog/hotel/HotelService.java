@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -110,12 +112,18 @@ public class HotelService {
         //메인페이지 첫화면은 호텔pk만 보내고 정리해서 줌.
         List<HotelRoomResInfoByMonth> hotelResInfoVos=getTwoMonthRoomAble(listDto);
 
-        //박스갈이 & 데이터빼내기.
+        //박스갈이 & 데이터빼내기&검증
+
         List<HotelRoomEaByDate> eaByDates=new ArrayList<>();
+
+
+        Map<String,HotelRoomEaByDate> dateMap=new HashMap<>();
+
         for (String date:twoMonth) {
             HotelRoomEaByDate eaByDate=new HotelRoomEaByDate();
             eaByDate.setDate(date);
             eaByDates.add(eaByDate);
+            dateMap.put(date,eaByDate);
         }
         //들어간 데이터 중 날짜정보만 빼옴.
         List<String> checkDate=eaByDates
@@ -126,6 +134,22 @@ public class HotelService {
             //모든날짜 들어가지 않음. >> 에러.
         }
         //같은날이면 넣어줌.
+
+//        List<HotelRoomEaByDate> eaList=hotelResInfoVos
+//                .stream()
+//                .map(t -> t.setRoomDate())
+//                .toList()
+//
+//
+//        List<HotelRoomEa> ea=new ArrayList<>();
+//        for (HotelRoomResInfoByMonth resInfoByMonth : hotelResInfoVos) {
+//            if(resInfoByMonth.getRoomDate().equals()){
+//
+//            }
+//        }
+
+
+
         for (HotelRoomEaByDate date:eaByDates) {
             List<HotelRoomEa> roomEas=new ArrayList<>();
 
