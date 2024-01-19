@@ -2,10 +2,7 @@ package com.green.hoteldog.hotel;
 
 import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
-import com.green.hoteldog.hotel.model.HotelListSelDto;
-import com.green.hoteldog.hotel.model.HotelListSelVo;
-import com.green.hoteldog.hotel.model.HotelMainPage;
-import com.green.hoteldog.hotel.model.HotelMainPageDto;
+import com.green.hoteldog.hotel.model.*;
 import com.green.hoteldog.user.models.UserHotelFavDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -43,6 +40,14 @@ public class HotelController {
         }
         HotelMainPage mainPage=service.getHotelDetail(dto);
         return mainPage;
+    }
+    @GetMapping
+    public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam int hotelPk,String startDate,String endDate){
+        return service.whenYouChooseDates(hotelPk, startDate, endDate);
+    }
+    @GetMapping
+    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(int hotelPk,String startDate,String endDate,List<Integer> dogs){
+        return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
 
     @GetMapping("/hotel/{page}/mark")
