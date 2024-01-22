@@ -1,6 +1,7 @@
-package com.green.hoteldog.review.model;
+package com.green.hoteldog.review.models;
 
 import lombok.Data;
+
 //영웅
 @Data
 public class HotelReviewPicsSelVo {

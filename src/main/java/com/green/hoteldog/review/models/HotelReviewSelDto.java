@@ -1,12 +1,11 @@
-package com.green.hoteldog.review.model;
+package com.green.hoteldog.review.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+
 //영웅
 @Data
 public class HotelReviewSelDto {

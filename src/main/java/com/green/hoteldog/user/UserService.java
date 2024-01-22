@@ -16,6 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -25,14 +27,14 @@ public class UserService {
     private final JwtTokenProvider tokenProvider;
     private final AppProperties appProperties;
     private final CookieUtils cookie;
-    //유저 회원가입 - 재웅
+    //유저 회원가입
     public ResVo userSignup (UserSignupDto dto){
         String pw = passwordEncoder.encode(dto.getUpw());
         dto.setUpw(pw);
         int result = mapper.userSignup(dto);
         return new ResVo(result);
     }
-    //유저 로그인 - 재웅
+    //유저 로그인
     public UserSigninVo userSignin(HttpServletResponse response, HttpServletRequest request, UserSigninDto dto){
         UserSigninVo vo = new UserSigninVo();
         UserEntity userEntity = mapper.userEntityByUserEmail(dto.getUserEmail());
@@ -52,5 +54,14 @@ public class UserService {
             return vo;
         }
         return null;
+    }
+    public ResVo checkNickname(String nickname){
+        List<UserEntity> userEntityList = mapper.selUserEntity();
+        for(UserEntity entity : userEntityList){
+            if(entity.getNickname().equals(nickname)){
+                return new ResVo(1);
+            }
+        }
+        return new ResVo(0);
     }
 }

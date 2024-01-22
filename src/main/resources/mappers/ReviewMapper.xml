@@ -46,4 +46,69 @@
     <!-- 영웅 -->
 
 
+    <insert id="insReview" keyProperty="reviewPk" useGeneratedKeys="true">
+        INSERT INTO t_review
+        SET res_pk = #{resPk}
+        ,comment = #{comment}
+        ,score = #{score}
+    </insert>
+    <insert id="insReviewPics">
+        INSERT INTO t_review_pic
+        (review_pk , pic)
+        VALUES
+        <foreach collection="pics" item="pic" open="(" separator="),(" close=")">
+            #{reviewPk},#{pic}
+        </foreach>
+    </insert>
+    <update id="updReview">
+        UPDATE t_review
+        SET comment = #{comment}
+        ,score = #{score}
+        WHERE review_pk = #{reviewPk}
+    </update>
+    <update id="updReviewComment">
+        UPDATE t_review
+        SET comment = #{comment}
+        WHERE review_pk = #{reviewPk}
+    </update>
+    <delete id="delReviewPics">
+        DELETE FROM t_review_pic
+        WHERE review_pk = #{reviewPk}
+    </delete>
+    <insert id="insReviewFav">
+        INSERT INTO t_review_fav
+        SET user_pk = #{userPk}
+        ,review_pk = #{reviewPk}
+    </insert>
+    <delete id="delReviewFav">
+        DELETE t_review_fav
+        WHERE user_pk = #{userPk} AND review_pk = #{reviewPk}
+    </delete>
+    <select id="selReviewList">
+        SELECT A.review_pk AS reviewPk
+        , B.user_pk AS userPk
+        , B.nickname
+        , A.comment
+        , A.score
+        , A.created_at AS createdAt
+        , COUNT(C.review_pk) AS favCount
+        FROM t_hotel_review A
+        LEFT JOIN t_user B
+        ON A.user_pk = B.user_pk
+        LEFT JOIN t_review_fav C
+        ON A.review_pk = C.review_pk
+        GROUP BY A.review_pk
+        WHERE A.hotel_pk = #{hotelPk}
+        LIMIT #{startIdx},#{rowCount}
+    </select>
+    <select id="selReviewPics">
+        SELECT review_pk AS reviewPk, pic
+        FROM t_review_pics
+        WHERE review_pk IN
+        <foreach collection="reviewPkList" item="reviewPk" open="(" close=")" separator=",">
+            #{reviewPk}
+        </foreach>
+    </select>
+    <!--재웅-->
+
 </mapper>

@@ -22,25 +22,29 @@ public class UserController {
     private final UserService service;
     private final RedisUtil redisUtil;
 
-    //유저 회원가입 - 재웅
+    //유저 회원가입
     @PostMapping("/signup")
     public ResVo userSignup(@RequestBody UserSignupDto dto){
-        ResVo vo = service.userSignup(dto);
+        ResVo vo = new ResVo(0);
+        if(dto.getUserEmail().equals(dto.getEmailResponseVo().getEmail()) && dto.getEmailResponseVo().getResult() == 1){
+            vo = service.userSignup(dto);
+        }
         if(vo.getResult() == 1){
             redisUtil.deleteData(dto.getUserEmail());
         }
         return vo;
     }
-    //유저 로그인 - 재웅
+    //유저 로그인
     @PostMapping("/signin")
     public UserSigninVo userSignin(HttpServletResponse response, HttpServletRequest request, @RequestBody UserSigninDto dto){
         return service.userSignin(response,request,dto);
     }
 
-    //재웅
-
-
-
+    //닉네임 중복체크
+    @PostMapping("/nickname-check")
+    public ResVo nicknameCheck(String nickname){
+        return service.checkNickname(nickname);
+    }
 
 
 }
