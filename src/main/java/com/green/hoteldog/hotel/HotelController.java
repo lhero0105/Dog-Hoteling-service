@@ -40,7 +40,7 @@ public class HotelController {
     // 2. 페이지 전환 시
     @GetMapping("/{page}")
     public HotelListSelAllVo getHotelList(@RequestParam int page, HotelListSelDto dto){
-        dto.setRowCount(Const.HOTEL_LIST_COUNT_PER_PAGE);
+        dto.setRowCount(1); //수정요망.
         dto.setPage(page);
         return service.getHotelList(dto);
     }
