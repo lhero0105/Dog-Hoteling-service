@@ -24,6 +24,8 @@ public class HotelRoomInfoVo {
     @JsonProperty(value = "hotel_room_cost")
     private String hotelRoomCost;
 
+    private String pic;
+
     @NotNull
     private int maximum;
 

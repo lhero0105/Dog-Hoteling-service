@@ -80,12 +80,20 @@ public class ReservationService {
         List<ResInfoVo> resInfoVos=mapper.getUserReservation(dto);
         List<Integer> resPkList=new ArrayList<>();
 
-        Map<Integer,ResInfoVo> resInfoList=new HashMap<>();
         for (ResInfoVo vo:resInfoVos) {
-            resInfoList.put(vo.getResPk(),vo);
             resPkList.add(vo.getResPk());
         }
         List<ResDogInfoVo> resDogInfo=mapper.getDogInfoReservation(resPkList);
+
+        for (ResInfoVo resInfoVo : resInfoVos) {
+            List<ResDogInfoVo> resDogInfoVoList=new ArrayList<>();
+            for (ResDogInfoVo resDogInfoVo : resDogInfo) {
+                if(resInfoVo.getResPk()== resDogInfoVo.getResPk()){
+                    resDogInfoVoList.add(resDogInfoVo);
+                }
+            }
+            resInfoVo.setResDogInfoVoList(resDogInfoVoList);
+        }
 
         return resInfoVos;
     }
