@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.green.hoteldog.user.UserMapper">
+    <insert id="userSignup">
+        INSERT INTO t_user
+        SET user_type_pk = #{userTypePk}
+        , user_email = #{userEmail}
+        , upw = #{upw}
+        , nickname = #{nickname}
+        , nm = #{nm}
+        , phone_num = #{phoneNum}
+        , user_address = #{userAddress}
+    </insert>
+    <select id="userPw">
+        SELECT upw
+        FROM t_user
+        WHERE user_email = #{userEmail}
+    </select>
+    <select id="userEntityByUserEmail">
+        SELECT user_pk AS userPk
+        , user_type_pk AS userTypePk
+        , user_email AS userEmail
+        , upw
+        , nickname
+        , nm
+        , phone_num AS phoneNum
+        , user_address AS userAddress
+        FROM t_user
+        WHERE user_email = #{userEmail}
+    </select>
+    <select id="selUserEntity">
+        SELECT user_pk AS userPk
+        ,user_type_pk AS userTypePk
+        ,user_email AS userEmail
+        ,upw ,nickname ,nm
+        ,phone_num AS phoneNum
+        ,user_address AS userAddress
+        FROM t_user
+    </select>
+</mapper>
