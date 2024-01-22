@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -64,6 +66,7 @@ public class HotelService {
         int result2= mapper.insHotelBookMark(dto);
         return new ResVo(result2);
     }
+    //호텔 메인페이지
     public HotelMainPage getHotelDetail(HotelMainPageDto dto){
         //메인페이지 객체 생성
         HotelMainPage hotelMainPage=new HotelMainPage();
@@ -103,20 +106,17 @@ public class HotelService {
                 .map(localDate -> localDate.toString())
                 .collect(Collectors.toList());
 
-        //호텔 예약정보 최근 두달 다가져오기.
-        //시작날짜 : 요번달 첫날
-        String startDate=twoMonthDate.get(0).toString();
-        //끝나는날짜 : 다다음달 첫날 (BETWEEN 쿼리 사용 위함)
-        String endDate=twoMonthDate.get(twoMonthDate.size()).plusDays(1).toString();
-        //t_hotel_room_info_date 테이블에서 2달동안의 모든 방 정보 가져옴.
+        HotelRoomAbleListDto listDto=null;
 
-        HotelRoomAbleListDto listDto = null;
         listDto.setHotelPk(dto.getHotelPk());
         //메인페이지 첫화면은 호텔pk만 보내고 정리해서 줌.
         List<HotelRoomResInfoByMonth> hotelResInfoVos=getTwoMonthRoomAble(listDto);
 
-        //박스갈이 & 데이터빼내기.
+        //박스갈이 & 데이터빼내기&검증
+
         List<HotelRoomEaByDate> eaByDates=new ArrayList<>();
+
+
         for (String date:twoMonth) {
             HotelRoomEaByDate eaByDate=new HotelRoomEaByDate();
             eaByDate.setDate(date);
@@ -130,7 +130,7 @@ public class HotelService {
         if(!checkDate.containsAll(twoMonth)){
             //모든날짜 들어가지 않음. >> 에러.
         }
-        //같은날이면 넣어줌.
+
         for (HotelRoomEaByDate date:eaByDates) {
             List<HotelRoomEa> roomEas=new ArrayList<>();
 
@@ -148,6 +148,85 @@ public class HotelService {
         hotelMainPage.setRoomEaByDates(eaByDates);
         return hotelMainPage;
     }
+
+
+    //날짜 선택했을때 가능한 방 리스트
+    public List<HotelRoomEaByDate> whenYouChooseDates(int hotelPk,String startDate,String endDate){
+        List<HotelRoomResInfoByMonth> areYouChooseDates=getTwoMonthRoomAble(HotelRoomAbleListDto
+                .builder()
+                .hotelPk(hotelPk)
+                .startDate(startDate)
+                .endDate(endDate)
+                .build());
+        //날짜 맞는가 검증하는거 만들어아함.
+
+        List<LocalDate> localDates=getTwoMonth();
+        List<HotelRoomEaByDate> whenYouSelDates=new ArrayList<>();
+        for (LocalDate date:localDates) {
+            HotelRoomEaByDate eaByDate=new HotelRoomEaByDate();
+            eaByDate.setDate(date.toString());
+        }
+
+        for (HotelRoomEaByDate date:whenYouSelDates) {
+            HotelRoomEaByDate eaByDate=new HotelRoomEaByDate();
+            List<HotelRoomEa> eaList=new ArrayList<>();
+            for (HotelRoomResInfoByMonth infoByMonth:areYouChooseDates) {
+                if(infoByMonth.getRoomDate().equals(date)){
+                    HotelRoomEa ea=new HotelRoomEa();
+                    ea.setHotelRoomNm(infoByMonth.getHotelRoomNm());
+                    ea.setRoomLeftEa(infoByMonth.getRoomLeftEa());
+                    eaList.add(ea);
+                }
+            }
+            eaByDate.setDate(date.toString());
+            eaByDate.setRoomEas(eaList);
+
+            whenYouSelDates.add(eaByDate);
+        }
+
+        return whenYouSelDates;
+
+    }
+    //날짜랑 강아지 선택했을 때 가능한 방 리스트
+    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(int hotelPk,String startDate,String endDate,List<Integer> dogs){
+        List<HotelRoomResInfoByMonth> areYouSure=getTwoMonthRoomAble(HotelRoomAbleListDto
+                .builder()
+                .hotelPk(hotelPk)
+                .startDate(startDate)
+                .endDate(endDate)
+                .dogPks(dogs)
+                .build());
+        //얘도 가져온 날짜 맞는가 검증하는거 만들어야함.
+        // 현재날짜기준 2달기준만 조회? 아니면 다른달도 조회가능?  => 얘기해봐야함
+
+        List<LocalDate> localDates=getTwoMonth();
+        List<HotelRoomEaByDate> whenYouChooseDatesAndDogs=new ArrayList<>();
+        for (LocalDate date:localDates) {
+            HotelRoomEaByDate eaByDate=new HotelRoomEaByDate();
+            eaByDate.setDate(date.toString());
+        }
+
+
+        for (HotelRoomEaByDate date:whenYouChooseDatesAndDogs) {
+            HotelRoomEaByDate eaByDate=new HotelRoomEaByDate();
+            List<HotelRoomEa> eaList=new ArrayList<>();
+            for (HotelRoomResInfoByMonth infoByMonth:areYouSure) {
+                if(infoByMonth.getRoomDate().equals(date)){
+                    HotelRoomEa ea=new HotelRoomEa();
+                    ea.setHotelRoomNm(infoByMonth.getHotelRoomNm());
+                    ea.setRoomLeftEa(infoByMonth.getRoomLeftEa());
+                    eaList.add(ea);
+                }
+            }
+            eaByDate.setDate(date.toString());
+            eaByDate.setRoomEas(eaList);
+
+            whenYouChooseDatesAndDogs.add(eaByDate);
+        }
+
+        return whenYouChooseDatesAndDogs;
+    }
+
     //현재 날짜 기준으로 2달 세팅한거 삽입,hotelPk 삽입해서 방 받아오는거
     //시작날짜, 끝날짜 삽입, 호텔Pk 삽입 그날 가능한 날 방 리스트만 가져오기.
     //시작날짜, 끝날짜 삽입, 호텔Pk 삽입, 강아지들 사이즈 Pk 삽입, 방 리스트 가져오기.
@@ -155,41 +234,29 @@ public class HotelService {
     public List<HotelRoomResInfoByMonth> getTwoMonthRoomAble(HotelRoomAbleListDto dto){
         if(dto.getHotelPk()==0){
             //예외처리
-
         }
         List<LocalDate> twoMonthDate=getTwoMonth();
-        List<String> twoMonth=twoMonthDate
-                .stream()
-                .map(localDate -> localDate.toString())
-                .collect(Collectors.toList());
         //시작날짜 : 요번달 첫날
         String startDate=twoMonthDate.get(0).toString();
-        //끝나는날짜 : 다다음달 첫날 (BETWEEN 쿼리 사용 위함)
-        String endDate=twoMonthDate.get(twoMonthDate.size()).plusDays(1).toString();
+        //끝나는날짜 : 다음달 말일
+        String endDate=twoMonthDate.get(twoMonthDate.size()).toString();
 
+        // 호텔 상세페이지 들어갔을 때 (else 맨밑),날짜 선택했을때(중간),다 선택했을때(바로밑)
         if(!(dto.getStartDate()==null&&dto.getEndDate()==null&&dto.getDogPks().size()==0)){
             //시작 끝 날짜 입력 되었고 개새끼 정보도 입력된 상태.(예약 마지막단계)
-            try {
+            dto.getDogPks();
+            int howMany=dto.getDogPks().size();
+            int large=dto.getDogPks().stream().mapToInt(v -> v).min().orElse(0);
+            //return mapper.getHotelFilterRoomResInfo(dto.getHotelPk(),dto.getStartDate(),dto.getEndDate(),howMany,large);
 
-
-            }catch (Exception e){
-
-            }
         }else if(!(dto.getEndDate()==null&&dto.getStartDate()==null)){
-            //시작 끝 날짜만 입력 되어있는 상태.(예약 1단계)
-            try{
+            //시작 끝 날짜만 입력 되어있는 상태.(예약 2단계)
 
+            return mapper.getHotelRoomResInfo(dto.getHotelPk(),dto.getStartDate(), dto.getEndDate());
 
-            }catch (Exception e){
-
-            }
-        }else{// 시작 , 끝 날짜 설정X, (예약 1단계 or 상세페이지)
-            try{
-                List<HotelRoomResInfoByMonth> hotelResInfoVos=mapper.getHotelRoomResInfo(dto.getHotelPk(),startDate,endDate);
-                return hotelResInfoVos;
-            }catch(Exception e){
-
-            }
+        }else{
+            // 시작 , 끝 날짜 설정X, (예약 1단계 or 상세페이지)
+            return mapper.getHotelRoomResInfo(dto.getHotelPk(),startDate,endDate);
         }
         return null;
     }
@@ -208,6 +275,18 @@ public class HotelService {
         }
         return twoMonthDate;
     }
+    //혹시나 몰라서....
+    public List<LocalDate> getMonthIChoose(int year, int month){
 
+        List<LocalDate> monthDateList=new ArrayList<>();
+        //요번달 날짜,
+
+        LocalDate today=LocalDate.of(year,month,1);
+        for (int i = 1; i < today.lengthOfMonth() ; i++) {
+            LocalDate localDate=LocalDate.now().plusDays(i- today.getDayOfMonth());
+            monthDateList.add(localDate);
+        }
+        return monthDateList;
+    }
     //승준
 }
