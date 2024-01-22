@@ -11,20 +11,24 @@ public class HotelListSelDto {
     // @JsonProperty(required = false) 기본
     @JsonIgnore
     private int userPk;
-    @JsonProperty(value = "address_pk")
-    private int addressPk;
+    private String address;
     @JsonProperty(value = "from_date")
-    private String fromDate;
+    private String fromDate; // 필터링
     @JsonProperty(value = "to_date")
-    private String toDate;
+    private String toDate; // 필터링
     @JsonProperty(value = "dog_count")
-    private int dogCount;
+    private int dogCount; // 필터링 (보류)
     private String search; // 호텔이름 검색
     @JsonIgnore
     private int startIdx;
     @JsonIgnore
     private int rowCount;
+    private int price; // 필터링
+    private List<Integer> dogsize;
     // 호텔 이용 테마
+    @JsonProperty(value = "hotel_option_pk")
+    private List<Integer> hotelOptionPk;
+    // 아래 옵션 추후 삭제 요망
     @JsonProperty(value = "swimming_pool")
     private int swimmingPool;
     @JsonProperty(value = "play_ground")
@@ -39,6 +43,8 @@ public class HotelListSelDto {
     private int dogProgram;
     @JsonProperty(value = "dog_walking")
     private int dogWalking;
+    @JsonIgnore
+    private List<String> tokensToStrList;
 
     public void setPage(int page){
         startIdx = (page - 1) * rowCount;
