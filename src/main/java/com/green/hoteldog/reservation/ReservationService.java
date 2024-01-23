@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -76,24 +77,26 @@ public class ReservationService {
     //영웅
 
     public List<ResInfoVo> getUserReservation(ResInfoDto dto){
-        //유저 예약 정보 가져옴
-        List<ResInfoVo> resInfoVos=mapper.getUserReservation(dto);
-        List<Integer> resPkList=new ArrayList<>();
 
-        for (ResInfoVo vo:resInfoVos) {
-            resPkList.add(vo.getResPk());
-        }
-        List<ResDogInfoVo> resDogInfo=mapper.getDogInfoReservation(resPkList);
+        //예약정보
+        List<ResInfoVo> resInfoVos = mapper.getUserReservation(dto);
+        List<Integer> resPkList = resInfoVos
+                .stream()
+                .map(ResInfoVo::getResPk)
+                .collect(Collectors.toList());
+        List<ResDogInfoVo> resDogInfo = mapper.getDogInfoReservation(resPkList);
 
-        for (ResInfoVo resInfoVo : resInfoVos) {
-            List<ResDogInfoVo> resDogInfoVoList=new ArrayList<>();
-            for (ResDogInfoVo resDogInfoVo : resDogInfo) {
-                if(resInfoVo.getResPk()== resDogInfoVo.getResPk()){
-                    resDogInfoVoList.add(resDogInfoVo);
-                }
-            }
+        resInfoVos.forEach(resInfoVo -> {
+            List<ResDogInfoVo> resDogInfoVoList = resDogInfo
+                    .stream()
+                    .filter(resDogInfoVo -> resInfoVo.getResPk() == resDogInfoVo.getResPk())
+                    .collect(Collectors.toList());
             resInfoVo.setResDogInfoVoList(resDogInfoVoList);
-        }
+        });
+
+
+
+
 
         return resInfoVos;
     }

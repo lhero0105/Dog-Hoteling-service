@@ -24,7 +24,7 @@ public class AppProperties {
 
         public void setRefreshTokenCookieMaxAge(long refreshTokenExpiry){
             this.refreshTokenExpiry = refreshTokenExpiry;
-            this.refreshTokenCookieMaxAge = (int) refreshTokenExpiry / 1000;
+            this.refreshTokenCookieMaxAge = (int) (refreshTokenExpiry * 0.001);
         }
     }
 }

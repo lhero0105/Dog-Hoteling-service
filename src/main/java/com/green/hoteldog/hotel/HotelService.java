@@ -100,6 +100,8 @@ public class HotelService {
     //영웅
 
 
+
+
     public ResVo toggleHotelBookMark(UserHotelFavDto dto){
         int result=mapper.delHotelBookMark(dto);
         if(result==1){
@@ -151,13 +153,12 @@ public class HotelService {
         HotelRoomAbleListDto listDto=null;
 
         listDto.setHotelPk(dto.getHotelPk());
+
         //메인페이지 첫화면은 호텔pk만 보내고 정리해서 줌.
         List<HotelRoomResInfoByMonth> hotelResInfoVos=getTwoMonthRoomAble(listDto);
 
         //박스갈이 & 데이터빼내기&검증
-
         List<HotelRoomEaByDate> eaByDates=new ArrayList<>();
-
 
         for (String date:twoMonth) {
             HotelRoomEaByDate eaByDate=new HotelRoomEaByDate();
@@ -172,37 +173,26 @@ public class HotelService {
         if(!checkDate.containsAll(twoMonth)){
             //모든날짜 들어가지 않음. >> 에러.
         }
-//
-//        for (HotelRoomEaByDate date:eaByDates) {
-//            List<HotelRoomEa> roomEas=new ArrayList<>();
-//
-//            for (HotelRoomResInfoByMonth resInfoByMonth:hotelResInfoVos) {
-//                if(date.getDate().equals(resInfoByMonth.getRoomDate())){
-//                    HotelRoomEa ea=new HotelRoomEa();
-//                    ea.setHotelRoomNm(resInfoByMonth.getHotelRoomNm());
-//                    ea.setRoomLeftEa(resInfoByMonth.getRoomLeftEa());
-//                    roomEas.add(ea);
-//                }
-//            }
-//            date.setRoomEas(roomEas);
-//        }
 
         //람다식?
         eaByDates.forEach(date -> {
-            List<HotelRoomEa> roomEas = hotelResInfoVos.stream()
+            List<HotelRoomEa> roomEas = hotelResInfoVos
+                    .stream()
                     .filter(resInfoByMonth -> date.getDate().equals(resInfoByMonth.getRoomDate()))
                     .map(resInfoByMonth -> {
-                        HotelRoomEa ea = new HotelRoomEa();
-                        ea.setHotelRoomNm(resInfoByMonth.getHotelRoomNm());
-                        ea.setRoomLeftEa(resInfoByMonth.getRoomLeftEa());
-                        return ea;
+                        HotelRoomEa hotelRoomEa = new HotelRoomEa();
+                        hotelRoomEa.setHotelRoomNm(resInfoByMonth.getHotelRoomNm());
+                        hotelRoomEa.setRoomLeftEa(resInfoByMonth.getRoomLeftEa());
+                        return hotelRoomEa;
                     })
                     .collect(Collectors.toList());
 
             date.setRoomEas(roomEas);
         });
 
+
         hotelMainPage.setRoomEaByDates(eaByDates);
+
         return hotelMainPage;
     }
 
@@ -224,35 +214,17 @@ public class HotelService {
             eaByDate.setDate(date.toString());
         }
 
-//        for (HotelRoomEaByDate date:whenYouSelDates) {
-//            HotelRoomEaByDate eaByDate=new HotelRoomEaByDate();
-//            List<HotelRoomEa> eaList=new ArrayList<>();
-//            for (HotelRoomResInfoByMonth infoByMonth:areYouChooseDates) {
-//                if(infoByMonth.getRoomDate().equals(date)){
-//                    HotelRoomEa ea=new HotelRoomEa();
-//                    ea.setHotelRoomNm(infoByMonth.getHotelRoomNm());
-//                    ea.setRoomLeftEa(infoByMonth.getRoomLeftEa());
-//                    eaList.add(ea);
-//                }
-//
-//            }
-//            eaByDate.setDate(date.toString());
-//            eaByDate.setRoomEas(eaList);
-//
-//            whenYouSelDates.add(eaByDate);
-//        }
-
-
         List<HotelRoomEaByDate> updatedList = new ArrayList<>();
 
         whenYouSelDates.forEach(date -> {
-            List<HotelRoomEa> eaList = areYouChooseDates.stream()
+            List<HotelRoomEa> eaList = areYouChooseDates
+                    .stream()
                     .filter(infoByMonth -> infoByMonth.getRoomDate().equals(date.toString()))
                     .map(infoByMonth -> {
-                        HotelRoomEa ea = new HotelRoomEa();
-                        ea.setHotelRoomNm(infoByMonth.getHotelRoomNm());
-                        ea.setRoomLeftEa(infoByMonth.getRoomLeftEa());
-                        return ea;
+                        HotelRoomEa roomEa = new HotelRoomEa();
+                        roomEa.setHotelRoomNm(infoByMonth.getHotelRoomNm());
+                        roomEa.setRoomLeftEa(infoByMonth.getRoomLeftEa());
+                        return roomEa;
                     })
                     .collect(Collectors.toList());
 
@@ -264,9 +236,6 @@ public class HotelService {
         });
 
         whenYouSelDates.addAll(updatedList);
-
-
-
         return whenYouSelDates;
 
     }
@@ -289,33 +258,15 @@ public class HotelService {
             eaByDate.setDate(date.toString());
         }
 
-
-//        for (HotelRoomEaByDate date:whenYouChooseDatesAndDogs) {
-//            HotelRoomEaByDate eaByDate=new HotelRoomEaByDate();
-//            List<HotelRoomEa> eaList=new ArrayList<>();
-//            for (HotelRoomResInfoByMonth infoByMonth:areYouSure) {
-//                if(infoByMonth.getRoomDate().equals(date)){
-//                    HotelRoomEa ea=new HotelRoomEa();
-//                    ea.setHotelRoomNm(infoByMonth.getHotelRoomNm());
-//                    ea.setRoomLeftEa(infoByMonth.getRoomLeftEa());
-//                    eaList.add(ea);
-//                }
-//            }
-//            eaByDate.setDate(date.toString());
-//            eaByDate.setRoomEas(eaList);
-//
-//            whenYouChooseDatesAndDogs.add(eaByDate);
-//        }
-
-
         whenYouChooseDatesAndDogs.forEach(date -> {
-            List<HotelRoomEa> eaList = areYouSure.stream()
+            List<HotelRoomEa> eaList = areYouSure
+                    .stream()
                     .filter(infoByMonth -> infoByMonth.getRoomDate().equals(date.toString()))
                     .map(infoByMonth -> {
-                        HotelRoomEa ea = new HotelRoomEa();
-                        ea.setHotelRoomNm(infoByMonth.getHotelRoomNm());
-                        ea.setRoomLeftEa(infoByMonth.getRoomLeftEa());
-                        return ea;
+                        HotelRoomEa roomEa = new HotelRoomEa();
+                        roomEa.setHotelRoomNm(infoByMonth.getHotelRoomNm());
+                        roomEa.setRoomLeftEa(infoByMonth.getRoomLeftEa());
+                        return roomEa;
                     })
                     .collect(Collectors.toList());
 
@@ -325,8 +276,6 @@ public class HotelService {
 
             whenYouChooseDatesAndDogs.add(eaByDate);
         });
-
-
 
         return whenYouChooseDatesAndDogs;
     }
