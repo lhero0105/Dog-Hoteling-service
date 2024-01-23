@@ -7,6 +7,7 @@ import lombok.Data;
 public class MyDog {
     @JsonIgnore
     private int userDogPk;
+    private int dogSize;
     private String dogNm;
     private String dogPic;
 }

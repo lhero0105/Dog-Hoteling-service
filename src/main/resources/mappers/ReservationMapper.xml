@@ -60,7 +60,7 @@
         AND hotel_pk = #{hotelPk}
         AND hotel_room_pk = #{hotelRoomPk}
     </delete>
-    <!--이름-->
+    <!--영웅-->
 
     <select id="getDogInfoReservation">
         SELECT A.res_pk AS resPk, B.dog_nm AS dogNm

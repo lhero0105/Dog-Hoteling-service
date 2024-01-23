@@ -27,14 +27,14 @@ public class UserService {
     private final JwtTokenProvider tokenProvider;
     private final AppProperties appProperties;
     private final CookieUtils cookie;
-    //유저 회원가입
-    public ResVo userSignup (UserSignupDto dto){
+    //----------------------------------------------유저 회원가입----------------------------------------------------------
+    public ResVo userSignup (UserSignupDto dto) {
         String pw = passwordEncoder.encode(dto.getUpw());
         dto.setUpw(pw);
         int result = mapper.userSignup(dto);
         return new ResVo(result);
     }
-    //유저 로그인
+    //-----------------------------------------------유저 로그인----------------------------------------------------------
     public UserSigninVo userSignin(HttpServletResponse response, HttpServletRequest request, UserSigninDto dto){
         UserSigninVo vo = new UserSigninVo();
         UserEntity userEntity = mapper.userEntityByUserEmail(dto.getUserEmail());
@@ -55,6 +55,7 @@ public class UserService {
         }
         return null;
     }
+    //------------------------------------------------닉네임 중복 확인-----------------------------------------------------
     public ResVo checkNickname(String nickname){
         List<UserEntity> userEntityList = mapper.selUserEntity();
         for(UserEntity entity : userEntityList){

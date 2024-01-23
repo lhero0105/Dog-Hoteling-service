@@ -20,8 +20,7 @@ import java.util.stream.Collectors;
 public class ReservationService {
     private final ReservationMapper mapper;
     private final AuthenticationFacade authenticationFacade;
-
-    // 호텔 예약
+    //--------------------------------------------------호텔 예약---------------------------------------------------------
     public ResVo postHotelReservation(List<HotelReservationInsDto> dto){
         log.info("dto : {}", dto);
         for ( HotelReservationInsDto dtos : dto ) {
@@ -33,11 +32,11 @@ public class ReservationService {
             for ( DogInfo info : dtos.getDogInfo() ) {
                 if(info.getUserDogInfo() > 0){
                     // 등록된 강아지 인지 체크
-                   int affectedRows =  mapper.insHotelReservationDogMineInfo(dtos);
-                   log.info("affectedRowsOfDogMineInfo : {}", affectedRows);
-                   if(affectedRows == 0){
-                       return new ResVo(Const.FAIL); // 등록된 강아지 테이블에 등록 실패
-                   }
+                    int affectedRows =  mapper.insHotelReservationDogMineInfo(dtos);
+                    log.info("affectedRowsOfDogMineInfo : {}", affectedRows);
+                    if(affectedRows == 0){
+                        return new ResVo(Const.FAIL); // 등록된 강아지 테이블에 등록 실패
+                    }
                 } else {
                     // 직접 입력된 강아지 인서트
                     int affectedRows =  mapper.insHotelReservationDogWriteInfo(dtos);
@@ -51,7 +50,7 @@ public class ReservationService {
         return new ResVo(Const.SUCCESS);
     }
 
-    // 예약 취소
+    //---------------------------------------------------예약 취소--------------------------------------------------------
     public ResVo delHotelReservation(HotelReservationDelDto dto){
         // 먼저 유저가 예약 했는지 셀렉트
         Integer resPk = mapper.selHotelReservation(dto);
@@ -78,6 +77,7 @@ public class ReservationService {
     }
     //영웅
 
+    //--------------------------------------------------예약 정보---------------------------------------------------------
     public List<ResInfoVo> getUserReservation(ResInfoDto dto){
         dto.setUserPk(authenticationFacade.getLoginUserPk());
         //예약정보

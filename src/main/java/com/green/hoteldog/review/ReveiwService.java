@@ -22,7 +22,7 @@ public class ReveiwService {
     private final AuthenticationFacade facade;
     private final MyFileUtils fileUtils;
 
-    //리뷰 등록
+    //-----------------------------------------------------리뷰 등록------------------------------------------------------
     public ResVo insReview(ReviewInsDto dto) {
         try {
             mapper.insReview(dto);
@@ -43,7 +43,7 @@ public class ReveiwService {
         return new ResVo(1);
     }
 
-    //리뷰 전체 수정
+    //--------------------------------------------------리뷰 전체 수정-----------------------------------------------------
     public ResVo putReview(ReviewUpdDto dto) {
         dto.setUserPk(facade.getLoginUserPk());
         try {
@@ -67,7 +67,7 @@ public class ReveiwService {
 
     }
 
-    //리뷰 코멘트 수정
+    //--------------------------------------------------리뷰 코멘트 수정---------------------------------------------------
     public ResVo patchReviewComment(ReviewPatchDto dto) {
         try {
             mapper.updReviewComment(dto);
@@ -77,7 +77,7 @@ public class ReveiwService {
         }
     }
 
-    //리뷰 좋아요 토글
+    //--------------------------------------------------리뷰 좋아요 토글---------------------------------------------------
     public ResVo patchReviewFav(int reviewPk) {
         ReviewFavDto dto = new ReviewFavDto();
         dto.setReviewPk(reviewPk);
@@ -90,7 +90,7 @@ public class ReveiwService {
         return new ResVo(2);
     }
 
-    //호텔 리뷰 리스트
+    //--------------------------------------------------호텔 리뷰 리스트---------------------------------------------------
     public List<HotelReviewSelVo> hotelReviewList(HotelReviewSelDto dto) {
         List<HotelReviewSelVo> reviewList = mapper.selHotelReviewList(dto);
 
@@ -114,6 +114,7 @@ public class ReveiwService {
     }
     //재웅
 
+    //------------------------------------------------호텔 리뷰-----------------------------------------------------------
     public List<HotelReviewSelVo> getHotelReview(HotelReviewSelDto dto){
         // n+1 이슈 해결
         List<HotelReviewSelVo> list = mapper.selHotelReview(dto);

@@ -9,12 +9,12 @@ import java.util.List;
 @Mapper
 public interface HotelMapper {
     List<HotelListSelVo> selHotelAdvertiseList(HotelListSelDto dto);
-
     List<HotelListSelVo> selHotelListToNonMember(HotelListSelDto dto);
     HotelListSelProcDto selUserInfoToUserPk(HotelListSelDto dto);
     List<HotelListSelVo> selHotelListAsUserAddress(HotelListSelProcDto pDto);
     List<HotelListSelVo> selHotelListAsUserAddressAndDogInformation(HotelListSelProcDto pDto);
     List<HotelListSelVo> selHotelListToSearch(HotelListSelDto Dto);
+    List<HotelListSelVo> selHotelListToAccurateSearch(HotelListSelDto Dto);
     List<HotelListSelVo> selHotelListToFilter(HotelListSelDto Dto);
     //영웅
 
@@ -23,7 +23,6 @@ public interface HotelMapper {
     List<String> getHotelPics(int hotelPk);
     List<String> hotelOptionInfo(int hotelPk);
     List<MyDog> getMyDogs(int userPk);
-    List<String> getReviewPics(HotelReviewDto dto);
     int delHotelBookMark(UserHotelFavDto dto);
     int insHotelBookMark(UserHotelFavDto dto);
     Integer isMoreHotelReview(int hotelPk);
