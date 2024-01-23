@@ -7,6 +7,5 @@ public class UserSigninVo {
     private int userPk;
     private int userTypePk;
     private String nickname;
-    private String nm;
     private String accessToken;
 }

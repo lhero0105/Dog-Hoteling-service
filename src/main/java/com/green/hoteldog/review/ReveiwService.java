@@ -90,29 +90,7 @@ public class ReveiwService {
         return new ResVo(2);
     }
 
-    //--------------------------------------------------호텔 리뷰 리스트---------------------------------------------------
-    public List<HotelReviewSelVo> hotelReviewList(HotelReviewSelDto dto) {
-        List<HotelReviewSelVo> reviewList = mapper.selHotelReviewList(dto);
 
-        if (reviewList.size() > 0) {
-            List<Integer> reviewPkList = new ArrayList<>();
-            Map<Integer, HotelReviewSelVo> reviewSelVoMap = new HashMap<>();
-            for (HotelReviewSelVo vo : reviewList) {
-                reviewPkList.add(vo.getReviewPk());
-                reviewSelVoMap.put(vo.getReviewPk(), vo);
-            }
-            List<ReviewPicVo> picVoList = mapper.selReviewPics(reviewPkList);
-            for (ReviewPicVo vo : picVoList) {
-                HotelReviewSelVo selVo = reviewSelVoMap.get(vo.getReviewPk());
-                if (selVo.getPics() == null) {
-                    selVo.setPics(new ArrayList<>());
-                }
-                selVo.getPics().add(vo.getPic());
-            }
-        }
-        return reviewList;
-    }
-    //재웅
 
     //------------------------------------------------호텔 리뷰-----------------------------------------------------------
     public List<HotelReviewSelVo> getHotelReview(HotelReviewSelDto dto){

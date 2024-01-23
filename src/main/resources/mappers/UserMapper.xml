@@ -8,7 +8,6 @@
         , user_email = #{userEmail}
         , upw = #{upw}
         , nickname = #{nickname}
-        , nm = #{nm}
         , phone_num = #{phoneNum}
         , user_address = #{userAddress}
     </insert>
@@ -23,7 +22,6 @@
         , user_email AS userEmail
         , upw
         , nickname
-        , nm
         , phone_num AS phoneNum
         , user_address AS userAddress
         FROM t_user
@@ -33,7 +31,7 @@
         SELECT user_pk AS userPk
         ,user_type_pk AS userTypePk
         ,user_email AS userEmail
-        ,upw ,nickname ,nm
+        ,upw ,nickname
         ,phone_num AS phoneNum
         ,user_address AS userAddress
         FROM t_user

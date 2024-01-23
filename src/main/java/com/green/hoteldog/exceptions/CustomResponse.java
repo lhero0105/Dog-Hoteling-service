@@ -6,15 +6,12 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.FieldError;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
 @Builder
 public class CustomResponse {
     private final String codeNum;
-    private final String code;
-    private final LocalDateTime errorTimeStamp = LocalDateTime.now();
     private final String message;
 
 
