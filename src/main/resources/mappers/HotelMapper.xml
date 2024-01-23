@@ -299,8 +299,9 @@
         WHERE hotel_pk=#{hotelPk}
     </select>
     <select id="getMyDogs">
-        SELECT
-        대충 조건절.
+        SELECT user_dog_pk AS userDogPk, dog_nm AS dogNm, dog_pic AS dogPic
+        FROM t_user_dog
+        WHERE user_pk=#{userPk}
     </select>
     <select id="isMoreHotelReview">
         SELECT COUNT(A.review_pk) AS countReview

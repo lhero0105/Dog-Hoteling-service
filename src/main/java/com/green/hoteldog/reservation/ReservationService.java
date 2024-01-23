@@ -3,6 +3,7 @@ package com.green.hoteldog.reservation;
 import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.reservation.model.*;
+import com.green.hoteldog.security.AuthenticationFacade;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ReservationService {
     private final ReservationMapper mapper;
+    private final AuthenticationFacade authenticationFacade;
 
     // 호텔 예약
     public ResVo postHotelReservation(List<HotelReservationInsDto> dto){
@@ -77,7 +79,7 @@ public class ReservationService {
     //영웅
 
     public List<ResInfoVo> getUserReservation(ResInfoDto dto){
-
+        dto.setUserPk(authenticationFacade.getLoginUserPk());
         //예약정보
         List<ResInfoVo> resInfoVos = mapper.getUserReservation(dto);
         List<Integer> resPkList = resInfoVos
@@ -93,10 +95,6 @@ public class ReservationService {
                     .collect(Collectors.toList());
             resInfoVo.setResDogInfoVoList(resDogInfoVoList);
         });
-
-
-
-
 
         return resInfoVos;
     }
