@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -16,37 +17,31 @@ public class HotelListSelDto {
     private String fromDate; // 필터링
     @JsonProperty(value = "to_date")
     private String toDate; // 필터링
-    @JsonProperty(value = "dog_count")
-    private int dogCount; // 필터링 (보류)
-    private String search; // 호텔이름 검색
+    @JsonProperty(value = "dog_info")
+    private List<DogSizeEa> dogInfo; // 필터링
+    @JsonIgnore
+    private List<LocalDate> date; // 기간을 날짜 리스트로 저장
+    private String search; // 호텔 이름 검색
     @JsonIgnore
     private int startIdx;
     @JsonIgnore
     private int rowCount;
-    private int price; // 필터링
-    private List<Integer> dogsize;
+    @JsonIgnore
+    private int page;
     // 호텔 이용 테마
     @JsonProperty(value = "hotel_option_pk")
     private List<Integer> hotelOptionPk;
-    // 아래 옵션 추후 삭제 요망
-    @JsonProperty(value = "swimming_pool")
-    private int swimmingPool;
-    @JsonProperty(value = "play_ground")
-    private int playGround;
-    @JsonProperty(value = "hand_made_food")
-    private int handMadeFood;
-    @JsonProperty(value = "pick_up")
-    private int pickUp;
-    @JsonProperty(value = "dog_beauty")
-    private int dogBeauty;
-    @JsonProperty(value = "dog_program")
-    private int dogProgram;
-    @JsonProperty(value = "dog_walking")
-    private int dogWalking;
     @JsonIgnore
     private List<String> tokensToStrList;
+    @JsonProperty(value = "filter_type")
+    private int filterType; // default(0) : 적용 x, 1 : 별점 높은 순, 2 : 리뷰 많은 순
+    @JsonIgnore
+    private int optionPkSize; // 옵션pk 총 사이즈 - xml having절에서 사용
+    @JsonIgnore
+    private int dogPkSize; // 강아지pk 총 사이즈 - xml having절에서 사용
 
     public void setPage(int page){
         startIdx = (page - 1) * rowCount;
+        this.page = page;
     }
 }

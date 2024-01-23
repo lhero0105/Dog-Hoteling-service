@@ -18,21 +18,21 @@ import java.util.List;
 public class ReservationController {
     private final ReservationService service;
 
-
-    // 호텔 예약
+    //영웅
+    //---------------------------------------------------호텔 예약--------------------------------------------------------
     @PostMapping("/hotel/res")
     public ResVo postHotelReservation(@RequestBody List<HotelReservationInsDto> dto){
         return service.postHotelReservation(dto);
     }
-
-    // 예약 취소
+    //---------------------------------------------------예약 취소--------------------------------------------------------
     @DeleteMapping("/hotel/res")
     public ResVo delHotelReservation(HotelReservationDelDto dto){
         return service.delHotelReservation(dto);
     }
     //영웅
 
-    //예약내역 출력.
+
+    //-------------------------------------------------예약내역 출력-------------------------------------------------------
     @GetMapping
     public List<ResInfoVo> getUserReservation(@RequestBody ResInfoDto dto){
 

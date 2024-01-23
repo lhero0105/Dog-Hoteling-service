@@ -7,8 +7,8 @@ import org.springframework.http.HttpStatus;
 @Getter
 @RequiredArgsConstructor
 public enum CommonErrorCode implements ErrorCode{
-    //성공 에러 응답
 
+    //성공 에러 응답
     ACCEPTED
             (HttpStatus.ACCEPTED,"202","처리가 완료되지 않음"),
     NON_AUTHORITATIVE_INFORMATION
@@ -23,7 +23,6 @@ public enum CommonErrorCode implements ErrorCode{
             (HttpStatus.MULTI_STATUS,"207","처리 결과 상태 여러개"),
 
     //리다이렉션
-
     MOVED_PERMANENTLY
             (HttpStatus.MOVED_PERMANENTLY,"301","지정한 리소스가 새로운 URI로 이동"),
     FOUND
@@ -32,7 +31,6 @@ public enum CommonErrorCode implements ErrorCode{
             (HttpStatus.SEE_OTHER,"303","다른 위치로 요청하라"),
     TEMPORARY_REDIRECT
             (HttpStatus.TEMPORARY_REDIRECT,"307","임시로 리다이렉션이 필요"),
-
 
     //클라이언트 에러
     INVALID_PARAMETER
@@ -53,8 +51,6 @@ public enum CommonErrorCode implements ErrorCode{
             (HttpStatus.REQUEST_URI_TOO_LONG,"414","요청 URI 너무 김"),
     REQUEST_HEADER_FIELDS_TOO_LARGE
             (HttpStatus.REQUEST_HEADER_FIELDS_TOO_LARGE,"431","헤더의 길이가 너무 김"),
-
-
 
     //서버 에러
     INTERNAL_SERVER_ERROR

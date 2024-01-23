@@ -16,7 +16,7 @@ import java.util.List;
 public class ReveiwController {
     private final ReveiwService service;
 
-    //리뷰등록
+    //----------------------------------------------------리뷰등록--------------------------------------------------------
     @PostMapping
     public ResVo postReview (@RequestPart List<MultipartFile> pics,
                              @RequestBody ReviewInsDto dto){
@@ -25,7 +25,7 @@ public class ReveiwController {
         return service.insReview(dto);
     }
 
-    //리뷰 전체 수정
+    //-------------------------------------------------리뷰 전체 수정------------------------------------------------------
     @PutMapping
     public ResVo putReview (@RequestPart List<MultipartFile> pics,
                             @RequestBody ReviewUpdDto dto){
@@ -33,24 +33,25 @@ public class ReveiwController {
         return service.putReview(dto);
     }
 
-    //리뷰 코멘트 수정
+    //------------------------------------------------리뷰 코멘트 수정-----------------------------------------------------
     @PatchMapping
     public ResVo patchReviewComment (@RequestBody ReviewPatchDto dto){
         return service.patchReviewComment(dto);
     }
-    //리뷰 좋아요
+    //--------------------------------------------------리뷰 좋아요-------------------------------------------------------
     @GetMapping("/fav")
     public ResVo getReviewFav (int reviewPk){
         return service.patchReviewFav(reviewPk);
     }
-    //호텔 리뷰 리스트 출력
+    //----------------------------------------------호텔 리뷰 리스트 출력---------------------------------------------------
     @GetMapping
     public List<HotelReviewSelVo> getHotelReviewList(HotelReviewSelDto dto){
         return service.hotelReviewList(dto);
     }
-
     //재웅
-    // 상세페이지 리뷰 페이지네이션
+
+
+    //-------------------------------------------상세페이지 리뷰 페이지네이션-------------------------------------------------
     @GetMapping("/{hotel_pk}/review/{page}")
     public List<HotelReviewSelVo> getHotelReview(@RequestParam ("hotel_pk") int hotelPk, @RequestParam int page){
         HotelReviewSelDto dto = new HotelReviewSelDto();

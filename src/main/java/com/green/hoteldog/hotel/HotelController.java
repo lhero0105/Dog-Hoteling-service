@@ -1,5 +1,6 @@
 package com.green.hoteldog.hotel;
 
+import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.hotel.model.*;
 import com.green.hoteldog.user.models.UserHotelFavDto;
@@ -18,16 +19,10 @@ import java.util.List;
 @RequestMapping("/api/hotel")
 public class HotelController {
     private final HotelService service;
-
-    // 메인 페이지 호텔 리스트 셀렉트
-    // 1. 강아지 정보와 주소를 기반으로 첫 기본 화면 셀렉트
-    // 2. 필터링을 처리 후 화면 셀렉트
-    // 3. 검색 기반으로 화면 셀렉트
-
     // 0-1 광고+호텔 리스트 api/hotel/{page}
-    // 0-3 광고 리스트 api/hotel/ad
+    // 0-2 광고 리스트 api/hotel/ad
 
-    // 호텔 광고 리스트
+    //----------------------------------------------- 호텔 광고 리스트-----------------------------------------------------
     // 새로고침 시 적용
     @GetMapping("/ad")
     public List<HotelListSelVo> getHotelAdvertiseList(HotelListSelDto dto){
@@ -35,17 +30,29 @@ public class HotelController {
     }
 
     // 광고 + 호텔 리스트
-    // 1. 첫 화면 뿌릴 때(유저 별 검색 별 필터링 별로 출력은 서비스에서 구현)
-    // 2. 페이지 전환 시
+    // 1. 첫 화면 뿌릴 때(유저 별 검색 별 필터링 별로 출력은 서비스에서 구현) 적용
+    // 2. 페이지 전환 시 적용
+
+    // 메인 페이지 호텔 리스트 셀렉트 : service단에서 정의
+    // 1. 강아지 정보와 주소를 기반으로 첫 기본 화면 셀렉트
+    // 1-1. 비회원은 최신순으로 첫 화면 셀렉트
+    // 1-2. 회원은 등록한 정보 기반으로 셀렉트
+    // 1-2-1. 주소만으로 셀렉트
+    // 1-2-1. 주소와 강아지 정보로 셀렉트
+    // 2. 필터링 처리 후 화면 셀렉트
+    // 3. 검색 기반으로 화면 셀렉트 - OKT로 형태소 분석
+
+    // 상세 정렬방식 - 리뷰 많은 순, 별점 높은 순 : XML에서 정의
+    //--------------------------------------------------호텔 리스트-------------------------------------------------------
     @GetMapping("/{page}")
-    public HotelListSelAllVo getHotelList(@RequestParam int page, HotelListSelDto dto){
-        dto.setRowCount(1); //수정요망.
+    public HotelListSelAllVo getHotelList(@RequestParam int page, HotelListSelDto dto) {
+        dto.setRowCount(Const.HOTEL_LIST_COUNT_PER_PAGE);
         dto.setPage(page);
         return service.getHotelList(dto);
     }
     //영웅
 
-    //호텔 상세페이지 출력
+    //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
     @GetMapping()
     public HotelInfoEntity getHotelDetail(@RequestBody HotelMainPageDto dto){
         if(dto.getHotelPk()==0){
@@ -54,18 +61,18 @@ public class HotelController {
         HotelInfoEntity mainPage=service.getHotelDetail(dto);
         return mainPage;
     }
-    //호텔 상세페이지에서 날짜 선택했을때
+    //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
     @GetMapping
     public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam int hotelPk,String startDate,String endDate){
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
-    // 호텔 상세페이지에서 날짜 선택, 강아지 선택했을때.
+    //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
     @GetMapping
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam int hotelPk,String startDate,String endDate,List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
 
-    //호텔 북마크
+    //-----------------------------------------------------호텔 북마크----------------------------------------------------
     @GetMapping("/hotel/{page}/mark")
     @Operation(summary = "좋아요 toggle", description = "toggle로 처리함<br>")
     @ApiResponses(value = {
@@ -78,24 +85,5 @@ public class HotelController {
 
 
 
-    // 브랜치 작업 하는법
-    /*
-    깃허브에서 브랜치 생성, 그 브랜치에서 작업.
-    좌상단 Remote >브랜치 이름 확인하고 커밋&푸쉬
-    좌상단 브랜치 Remote > master > Merge "master" into "자기이름" 클릭.
-
-
-        깃허브 Comparing changes 접속. base: master , compare : "자기 브랜치 이름" 으로 설정.
-
-         오른쪽 created pull request 클릭
-
-         변경사항 작성 후 pull
-
-      ..
-
-      받을려는 사람은 Merge pull request 클릭해야 받아짐ㅋ.
-
-     */
-    //수정사항
 
 }

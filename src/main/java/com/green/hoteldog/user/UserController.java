@@ -22,7 +22,7 @@ public class UserController {
     private final UserService service;
     private final RedisUtil redisUtil;
 
-    //유저 회원가입
+    //------------------------------------------------유저 회원가입--------------------------------------------------------
     @PostMapping("/signup")
     public ResVo userSignup(@RequestBody UserSignupDto dto){
         ResVo vo = new ResVo(0);
@@ -34,13 +34,13 @@ public class UserController {
         }
         return vo;
     }
-    //유저 로그인
+    //-------------------------------------------------유저 로그인--------------------------------------------------------
     @PostMapping("/signin")
     public UserSigninVo userSignin(HttpServletResponse response, HttpServletRequest request, @RequestBody UserSigninDto dto){
         return service.userSignin(response,request,dto);
     }
 
-    //닉네임 중복체크
+    //-------------------------------------------------닉네임 중복체크-----------------------------------------------------
     @PostMapping("/nickname-check")
     public ResVo nicknameCheck(String nickname){
         return service.checkNickname(nickname);
