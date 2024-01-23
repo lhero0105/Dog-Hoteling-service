@@ -22,27 +22,30 @@ public class BoardService {
     //게시글 등록 2024-01-18수정
     public ResVo postBoard(PostBoardDto dto){
         dto.setUserPk(facade.getLoginUserPk());
+        log.info("postDto : {}",dto);
         try {
             mapper.postBoard(dto);
         }catch (Exception e){
             return new ResVo(0);
         }
-
-        List<String> pics = new ArrayList<>();
-        String target = "/board/"+dto.getBoardPk();
-        for(MultipartFile file : dto.getPics()){
-            String saveFileNm = fileUtils.transferTo(file,target);
-            pics.add(saveFileNm);
+        if(dto.getPics() != null){
+            List<String> pics = new ArrayList<>();
+            String target = "/board/"+dto.getBoardPk();
+            for(MultipartFile file : dto.getPics()){
+                String saveFileNm = fileUtils.transferTo(file,target);
+                pics.add(saveFileNm);
+            }
+            PostBoardPicDto picsDto = new PostBoardPicDto();
+            picsDto.setBoardPk(dto.getBoardPk());
+            picsDto.setPics(pics);
+            try {
+                mapper.postBoardPics(picsDto);
+                return new ResVo(1);
+            }catch (Exception e){
+                return new ResVo(0);
+            }
         }
-        PostBoardPicDto picsDto = new PostBoardPicDto();
-        picsDto.setBoardPk(dto.getBoardPk());
-        picsDto.setPics(pics);
-        try {
-            mapper.postBoardPics(picsDto);
-            return new ResVo(1);
-        }catch (Exception e){
-            return new ResVo(0);
-        }
+        return new ResVo(1);
     }
     //게시글 등록 2024-01-18수정
 
@@ -60,22 +63,24 @@ public class BoardService {
         }catch (Exception e){
             return new ResVo(0);
         }
+        if(dto.getPisc() != null){
+            List<String> pics = new ArrayList<>();
+            for(MultipartFile file : dto.getPisc()){
+                String saveFileNm = fileUtils.transferTo(file,target);
+                pics.add(saveFileNm);
+            }
 
-        List<String> pics = new ArrayList<>();
-        for(MultipartFile file : dto.getPisc()){
-            String saveFileNm = fileUtils.transferTo(file,target);
-            pics.add(saveFileNm);
+            PostBoardPicDto picsDto = new PostBoardPicDto();
+            picsDto.setBoardPk(dto.getBoardPk());
+            picsDto.setPics(pics);
+            try {
+                mapper.postBoardPics(picsDto);
+                return new ResVo(1);
+            }catch (Exception e){
+                return new ResVo(0);
+            }
         }
-
-        PostBoardPicDto picsDto = new PostBoardPicDto();
-        picsDto.setBoardPk(dto.getBoardPk());
-        picsDto.setPics(pics);
-        try {
-            mapper.postBoardPics(picsDto);
-            return new ResVo(1);
-        }catch (Exception e){
-            return new ResVo(0);
-        }
+        return new ResVo(1);
 
 
     }
@@ -130,10 +135,10 @@ public class BoardService {
     }
     //게시글 리스트
     //게시글 정보
-    public GetBoardInfoVo getBoardInfo(GetBoardcommentDto dto){
+    public GetBoardInfoVo getBoardInfo(GetBoardInfoDto dto){
         GetBoardInfoVo vo = mapper.getBoardInfo(dto.getBoardPk());
         vo.setPics(mapper.selBoardPics(dto.getBoardPk()));
-        vo.setComments(mapper.getCommentInfo(dto));
+        vo.setComments(mapper.selBoardComment(dto));
         mapper.boardViewCount(dto.getBoardPk());
         return vo;
     }

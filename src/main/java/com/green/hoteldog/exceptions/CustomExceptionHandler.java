@@ -45,9 +45,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     private CustomResponse makeErrorResponse(ErrorCode errorCode){
         return CustomResponse.builder()
-                .code(errorCode.name())
                 .message(errorCode.getMessage())
-                .codeNum(errorCode.getErrorNum())
                 .build();
     }
     // @Valid 어노테이션으로 넘어오는 에러 처리 메세지를 보내기 위한 메소드
@@ -65,7 +63,6 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
                 .collect(Collectors.toList());
 
         return CustomResponse.builder()
-                .code(errorCode.name())
                 .message(errorCode.getMessage())
                 .valid(validationErrorList)
                 .build();

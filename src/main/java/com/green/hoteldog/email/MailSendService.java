@@ -1,28 +1,45 @@
 package com.green.hoteldog.email;
 
 import com.green.hoteldog.common.RedisUtil;
+import com.green.hoteldog.user.UserMapper;
+import com.green.hoteldog.user.models.UserEntity;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Random;
 
 @Service
+@RequiredArgsConstructor
 public class MailSendService {
     @Autowired
     private JavaMailSender mailSender;
     private String authNumber;
     @Autowired
     private RedisUtil redisUtil;
+    private final UserMapper userMapper;
+    public boolean checkDuplicationEmail(String email){
+        List<UserEntity> userEntityList = userMapper.selUserEntity();
+        for(UserEntity userEntity : userEntityList){
+            if(userEntity.getUserEmail().equals(email)){
+                return true;
+            }
+        }
+        return false;
+    }
 
-    public boolean CheckAuthNum(String email,String authNum){
-        if(redisUtil.getData(authNum)==null){
+    public boolean checkAuthNum(String email,String authNum){
+
+
+        if(redisUtil.getData(email)==null){
             return false;
         }
-        else if(redisUtil.getData(authNum).equals(email)){
+        else if(redisUtil.getData(email).equals(authNum)){
             return true;
         }
         else{
@@ -75,6 +92,6 @@ public class MailSendService {
         }catch (MessagingException e){
             e.printStackTrace();
         }
-        redisUtil.setDataExpire(authNumber,toMail,60*5L);
+        redisUtil.setDataExpire(toMail,authNumber,60*5L);
     }
 }

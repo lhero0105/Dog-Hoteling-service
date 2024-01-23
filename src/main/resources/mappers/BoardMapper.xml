@@ -3,7 +3,7 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.hoteldog.board.BoardMapper">
     <insert id="postBoard" keyProperty="boardPk" useGeneratedKeys="true">
-        INSET INTO t_board
+        INSERT INTO t_board
         SET user_pk = #{userPk}
             ,board_category_pk = #{boardCategoryPk}
             ,title = #{title}
@@ -39,7 +39,11 @@
     </delete>
     <delete id="delBoard">
         DELETE FROM t_board
-        WHERE board_pk = #{boardPk} AND user_pk = #{userPk}
+        WHERE board_pk IN
+        <foreach collection="boardPkList" item="boardPk" open="(" close=")" separator=",">
+            #{boardPk}
+        </foreach>
+        AND user_pk = #{userPk}
     </delete>
     <insert id="postComment">
         INSERT INTO t_board_comment
@@ -54,7 +58,11 @@
     </update>
     <delete id="delComment">
         DELETE FROM t_board_comment
-        WHERE comment_pk = #{commentPk} AND user_pk = #{userPk}
+        WHERE comment_pk IN
+        <foreach collection="commentPkList" item="commentPk" open="(" close=")" separator=",">
+            #{commentPk}
+        </foreach>
+                 AND user_pk = #{userPk}
     </delete>
     <select id="getBoardList">
         SELECT A.board_pk AS boardPk
@@ -80,9 +88,21 @@
         ON A.user_pk = C.user_pk
         JOIN t_board_category F
         ON A.board_category_pk = F.board_category_pk
-        <if test="boardCategoryPk != null and boardCategoryPk != 0">
-            WHERE A.board_category_pk = #{boardCategoryPk}
-        </if>
+
+        <where>
+            <if test="boardCategoryPk != null and boardCategoryPk != 0">
+                A.board_category_pk = #{boardCategoryPk}
+            </if>
+            <if test="search != null and searchType == 0">
+                AND A.title like %#{search}%
+            </if>
+            <if test="search != null and searchType == 1">
+                AND A.contents like %#{search}%
+            </if>
+            <if test="search != null and searchType == 2">
+                AND C.nickname like %#{search}%
+            </if>
+        </where>
     </select>
     <select id="getBoardInfo">
         SELECT A.board_pk AS boardPk
@@ -111,11 +131,11 @@
         WHERE A.board_pk = #{boardPk}
     </select>
     <select id="selBoardPics">
-        SELECT pic
-        FORM t_board_pics
+        SELECT board_pic
+        FROM t_board_pics
         WHERE board_pk = #{boardPk}
     </select>
-    <select id="selBoardcomment">
+    <select id="selBoardComment">
         SELECT A.comment_pk AS commentPk
             ,A.user_pk AS userPk
             ,B.nickname AS nickname

@@ -9,7 +9,6 @@ public class UserEntity {
     private String userEmail;
     private String upw;
     private String nickname;
-    private String nm;
     private String phoneNum;
-    private String userAdderss;
+    private String userAddress;
 }

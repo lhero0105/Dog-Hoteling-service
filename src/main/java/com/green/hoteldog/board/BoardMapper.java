@@ -20,7 +20,7 @@ public interface BoardMapper {
     GetBoardInfoVo getBoardInfo(int boardPk);
     List<String> selBoardPics(int boardPk);
     int boardViewCount(int boardPk);
-    List<CommentInfoVo> getCommentInfo(GetBoardcommentDto dto);
+    List<CommentInfoVo> selBoardComment(GetBoardInfoDto dto);
     int updComment(PutCommentDto dto);
     List<GetSimpleBoardVo> myPostingBoardList(int userPk);
     List<GetUserCommentListVo> myPostingCommentList(int userPk);
