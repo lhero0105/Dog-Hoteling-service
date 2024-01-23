@@ -32,6 +32,7 @@ public class ReservationController {
     }
     //영웅
 
+    //예약내역 출력.
     @GetMapping
     public List<ResInfoVo> getUserReservation(@RequestBody ResInfoDto dto){
 

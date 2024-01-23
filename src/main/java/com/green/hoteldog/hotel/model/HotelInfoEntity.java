@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Schema()
-public class HotelMainPage {
+public class HotelInfoEntity {
     @Schema(name = "호텔 정보 + 리뷰")
     private HotelInfoVo hotelInfoVo;
 

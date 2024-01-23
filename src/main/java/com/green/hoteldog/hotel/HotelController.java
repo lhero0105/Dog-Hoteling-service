@@ -45,23 +45,27 @@ public class HotelController {
     }
     //영웅
 
+    //호텔 상세페이지 출력
     @GetMapping()
-    public HotelMainPage getHotelDetail(@RequestBody HotelMainPageDto dto){
+    public HotelInfoEntity getHotelDetail(@RequestBody HotelMainPageDto dto){
         if(dto.getHotelPk()==0){
             //예외
         }
-        HotelMainPage mainPage=service.getHotelDetail(dto);
+        HotelInfoEntity mainPage=service.getHotelDetail(dto);
         return mainPage;
     }
+    //호텔 상세페이지에서 날짜 선택했을때
     @GetMapping
     public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam int hotelPk,String startDate,String endDate){
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
+    // 호텔 상세페이지에서 날짜 선택, 강아지 선택했을때.
     @GetMapping
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam int hotelPk,String startDate,String endDate,List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
 
+    //호텔 북마크
     @GetMapping("/hotel/{page}/mark")
     @Operation(summary = "좋아요 toggle", description = "toggle로 처리함<br>")
     @ApiResponses(value = {
