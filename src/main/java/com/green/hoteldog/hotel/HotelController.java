@@ -53,7 +53,7 @@ public class HotelController {
     //영웅
 
     //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
-    @GetMapping()
+    @GetMapping("/a")
     public HotelInfoEntity getHotelDetail(@RequestBody HotelMainPageDto dto){
         if(dto.getHotelPk()==0){
             //예외
@@ -62,12 +62,12 @@ public class HotelController {
         return mainPage;
     }
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
-    @GetMapping
+    @GetMapping("/c")
     public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam int hotelPk,String startDate,String endDate){
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
     //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
-    @GetMapping
+    @GetMapping("/d")
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam int hotelPk,String startDate,String endDate,List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
