@@ -8,10 +8,15 @@ import lombok.Data;
 @Data
 public class DogInfo {
     @JsonIgnore
-    private Integer resPk;
-    private int userDogInfo; // 유저 강이지 pk, 등록x 0
+    @JsonProperty(value = "res_dog_pk")
+    private Integer resDogPk;
+    @JsonProperty(value = "size_pk")
     private int sizePk;
+    @JsonProperty(value = "dog_nm")
     private String dogNm;
+    @JsonProperty(value = "dog_age")
     private int dogAge;
     private String information; // 특이사항 및 요구사항
+    @JsonProperty(value = "hotel_room_pk")
+    private int hotelRoomPk;
 }

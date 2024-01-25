@@ -132,17 +132,6 @@ public class HotelService {
                 || dto.getDogInfo().size() > 0) && dto.getSearch() == null || dto.getHotelOptionPk().size() > 0){
             //  LocalDate, Calendar 방법 두 가지
 
-            /*
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-DD"); //년월일 표시
-            Calendar cal = Calendar.getInstance();
-            cal.get(Calendar.YEAR);
-            cal.set ( 2019, 1-1, 1 ); //종료 날짜 셋팅
-            String endDate = dateFormat.format(cal.getTime());
-
-            cal.set ( 2018, 1-1, 1 ); //시작 날짜 셋팅
-            String startDate = dateFormat.format(cal.getTime());
-            */
-
             // "yyyy-MM-dd" 포맷을 사용하여 문자열을 LocalDate로 파싱
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate fromDate = LocalDate.parse(dto.getFromDate(), formatter);
@@ -167,18 +156,55 @@ public class HotelService {
                 dateRange.add(fromDateUnit);
                 fromDateUnit = fromDateUnit.plusDays(1);
             }
-            // 최종 출력
+            // 날짜 출력
             for ( LocalDate dateList : dateRange ) {
                 log.info("date : {}", dateList);
             }
             dto.setDate(dateRange);
 
+            // 개별 방에 관한 호텔 pk 셀렉
+            List<Integer> list = new ArrayList<>();
+            DogSizeInfoIn dogSizeInfo = new DogSizeInfoIn();
+            dogSizeInfo.setDate(dateRange);
+            for ( DogSizeEa ea : dto.getDogInfo() ) {
+                dogSizeInfo.setDogSize(ea.getDogSize());
+                dogSizeInfo.setDogCount(ea.getDogCount());
+                List<Integer> hotelPk1 = mapper.selHotelPkToIndividualDogInfo(dogSizeInfo);
+                list.addAll(hotelPk1);
+            }
+            // 단체 방에 관한 호텔 pk 셀렉
+            DogSizeInfoGr dogSizeinfoGr = new DogSizeInfoGr();
+            dogSizeinfoGr.setDate(dateRange);
+            List<Integer> dogSize = new ArrayList<>();
+            int allCount = 0;
+            for ( DogSizeEa ea : dto.getDogInfo() ) {
+                allCount =+ ea.getDogCount();
+                dogSize.add(ea.getDogSize());
+            }
+            dogSizeinfoGr.setAllDogCount(allCount);
+            Integer maxValue = dogSize.stream()
+                    .mapToInt(x -> x)
+                    .max()
+                    .orElse(0); // 예외 시
+            log.info("maxValue : {}", maxValue);
+            dogSizeinfoGr.setBiggestDogSize(maxValue);
+            List<Integer> hotelPk2 = mapper.selHotelPkToGroupDogInfo(dogSizeinfoGr);
+            list.addAll(hotelPk2);
+            // 단체 방 + 개별 방 종합 호텔 pk 셀렉 구현
+
+
+            // 중복 제거
+            List<Integer> filteredPk = list.stream().distinct().collect(Collectors.toList());
+            log.info("filteredPk : {}", filteredPk);
+            dto.setFilteredPk(filteredPk);
             allVo.setHotelList(mapper.selHotelListToFilter(dto));
+
             log.info("allVo : {}", allVo);
             return allVo;
         }
         return null;
     }
+    // 영웅
 
 
 

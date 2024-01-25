@@ -6,6 +6,11 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 //영웅
 @Data
 public class HotelReservationDelDto {
@@ -13,12 +18,18 @@ public class HotelReservationDelDto {
     @JsonIgnore
     @JsonProperty(value = "user_pk")
     private int userPk;
+    @JsonIgnore
+    private int resPk;
     @Size(min = 1)
     @JsonProperty(value = "hotel_pk")
     private int hotelPk;
-    @Size(min = 1)
+    /*@Size(min = 1)
     @JsonProperty(value = "hotel_room_pk")
-    private int hotelRoomPk;
+    private int hotelRoomPk;*/
     @JsonIgnore
-    private int resPk;
+    private List<Integer> resDogPkList = new ArrayList<>();
+    @JsonIgnore
+    private List<LocalDate> dateRange;
+    @JsonIgnore
+    private List<Integer> hotelRoomPk;
 }

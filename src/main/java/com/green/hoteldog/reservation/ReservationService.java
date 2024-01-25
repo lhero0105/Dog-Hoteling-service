@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,53 +25,103 @@ public class ReservationService {
     public ResVo postHotelReservation(List<HotelReservationInsDto> dto){
         log.info("dto : {}", dto);
         for ( HotelReservationInsDto dtos : dto ) {
-            Integer respk = mapper.insHotelReservation(dtos);
+            int respk = mapper.insHotelReservation(dtos);
             dtos.setResPk(respk);
             if (dtos.getResPk() == null){
                 return new ResVo(Const.FAIL); // 예약 테이블에 등록 실패
             }
-            for ( DogInfo info : dtos.getDogInfo() ) {
-                if(info.getUserDogInfo() > 0){
-                    // 등록된 강아지 인지 체크
-                    int affectedRows =  mapper.insHotelReservationDogMineInfo(dtos);
-                    log.info("affectedRowsOfDogMineInfo : {}", affectedRows);
-                    if(affectedRows == 0){
-                        return new ResVo(Const.FAIL); // 등록된 강아지 테이블에 등록 실패
-                    }
-                } else {
-                    // 직접 입력된 강아지 인서트
-                    int affectedRows =  mapper.insHotelReservationDogWriteInfo(dtos);
-                    log.info("affectedRowsOfDogWriteInfo : {}", affectedRows);
-                    if(affectedRows == 0){
-                        return new ResVo(Const.FAIL); // 등록한 강아지 테이블에 등록 실패
-                    }
-                }
+            int affectedRows1 = mapper.insHotelReservationDogInfo(dtos);
+            if(affectedRows1 == 0){
+                return new ResVo(Const.FAIL); // 예약 강아지 정보 등록 실패
             }
+        }
+        int affectedRows2 = mapper.insHotelReservationInfo(dto);
+        if(affectedRows2 == 0){
+            return new ResVo(Const.FAIL); // 예약방강아지 예약정보 등록 실패
+        }
+        // 호텔 방 관리 테이블 업데이트
+        // 날짜 list , 호텔 방 pk list 박스 생성
+        List<HotelReservationUpdProcDto> updList = new ArrayList<>();
+        for (HotelReservationInsDto hotelReservationInsDto : dto) {
+            for (DogInfo dogInfo : hotelReservationInsDto.getDogInfo()) {
+                HotelReservationUpdProcDto updProcDto = new HotelReservationUpdProcDto();
+                updProcDto.setHotelRoomPk(dogInfo.getHotelRoomPk());
+
+                LocalDate fromDate = hotelReservationInsDto.getFromDate();
+                LocalDate toDate = hotelReservationInsDto.getToDate();
+                // fromDate부터 toDate까지 날짜 배열 생성
+                List<LocalDate> dateRange = new ArrayList<>();
+                while (!fromDate.isAfter(toDate)) {
+                    dateRange.add(fromDate);
+                    fromDate = fromDate.plusDays(1);
+                }
+                /*// 날짜 출력
+                for ( LocalDate dateList : dateRange ) {
+                    log.info("date : {}", dateList);
+                }*/
+                updProcDto.setDate(dateRange);
+                updList.add(updProcDto);
+            }
+        }
+
+        int affectedRows3 = mapper.updRemainedHotelRoom(updList);
+        if(affectedRows3 == 0){
+            return new ResVo(Const.FAIL);
         }
         return new ResVo(Const.SUCCESS);
     }
 
+
     //---------------------------------------------------예약 취소--------------------------------------------------------
     public ResVo delHotelReservation(HotelReservationDelDto dto){
         // 먼저 유저가 예약 했는지 셀렉트
-        Integer resPk = mapper.selHotelReservation(dto);
-        dto.setResPk(resPk);
-        if(resPk == null){
+        List<HotelReservationSelProcVo> procVo = mapper.selHotelReservation(dto);
+        if(procVo.size() == 0){
             return new ResVo(Const.FAIL); // 예약 정보 없음
         }
-        // 셀렉트 된게 있으면 삭제
-        // 1. 등록된 강아지 테이블 삭제
-        int affectedRows1 = mapper.delHotelReservationDogMineInfo(dto);
-        log.info("affectedRowsOfDogMineInfo : {}", affectedRows1);
+        for ( HotelReservationSelProcVo vo: procVo ) {
+            dto.setResPk(vo.getResPk()); // 다 같은 pk
+            dto.getResDogPkList().add(vo.getResDogPk());
+        }
+        dto.setHotelRoomPk(mapper.selHotelRoomPk(dto));
 
-        // 2. 직접 입력한 강아지 테이블 삭제
-        int affectedRows2 = mapper.delHotelReservationDogWriteInfo(dto);
-        log.info("affectedRowsOfDogWriteInfo : {}", affectedRows2);
-
-        // 3. 호텔 예약 테이블 삭제
+        // 호텔방강아지테이블 삭제
+        int affectedRows1 = mapper.delHotelReservationInfo(dto);
+        log.info("affectedRowsHotelReservationInfoDel : {}", affectedRows1);
+        if(affectedRows1 == 0){
+            return new ResVo(Const.FAIL);
+        }
+        // 예약 강아지 테이블 삭제
+        int affectedRows2 = mapper.delHotelReservationDogInfo(dto);
+        log.info("affectedRowsHotelDogInfoDel : {}", affectedRows2);
+        if(affectedRows2 == 0){
+            return new ResVo(Const.FAIL);
+        }
+        // 호텔 예약 테이블 삭제
         int affectedRows3 = mapper.delHotelReservation(dto);
-        log.info("affectedRowsHotelReservation : {}", affectedRows3);
+        log.info("affectedRowsHotelReservationDel : {}", affectedRows3);
         if(affectedRows3 == 0){
+            return new ResVo(Const.FAIL);
+        }
+        // 호텔방 관리테이블 업데이트
+        // fromdate, todate를 다 가져와 dateRange로 변경
+        List<LocalDate> dateRange = new ArrayList<>();
+        for ( HotelReservationSelProcVo vo: procVo ) {
+            LocalDate fromDate = vo.getFromDate();
+            LocalDate toDate = vo.getToDate();
+            while (!fromDate.isAfter(toDate)) {
+                dateRange.add(fromDate);
+                fromDate = fromDate.plusDays(1);
+            } // 여러번 돌아도 같은값
+            dto.setDateRange(dateRange);
+        }
+
+        HotelReservationUpdProc2Dto pDtoList = new HotelReservationUpdProc2Dto();
+        pDtoList.setDate(dateRange);
+        pDtoList.setHotelRoomPk(dto.getHotelRoomPk());
+        int affectedRows4 = mapper.updRemainedHotelRoom2(pDtoList);
+        log.info("affectedRowsHotelRoomUpd : {}", affectedRows4);
+        if(affectedRows4 == 0){
             return new ResVo(Const.FAIL);
         }
         return new ResVo(Const.SUCCESS);

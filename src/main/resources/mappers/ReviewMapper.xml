@@ -5,9 +5,8 @@
 
     <!--상세페이지 리뷰 페이지네이션-->
     <select id="selHotelReview">
-        SELECT C.nick_name AS nickName, C.pic AS userPic
-        , D.review_pk AS reviewPk, D.comment, D.score, D.created_at AS createdAt
-        , COUNT(E.user_pk) AS favCount
+        SELECT D.review_pk AS reviewPk, C.nickname AS nickName, D.comment
+        , D.score, D.updated_at AS updatedAt, COUNT(E.user_pk) AS favCount
         FROM t_hotel A
         JOIN t_reservation B
         ON A.hotel_pk = B.hotel_pk
@@ -20,7 +19,7 @@
         WHERE A.hotel_pk = #{hotelPk}
         GROUP BY reviewPk
         ORDER BY favCount DESC
-        LIMIT #{stardIdx}, #{rowCount}
+        LIMIT #{startIdx}, #{rowCount}
     </select>
 
     <!--호텔 pk -> 예약 pk에 관련 된 사진들만 셀렉트-->
@@ -34,14 +33,28 @@
         JOIN t_review_fav D
         ON B.review_pk = D.review_pk
         WHERE C.hotel_pk = #{hotelPk}
-        AND B.review_pk IN
-        (
-        <foreach collection="list" item="reviewPk" separator=",">
+        AND B.review_pk in
+        <foreach collection="list" item="reviewPk" separator="," open="(" close=")">
             #{reviewPk}
         </foreach>
-        )
-        GROUP BY B.review_pk
-        ORDER BY COUNT(D.user_pk) DESC
+        <!--빽업용-->
+        <!--        SELECT A.review_pk AS reviewPk, A.pic
+                FROM t_review_pic A
+                JOIN t_review B
+                ON A.review_pk = B.review_pk
+                JOIN t_reservation C
+                ON B.res_pk = C.res_pk
+                JOIN t_review_fav D
+                ON B.review_pk = D.review_pk
+                WHERE C.hotel_pk = #{hotelPk}
+                AND B.review_pk IN
+                (
+                <foreach collection="list" item="reviewPk" separator=",">
+                    #{reviewPk}
+                </foreach>
+                )
+                GROUP BY B.review_pk
+                ORDER BY COUNT(D.user_pk) DESC-->
     </select>
     <!-- 영웅 -->
 
