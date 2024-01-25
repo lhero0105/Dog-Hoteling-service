@@ -8,15 +8,17 @@ import java.util.List;
 @Mapper
 public interface ReservationMapper {
     //-------------------------------------------------호텔 예약----------------------------------------------------------
-    Integer insHotelReservation(HotelReservationInsDto dto);
-    int insHotelReservationDogMineInfo(HotelReservationInsDto dto);
-    int insHotelReservationDogWriteInfo(HotelReservationInsDto dto);
-
+    int insHotelReservation(HotelReservationInsDto dto);
+    int insHotelReservationDogInfo(HotelReservationInsDto dto);
+    int insHotelReservationInfo(List<HotelReservationInsDto> dto);
+    int updRemainedHotelRoom(List<HotelReservationUpdProcDto> dto);
     //-------------------------------------------------예약 취소----------------------------------------------------------
-    Integer selHotelReservation(HotelReservationDelDto dto);
-    int delHotelReservationDogMineInfo(HotelReservationDelDto dto);
-    int delHotelReservationDogWriteInfo(HotelReservationDelDto dto);
+    List<HotelReservationSelProcVo> selHotelReservation(HotelReservationDelDto dto);
+    List<Integer> selHotelRoomPk(HotelReservationDelDto dto);
+    int delHotelReservationInfo(HotelReservationDelDto dto);
+    int delHotelReservationDogInfo(HotelReservationDelDto dto);
     int delHotelReservation(HotelReservationDelDto dto);
+    int updRemainedHotelRoom2(HotelReservationUpdProc2Dto dto);
     //영웅
 
     //--------------------------------------------예약 정보 불러오기--------------------------------------------------------

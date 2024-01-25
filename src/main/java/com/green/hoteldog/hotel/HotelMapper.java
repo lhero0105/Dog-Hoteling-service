@@ -16,6 +16,8 @@ public interface HotelMapper {
     List<HotelListSelVo> selHotelListToSearch(HotelListSelDto Dto);
     List<HotelListSelVo> selHotelListToAccurateSearch(HotelListSelDto Dto);
     List<HotelListSelVo> selHotelListToFilter(HotelListSelDto Dto);
+    List<Integer> selHotelPkToIndividualDogInfo(DogSizeInfoIn i);
+    List<Integer> selHotelPkToGroupDogInfo(DogSizeInfoGr i);
     //영웅
 
     List<HotelReviewVo> getHotelReviewThree(int hotelPk);

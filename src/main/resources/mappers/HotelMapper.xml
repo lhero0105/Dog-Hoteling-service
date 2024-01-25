@@ -4,8 +4,9 @@
 <mapper namespace="com.green.hoteldog.hotel.HotelMapper">
     <!--호텔 광고 리스트-->
     <select id="selHotelAdvertiseList">
-        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo, B.pic AS hotelPic
+        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
         , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName, IF(H.hotel_pk IS NULL, 0, 1) AS bookMark
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -28,6 +29,14 @@
         GROUP BY A.hotel_pk
         ) E
         ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+        <if test="userPk > 0">
+            LEFT JOIN t_user G
+            ON A.user_pk = G.user_pk
+            LEFT JOIN t_hotel_favorites H
+            ON A.hotel_pk = H.hotel_pk AND H.user_pk = #{userPk}
+        </if>
         WHERE A.advertise = 1
         GROUP BY A.hotel_pk
         ORDER BY RAND()
@@ -36,8 +45,9 @@
 
     <!--비회원 첫 화면 호텔 리스트-->
     <select id="selHotelListToNonMember">
-        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo, B.pic AS hotelPic
+        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
         , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -60,6 +70,8 @@
         GROUP BY A.hotel_pk
         ) E
         ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
         GROUP BY A.hotel_pk
         <choose>
             <when test="filterType = 0">
@@ -89,8 +101,9 @@
 
     <!--회원 첫 화면 호텔 리스트 1-->
     <select id="selHotelListAsUserAddress">
-        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo, B.pic AS hotelPic
+        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
         , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , G.address_name AS addressName, IF(I.hotel_pk IS NULL, 0, 1) AS bookMark
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -115,6 +128,12 @@
         ON A.hotel_pk = E.hotel_pk
         LEFT JOIN t_hotel_where G
         ON A.hotel_pk = G.hotel_pk
+        <if test="userPk > 0">
+            LEFT JOIN t_user H
+            ON A.user_pk = H.user_pk
+            LEFT JOIN t_hotel_favorites I
+            ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
+        </if>
         WHERE G.region_1depth_name = '#{address}'
         GROUP BY A.hotel_pk
         <choose>
@@ -133,8 +152,9 @@
 
     <!--회원 첫 화면 호텔 리스트 2-->
     <select id="selHotelListAsUserAddressAndDogInformation">
-        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo, B.pic AS hotelPic
+        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
         , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , G.address_name AS addressName, IF(I.hotel_pk IS NULL, 0, 1) AS bookMark
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -170,6 +190,12 @@
         ON A.hotel_pk = F.hotel_pk
         LEFT JOIN t_hotel_where G
         ON A.hotel_pk = G.hotel_pk
+        <if test="userPk > 0">
+            LEFT JOIN t_user H
+            ON A.user_pk = H.user_pk
+            LEFT JOIN t_hotel_favorites I
+            ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
+        </if>
         WHERE G.region_1depth_name = '#{address}'
         GROUP BY A.hotel_pk
         <choose>
@@ -188,8 +214,9 @@
 
     <!--검색 시 호텔 리스트-->
     <select id="selHotelListToSearch">
-        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo, B.pic AS hotelPic
-        , hotelRoomCost, avgStar, A.discount_per AS discountPer
+        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, G.address_name AS addressName
+        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -212,6 +239,14 @@
         GROUP BY A.hotel_pk
         ) E
         ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+        <if test="userPk > 0">
+            LEFT JOIN t_user H
+            ON A.user_pk = H.user_pk
+            LEFT JOIN t_hotel_favorites I
+            ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
+        </if>
         WHERE A.hotel_nm
         REGEXP
         <foreach collection="list" item="tokensToStrList" separator="|" open="'" close="'">
@@ -233,8 +268,9 @@
     </select>
 
     <select id="selHotelListToAccurateSearch">
-        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo, B.pic AS hotelPic
-        , hotelRoomCost, avgStar, A.discount_per AS discountPer
+        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
+        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -257,6 +293,14 @@
         GROUP BY A.hotel_pk
         ) E
         ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+        <if test="userPk > 0">
+            LEFT JOIN t_user H
+            ON A.user_pk = H.user_pk
+            LEFT JOIN t_hotel_favorites I
+            ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
+        </if>
         WHERE A.hotel_nm = #{search}
         GROUP BY A.hotel_pk
         <choose>
@@ -275,7 +319,9 @@
 
     <!--필터링 시 호텔 리스트-->
     <select id="selHotelListToFilter">
-        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo, B.pic AS hotelPic, hotelRoomCost, avgStar, A.discount_per AS discountPer
+        SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost
+        , avgStar, A.discount_per AS discountPer, G.address_name AS addressName
+        , IF(K.hotel_pk IS NULL, 0, 1) AS bookMark
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -298,43 +344,43 @@
         GROUP BY A.hotel_pk
         ) E
         ON A.hotel_pk = E.hotel_pk
-        <if test="dogSize.size != 0">
-            JOIN(
-            SELECT A.hotel_pk, COUNT(A.hotel_pk)
-            FROM t_hotel A
-            JOIN t_hotel_room_info B
-            ON A.hotel_pk = B.hotel_pk
-            WHERE B.size_pk IN
-            <foreach collection="list" item="dogSize" separator="," open="(" close=")">
-                #{dogSize}
-            </foreach>
-            GROUP BY a.hotel_pk
-            HAVING COUNT(a.hotel_pk) >= #{dogPkSize}
-            ) F
-            ON A.hotel_pk = F.hotel_pk
-        </if>
         LEFT JOIN t_hotel_where G
         ON A.hotel_pk = G.hotel_pk
         LEFT JOIN t_hotel_option H
         ON A.hotel_pk = H.hotel_pk
         <if test="hotelOptionPk.size != 0">
             JOIN(
-            SELECT a.hotel_pk, COUNT(a.hotel_pk)
-            FROM t_hotel a
-            JOIN t_hotel_option b
-            ON a.hotel_pk = b.hotel_pk
-            WHERE b.option_pk IN
+            SELECT A.hotel_pk, COUNT(A.hotel_pk)
+            FROM t_hotel A
+            JOIN t_hotel_option B
+            ON A.hotel_pk = B.hotel_pk
+            WHERE B.option_pk IN
             <foreach collection="list" item="hotelOptionPk" separator="," open="(" close=")">
                 #{hotelOptionPk}
             </foreach>
-            GROUP BY a.hotel_pk
-            HAVING COUNT(a.hotel_pk) = #{optionPkSize}
+            GROUP BY A.hotel_pk
+            HAVING COUNT(A.hotel_pk) = #{optionPkSize}
             ) I
             ON A.hotel_pk = I.hotel_pk
+        </if>
+        <if test="userPk > 0">
+            LEFT JOIN t_user J
+            ON A.user_pk = J.user_pk
+            LEFT JOIN t_hotel_favorites K
+            ON A.hotel_pk = K.hotel_pk AND K.user_pk = #{userPk}
         </if>
         <where>
             <if test="address > 0">
                 G.region_1depth_name = '#{address}'
+            </if>
+            <if test="dogInfo.size != 0">
+                <if test="address > 0">
+                    AND
+                </if>
+                A.hotel_pk in
+                <foreach collection="list" item="filteredPk" separator="," open="(" close=")">
+                    #{filteredPk}
+                </foreach>
             </if>
         </where>
         GROUP BY A.hotel_pk
@@ -350,6 +396,35 @@
             </otherwise>
         </choose>
         LIMIT 0,12
+    </select>
+
+    <select id="selHotelPkToIndividualDogInfo">
+        SELECT A.hotel_pk
+        FROM t_hotel_room_info A
+        JOIN t_hotel_room_info_date B
+        ON A.hotel_room_pk = B.hotel_room_pk
+        WHERE A.maximum = 1
+        AND A.size_pk = #{dogSize}
+        AND B.room_left_ea >= #{dogCount}
+        AND B.room_date IN
+        <foreach collection="list" item="date" separator="," open="(" close=")">
+            '#{date}'
+        </foreach>
+    </select>
+
+    <select id="selHotelPkToGroupDogInfo">
+        SELECT A.hotel_pk
+        FROM t_hotel_room_info A
+        JOIN t_hotel_room_info_date B
+        ON A.hotel_room_pk = B.hotel_room_pk
+        WHERE A.maximum > 1
+        AND #{allDogCount} >= A.maximum
+        AND A.size_pk >= #{biggestDogSize}
+        AND B.room_left_ea >= 1
+        AND B.room_date IN
+        <foreach collection="list" item="date" separator="," open="(" close=")">
+            '#{date}'
+        </foreach>
     </select>
 
     <!--영웅-->

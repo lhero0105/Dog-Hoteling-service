@@ -15,7 +15,7 @@ spring:
       port: 6379
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/doghotel
+    url: jdbc:mariadb://localhost:3306/doghotel?allowMultiQueries=true
     username: root
     password: green502
 

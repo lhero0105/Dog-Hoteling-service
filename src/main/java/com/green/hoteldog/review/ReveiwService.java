@@ -111,6 +111,12 @@ public class ReveiwService {
         for ( HotelReviewPicsSelVo vo : pics ) {
             hashMap.get(vo.getReviewPk()).getPics().add(vo.getPic());
         }
+        // 사진 3개까지 제거
+        for ( HotelReviewSelVo vo : list ) {
+            while(vo.getPics().size() > 3){
+                vo.getPics().remove(vo.getPics().size() - 1);
+            }
+        }
         return list;
     }
     //영웅

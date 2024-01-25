@@ -49,7 +49,7 @@ public class ReveiwController {
     @GetMapping("/{hotel_pk}/review/{page}")
     public List<HotelReviewSelVo> getHotelReview(@RequestParam ("hotel_pk") int hotelPk, @RequestParam int page){
         HotelReviewSelDto dto = new HotelReviewSelDto();
-        dto.setRowCount(4);
+        dto.setRowCount(3);
         dto.setHotelPk(hotelPk);
         dto.setPage(page);
         return service.getHotelReview(dto);
