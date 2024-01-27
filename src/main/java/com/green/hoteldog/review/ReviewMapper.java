@@ -7,6 +7,7 @@ import java.util.List;
 
 @Mapper
 public interface ReviewMapper {
+    int checkResStatus(ReviewInsDto dto);
     int insReview(ReviewInsDto dto);
     int insReviewPics(ReviewInsPicsDto dto);
     int updReview(ReviewUpdDto dto);
