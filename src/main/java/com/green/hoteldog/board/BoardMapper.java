@@ -11,8 +11,11 @@ public interface BoardMapper {
     int postBoardPics(PostBoardPicDto dto);
     int delBoardPics(int boardPk);
     int putBoard(PutBoardDto dto);
+    /*
+    임시중단
     int postFav(BoardFavDto dto);
     int delFav(BoardFavDto dto);
+    */
     int delBoard(DeleteBoardDto dto);
     int postComment(PostCommentDto dto);
     int delComment(DeleteCommentDto dto);

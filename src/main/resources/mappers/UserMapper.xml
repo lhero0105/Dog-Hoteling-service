@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.green.hoteldog.user.UserMapper">
-    <insert id="userSignup">
+    <insert id="userSignup" useGeneratedKeys="true" keyProperty="userPk">
         INSERT INTO t_user
         SET user_type_pk = #{userTypePk}
         , user_email = #{userEmail}
@@ -10,6 +10,18 @@
         , nickname = #{nickname}
         , phone_num = #{phoneNum}
         , user_address = #{userAddress}
+    </insert>
+    <insert id="insUserAddress">
+        INSERT INTO t_user_where
+        SET user_pk = #{userPk}
+            ,address_name = #{addressName}
+            ,region_1depth_name = #{region1DepthName}
+            ,region_2depth_name = #{region2DepthName}
+            ,region_3depth_name = #{region3DepthName}
+            ,zone_num = #{zoneNum}
+            ,x_coordinate = #{x}
+            ,y_coordinate = #{y}
+            ,detail_address = #{detailAddress}
     </insert>
     <select id="userPw">
         SELECT upw
@@ -27,6 +39,17 @@
         FROM t_user
         WHERE user_email = #{userEmail}
     </select>
+    <select id="userEntityByUserPk">
+        SELECT user_pk AS userPk
+        , user_type_pk AS userTypePk
+        , user_email AS userEmail
+        , upw
+        , nickname
+        , phone_num AS phoneNum
+        , user_address AS userAddress
+        FROM t_user
+        WHERE user_pk = #{userPk}
+    </select>
     <select id="selUserEntity">
         SELECT user_pk AS userPk
         ,user_type_pk AS userTypePk
@@ -36,4 +59,31 @@
         ,user_address AS userAddress
         FROM t_user
     </select>
+    <select id="selUserDogSize">
+        SELECT DISTINCT size_pk
+        FROM t_user_dog
+        WHERE user_pk = #{userPK}
+    </select>
+    <select id="selUserDepthName">
+        SELECT region_1depth_name
+        FROM t_user_address
+        WHERE user_pk = #{userPk}
+    </select>
+    <update id="updateUserInfo">
+        UPDATE t_user A
+        JOIN t_user_where B
+        ON A.user_pk = B.user_pk
+        SET A.nickname = #{nickname}
+        ,A.phone_num = #{phoneNum}
+        ,A.user_address = #{userAddress}
+        ,B.address_name = #{addressName}
+        ,B.region_1depth_name = #{region1DepthName}
+        ,B.region_2depth_name = #{region2DepthName}
+        ,B.region_3depth_name = #{region3DepthName}
+        ,B.zone_num = #{zoneNum}
+        ,B.x_coordinate = #{x}
+        ,B.y_coordinate = #{y}
+        ,B.detail_address = #{detailAddress}
+        WHERE A.user_pk = #{userPk}
+    </update>
 </mapper>

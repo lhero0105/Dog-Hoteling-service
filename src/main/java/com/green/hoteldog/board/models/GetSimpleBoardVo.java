@@ -8,8 +8,6 @@ public class GetSimpleBoardVo {
     private String title;
     private int userPk;
     private String nickname;
-    private int commentCount;
-    private int favCount;
     private int boardViewCount;
     private String createdAt;
 }

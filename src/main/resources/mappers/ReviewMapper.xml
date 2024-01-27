@@ -97,6 +97,11 @@
         DELETE t_review_fav
         WHERE user_pk = #{userPk} AND review_pk = #{reviewPk}
     </delete>
+    <select id="checkResStatus">
+        SELECT res_status
+        FROM t_reservation
+        WHERE user_pk = #{userPK} AND res_pk = #{resPk}
+    </select>
     <!--재웅-->
 
 </mapper>

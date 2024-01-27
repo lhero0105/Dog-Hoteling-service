@@ -17,29 +17,35 @@ import java.util.Map;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ReveiwService {
+public class ReviewService {
     private final ReviewMapper mapper;
     private final AuthenticationFacade facade;
     private final MyFileUtils fileUtils;
 
     //-----------------------------------------------------리뷰 등록------------------------------------------------------
     public ResVo insReview(ReviewInsDto dto) {
+        dto.setUserPk(facade.getLoginUserPk());
+        if(mapper.checkResStatus(dto) != 0){
+            //예외처리 체크아웃한 상태 아니거나 취소한 상태
+        }
         try {
             mapper.insReview(dto);
         }catch (Exception e){
             return new ResVo(0);
         }
-        List<String> pics = new ArrayList<>();
-        String target = "/review/"+dto.getReviewPk();
-        fileUtils.delFiles(target);
-        for(MultipartFile file : dto.getPics()){
-            String saveFileNm = fileUtils.transferTo(file,target);
-            pics.add(saveFileNm);
+        if(dto.getPics() != null){
+            List<String> pics = new ArrayList<>();
+            String target = "/review/"+dto.getReviewPk();
+            fileUtils.delFiles(target);
+            for(MultipartFile file : dto.getPics()){
+                String saveFileNm = fileUtils.transferTo(file,target);
+                pics.add(saveFileNm);
+            }
+            ReviewInsPicsDto picsDto = new ReviewInsPicsDto();
+            picsDto.setReviewPk(dto.getReviewPk());
+            picsDto.setPics(pics);
+            mapper.insReviewPics(picsDto);
         }
-        ReviewInsPicsDto picsDto = new ReviewInsPicsDto();
-        picsDto.setReviewPk(dto.getReviewPk());
-        picsDto.setPics(pics);
-        mapper.insReviewPics(picsDto);
         return new ResVo(1);
     }
 
@@ -52,17 +58,19 @@ public class ReveiwService {
         } catch (Exception e) {
             return new ResVo(0);
         }
-        ReviewInsPicsDto picsDto = new ReviewInsPicsDto();
-        List<String> pics = new ArrayList<>();
-        String target = "/review/"+dto.getReviewPk();
-        fileUtils.delFolderTrigger(target);
-        for(MultipartFile file : dto.getPics()){
-            String saveFileNm = fileUtils.transferTo(file,target);
-            pics.add(saveFileNm);
+        if(dto.getPics() != null){
+            ReviewInsPicsDto picsDto = new ReviewInsPicsDto();
+            List<String> pics = new ArrayList<>();
+            String target = "/review/"+dto.getReviewPk();
+            fileUtils.delFolderTrigger(target);
+            for(MultipartFile file : dto.getPics()){
+                String saveFileNm = fileUtils.transferTo(file,target);
+                pics.add(saveFileNm);
+            }
+            picsDto.setReviewPk(dto.getReviewPk());
+            picsDto.setPics(pics);
+            mapper.insReviewPics(picsDto);
         }
-        picsDto.setReviewPk(dto.getReviewPk());
-        picsDto.setPics(pics);
-        mapper.insReviewPics(picsDto);
         return new ResVo(1);
 
     }

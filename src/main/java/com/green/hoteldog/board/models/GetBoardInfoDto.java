@@ -8,7 +8,6 @@ import lombok.Data;
 public class GetBoardInfoDto {
     @Min(value = 1,message = "boardPk 값은 1 이상이어야 합니다.")
     private int boardPk;
-    @Min(value = 1,message = "page 값은 1 이상이어야 합니다.")
     private int page;
     @Min(value = 1,message = "rowCount 값은 1 이상이어야 합니다.")
     private int rowCount;

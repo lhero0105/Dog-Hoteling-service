@@ -10,7 +10,6 @@ public class GetBoardInfoVo {
     private String title;
     private int userPk;
     private String nickname;
-    private int favCount;
     private String createdAt;
     private int boardViewCount;
     private List<String> pics;
