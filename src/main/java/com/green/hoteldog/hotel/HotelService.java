@@ -2,7 +2,11 @@ package com.green.hoteldog.hotel;
 
 
 import com.green.hoteldog.common.AppProperties;
+import com.green.hoteldog.common.Const;
+import com.green.hoteldog.common.MyFileUtils;
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.CommonErrorCode;
+import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.hotel.model.*;
 import com.green.hoteldog.security.AuthenticationFacade;
 import com.green.hoteldog.user.models.UserHotelFavDto;
@@ -26,6 +30,7 @@ public class HotelService {
     private final HotelMapper mapper;
     private final AppProperties appProperties;
     private final AuthenticationFacade authenticationFacade;
+    private final MyFileUtils myFileUtils;
 
     //-----------------------------------------------호텔 광고 리스트 셀렉트------------------------------------------------
     public List<HotelListSelVo> getHotelAdvertiseList(HotelListSelDto dto){
@@ -213,7 +218,7 @@ public class HotelService {
         dto.setUserPk(authenticationFacade.getLoginUserPk());
         int result=mapper.delHotelBookMark(dto);
         if(result==1){
-            //예외처리.
+            return new ResVo(3);
         }
         int result2= mapper.insHotelBookMark(dto);
         return new ResVo(result2);
@@ -233,8 +238,9 @@ public class HotelService {
 
         //좋아요 많은 갯수대로 호텔에 적힌 리뷰 최대 3개까지 가져옴.
         List<HotelReviewVo> reviewThree=mapper.getHotelReviewThree(dto.getHotelPk());
+        //리뷰없음
         if(reviewThree.size()==0){
-            // 리뷰 없음.
+            hotelInfoVo.setReviewList(null);
         }
         int countReview=mapper.isMoreHotelReview(dto.getHotelPk());
         if(countReview>3){
@@ -246,11 +252,6 @@ public class HotelService {
         if(dto.getUserPk()>=1){
             List<MyDog> myDogList=mapper.getMyDogs(dto.getUserPk());
             hotelInfoEntity.setMyDogList(myDogList);
-
-            if(myDogList.size()==0){
-                //유저는 있는데 등록된 강아지는 없음.
-                //예외처리 ?  안해도될듯?
-            }
         }
         List<LocalDate> twoMonthDate=getTwoMonth();
         //twoMonthDate : 두달동안 날짜 리스트(LocalDate 타입)
@@ -261,10 +262,10 @@ public class HotelService {
                 .map(localDate -> localDate.toString())
                 .collect(Collectors.toList());
 
-        HotelRoomAbleListDto ableListDto=null;
-
-        ableListDto.setHotelPk(dto.getHotelPk());
-
+        HotelRoomAbleListDto ableListDto= HotelRoomAbleListDto
+                .builder()
+                .hotelPk(dto.getHotelPk())
+                .build();
         //메인페이지 첫화면은 호텔pk만 보내고 정리해서 줌.
         List<HotelRoomResInfoByMonth> hotelResInfoVos=iWillShowYouAbleDatesWithRoom(ableListDto);
 
@@ -282,9 +283,9 @@ public class HotelService {
                 .map(HotelRoomEaByDate::getDate)
                 .toList();
         if(!checkDate.containsAll(twoMonth)){
-            //모든날짜 들어가지 않음. >> 에러.
+            throw new CustomException(CommonErrorCode.CONFLICT);
         }
-
+        //근데 이 위에것 굳이 할 필요가 있을까??
         //람다식?
         //forEach반복문 .
         eaByDates.forEach(date -> {     //eaByDates 의 String 하나를 date 으로 지정.
@@ -310,6 +311,9 @@ public class HotelService {
 
     //----------------------------------------날짜 선택했을때 가능한 방 리스트------------------------------------------------
     public List<HotelRoomEaByDate> whenYouChooseDates(int hotelPk,String startDate,String endDate){
+        if(hotelPk==0||startDate==null||endDate==null){
+            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+        }
         List<HotelRoomResInfoByMonth> areYouChooseDates=iWillShowYouAbleDatesWithRoom(HotelRoomAbleListDto
                 .builder()
                 .hotelPk(hotelPk)
@@ -351,6 +355,9 @@ public class HotelService {
     }
     //------------------------------------날짜랑 강아지 선택했을 때 가능한 방 리스트--------------------------------------------
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(int hotelPk,String startDate,String endDate,List<Integer> dogs){
+        if(hotelPk==0||startDate==null||endDate==null||dogs.size()==0){
+            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+        }
         List<HotelRoomResInfoByMonth> areYouSure=iWillShowYouAbleDatesWithRoom(HotelRoomAbleListDto
                 .builder()
                 .hotelPk(hotelPk)
@@ -393,12 +400,8 @@ public class HotelService {
 
     public List<HotelRoomResInfoByMonth> iWillShowYouAbleDatesWithRoom(HotelRoomAbleListDto dto){
         if(dto.getHotelPk()==0){
-            //예외처리
+            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
         }
-        List<LocalDate> twoMonthDate=getTwoMonth();
-        String startDate=twoMonthDate.get(0).toString();//시작날짜 : 요번달 첫날
-        String endDate=twoMonthDate.get(twoMonthDate.size()).toString();//끝나는날짜 : 다음달 말일
-
         // 호텔 상세페이지 들어갔을 때 (else 맨밑),날짜 선택했을때(중간),다 선택했을때
         if(!(dto.getStartDate()==null&&dto.getEndDate()==null&&dto.getDogPks().size()==0)){
             //시작 끝 날짜 입력 되었고 개새끼 정보도 입력된 상태.(예약 마지막단계)
@@ -406,17 +409,22 @@ public class HotelService {
             int howMany=dto.getDogPks().size();
             int large=dto.getDogPks()
                     .stream()
-                    .mapToInt(v -> v)
+                    .mapToInt(Integer::intValue)
                     .max()
                     .orElse(0);
+            if(large==0){
+                throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+            }
             return mapper.getHotelFilterRoomResInfo(dto.getHotelPk(),dto.getStartDate(),dto.getEndDate(),howMany,large);
-
             //시작 끝 날짜만 입력 되어있는 상태.(예약 2단계)
         }else if(!(dto.getEndDate()==null&&dto.getStartDate()==null)){
             return mapper.getHotelRoomResInfo(dto.getHotelPk(),dto.getStartDate(), dto.getEndDate());
-
             // 시작 , 끝 날짜 설정X, (예약 1단계 or 상세페이지)
         }else{
+            List<LocalDate> twoMonthDate=getTwoMonth();
+            String startDate=twoMonthDate.get(0).toString();//시작날짜 : 요번달 첫날
+            String endDate=twoMonthDate.get(twoMonthDate.size()).toString();//끝나는날짜 : 다음달 말일
+
             return mapper.getHotelRoomResInfo(dto.getHotelPk(),startDate,endDate);
         }
     }

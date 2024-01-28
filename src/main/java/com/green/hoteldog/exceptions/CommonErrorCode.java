@@ -20,7 +20,7 @@ public enum CommonErrorCode implements ErrorCode{
     MULTI_STATUS
             (HttpStatus.MULTI_STATUS,"처리 결과 상태 여러개"),
 
-//리다이렉션
+    //리다이렉션
 
     MOVED_PERMANENTLY
             (HttpStatus.MOVED_PERMANENTLY,"지정한 리소스가 새로운 URI로 이동"),

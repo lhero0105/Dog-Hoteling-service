@@ -19,6 +19,10 @@ import java.util.List;
 @RequestMapping("/api/hotel")
 public class HotelController {
     private final HotelService service;
+
+    public void checkHotelPk(int hotelPk){
+
+    }
     // 0-1 광고+호텔 리스트 api/hotel/{page}
     // 0-2 광고 리스트 api/hotel/ad
 
@@ -53,17 +57,17 @@ public class HotelController {
     //영웅
 
     //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
-    @GetMapping("/a")
-    public HotelInfoEntity getHotelDetail(@RequestBody HotelMainPageDto dto){
+    @GetMapping("/b")
+    public HotelInfoEntity getHotelDetail(HotelMainPageDto dto){
         if(dto.getHotelPk()==0){
-            //예외
         }
         HotelInfoEntity mainPage=service.getHotelDetail(dto);
         return mainPage;
     }
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
-    @GetMapping("/c")
+    @GetMapping("/a")
     public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam int hotelPk,String startDate,String endDate){
+
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
     //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
@@ -82,7 +86,6 @@ public class HotelController {
         return service.toggleHotelBookMark(dto);
     }
     //승준
-
 
 
 
