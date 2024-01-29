@@ -33,8 +33,8 @@ public class ReservationController {
 
 
     //-------------------------------------------------예약내역 출력-------------------------------------------------------
-    @GetMapping
-    public List<ResInfoVo> getUserReservation(@RequestBody ResInfoDto dto){
+    @GetMapping("/hotel/res")
+    public List<ResInfoVo> getUserReservation(ResInfoDto dto){
 
         return service.getUserReservation(dto);
     }
