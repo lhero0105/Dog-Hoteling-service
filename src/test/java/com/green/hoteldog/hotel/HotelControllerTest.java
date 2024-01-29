@@ -30,7 +30,7 @@ public class HotelControllerTest {
         HotelInfoEntity expectEntity=new HotelInfoEntity();
         when(hotelService.getHotelDetail(dto)).thenReturn(expectEntity);
 
-        HotelInfoEntity resultEntity=hotelController.getHotelDetail(dto);
+        HotelInfoEntity resultEntity=hotelController.getHotelDetail(1);
         assertThat(resultEntity,is(equalTo(expectEntity)));
     }
     @Test

@@ -3,6 +3,7 @@ package com.green.hoteldog.hotel;
 import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.hotel.model.*;
+import com.green.hoteldog.security.AuthenticationFacade;
 import com.green.hoteldog.user.models.UserHotelFavDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -57,22 +58,27 @@ public class HotelController {
     //영웅
 
     //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
-    @GetMapping("/info")
-    public HotelInfoEntity getHotelDetail(HotelMainPageDto dto){
-        if(dto.getHotelPk()==0){
-        }
+    @GetMapping("/{hotel_pk}")
+    public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
+        HotelMainPageDto dto=new HotelMainPageDto();
+        dto.setHotelPk(hotelPk);
         HotelInfoEntity mainPage=service.getHotelDetail(dto);
         return mainPage;
     }
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
-    @GetMapping("/info/date}")
-    public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam int hotelPk,String startDate,String endDate){
+    @GetMapping("/{hotel_pk}/{start_date}/{end_date}")
+    public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam("hotel_pk") int hotelPk,
+                                                      @RequestParam("start_date") String startDate,
+                                                      @RequestParam("end_date") String endDate){
 
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
     //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
-    @GetMapping("/info/date/dogs")
-    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam int hotelPk,String startDate,String endDate,List<Integer> dogs){
+    @GetMapping("/{hotel_pk}/{start_date}/{end_date}/with_dogs")
+    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam("hotel_pk") int hotelPk,
+                                                             @RequestParam("start_date") String startDate,
+                                                             @RequestParam("end_date") String endDate,
+                                                             List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
 
@@ -82,7 +88,7 @@ public class HotelController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "좋아요 처리: result(1), 좋아요 취소: result(2)")
     })
-    public ResVo toggleHotelBookMark(@RequestBody UserHotelFavDto dto){
+    public ResVo toggleHotelBookMark(UserHotelFavDto dto){
         return service.toggleHotelBookMark(dto);
     }
     //승준
