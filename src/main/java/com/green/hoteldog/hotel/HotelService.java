@@ -227,6 +227,12 @@ public class HotelService {
         int result2= mapper.insHotelBookMark(dto);
         return new ResVo(result2);
     }
+
+    public List<HotelBookMarkListVo> getHotelBookmarkList(int userPk){
+        List<HotelBookMarkListVo> getBookMarkList=mapper.getHotelBookMark(userPk);
+        return getBookMarkList;
+
+    }
     //--------------------------------------------호텔 상세페이지----------------------------------------------------------
     public HotelInfoEntity getHotelDetail(int hotelPk){
         if(hotelPk>0) {

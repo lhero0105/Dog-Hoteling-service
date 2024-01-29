@@ -99,7 +99,11 @@ public class HotelController {
         return service.toggleHotelBookMark(dto);
     }
     //승준
-
+    @GetMapping("/hotel/like")
+    public List<HotelBookMarkListVo> getHotelBookmarkList(){
+        int userPk=authenticationFacade.getLoginUserPk();
+        return service.getHotelBookmarkList(userPk);
+    }
 
 
 }
