@@ -19026,3 +19026,1066 @@ This generated password is for development use only. Your security configuration
 [2024-01-29 16:53:36 [33mWARN [0;39m http-nio-8081-exec-1] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.green.hoteldog.hotel.model.HotelRoomEaByDate> com.green.hoteldog.hotel.HotelController.whenYouChooseDatesAndDogs(int,java.time.LocalDate,java.time.LocalDate,java.util.List<java.lang.Integer>)][0;39m
 [2024-01-29 16:53:49 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTE0NzI3LCJleHAiOjE3MDY1MjE5Mjd9.938Ewl3PejyuamDQRuZlL-wS9qEFE7fLBd6twYn0d6k[0;39m
 [2024-01-29 16:53:49 [33mWARN [0;39m http-nio-8081-exec-2] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public java.util.List<com.green.hoteldog.hotel.model.HotelRoomEaByDate> com.green.hoteldog.hotel.HotelController.whenYouChooseDatesAndDogs(int,java.time.LocalDate,java.time.LocalDate,java.util.List<java.lang.Integer>)][0;39m
+[2024-01-29 18:14:16 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.8.1 with PID 14460 (D:\Dog-Hoteling-service\target\classes started by Administrator in D:\Dog-Hoteling-service)[0;39m
+[2024-01-29 18:14:16 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-01-29 18:14:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-01-29 18:14:16 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-01-29 18:14:16 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:14:16 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:14:16 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:14:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:14:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:14:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:14:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8081 (http)[0;39m
+[2024-01-29 18:14:17 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:14:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-01-29 18:14:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-01-29 18:14:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-01-29 18:14:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1071 ms[0;39m
+[2024-01-29 18:14:18 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 6d0abb7e-6ce4-45a2-9bfc-cec26be44934
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-01-29 18:14:18 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cf1ff3a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@39e2b836, org.springframework.security.web.context.SecurityContextHolderFilter@3400f6fe, org.springframework.security.web.header.HeaderWriterFilter@7e78381a, org.springframework.web.filter.CorsFilter@11bfcef1, org.springframework.security.web.authentication.logout.LogoutFilter@42b69a56, com.green.hoteldog.security.JwtAuthenticationFilter@2a064916, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@57095ca9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66c30824, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5943b3d0, org.springframework.security.web.session.SessionManagementFilter@29efdffc, org.springframework.security.web.access.ExceptionTranslationFilter@3d03ddff, org.springframework.security.web.access.intercept.AuthorizationFilter@a25f260][0;39m
+[2024-01-29 18:14:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-01-29 18:14:18 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:14:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8081 (http) with context path ''[0;39m
+[2024-01-29 18:14:18 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 2.303 seconds (process running for 2.813)[0;39m
+[2024-01-29 18:14:23 [32mINFO [0;39m http-nio-8081-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-01-29 18:14:23 [32mINFO [0;39m http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-01-29 18:14:23 [32mINFO [0;39m http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-01-29 18:14:23 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTE0NzI3LCJleHAiOjE3MDY1MjE5Mjd9.938Ewl3PejyuamDQRuZlL-wS9qEFE7fLBd6twYn0d6k[0;39m
+[2024-01-29 18:14:23 [32mINFO [0;39m http-nio-8081-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-01-29 18:14:23 [32mINFO [0;39m http-nio-8081-exec-1] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection org.mariadb.jdbc.Connection@69faab06[0;39m
+[2024-01-29 18:14:23 [32mINFO [0;39m http-nio-8081-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-01-29 18:14:42 [32mINFO [0;39m http-nio-8081-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTE5NjYzLCJleHAiOjE3MDY1MjY4NjN9.-ok3rlfcLM1Bc_5Wa41XkildhwHQjJEJh0ZrRHd-NZk[0;39m
+[2024-01-29 18:14:42 [31mERROR[0;39m http-nio-8081-exec-3] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mException[0;39m
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/a': {public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int), public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto)}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:431)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:126)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:507)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1283)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2024-01-29 18:14:42 [33mWARN [0;39m http-nio-8081-exec-3] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/a': {public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int), public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto)}][0;39m
+[2024-01-29 18:14:50 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTE5NjYzLCJleHAiOjE3MDY1MjY4NjN9.-ok3rlfcLM1Bc_5Wa41XkildhwHQjJEJh0ZrRHd-NZk[0;39m
+[2024-01-29 18:14:50 [31mERROR[0;39m http-nio-8081-exec-2] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mException[0;39m
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/a': {public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int), public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto)}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:431)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:126)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:507)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1283)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2024-01-29 18:14:50 [33mWARN [0;39m http-nio-8081-exec-2] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/a': {public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int), public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto)}][0;39m
+[2024-01-29 18:15:18 [32mINFO [0;39m http-nio-8081-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTE5NjYzLCJleHAiOjE3MDY1MjY4NjN9.-ok3rlfcLM1Bc_5Wa41XkildhwHQjJEJh0ZrRHd-NZk[0;39m
+[2024-01-29 18:15:18 [31mERROR[0;39m http-nio-8081-exec-4] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mException[0;39m
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/a': {public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int), public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto)}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:431)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:126)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:507)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1283)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2024-01-29 18:15:18 [33mWARN [0;39m http-nio-8081-exec-4] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/a': {public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int), public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto)}][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTE5NjYzLCJleHAiOjE3MDY1MjY4NjN9.-ok3rlfcLM1Bc_5Wa41XkildhwHQjJEJh0ZrRHd-NZk[0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36mhotelPk : 19[0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36mstartDate : 2024-01-01[0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36mendDate : 2024-02-28[0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:16:04 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:19:20 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-01-29 18:19:20 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.8.1 with PID 3176 (D:\Dog-Hoteling-service\target\classes started by Administrator in D:\Dog-Hoteling-service)[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:26:12 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8081 (http)[0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1037 ms[0;39m
+[2024-01-29 18:26:13 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 602a2495-777e-4403-b2a0-75b65488073a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6657ad88, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@9703ff5, org.springframework.security.web.context.SecurityContextHolderFilter@8203226, org.springframework.security.web.header.HeaderWriterFilter@3400f6fe, org.springframework.web.filter.CorsFilter@4d69d038, org.springframework.security.web.authentication.logout.LogoutFilter@5a1d640a, com.green.hoteldog.security.JwtAuthenticationFilter@1bc7e255, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6bad7339, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32a84dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4340899f, org.springframework.security.web.session.SessionManagementFilter@57095ca9, org.springframework.security.web.access.ExceptionTranslationFilter@116ad89, org.springframework.security.web.access.intercept.AuthorizationFilter@11bfcef1][0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8081 (http) with context path ''[0;39m
+[2024-01-29 18:26:13 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 2.242 seconds (process running for 2.871)[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m Thread-5] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.8.1 with PID 3176 (D:\Dog-Hoteling-service\target\classes started by Administrator in D:\Dog-Hoteling-service)[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8081 (http)[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-01-29 18:26:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 314 ms[0;39m
+[2024-01-29 18:26:19 [33mWARN [0;39m restartedMain] [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] [36mException encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'hotelController' defined in file [D:\Dog-Hoteling-service\target\classes\com\green\hoteldog\hotel\HotelController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'com.green.hoteldog.hotel.HotelService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}[0;39m
+[2024-01-29 18:26:19 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStopping service [Tomcat][0;39m
+[2024-01-29 18:26:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger] [36m
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.[0;39m
+[2024-01-29 18:26:19 [31mERROR[0;39m restartedMain] [org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter] [36m
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.green.hoteldog.hotel.HotelController required a bean of type 'com.green.hoteldog.hotel.HotelService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.green.hoteldog.hotel.HotelService' in your configuration.
+[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.8.1 with PID 3176 (D:\Dog-Hoteling-service\target\classes started by Administrator in D:\Dog-Hoteling-service)[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8081 (http)[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-01-29 18:26:20 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 230 ms[0;39m
+[2024-01-29 18:26:21 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: df6a7de9-ec26-472f-a752-60dde8b92b03
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-01-29 18:26:21 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e03f829, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@707feec5, org.springframework.security.web.context.SecurityContextHolderFilter@110a10e0, org.springframework.security.web.header.HeaderWriterFilter@346b041d, org.springframework.web.filter.CorsFilter@77c7cb17, org.springframework.security.web.authentication.logout.LogoutFilter@46f5db9, com.green.hoteldog.security.JwtAuthenticationFilter@31376a3f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ace62b7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7669c61f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43f97102, org.springframework.security.web.session.SessionManagementFilter@93759d6, org.springframework.security.web.access.ExceptionTranslationFilter@2475e759, org.springframework.security.web.access.intercept.AuthorizationFilter@553c36c3][0;39m
+[2024-01-29 18:26:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-01-29 18:26:21 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:26:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8081 (http) with context path ''[0;39m
+[2024-01-29 18:26:21 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 0.463 seconds (process running for 10.061)[0;39m
+[2024-01-29 18:26:21 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-01-29 18:26:25 [32mINFO [0;39m http-nio-8081-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-01-29 18:26:25 [32mINFO [0;39m http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-01-29 18:26:25 [32mINFO [0;39m http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 0 ms[0;39m
+[2024-01-29 18:26:25 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTE5NjYzLCJleHAiOjE3MDY1MjY4NjN9.-ok3rlfcLM1Bc_5Wa41XkildhwHQjJEJh0ZrRHd-NZk[0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36mhotelPk : 19[0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36mstartDate : 2024-01-01[0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36mendDate : 2024-02-28[0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection org.mariadb.jdbc.Connection@67839980[0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:26 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.hotel.HotelService] [36meaList : [][0;39m
+[2024-01-29 18:26:38 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTE5NjYzLCJleHAiOjE3MDY1MjY4NjN9.-ok3rlfcLM1Bc_5Wa41XkildhwHQjJEJh0ZrRHd-NZk[0;39m
+[2024-01-29 18:26:38 [31mERROR[0;39m http-nio-8081-exec-5] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mException[0;39m
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/a': {public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto), public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int)}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:431)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:126)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:507)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1283)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2024-01-29 18:26:38 [33mWARN [0;39m http-nio-8081-exec-5] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/a': {public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto), public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int)}][0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-6] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-9] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-10] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:27:36 [32mINFO [0;39m http-nio-8081-exec-1] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 211 ms[0;39m
+[2024-01-29 18:27:43 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:28:12 [32mINFO [0;39m http-nio-8081-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:28:22 [32mINFO [0;39m http-nio-8081-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:28:31 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTIwNDkyLCJleHAiOjE3MDY1Mjc2OTJ9.Nnkmlf08U7kK89Vce7g64Tf1D4__qEH1HSXaOKYgwbQ[0;39m
+[2024-01-29 18:28:31 [31mERROR[0;39m http-nio-8081-exec-2] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mException[0;39m
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/%7Bhotel_pk%7D': {public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto), public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int)}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:431)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:126)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:507)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1283)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2024-01-29 18:28:31 [33mWARN [0;39m http-nio-8081-exec-2] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/%7Bhotel_pk%7D': {public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto), public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int)}][0;39m
+[2024-01-29 18:29:35 [32mINFO [0;39m http-nio-8081-exec-9] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTIwNDkyLCJleHAiOjE3MDY1Mjc2OTJ9.Nnkmlf08U7kK89Vce7g64Tf1D4__qEH1HSXaOKYgwbQ[0;39m
+[2024-01-29 18:29:35 [31mERROR[0;39m http-nio-8081-exec-9] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mException[0;39m
+java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/%7Bhotel_pk%7D': {public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto), public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int)}
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.lookupHandlerMethod(AbstractHandlerMethodMapping.java:431)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.getHandlerInternal(AbstractHandlerMethodMapping.java:382)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:126)
+	at org.springframework.web.servlet.mvc.method.RequestMappingInfoHandlerMapping.getHandlerInternal(RequestMappingInfoHandlerMapping.java:68)
+	at org.springframework.web.servlet.handler.AbstractHandlerMapping.getHandler(AbstractHandlerMapping.java:507)
+	at org.springframework.web.servlet.DispatcherServlet.getHandler(DispatcherServlet.java:1283)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1065)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2024-01-29 18:29:35 [33mWARN [0;39m http-nio-8081-exec-9] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [java.lang.IllegalStateException: Ambiguous handler methods mapped for '/api/hotel/%7Bhotel_pk%7D': {public com.green.hoteldog.hotel.model.HotelListSelAllVo com.green.hoteldog.hotel.HotelController.getHotelList(int,com.green.hoteldog.hotel.model.HotelListSelDto), public com.green.hoteldog.hotel.model.HotelInfoEntity com.green.hoteldog.hotel.HotelController.getHotelDetail(int)}][0;39m
+[2024-01-29 18:30:19 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-01-29 18:30:19 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-01-29 18:30:22 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.8.1 with PID 15176 (D:\Dog-Hoteling-service\target\classes started by Administrator in D:\Dog-Hoteling-service)[0;39m
+[2024-01-29 18:30:22 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-01-29 18:30:22 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-01-29 18:30:22 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 3 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8081 (http)[0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-01-29 18:30:23 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1050 ms[0;39m
+[2024-01-29 18:30:24 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 0d7d0f34-d01a-41fd-aa76-351d7c477159
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-01-29 18:30:24 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4340899f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18205792, org.springframework.security.web.context.SecurityContextHolderFilter@32a84dd, org.springframework.security.web.header.HeaderWriterFilter@66c30824, org.springframework.web.filter.CorsFilter@10274cf4, org.springframework.security.web.authentication.logout.LogoutFilter@68783243, com.green.hoteldog.security.JwtAuthenticationFilter@11920fd7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11048862, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@113015c0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@134ca6d8, org.springframework.security.web.session.SessionManagementFilter@8203226, org.springframework.security.web.access.ExceptionTranslationFilter@63c7cfbd, org.springframework.security.web.access.intercept.AuthorizationFilter@6657ad88][0;39m
+[2024-01-29 18:30:24 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-01-29 18:30:24 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8081"][0;39m
+[2024-01-29 18:30:24 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8081 (http) with context path ''[0;39m
+[2024-01-29 18:30:24 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 2.289 seconds (process running for 2.752)[0;39m
+[2024-01-29 18:30:24 [32mINFO [0;39m http-nio-8081-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-01-29 18:30:24 [32mINFO [0;39m http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-01-29 18:30:24 [32mINFO [0;39m http-nio-8081-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-01-29 18:30:24 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTIwNDkyLCJleHAiOjE3MDY1Mjc2OTJ9.Nnkmlf08U7kK89Vce7g64Tf1D4__qEH1HSXaOKYgwbQ[0;39m
+[2024-01-29 18:30:24 [33mWARN [0;39m http-nio-8081-exec-1] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'page' for method parameter type int is not present][0;39m
+[2024-01-29 18:30:38 [32mINFO [0;39m http-nio-8081-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:38 [32mINFO [0;39m http-nio-8081-exec-3] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-01-29 18:30:38 [32mINFO [0;39m http-nio-8081-exec-3] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection org.mariadb.jdbc.Connection@5d16633e[0;39m
+[2024-01-29 18:30:38 [32mINFO [0;39m http-nio-8081-exec-3] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-10] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-9] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-6] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:45 [32mINFO [0;39m http-nio-8081-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-01-29 18:30:46 [32mINFO [0;39m http-nio-8081-exec-1] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 212 ms[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6NzF9IiwiaWF0IjoxNzA2NTIwNjM5LCJleHAiOjE3MDY1Mjc4Mzl9.d9U3-gmubUCpINY1Zz-Z5BaknOHJNg78HauDtxNlfq8[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36muserPk : 71[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mhotelPk : 19[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-01[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-02[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-03[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-04[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-05[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-06[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-07[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-08[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-09[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-10[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-11[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-12[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-13[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-14[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-15[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-16[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-17[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-18[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-19[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-20[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-21[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-22[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-23[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-24[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-25[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-26[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-27[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-28[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-29[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-30[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-01-31[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-01[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-02[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-03[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-04[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-05[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-06[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-07[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-08[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-09[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-10[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-11[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-12[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-13[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-14[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-15[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-16[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-17[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-18[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-19[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-20[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-21[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-22[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-23[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-24[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-25[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-26[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-27[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-28[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mdate : 2024-02-29[0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=인법연구부, roomLeftEa=5), HotelRoomEa(hotelRoomNm=충남대, roomLeftEa=5), HotelRoomEa(hotelRoomNm=유스티나 성도회, roomLeftEa=3)][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mroomEas : [][0;39m
+[2024-01-29 18:31:03 [32mINFO [0;39m http-nio-8081-exec-2] [com.green.hoteldog.hotel.HotelService] [36mmyDogList : null[0;39m
+[2024-01-29 18:31:22 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-01-29 18:31:22 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m

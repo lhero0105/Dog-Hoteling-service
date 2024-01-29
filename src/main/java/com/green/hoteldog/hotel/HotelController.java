@@ -63,7 +63,7 @@ public class HotelController {
     //영웅
 
     //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
-    @GetMapping("/{hotel_pk}")
+    @GetMapping("/a/{hotel_pk}")
     public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
         HotelMainPageDto dto=new HotelMainPageDto();
         dto.setHotelPk(hotelPk);

@@ -258,7 +258,12 @@ public class HotelService {
             if(reviewThree.size()>0){
                 hotelInfoVo.setReviewList(reviewThree);
             }
+            List<HotelRoomInfoVo> roomInfoVos=mapper.getHotelRoomInfo(hotelPk);
+            hotelInfoVo.setRoomList(roomInfoVos);
+
+
             hotelInfoEntity.setHotelInfoVo(hotelInfoVo);
+
             List<LocalDate> twoMonthDate = getTwoMonth();
             //twoMonthDate : 두달동안 날짜 리스트(LocalDate 타입)
 
