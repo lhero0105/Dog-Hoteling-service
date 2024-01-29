@@ -57,30 +57,3 @@ file:
   dir: /home/download/
 server:
   port: 8080
-server:
-  port: 8081
-
----
-
-spring:
-  datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://192.168.0.144:3306/db_even_last_2?allowMultiQueries=true
-    username: even_last_2
-    password: cache
-  data:
-    redis:
-      host: 192.168.0.144
-      port: 6379
-  config:
-    activate:
-      on-profile: prod
-  servlet:
-    multipart:
-      max-file-size: 5MB
-      max-request-size: 15MB
-
-file:
-  dir: /home/download/
-server:
-  port: 8080

@@ -66,6 +66,7 @@ public class HotelController {
     public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
         HotelMainPageDto dto=new HotelMainPageDto();
         dto.setHotelPk(hotelPk);
+
         HotelInfoEntity mainPage=service.getHotelDetail(dto);
         return mainPage;
     }
