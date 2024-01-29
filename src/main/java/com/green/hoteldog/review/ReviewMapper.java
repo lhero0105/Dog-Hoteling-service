@@ -15,8 +15,7 @@ public interface ReviewMapper {
     int updReviewComment(ReviewPatchDto dto);
     int delReviewFav(ReviewFavDto dto);
     int insReviewFav(ReviewFavDto dto);
-    List<HotelReviewSelVo> selHotelReviewList(HotelReviewSelDto dto);
-    List<ReviewPicVo> selReviewPics(List<Integer> reviewPkList);
+    int delReview(DelReviewDto dto);
     //재웅
     List<HotelReviewSelVo> selHotelReview(HotelReviewSelDto dto);
     List<HotelReviewPicsSelVo> selHotelReviewPics(HotelReviewSelDto dto);

@@ -25,8 +25,10 @@ public interface HotelMapper {
     List<String> getHotelPics(int hotelPk);
     List<String> hotelOptionInfo(int hotelPk);
     List<MyDog> getMyDogs(int userPk);
+    List<HotelRoomInfoVo> getHotelRoomInfo(int hotelPk);
     int delHotelBookMark(UserHotelFavDto dto);
     int insHotelBookMark(UserHotelFavDto dto);
+    List<HotelBookMarkListVo> getHotelBookMark(int userPk);
     Integer isMoreHotelReview(int hotelPk);
     List<HotelRoomResInfoByMonth> getHotelRoomResInfo(int hotelPk, String startDate, String endDate);
     List<HotelRoomResInfoByMonth> getHotelFilterRoomResInfo(int hotelPk,String startDate, String endDate,int howMany,int large );
