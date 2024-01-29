@@ -15,6 +15,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.openkoreantext.processor.OpenKoreanTextProcessorJava;
 import org.openkoreantext.processor.tokenizer.KoreanTokenizer;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import scala.collection.Seq;
 
 import java.time.LocalDate;
@@ -31,6 +33,7 @@ public class HotelService {
     private final AppProperties appProperties;
     private final AuthenticationFacade authenticationFacade;
     private final MyFileUtils myFileUtils;
+
 
     //-----------------------------------------------호텔 광고 리스트 셀렉트------------------------------------------------
     public List<HotelListSelVo> getHotelAdvertiseList(HotelListSelDto dto){
@@ -457,4 +460,55 @@ public class HotelService {
         return monthDateList;
     }
     //승준
+
+    // 호텔 더미데이터 작성
+    @Transactional(rollbackFor = Exception.class)
+    public ResVo hotelRegistration(List<MultipartFile> pics, HotelInsDto dto){
+        dto.setUserPk(authenticationFacade.getLoginUserPk());
+        if(dto.getUserPk() == 0){
+            //예외처리
+            return new ResVo(0);
+        }
+        mapper.insHotel(dto);
+        if(pics != null){
+            List<String> hotelPics = new ArrayList<>();
+            String target = "/board/"+dto.getHotelPk();
+            for(MultipartFile file : pics){
+                String saveFileNm = myFileUtils.transferTo(file,target);
+                hotelPics.add(saveFileNm);
+            }
+            dto.setPics(hotelPics);
+            try {
+                mapper.insHotelPics(dto);
+                return new ResVo(1);
+            }catch (Exception e){
+                return new ResVo(0);
+            }
+        }
+        dto.getAddressDto().setHotelPk(dto.getHotelPk());
+        mapper.insHotelOption(dto);
+        mapper.insHotelWhere(dto.getAddressDto());
+        return new ResVo(1);
+    }
+    @Transactional(rollbackFor = Exception.class)
+    public ResVo insHotelRoom(MultipartFile hotelPic ,InsHotelRoomDto dto){
+        dto.setUserPk(authenticationFacade.getLoginUserPk());
+        if(dto.getUserPk() == 0){
+            return new ResVo(0);
+        }
+        if(hotelPic != null){
+            String target = "/board/"+dto.getHotelPk() + "/" + dto.getHotelRoomNm();
+            String saveFileNm = myFileUtils.transferTo(hotelPic,target);
+            dto.setRoomPic(saveFileNm);
+        }
+        mapper.insHotelRoomInfo(dto);
+        List<LocalDate> towMonth = getTwoMonth();
+        InsHotelRoomDateInfoDto dateInfoDto = new InsHotelRoomDateInfoDto();
+        dateInfoDto.setHotelRoomPk(dto.getHotelRoomPk());
+        dateInfoDto.setHotelLeftEa(dto.getHotelRoomEa());
+        dateInfoDto.setRoomDate(towMonth);
+        mapper.insHotelRoomInfoDate(dateInfoDto);
+        return new ResVo(1);
+
+    }
 }

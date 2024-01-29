@@ -521,4 +521,65 @@
         </set>
     </insert>
     <!--승준-->
+
+    <!--====================================================미구현 기능========================================================-->
+
+    <!--호텔더미 등록-->
+    <insert id="insHotel" keyProperty="hotelPk" useGeneratedKeys="true">
+        INSERT INTO t_hotel
+        SET user_pk = #{userPk}
+        ,hotel_nm = #{hotelNm}
+        ,hotel_detail_info = #{hotelDetailInfo}
+        ,business_num = #{businessNum}
+        ,hotel_call = #{hotelCall}
+        ,advertise = 0
+        ,discount_per = 0
+    </insert>
+    <insert id="insHotelWhere">
+        INSERT INTO t_hotel_where
+        SET hotel_pk = #{hotelPk}
+        ,address_name = #{addressName}
+        ,region_1depth_name = #{region1DepthName}
+        ,region_2depth_name = #{region2DepthName}
+        ,region_3depth_name = #{region3DepthName}
+        ,zone_num = #{zoneNum}
+        ,x_coordinate = #{x}
+        ,y_coordinate = #{y}
+        ,detail_address = #{detailAddress}
+    </insert>
+    <insert id="insHotelPics">
+        INSERT INTO t_hotel_pic
+        (hotel_pk , pic)
+        VALUES
+        <foreach collection="pics" item="pic" separator=",">
+            (#{hotelPk} , #{pic})
+        </foreach>
+    </insert>
+    <insert id="insHotelOption">
+        INSERT INTO t_hotel_option
+        (hotel_pk , option_pk)
+        VALUES
+        <foreach collection="hotelOption" item="optionPk" separator=",">
+            (#{hotelPk} , #{optionPk})
+        </foreach>
+    </insert>
+    <!--호텔 방 더미 생성-->
+    <insert id="insHotelRoomInfo" useGeneratedKeys="true" keyProperty="hotelRoomPk">
+        INSERT INTO t_hotel_room_info
+        SET hotel_pk = #{hotelPk}
+        ,size_pk = #{sizePk}
+        ,hotel_room_nm = #{hotelRoomNm}
+        ,hotel_room_ea = #{hotelRoomEa}
+        ,hotel_room_cost = #{hotelRoomCost}
+        ,maximum = #{maximum}
+        ,room_pic = #{roomPic}
+    </insert>
+    <insert id="insHotelRoomInfoDate">
+        INSERT INTO t_hotel_res_room
+        (hotel_room_pk , hotel_left_ea , room_date)
+        VALUES
+        <foreach collection="roomDate" item="date"  separator=",">
+            (#{hotelRoomPk} , #{hotelLeftEa} , #{date})
+        </foreach>
+    </insert>
 </mapper>

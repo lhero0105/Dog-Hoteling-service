@@ -25,6 +25,6 @@ public interface BoardMapper {
     int boardViewCount(int boardPk);
     List<CommentInfoVo> selBoardComment(GetBoardInfoDto dto);
     int updComment(PutCommentDto dto);
-    List<GetSimpleBoardVo> myPostingBoardList(int userPk);
-    List<GetUserCommentListVo> myPostingCommentList(int userPk);
+    List<GetSimpleBoardVo> myPostingBoardList(GetUserBoardListDto dto);
+    List<GetUserCommentListVo> myPostingCommentList(GetUserCommentListDto dto);
 }

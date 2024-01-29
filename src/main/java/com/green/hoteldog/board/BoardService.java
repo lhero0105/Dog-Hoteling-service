@@ -165,20 +165,23 @@ public class BoardService {
     //게시글 정보
 
     //로그인 유저가 작성한 게시글
-    public List<GetSimpleBoardVo> userPostingBoradList(){
-        if(facade.getLoginUserPk() == 0){
+    public List<GetSimpleBoardVo> userPostingBoradList(GetUserBoardListDto dto){
+        dto.setUserPk(facade.getLoginUserPk());
+        if(dto.getUserPk() == 0){
             //예외처리 로그인 하지 않은 유저는 좋아요 할 수 없음
         }
-        return mapper.myPostingBoardList(facade.getLoginUserPk());
+        return mapper.myPostingBoardList(dto);
     }
     //로그인 유저가 작성한 게시글
 
     //로그인 유저가 작성한 댓글
-    public List<GetUserCommentListVo> userPostingCommentList(){
-        if(facade.getLoginUserPk() == 0){
+    public List<GetUserCommentListVo> userPostingCommentList(GetUserCommentListDto dto){
+        dto.setUserPk(facade.getLoginUserPk());
+        if(dto.getUserPk() == 0){
             //예외처리 로그인 하지 않은 유저는 좋아요 할 수 없음
+            return null;
         }
-        return mapper.myPostingCommentList(facade.getLoginUserPk());
+        return mapper.myPostingCommentList(dto);
     }
     //로그인 유저가 작성한 댓글
 
