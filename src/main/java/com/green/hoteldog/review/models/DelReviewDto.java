@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Data
-public class ReviewPatchDto {
+public class DelReviewDto {
     @JsonIgnore
     private int userPk;
+    private int reviewPk;
     private int resPk;
-    private String comment;
 }

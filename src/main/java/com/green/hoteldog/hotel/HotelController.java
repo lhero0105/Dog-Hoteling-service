@@ -8,14 +8,16 @@ import com.green.hoteldog.hotel.model.*;
 import com.green.hoteldog.security.AuthenticationFacade;
 import com.green.hoteldog.user.models.UserHotelFavDto;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -64,27 +66,27 @@ public class HotelController {
     //영웅
 
     //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
-    @GetMapping("/{hotel_pk}")
+    @GetMapping("/a/{hotel_pk}")
     public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
         HotelMainPageDto dto=new HotelMainPageDto();
         dto.setHotelPk(hotelPk);
 
-        HotelInfoEntity mainPage=service.getHotelDetail(dto);
+        HotelInfoEntity mainPage=service.getHotelDetail(hotelPk);
         return mainPage;
     }
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
     @GetMapping("/{hotel_pk}/{start_date}/{end_date}")
     public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam("hotel_pk") int hotelPk,
-                                                      @RequestParam("start_date") String startDate,
-                                                      @RequestParam("end_date") String endDate){
+                                                      @RequestParam("start_date") LocalDate startDate,
+                                                      @RequestParam("end_date") LocalDate endDate){
 
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
     //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
     @GetMapping("/{hotel_pk}/{start_date}/{end_date}/with_dogs")
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam("hotel_pk") int hotelPk,
-                                                             @RequestParam("start_date") String startDate,
-                                                             @RequestParam("end_date") String endDate,
+                                                             @RequestParam("start_date") LocalDate startDate,
+                                                             @RequestParam("end_date") LocalDate endDate,
                                                              List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
@@ -100,16 +102,11 @@ public class HotelController {
         return service.toggleHotelBookMark(dto);
     }
     //승준
+    @GetMapping("/hotel/like")
+    public List<HotelBookMarkListVo> getHotelBookmarkList(){
+        int userPk=authenticationFacade.getLoginUserPk();
+        return service.getHotelBookmarkList(userPk);
+    }
 
-    //호텔 더미데이터 작성
-    @PostMapping
-    public ResVo hotelRegistration(@RequestPart(required = false) @Schema(hidden = true) List<MultipartFile> pics, @RequestBody HotelInsDto dto){
-        log.info("hotelDto : {}",dto);
-        return service.hotelRegistration(pics, dto);
-    }
-    @PostMapping("/room")
-    public ResVo hotelRoomRegistration (@RequestPart(required = false) @Schema(hidden = true) MultipartFile roomPic, @RequestBody InsHotelRoomDto dto){
-        return service.insHotelRoom(roomPic, dto);
-    }
 
 }

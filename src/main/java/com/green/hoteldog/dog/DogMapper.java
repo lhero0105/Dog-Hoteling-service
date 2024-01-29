@@ -10,6 +10,6 @@ public interface DogMapper {
     int insUserDog (InsUserDogDto dto);
     int updUserDog (UpdUserDogDto dto);
     int delUserDog (DelUserDogDto dto);
-    List<GetDogListVo> selUserDog (int userPk);
+    List<GetDogListVo> selUserDog (GetUserDogDto dto);
     int setUserDogPic(SetUserDogPicDto dto);
 }

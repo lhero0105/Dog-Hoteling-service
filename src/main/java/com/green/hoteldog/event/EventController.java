@@ -18,12 +18,7 @@ public class EventController {
     @GetMapping()
     public List<EventInfoVo> getEvent(){
         List<EventInfoVo> getHotelEvents;
-        try{
-            getHotelEvents=eventService.getEvent();
-            int eventsListSize=getHotelEvents.size();
-        }catch (Exception e){
-            return null;//Exception 후처리 요함.
-        }
+        getHotelEvents=eventService.getEvent();
         return getHotelEvents;
     }
     //승준

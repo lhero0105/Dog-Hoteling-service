@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 public class GetBoardListDto {
-    @Min(value = 1,message = "boardCategoryPk 값은 1 이상이어야 합니다.")
+    @Min(value = 0,message = "boardCategoryPk 값은 0 이상이어야 합니다.")
     private int boardCategoryPk;
     private int page;
     @JsonIgnore

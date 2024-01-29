@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class UpdUserDogDto {
+    @JsonIgnore
     private int userPk;
     private int userDogPk;
     private int sizePk;

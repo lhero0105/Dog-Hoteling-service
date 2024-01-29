@@ -12,13 +12,8 @@ import java.util.List;
 public class EventService {
     private final EventMapper eventMapper;
     public List<EventInfoVo> getEvent(){
-        List<EventInfoVo> getHotelEvents=null;
-        try{
-            getHotelEvents=eventMapper.getEvents();
-            int eventsListSize=getHotelEvents.size();
-        }catch (Exception e){
-            return null;//Exception 후처리 요함.
-        }
+        List<EventInfoVo> getHotelEvents=eventMapper.getEvents();
+        int eventsListSize=getHotelEvents.size();
         return getHotelEvents;
     }
     //승준

@@ -3,6 +3,7 @@ package com.green.hoteldog.user;
 import com.green.hoteldog.common.AppProperties;
 import com.green.hoteldog.common.CookieUtils;
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.AuthorizedErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.exceptions.UserErrorCode;
 import com.green.hoteldog.security.AuthenticationFacade;
@@ -79,7 +80,7 @@ public class UserService {
         List<UserEntity> userEntityList = mapper.selUserEntity();
         for(UserEntity entity : userEntityList){
             if(entity.getNickname().equals(nickname)){
-                return new ResVo(0);
+                throw new CustomException(UserErrorCode.ALREADY_USE_NICKNAME);
             }
         }
         return new ResVo(1);
@@ -91,14 +92,11 @@ public class UserService {
     public UserInfoVo getUserInfo (UserInfoDto dto){
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0){
-            //예외처리 로그인 안한 유저
+            throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
         UserEntity entity = mapper.userEntityByUserPk(dto.getUserPk());
-        if(entity == null){
-            //예외처리 없는 userPk
-        }
         if(!passwordEncoder.matches(dto.getUpw(), entity.getUpw())){
-            //예외처리 비밀번호 틀림
+            throw new CustomException(UserErrorCode.MISS_MATCH_PASSWORD);
         }
         UserInfoVo vo = new UserInfoVo();
         vo.setUserPk(entity.getUserPk());
@@ -111,7 +109,7 @@ public class UserService {
     public ResVo updUserInfo(UserUpdateDto dto){
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0){
-            //예외처리 로그인 정보 없음
+            throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
         try {
             mapper.updateUserInfo(dto);

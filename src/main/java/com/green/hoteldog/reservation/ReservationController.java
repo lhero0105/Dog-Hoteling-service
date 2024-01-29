@@ -1,10 +1,13 @@
 package com.green.hoteldog.reservation;
 
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.CommonErrorCode;
+import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.reservation.model.HotelReservationDelDto;
 import com.green.hoteldog.reservation.model.HotelReservationInsDto;
 import com.green.hoteldog.reservation.model.ResInfoDto;
 import com.green.hoteldog.reservation.model.ResInfoVo;
+import com.green.hoteldog.security.AuthenticationFacade;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +20,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class ReservationController {
     private final ReservationService service;
+    private final AuthenticationFacade authenticationFacade;
+    public void checkUser(){
+        if(authenticationFacade.getLoginUserPk()==0){
+            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+        }
+    }
 
     //영웅
     //---------------------------------------------------호텔 예약--------------------------------------------------------
@@ -35,7 +44,7 @@ public class ReservationController {
     //-------------------------------------------------예약내역 출력-------------------------------------------------------
     @GetMapping("/hotel/res")
     public List<ResInfoVo> getUserReservation(ResInfoDto dto){
-
+        checkUser();
         return service.getUserReservation(dto);
     }
     //승준

@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class GetSimpleBoardVo {
+public class GetUserCommentVo {
     private int maxPage;
-    private List<SimpleBoardVo> simpleBoardVoList;
+    private List<UserCommentVo> userCommentVoList;
 }
