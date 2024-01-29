@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -67,22 +68,22 @@ public class HotelController {
         HotelMainPageDto dto=new HotelMainPageDto();
         dto.setHotelPk(hotelPk);
 
-        HotelInfoEntity mainPage=service.getHotelDetail(dto);
+        HotelInfoEntity mainPage=service.getHotelDetail(hotelPk);
         return mainPage;
     }
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
     @GetMapping("/{hotel_pk}/{start_date}/{end_date}")
     public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam("hotel_pk") int hotelPk,
-                                                      @RequestParam("start_date") String startDate,
-                                                      @RequestParam("end_date") String endDate){
+                                                      @RequestParam("start_date") LocalDate startDate,
+                                                      @RequestParam("end_date") LocalDate endDate){
 
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
     //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
     @GetMapping("/{hotel_pk}/{start_date}/{end_date}/with_dogs")
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam("hotel_pk") int hotelPk,
-                                                             @RequestParam("start_date") String startDate,
-                                                             @RequestParam("end_date") String endDate,
+                                                             @RequestParam("start_date") LocalDate startDate,
+                                                             @RequestParam("end_date") LocalDate endDate,
                                                              List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
