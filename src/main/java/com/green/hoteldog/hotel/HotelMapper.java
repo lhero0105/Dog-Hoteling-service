@@ -31,4 +31,12 @@ public interface HotelMapper {
     List<HotelRoomResInfoByMonth> getHotelRoomResInfo(int hotelPk, String startDate, String endDate);
     List<HotelRoomResInfoByMonth> getHotelFilterRoomResInfo(int hotelPk,String startDate, String endDate,int howMany,int large );
     //승준
+
+    int insHotel(HotelInsDto dto);
+    int insHotelWhere(HotelAddressDto dto);
+    int insHotelPics(HotelInsDto dto);
+    int insHotelOption(HotelInsDto dto);
+
+    int insHotelRoomInfo(InsHotelRoomDto dto);
+    int insHotelRoomInfoDate(InsHotelRoomDateInfoDto dto);
 }

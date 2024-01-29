@@ -148,6 +148,7 @@
         JOIN t_board_category F
         ON A.board_category_pk = F.board_category_pk
         WHERE A.user_pk = #{userPk}
+        LIMIT #{startIdx} , #{rowCount}
     </select>
     <select id="myPostingCommentList">
         SELECT B.board_pk AS boardPk
@@ -167,5 +168,6 @@
         JOIN t_board_category D
         ON B.board_category_pk = D.board_category_pk
         WHERE A.user_pk = #{userPk}
+        LIMIT #{startIdx} , #{rowCount}
     </select>
 </mapper>
