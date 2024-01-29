@@ -53,7 +53,7 @@ public class HotelServiceTest {
         when(hotelMapper.getHotelPics(dto.getHotelPk())).thenReturn(Arrays.asList("pic1", "pic2"));
         when(hotelMapper.hotelOptionInfo(dto.getHotelPk())).thenReturn(Arrays.asList("option1", "option2"));
 
-        HotelInfoEntity result = hotelService.getHotelDetail(dto);
+        HotelInfoEntity result = hotelService.getHotelDetail(dto.getHotelPk());
 
         assertThat(hotelInfoVo, is(equalTo(result.getHotelInfoVo())));
         assertThat(Arrays.asList("pic1", "pic2"),
@@ -64,14 +64,13 @@ public class HotelServiceTest {
         when(hotelMapper.isMoreHotelReview(dto.getHotelPk())).thenReturn(4);
         when(hotelMapper.getMyDogs(dto.getUserPk())).thenReturn(Arrays.asList(new MyDog(), new MyDog(), new MyDog()));
 
-        HotelInfoEntity iThink = hotelService.getHotelDetail(dto);
+        HotelInfoEntity iThink = hotelService.getHotelDetail(dto.getHotelPk());
         assertThat(3, is(equalTo(result.getHotelInfoVo().getReviewList().size())));
         assertThat(1, is(equalTo(result.getHotelInfoVo().getIsMoreReview())));
         assertThat(3, is(equalTo(result.getMyDogList().size())));
 
-        HotelRoomAbleListDto ableListDto = HotelRoomAbleListDto.builder()
-                .hotelPk(1)
-                .build();
+        HotelRoomAbleListDto ableListDto = new HotelRoomAbleListDto();
+        ableListDto.setHotelPk(1);
 
         List<LocalDate> twoMonthDate = Arrays.asList(LocalDate.now(), LocalDate.now().plusDays(1), LocalDate.now().plusDays(2));
         when(hotelService.getTwoMonth()).thenReturn(twoMonthDate);

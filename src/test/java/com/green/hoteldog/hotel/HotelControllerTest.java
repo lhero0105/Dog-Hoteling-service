@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +29,7 @@ public class HotelControllerTest {
         dto.setHotelPk(1);
         dto.setUserPk(1);
         HotelInfoEntity expectEntity=new HotelInfoEntity();
-        when(hotelService.getHotelDetail(dto)).thenReturn(expectEntity);
+        when(hotelService.getHotelDetail(dto.getHotelPk())).thenReturn(expectEntity);
 
         HotelInfoEntity resultEntity=hotelController.getHotelDetail(1);
         assertThat(resultEntity,is(equalTo(expectEntity)));
@@ -37,8 +38,8 @@ public class HotelControllerTest {
     public void testHotelDetail(){
         List<Integer> dogs= Arrays.asList(1,2,3,4);
         int hotelPk=1;
-        String startDate="2023-01-01";
-        String endDate="2023-02-25";
+        LocalDate startDate=LocalDate.now();
+        LocalDate endDate=LocalDate.now().plusDays(31);
 
         List<HotelRoomEaByDate> expectList=Arrays.asList(new HotelRoomEaByDate(),new HotelRoomEaByDate());
         when(hotelService.whenYouChooseDatesAndDogs(hotelPk,startDate,endDate,dogs)).thenReturn(expectList);

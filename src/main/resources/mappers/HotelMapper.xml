@@ -436,8 +436,8 @@
         JOIN t_hotel_res_room B
         ON A.hotel_room_pk=B.hotel_room_pk
         WHERE A.hotel_pk=#{hotelPk} AND A.book_able=1
-        AND (B.room_date >= #{startDate} AND B.room_date &lt;= #{endDate})
-        AND (A.size_pk >=#{howMany}) AND (A.maximum >=large)
+        AND (DATE(B.room_date) >= DATE(#{startDate}) AND DATE(B.room_date) <![CDATA[<=]]> DATE(#{endDate}))
+        AND (A.size_pk >=#{howMany}) AND (A.maximum >=#{large})
     </select>
     <select id="getHotelRoomResInfo">
         SELECT A.hotel_room_nm AS hotelRoomNm
@@ -446,7 +446,7 @@
         LEFT JOIN t_hotel_res_room B
         ON A.hotel_room_pk=B.hotel_room_pk
         WHERE A.hotel_pk=#{hotelPk} AND A.book_able=1
-        AND B.room_date >= #{startDate} AND B.room_date &lt;= #{endDate}
+        AND DATE(B.room_date) >= DATE(#{startDate}) AND DATE(B.room_date) <![CDATA[<=]]> DATE(#{endDate})
     </select>
     <select id="getHotelReviewThree">
         SELECT B.hotel_pk AS hotelPk,C.user_pk AS userPk,C.nickname AS nickName
@@ -464,7 +464,7 @@
         LIMIT 3
     </select>
     <select id="getHotelDetail">
-        SELECT A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo ,A.maximum
+        SELECT A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo
         ,	A.buisiness_num AS buisinessNum, A.hotel_call AS hotelCall
         ,  C.address_name AS roadAddress,C.detail_address AS addressDetail
         FROM t_hotel A

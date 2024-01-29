@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Slf4j
@@ -71,27 +72,27 @@ public class HotelController {
         log.info("hotelPk : {]",hotelPk);
         System.out.println();
         log.info("HotelMainPageDto : {}",dto);
-        HotelInfoEntity mainPage=service.getHotelDetail(dto);
+        HotelInfoEntity mainPage=service.getHotelDetail(hotelPk);
         return mainPage;
     }
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
     @GetMapping("/{hotel_pk}/{start_date}/{end_date}")
     public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam("hotel_pk") int hotelPk,
-                                                      @RequestParam("start_date") String startDate,
-                                                      @RequestParam("end_date") String endDate){
-        log.info("hotelPk : {]",hotelPk);
+                                                      @RequestParam("start_date") LocalDate startDate,
+                                                      @RequestParam("end_date") LocalDate endDate){
+        log.info("hotelPk : {}",hotelPk);
         log.info("startDate : {}",startDate);
         log.info("endDate : {}",endDate);
 
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
     //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
-    @GetMapping("/{hotel_pk}/{start_date}/{end_date}/with_dogs")
+    @GetMapping("/{hotel_pk}/{start_date}/{end_date}/dog")
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam("hotel_pk") int hotelPk,
-                                                             @RequestParam("start_date") String startDate,
-                                                             @RequestParam("end_date") String endDate,
-                                                             List<Integer> dogs){
-        log.info("hotelPk : {]",hotelPk);
+                                                             @RequestParam("start_date") LocalDate startDate,
+                                                             @RequestParam("end_date") LocalDate endDate,
+                                                              List<Integer> dogs){
+        log.info("hotelPk : {}",hotelPk);
         log.info("startDate : {}",startDate);
         log.info("endDate : {}",endDate);
         log.info("List<Integer> dogs : {}",dogs);
@@ -120,11 +121,11 @@ public class HotelController {
     @PostMapping
     public ResVo hotelRegistration(@RequestPart(required = false) @Schema(hidden = true) List<MultipartFile> pics, @RequestBody HotelInsDto dto){
         log.info("hotelDto : {}",dto);
-        return service.hotelRegistration(pics, dto);
+        return service.hotelRegistration(pics,dto);
     }
     @PostMapping("/room")
     public ResVo hotelRoomRegistration (@RequestPart(required = false) @Schema(hidden = true) MultipartFile roomPic, @RequestBody InsHotelRoomDto dto){
-        return service.insHotelRoom(roomPic, dto);
+        return service.insHotelRoom(roomPic,dto);
     }
 
 }

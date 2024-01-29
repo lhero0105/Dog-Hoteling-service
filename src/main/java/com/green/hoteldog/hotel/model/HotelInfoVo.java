@@ -23,10 +23,6 @@ public class HotelInfoVo {
     private String hotelDetailInfo;
 
     @NotNull
-    @Schema(name = "멍멍이 최대 수용가능 마릿수")
-    private int maximum;
-
-    @NotNull
     @JsonProperty(value = "buisiness_num")
     @Schema(name = "사장님의 비밀스런 사업자번호")
     private String buisinessNum;
