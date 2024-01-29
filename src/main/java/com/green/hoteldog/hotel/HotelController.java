@@ -62,11 +62,13 @@ public class HotelController {
     //영웅
 
     //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
-    @GetMapping("/{hotel_pk}")
+    @GetMapping("/a")
     public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
         HotelMainPageDto dto=new HotelMainPageDto();
         dto.setHotelPk(hotelPk);
-
+        log.info("hotelPk : {]",hotelPk);
+        System.out.println();
+        log.info("HotelMainPageDto : {}",dto);
         HotelInfoEntity mainPage=service.getHotelDetail(dto);
         return mainPage;
     }
@@ -75,6 +77,9 @@ public class HotelController {
     public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam("hotel_pk") int hotelPk,
                                                       @RequestParam("start_date") String startDate,
                                                       @RequestParam("end_date") String endDate){
+        log.info("hotelPk : {]",hotelPk);
+        log.info("startDate : {}",startDate);
+        log.info("endDate : {}",endDate);
 
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
@@ -84,6 +89,11 @@ public class HotelController {
                                                              @RequestParam("start_date") String startDate,
                                                              @RequestParam("end_date") String endDate,
                                                              List<Integer> dogs){
+        log.info("hotelPk : {]",hotelPk);
+        log.info("startDate : {}",startDate);
+        log.info("endDate : {}",endDate);
+        log.info("List<Integer> dogs : {}",dogs);
+
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
 
@@ -94,7 +104,12 @@ public class HotelController {
             @ApiResponse(responseCode = "200", description = "좋아요 처리: result(1), 좋아요 취소: result(2)")
     })
     public ResVo toggleHotelBookMark(UserHotelFavDto dto){
-        checkUser();
+        dto.setUserPk(authenticationFacade.getLoginUserPk());
+        if(dto.getUserPk()==0){
+            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+        }
+        log.info("hotelPk : {}",dto.getHotelPk());
+        log.info("userPk : {}",dto.getUserPk());
         return service.toggleHotelBookMark(dto);
     }
     //승준

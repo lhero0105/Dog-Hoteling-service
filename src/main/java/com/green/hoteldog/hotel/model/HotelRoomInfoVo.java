@@ -26,7 +26,6 @@ public class HotelRoomInfoVo {
 
     private String pic;
 
-    @NotNull
     private int maximum;
 
 }

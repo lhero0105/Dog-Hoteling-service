@@ -2,6 +2,8 @@ package com.green.hoteldog.reservation;
 
 import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.CommonErrorCode;
+import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.reservation.model.*;
 import com.green.hoteldog.security.AuthenticationFacade;
 import lombok.RequiredArgsConstructor;
@@ -131,6 +133,9 @@ public class ReservationService {
     //--------------------------------------------------예약 정보---------------------------------------------------------
     public List<ResInfoVo> getUserReservation(ResInfoDto dto){
         dto.setUserPk(authenticationFacade.getLoginUserPk());
+        if(dto.getUserPk()==0){
+            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+        }
         //예약정보
         List<ResInfoVo> resInfoVos = mapper.getUserReservation(dto);
         List<Integer> resPkList = resInfoVos
