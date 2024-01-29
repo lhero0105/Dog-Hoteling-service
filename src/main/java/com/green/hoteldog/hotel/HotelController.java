@@ -2,6 +2,8 @@ package com.green.hoteldog.hotel;
 
 import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.CommonErrorCode;
+import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.hotel.model.*;
 import com.green.hoteldog.security.AuthenticationFacade;
 import com.green.hoteldog.user.models.UserHotelFavDto;
@@ -20,9 +22,11 @@ import java.util.List;
 @RequestMapping("/api/hotel")
 public class HotelController {
     private final HotelService service;
-
-    public void checkHotelPk(int hotelPk){
-
+    private final AuthenticationFacade authenticationFacade;
+    public void checkUser(){
+        if(authenticationFacade.getLoginUserPk()==0){
+            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+        }
     }
     // 0-1 광고+호텔 리스트 api/hotel/{page}
     // 0-2 광고 리스트 api/hotel/ad
@@ -89,6 +93,7 @@ public class HotelController {
             @ApiResponse(responseCode = "200", description = "좋아요 처리: result(1), 좋아요 취소: result(2)")
     })
     public ResVo toggleHotelBookMark(UserHotelFavDto dto){
+        checkUser();
         return service.toggleHotelBookMark(dto);
     }
     //승준
