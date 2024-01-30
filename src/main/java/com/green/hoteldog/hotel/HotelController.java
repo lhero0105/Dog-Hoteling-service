@@ -27,7 +27,7 @@ public class HotelController {
     private final AuthenticationFacade authenticationFacade;
     public void checkUser(){
         if(authenticationFacade.getLoginUserPk()==0){
-            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+            throw new CustomException(CommonErrorCode.UNAUTHORIZED);
         }
     }
     // 0-1 광고+호텔 리스트 api/hotel/{page}
@@ -61,8 +61,6 @@ public class HotelController {
         dto.setPage(page);
         return service.getHotelList(dto);
     }
-    //영웅
-
     //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
     @GetMapping()
     public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
@@ -95,15 +93,17 @@ public class HotelController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "좋아요 처리: result(1), 좋아요 취소: result(2)")
     })
-    public ResVo toggleHotelBookMark(UserHotelFavDto dto){
+    public ResVo toggleHotelBookMark(int hotelPk){
         checkUser();
-        return service.toggleHotelBookMark(dto);
-    }
-    //승준
-    @GetMapping("/like")
-    public List<HotelBookMarkListVo> getHotelBookmarkList(){
         int userPk=authenticationFacade.getLoginUserPk();
-        return service.getHotelBookmarkList(userPk);
+        return service.toggleHotelBookMark(hotelPk,userPk);
+    }
+    //-----------------------------------------------------호텔 북마크 리스트----------------------------------------------
+    @GetMapping("/like")
+    public List<HotelBookMarkListVo> getHotelBookmarkList(int page){
+        checkUser();
+        int userPk=authenticationFacade.getLoginUserPk();
+        return service.getHotelBookmarkList(userPk,page);
     }
 
 }

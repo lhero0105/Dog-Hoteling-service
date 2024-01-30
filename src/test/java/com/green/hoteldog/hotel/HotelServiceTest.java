@@ -33,11 +33,11 @@ public class HotelServiceTest {
         dto.setUserPk(1);
 
         when(authenticationFacade.getLoginUserPk()).thenReturn(1);
-        when(hotelMapper.delHotelBookMark(dto)).thenReturn(1);
-        ResVo result=hotelService.toggleHotelBookMark(dto);
+        when(hotelMapper.delHotelBookMark(1,2)).thenReturn(1);
+        ResVo result=hotelService.toggleHotelBookMark(1,2);
 
         assertThat(new ResVo(1),is(equalTo(result)));
-        ResVo result2=hotelService.toggleHotelBookMark(dto);
+        ResVo result2=hotelService.toggleHotelBookMark(1,2);
         assertThat(new ResVo(1),is(equalTo(result2)));
     }
 

@@ -16,5 +16,4 @@ public class EventService {
         int eventsListSize=getHotelEvents.size();
         return getHotelEvents;
     }
-    //승준
 }

@@ -8,4 +8,4 @@ public class EventInfoVo {
     private String pic;
     private String url;
 }
-//승준
+

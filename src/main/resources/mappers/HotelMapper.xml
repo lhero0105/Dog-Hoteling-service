@@ -465,7 +465,7 @@
     </select>
     <select id="getHotelDetail">
         SELECT A.hotel_nm AS hotelNm, A.hotel_detail_info AS hotelDetailInfo
-        ,	A.buisiness_num AS buisinessNum, A.hotel_call AS hotelCall
+        ,	A.business_num AS businessNum, A.hotel_call AS hotelCall
         ,  C.address_name AS roadAddress,C.detail_address AS addressDetail
         FROM t_hotel A
         LEFT JOIN t_hotel_where C
@@ -538,6 +538,7 @@
         JOIN t_hotel_pic D
         ON A.hotel_pk=D.hotel_pk
         WHERE B.user_pk=#{userPk}
+        LIMIT #{fromPage}, #{endPage}
     </select>
     <!--승준-->
 

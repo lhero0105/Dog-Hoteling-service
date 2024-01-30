@@ -56,9 +56,7 @@ public class DogService {
         }
         return new ResVo(1);
 
-
     }
-
     //유저 강아지 삭제
     public ResVo delUserDog(DelUserDogDto dto){
         dto.setUserPk(facade.getLoginUserPk());

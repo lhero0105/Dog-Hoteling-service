@@ -60,9 +60,9 @@ public class HotelControllerTest {
         dto.setHotelPk(1);
         dto.setUserPk(1);
         ResVo expectedResult = new ResVo(1);
-        when(hotelService.toggleHotelBookMark(dto)).thenReturn(expectedResult);
+        when(hotelService.toggleHotelBookMark(1,2)).thenReturn(expectedResult);
 
-        ResVo result = hotelController.toggleHotelBookMark(dto);
+        ResVo result = hotelController.toggleHotelBookMark(1);
         assertThat(result,is(equalTo(expectedResult)));
     }
 }

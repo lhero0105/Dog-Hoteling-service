@@ -127,5 +127,5 @@ public class ReviewService {
         }
         return list;
     }
-    //영웅
+
 }

@@ -1,10 +1,11 @@
 package com.green.hoteldog.review.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-//영웅
 @Data
 public class HotelReviewPicsSelVo {
+    @JsonProperty(value = "review_pk")
     private int reviewPk;
     private String pic;
 }

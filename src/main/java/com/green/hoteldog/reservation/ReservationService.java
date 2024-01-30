@@ -128,16 +128,11 @@ public class ReservationService {
         }
         return new ResVo(Const.SUCCESS);
     }
-    //영웅
-
     //--------------------------------------------------예약 정보---------------------------------------------------------
-    public List<ResInfoVo> getUserReservation(ResInfoDto dto){
-        dto.setUserPk(authenticationFacade.getLoginUserPk());
-        if(dto.getUserPk()==0){
-            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
-        }
-        //예약정보
-        List<ResInfoVo> resInfoVos = mapper.getUserReservation(dto);
+    public List<ResInfoVo> getUserReservation(int userPk,int page){
+        int fromPage=(page-1)*Const.RES_LIST_COUNT_PER_PAGE;
+        int toPage=page*Const.RES_LIST_COUNT_PER_PAGE;
+        List<ResInfoVo> resInfoVos = mapper.getUserReservation(userPk,fromPage,toPage);
         List<Integer> resPkList = resInfoVos
                 .stream()
                 .map(ResInfoVo::getResPk)
@@ -151,8 +146,6 @@ public class ReservationService {
                     .collect(Collectors.toList());
             resInfoVo.setResDogInfoVoList(resDogInfoVoList);
         });
-
         return resInfoVos;
     }
-    //승준
 }
