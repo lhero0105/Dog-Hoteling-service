@@ -122,13 +122,13 @@ public class UserService {
     }
     public RefreshTokenVo getRefreshToken(HttpServletRequest request){
         RefreshTokenVo vo = new RefreshTokenVo();
-        Cookie userCoookie = cookie.getCookie(request,"rt");
-        if(userCoookie == null){
-            //예외처리 다시 로그인
+        Cookie userCookie = cookie.getCookie(request,"rt");
+        if(userCookie == null){
+            throw new CustomException(AuthorizedErrorCode.NOT_EXISTS_REFRESH_TOKEN);
         }
-        String token = userCoookie.getValue();
+        String token = userCookie.getValue();
         if(!tokenProvider.isValidateToken(token)){
-            //예외처리 토큰 기간 만료 , 다시 로그인
+            throw new CustomException(AuthorizedErrorCode.REFRESH_TOKEN_IS_EXPIRATION);
         }
         MyUserDtails myUserDtails = (MyUserDtails)tokenProvider.getUserDetailsFromToken(token);
         Myprincipal myprincipal = myUserDtails.getMyprincipal();

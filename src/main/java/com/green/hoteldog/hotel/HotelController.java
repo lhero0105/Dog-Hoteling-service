@@ -8,12 +8,14 @@ import com.green.hoteldog.hotel.model.*;
 import com.green.hoteldog.security.AuthenticationFacade;
 import com.green.hoteldog.user.models.UserHotelFavDto;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -105,5 +107,25 @@ public class HotelController {
         int userPk=authenticationFacade.getLoginUserPk();
         return service.getHotelBookmarkList(userPk);
     }
+
+    //호텔 더미데이터 작성
+    @PostMapping
+    public ResVo hotelRegistration(@RequestPart(required = false) @Schema(hidden = true) List<MultipartFile> pics, @RequestBody HotelInsDto dto){
+        log.info("hotelDto : {}",dto);
+        return service.hotelRegistration(pics, dto);
+    }
+    //호텔 사진 수정
+    @PutMapping("/pic")
+    public ResVo putHotelPic(@RequestPart @Schema(hidden = true)List<MultipartFile> pics,@RequestPart HotelPutPicDto dto){
+        dto.setPics(pics);
+        return null;
+    }
+    //호텔 방 등록
+    @PostMapping("/room")
+    public ResVo hotelRoomRegistration (@RequestPart(required = false) @Schema(hidden = true) MultipartFile roomPic, @RequestBody InsHotelRoomDto dto){
+        return service.insHotelRoom(roomPic, dto);
+    }
+
+
 
 }

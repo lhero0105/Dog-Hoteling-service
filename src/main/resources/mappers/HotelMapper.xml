@@ -559,6 +559,7 @@
         ,advertise = 0
         ,discount_per = 0
     </insert>
+    <!--호텔 주소등록-->
     <insert id="insHotelWhere">
         INSERT INTO t_hotel_where
         SET hotel_pk = #{hotelPk}
@@ -571,6 +572,7 @@
         ,y_coordinate = #{y}
         ,detail_address = #{detailAddress}
     </insert>
+    <!--호텔 사진 등록-->
     <insert id="insHotelPics">
         INSERT INTO t_hotel_pic
         (hotel_pk , pic)
@@ -579,6 +581,12 @@
             (#{hotelPk} , #{pic})
         </foreach>
     </insert>
+    <!--호텔 사진 삭제-->
+    <delete id="delHotelPic">
+        DELETE t_hotel_pic
+        WHERE hotel_pk = #{hotelPk} AND user_pk = #{userPk}
+    </delete>
+    <!--호텔 옵션 등록-->
     <insert id="insHotelOption">
         INSERT INTO t_hotel_option
         (hotel_pk , option_pk)
@@ -598,6 +606,13 @@
         ,maximum = #{maximum}
         ,room_pic = #{roomPic}
     </insert>
+    <!--호텔 방 사진 수정-->
+    <update id="patchRoomPic">
+        UPDATE t_hotel_room_info
+        SET room_pic = #{roomPic}
+        WHERE hotel_pk = #{hotelPk} AND hotel_room_pk
+    </update>
+    <!--호텔 방 날짜 정보 입력-->
     <insert id="insHotelRoomInfoDate">
         INSERT INTO t_hotel_res_room
         (hotel_room_pk , hotel_left_ea , room_date)
