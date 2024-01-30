@@ -106,5 +106,4 @@ public class HotelController {
         return service.getHotelBookmarkList(userPk);
     }
 
-
 }
