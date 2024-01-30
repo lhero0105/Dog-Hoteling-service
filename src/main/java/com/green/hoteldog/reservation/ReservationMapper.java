@@ -9,8 +9,8 @@ import java.util.List;
 public interface ReservationMapper {
     //-------------------------------------------------호텔 예약----------------------------------------------------------
     int insHotelReservation(HotelReservationInsDto dto);
-    int insHotelReservationDogInfo(HotelReservationInsDto dto);
-    int insHotelReservationInfo(List<HotelReservationInsDto> dto);
+    int insHotelReservationDogInfo(DogInfo info);
+    int insHotelReservationInfo(HotelReservationInsDto dto);
     int updRemainedHotelRoom(List<HotelReservationUpdProcDto> dto);
     //-------------------------------------------------예약 취소----------------------------------------------------------
     List<HotelReservationSelProcVo> selHotelReservation(HotelReservationDelDto dto);

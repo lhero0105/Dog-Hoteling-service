@@ -6,23 +6,22 @@
     <!--호텔 예약-->
     <insert id="insHotelReservation" useGeneratedKeys="true" keyProperty="resPk">
         INSERT INTO t_reservation
-        (user_pk, hotel_pk, from_date, to_date, dog_ea, res_status)
+        (user_pk, hotel_pk, from_date, to_date, res_status)
         VALUES (
         #{userPk}
         , #{hotelPk}
         , #{fromDate}
         , #{toDate}
-        , #{dogEa}
         , 1
         )
         <!--0. 잔행 중, 1. 승인, 2. 퇴실-->
     </insert>
 
-    <insert id="insHotelReservationDogInfo" useGeneratedKeys="true" keyProperty="resPk">
+    <insert id="insHotelReservationDogInfo" useGeneratedKeys="true" keyProperty="resDogPk">
         INSERT INTO t_res_dog_info
         SET size_pk = #{sizePk}
         , dog_nm = #{dogNm}
-        , dog_age = #{dogAge}
+        , age = #{dogAge}
         , information = #{information}
     </insert>
 
@@ -30,7 +29,7 @@
         INSERT INTO t_res_comprehensive_info
         (res_pk, hotel_room_pk, res_dog_pk)
         VALUES
-        <foreach collection="list" item="item" separator=",">
+        <foreach collection="dogInfo" item="item" separator=",">
             (#{resPk}, #{item.hotelRoomPk}, #{item.resDogPk})
         </foreach>
     </insert>
@@ -90,24 +89,24 @@
     <delete id="delHotelReservationDogInfo">
         DELETE FROM t_res_dog_info
         WHERE res_dog_pk in
-        <foreach collection="list" item="resDogPkList" separator="," open="(" close=")">
-            #{resDogPkList}
+        <foreach collection="resDogPkList" item="item" separator="," open="(" close=")">
+            #{item}
         </foreach>
     </delete>
 
     <delete id="delHotelReservation">
         DELETE FROM t_reservation
         WHERE user_pk = #{userPk}
-        AND hotel_pk = #{hotelPk}
+        AND res_pk = #{resPk}
     </delete>
 
     <update id="updRemainedHotelRoom2">
-        <foreach collection="list" item="hotelRoomPk">
+        <foreach collection="hotelRoomPk" item="item">
             UPDATE t_hotel_room_info_date
             SET room_left_ea = room_left_ea - 1
             WHERE
-            <foreach collection="list" item="date" open="(" close=")" separator="OR">
-                (room_date = #{date} AND hotel_room_pk = #{hotelRoomPk})
+            <foreach collection="date" item="item2" open="(" close=")" separator="OR">
+                (room_date = #{item2} AND hotel_room_pk = #{item})
             </foreach>
         </foreach>
     </update>

@@ -13,13 +13,11 @@ import java.util.List;
 @Setter
 public class HotelReviewSelVo {
     private String nickName;
-    private String userPic;
+    //private String userPic; // 유저사진 기획변경
     private int reviewPk;
     private String comment;
     private int score;
     private String createdAt;
     private int favCount;
     private List<String> pics = new ArrayList<>(); // 사진
-
-
 }

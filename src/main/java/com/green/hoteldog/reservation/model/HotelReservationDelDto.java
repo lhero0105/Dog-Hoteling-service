@@ -12,18 +12,9 @@ import java.util.List;
 //영웅
 @Data
 public class HotelReservationDelDto {
-    @Size(min = 1)
-    @JsonIgnore
-    @JsonProperty(value = "user_pk")
-    private int userPk;
-    @JsonIgnore
     private int resPk;
-    @Size(min = 1)
-    @JsonProperty(value = "hotel_pk")
-    private int hotelPk;
-    /*@Size(min = 1)
-    @JsonProperty(value = "hotel_room_pk")
-    private int hotelRoomPk;*/
+    @JsonIgnore
+    private int userPk;
     @JsonIgnore
     private List<Integer> resDogPkList = new ArrayList<>();
     @JsonIgnore

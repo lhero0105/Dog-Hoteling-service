@@ -65,10 +65,11 @@ public class ReviewController {
         return service.delReview(dto);
     }
     //-------------------------------------------상세페이지 리뷰 페이지네이션-------------------------------------------------
-    @GetMapping("/{hotel_pk}/review/{page}")
-    public List<HotelReviewSelVo> getHotelReview(@RequestParam("hotel_pk") int hotelPk, @RequestParam int page) {
+    @GetMapping("/{hotel_pk}/review/{page}/{row_count}")
+    public List<HotelReviewSelVo> getHotelReview(@RequestParam ("hotel_pk") int hotelPk, @RequestParam int page
+            , @RequestParam ("row_count") int rowCount){
         HotelReviewSelDto dto = new HotelReviewSelDto();
-        dto.setRowCount(3);
+        dto.setRowCount(rowCount);
         dto.setHotelPk(hotelPk);
         dto.setPage(page);
         return service.getHotelReview(dto);
