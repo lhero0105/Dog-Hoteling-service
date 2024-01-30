@@ -8,8 +8,10 @@ import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.exceptions.UserErrorCode;
 import com.green.hoteldog.security.AuthenticationFacade;
 import com.green.hoteldog.security.JwtTokenProvider;
+import com.green.hoteldog.security.MyUserDtails;
 import com.green.hoteldog.security.Myprincipal;
 import com.green.hoteldog.user.models.*;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -80,7 +82,7 @@ public class UserService {
         List<UserEntity> userEntityList = mapper.selUserEntity();
         for(UserEntity entity : userEntityList){
             if(entity.getNickname().equals(nickname)){
-                throw new CustomException(UserErrorCode.ALREADY_USE_NICKNAME);
+                throw new CustomException(UserErrorCode.ALREADY_USED_NICKNAME);
             }
         }
         return new ResVo(1);
@@ -117,6 +119,23 @@ public class UserService {
         }catch (Exception e){
             return new ResVo(0);
         }
+    }
+    public RefreshTokenVo getRefreshToken(HttpServletRequest request){
+        RefreshTokenVo vo = new RefreshTokenVo();
+        Cookie userCoookie = cookie.getCookie(request,"rt");
+        if(userCoookie == null){
+            //예외처리 다시 로그인
+        }
+        String token = userCoookie.getValue();
+        if(!tokenProvider.isValidateToken(token)){
+            //예외처리 토큰 기간 만료 , 다시 로그인
+        }
+        MyUserDtails myUserDtails = (MyUserDtails)tokenProvider.getUserDetailsFromToken(token);
+        Myprincipal myprincipal = myUserDtails.getMyprincipal();
+        String at = tokenProvider.generateAccessToken(myprincipal);
+        vo.setUserPk(facade.getLoginUserPk());
+        vo.setAccessToken(at);
+        return vo;
     }
 
 }

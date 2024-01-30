@@ -67,5 +67,9 @@ public class UserController {
     public ResVo updUserInfo (@RequestBody UserUpdateDto dto){
         return service.updUserInfo(dto);
     }
-
+    //리프레쉬 토큰 재발급
+    @GetMapping("/refresh-token")
+    public RefreshTokenVo getRefreshToken (HttpServletRequest request){
+        return service.getRefreshToken(request);
+    }
 }

@@ -71,9 +71,9 @@ public class BoardService {
         }catch (Exception e){
             return new ResVo(0);
         }
-        if(dto.getPisc() != null){
+        if(dto.getPics() != null){
             List<String> pics = new ArrayList<>();
-            for(MultipartFile file : dto.getPisc()){
+            for(MultipartFile file : dto.getPics()){
                 String saveFileNm = fileUtils.transferTo(file,target);
                 pics.add(saveFileNm);
             }

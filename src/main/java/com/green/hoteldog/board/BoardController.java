@@ -58,7 +58,7 @@ public class BoardController {
         if (pics.size() > 3){
             throw new CustomException(BoardErrorCode.PICS_SIZE_OVER);
         }
-        dto.setPisc(pics);
+        dto.setPics(pics);
         return service.putBoard(dto);
     }
     /*

@@ -2,6 +2,7 @@ package com.green.hoteldog.board.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.green.hoteldog.common.Const;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Min;
 import lombok.Data;
 
@@ -9,7 +10,8 @@ import lombok.Data;
 public class GetUserCommentListDto {
     @JsonIgnore
     private int userPk;
-    @Min(value = 1,message = "page 값은 1 이상만 입력 가능합니다.")
+    @Min(value = 1, message = "페이지 값은 최소 1이어야 합니다.")
+    @Schema(description = "유저가 작성한 댓글 페이지 번호",defaultValue = "1")
     private int page;
     @JsonIgnore
     private int rowCount = Const.BOARD_COUNT_PER_PAGE;
