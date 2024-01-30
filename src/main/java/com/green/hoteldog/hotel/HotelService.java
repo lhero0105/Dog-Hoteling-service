@@ -174,7 +174,7 @@ public class HotelService {
             // 개별 방에 관한 호텔 pk 셀렉
             List<Integer> list = new ArrayList<>();
             DogSizeInfoIn dogSizeInfo = new DogSizeInfoIn();
-            dogSizeInfo.setDate(dateRange);
+            dogSizeInfo.setDates(dateRange);
             for ( DogSizeEa ea : dto.getDogInfo() ) {
                 dogSizeInfo.setDogSize(ea.getDogSize());
                 dogSizeInfo.setDogCount(ea.getDogCount());
