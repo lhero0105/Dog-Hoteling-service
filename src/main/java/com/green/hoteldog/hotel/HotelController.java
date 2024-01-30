@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -51,15 +52,16 @@ public class HotelController {
     // 1-1. 비회원은 최신순으로 첫 화면 셀렉트
     // 1-2. 회원은 등록한 정보 기반으로 셀렉트
     // 1-2-1. 주소만으로 셀렉트
-    // 1-2-1. 주소와 강아지 정보로 셀렉트
+    // 1-2-1. 주소와 강아지 정보로 셀렉트 (프로젝트 제외)
     // 2. 필터링 처리 후 화면 셀렉트
     // 3. 검색 기반으로 화면 셀렉트 - OKT로 형태소 분석
 
     // 상세 정렬방식 - 리뷰 많은 순, 별점 높은 순 : XML에서 정의
     //--------------------------------------------------호텔 리스트-------------------------------------------------------
-    @GetMapping("/{page}")
-    public HotelListSelAllVo getHotelList(@RequestParam int page, HotelListSelDto dto) {
-        dto.setRowCount(Const.HOTEL_LIST_COUNT_PER_PAGE);
+    // 0128 get방식 RequestParam으로 HotelListSelDto객체 받을 때 DogSizeEa를 String에서 int로 컨버트하여 mapping하려 했지만 실패
+    @PostMapping("/{page}")
+    public HotelListSelAllVo getHotelList(@RequestParam int page, @RequestBody @Valid HotelListSelDto dto) {
+        log.info("HotelListSelDto dto : {}",dto);
         dto.setPage(page);
         return service.getHotelList(dto);
     }

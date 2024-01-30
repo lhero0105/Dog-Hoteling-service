@@ -8,6 +8,7 @@ import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.AuthorizedErrorCode;
 import com.green.hoteldog.exceptions.CommonErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
+import com.green.hoteldog.exceptions.HotelErrorCode;
 import com.green.hoteldog.hotel.model.*;
 import com.green.hoteldog.security.AuthenticationFacade;
 import com.green.hoteldog.user.models.UserHotelFavDto;
@@ -24,6 +25,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -43,6 +45,14 @@ public class HotelService {
     }
     //-----------------------------------------------호텔 리스트 셀렉트----------------------------------------------------
     public HotelListSelAllVo getHotelList(HotelListSelDto dto){
+        // 정규표현식
+        if(dto.getFromDate() != null){
+            boolean dateCheck = Pattern.matches("^[\\d]{4}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$", dto.getFromDate());
+            if(dateCheck == false){
+                throw new CustomException(HotelErrorCode.UNKNOWN_DATE_FORM);
+            }
+        }
+        dto.setUserPk(authenticationFacade.getLoginUserPk());
         // 0. 랜덤 광고 리스트 셀렉
         List<HotelListSelVo> hotelAdvertiseList = mapper.selHotelAdvertiseList(dto);
         log.info("hotelAdvertiseList : {}", hotelAdvertiseList);
@@ -51,7 +61,7 @@ public class HotelService {
         log.info("allVo : {}", allVo);
         // option pk size 값 넣기
         // dog pk size 값 넣기
-        if (dto.getHotelOptionPk().size() != 0){
+        if (dto.getHotelOptionPk() != null){
             dto.setOptionPkSize(dto.getHotelOptionPk().size());
         } else if(dto.getDogPkSize() != 0){
             List<Integer> blankList =dto.getDogInfo()
@@ -63,16 +73,16 @@ public class HotelService {
         }
         // 1. 등록된 반려견 정보와 주소로 사용자화
         // 1-1. 비회원 첫화면 - 최신순
-        if(dto.getUserPk() == 0 && dto.getAddress() == null && dto.getFromDate() == null
+        if(dto.getMainFilter() == 0 && dto.getUserPk() == 0 && dto.getAddress() == null && dto.getFromDate() == null
                 && dto.getToDate() == null && dto.getDogInfo().size() == 0 && dto.getSearch() == null
-                && dto.getHotelOptionPk().size() == 0){
+                && dto.getHotelOptionPk() == null){
             allVo.setHotelList(mapper.selHotelListToNonMember(dto));
             log.info("allVo : {}", allVo);
             return allVo;
             // 1-2. 회원 첫화면 - 주소, 반려견 강아지 사이즈
-        } else if (dto.getUserPk() > 0 && dto.getAddress() != null && dto.getFromDate() == null
+        } else if (dto.getMainFilter() == 0 && dto.getUserPk() > 0 && dto.getAddress() != null && dto.getFromDate() == null
                 && dto.getToDate() == null && dto.getDogInfo().size() == 0 && dto.getSearch() == null
-                && dto.getHotelOptionPk().size() == 0){
+                && dto.getHotelOptionPk() == null){
             // 1-2-1. 회원 pk로 강아지 사이즈, 주소 pk 셀렉
             HotelListSelProcDto pDto = mapper.selUserInfoToUserPk(dto);
             // 1-2-1-1. 등록 된 강아지가 없을 때
@@ -80,15 +90,15 @@ public class HotelService {
                 allVo.setHotelList(mapper.selHotelListAsUserAddress(pDto));
                 log.info("allVo : {}", allVo);
                 return allVo;
-            } else {
+            }/* else { // 해당 프로젝트 기획 변경으로 삭제
                 // 1-2-1-2. 등록 된 강아지가 있을 때
                 allVo.setHotelList(mapper.selHotelListAsUserAddressAndDogInformation(pDto));
                 log.info("allVo : {}", allVo);
                 return allVo;
-            }
+            }*/
             // 2. 호텔 이름 검색 시 리스트
-        } else if (dto.getSearch() != null && dto.getAddress() == null && dto.getFromDate() == null
-                && dto.getToDate() == null && dto.getDogInfo().size() == 0 && dto.getHotelOptionPk().size() == 0){
+        } else if (dto.getMainFilter() == 0 && dto.getSearch() != null && dto.getAddress() == null && dto.getFromDate() == null
+                && dto.getToDate() == null && dto.getDogInfo().size() == 0 && dto.getHotelOptionPk() == null){
             // 2-1. 정확하게 입력된 호텔이름을 먼저 셀렉트
             List<HotelListSelVo> accurateHotelList = mapper.selHotelListToAccurateSearch(dto);
             log.info("accurateHotelList.size() : {}", accurateHotelList.size());
@@ -138,44 +148,58 @@ public class HotelService {
             */
 
             // 3. 필터링 시 리스트
-        } else if ((dto.getAddress() != null || dto.getFromDate() != null || dto.getToDate() != null
-                || dto.getDogInfo().size() > 0) && dto.getSearch() == null || dto.getHotelOptionPk().size() > 0){
-            //  LocalDate, Calendar 방법 두 가지
-
-            // "yyyy-MM-dd" 포맷을 사용하여 문자열을 LocalDate로 파싱
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDate fromDate = LocalDate.parse(dto.getFromDate(), formatter);
-            LocalDate toDate = LocalDate.parse(dto.getFromDate(), formatter);
-
-            // 년, 월, 일 추출
-            int fromYear = fromDate.getYear();
-            int fromMonth = fromDate.getMonthValue();
-            int fromDay = fromDate.getDayOfMonth();
-
-            int toYear = toDate.getYear();
-            int toMonth = toDate.getMonthValue();
-            int toDay = toDate.getDayOfMonth();
-
-            LocalDate fromDateUnit = LocalDate.of(fromYear, fromMonth, fromDay);
-            LocalDate toDateUnit = LocalDate.of(toYear, toMonth, toDay);
-
+        } else if (dto.getMainFilter() == 1){
             List<LocalDate> dateRange = new ArrayList<>();
+            if(dto.getFromDate() != null && dto.getToDate() != null){
+                //  LocalDate, Calendar 방법 두 가지
 
-            // fromDate부터 toDate까지 날짜 배열 생성
-            while (!fromDateUnit.isAfter(toDateUnit)) {
-                dateRange.add(fromDateUnit);
-                fromDateUnit = fromDateUnit.plusDays(1);
+                // "yyyy-MM-dd" 포맷을 사용하여 문자열을 LocalDate로 파싱
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate fromDate = LocalDate.parse(dto.getFromDate(), formatter);
+                LocalDate toDate = LocalDate.parse(dto.getToDate(), formatter);
+
+
+
+                // 년, 월, 일 추출
+                int fromYear = fromDate.getYear();
+                int fromMonth = fromDate.getMonthValue();
+                int fromDay = fromDate.getDayOfMonth();
+
+                int toYear = toDate.getYear();
+                int toMonth = toDate.getMonthValue();
+                int toDay = toDate.getDayOfMonth();
+
+                LocalDate fromDateUnit = LocalDate.of(fromYear, fromMonth, fromDay);
+                LocalDate toDateUnit = LocalDate.of(toYear, toMonth, toDay);
+
+                // fromDate부터 toDate까지 날짜 배열 생성
+                while (!fromDateUnit.isAfter(toDateUnit)) {
+                    dateRange.add(fromDateUnit);
+                    fromDateUnit = fromDateUnit.plusDays(1);
+                }
+                // 날짜 출력
+                for ( LocalDate dateList : dateRange ) {
+                    log.info("date : {}", dateList);
+                }
+                dto.setDate(dateRange);
+                // 날짜 하나만 들어 올 때 (대실)
+            } else if(dto.getFromDate() != null && dto.getFromDate() == null){
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                LocalDate fromDate = LocalDate.parse(dto.getFromDate(), formatter);
+                LocalDate date = LocalDate.of(fromDate.getYear(), fromDate.getMonthValue(), fromDate.getDayOfMonth());
+                dto.getDate().add(date);
             }
-            // 날짜 출력
+
+            List<String> strDateList = new ArrayList<>();
             for ( LocalDate dateList : dateRange ) {
-                log.info("date : {}", dateList);
+                strDateList.add(dateList.toString());
             }
-            dto.setDate(dateRange);
 
             // 개별 방에 관한 호텔 pk 셀렉
+            // 날짜, 강아지 정보가 안들어 오면 실행x
             List<Integer> list = new ArrayList<>();
             DogSizeInfoIn dogSizeInfo = new DogSizeInfoIn();
-            dogSizeInfo.setDates(dateRange);
+            dogSizeInfo.setDates(strDateList);
             for ( DogSizeEa ea : dto.getDogInfo() ) {
                 dogSizeInfo.setDogSize(ea.getDogSize());
                 dogSizeInfo.setDogCount(ea.getDogCount());
