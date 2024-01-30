@@ -22,7 +22,7 @@ public class DogController {
     //유저 강아지 등록
     @PostMapping
     public ResVo postUserDog(@RequestPart MultipartFile pic,
-                             @RequestBody InsUserDogDto dto){
+                             @RequestPart InsUserDogDto dto){
         dto.setDogPic(pic);
         return service.insUserDog(dto);
     }
@@ -34,7 +34,7 @@ public class DogController {
     //유저 강아지 사진 수정
     @PatchMapping
     public ResVo patchUserDogPic(@RequestPart MultipartFile pic
-                                 ,@RequestBody PatchUserDogPicDto dto){
+                                 ,@RequestPart PatchUserDogPicDto dto){
         dto.setPic(pic);
         return service.updUserDogPic(dto);
     }

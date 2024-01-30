@@ -5,6 +5,7 @@ import com.green.hoteldog.common.AppProperties;
 import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.MyFileUtils;
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.AuthorizedErrorCode;
 import com.green.hoteldog.exceptions.CommonErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.hotel.model.*;
@@ -495,17 +496,20 @@ public class HotelService {
         mapper.insHotel(dto);
         if(pics != null){
             List<String> hotelPics = new ArrayList<>();
-            String target = "/board/"+dto.getHotelPk();
+            String target = "/hotel/"+dto.getHotelPk();
+            HotelInsPicDto picDto = new HotelInsPicDto();
             for(MultipartFile file : pics){
                 String saveFileNm = myFileUtils.transferTo(file,target);
                 hotelPics.add(saveFileNm);
             }
-            dto.setPics(hotelPics);
+            picDto.setPics(hotelPics);
+            picDto.setHotelPk(dto.getHotelPk());
+            picDto.setUserPk(dto.getUserPk());
             try {
-                mapper.insHotelPics(dto);
-                return new ResVo(1);
+                mapper.insHotelPics(picDto);
             }catch (Exception e){
-                return new ResVo(0);
+                myFileUtils.delFolderTrigger(target);
+                throw new CustomException(CommonErrorCode.INVALID_PARAMETER);
             }
         }
         dto.getAddressDto().setHotelPk(dto.getHotelPk());
@@ -513,6 +517,31 @@ public class HotelService {
         mapper.insHotelWhere(dto.getAddressDto());
         return new ResVo(1);
     }
+    //호텔 사진 수정
+    public ResVo putHotelPics(HotelPutPicDto dto){
+        dto.setUserPk(authenticationFacade.getLoginUserPk());
+        if(dto.getUserPk() == 0){
+            throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
+        }
+        //mapper.delHotelPic()
+        List<String> hotelPics = new ArrayList<>();
+        String target = "/hotel/" + dto.getHotelPk();
+        for(MultipartFile file : dto.getPics()){
+            String saveFileNm = myFileUtils.transferTo(file,target);
+            hotelPics.add(saveFileNm);
+        }
+        HotelInsPicDto picDto = new HotelInsPicDto();
+        picDto.setUserPk(dto.getUserPk());
+        picDto.setHotelPk(dto.getHotelPk());
+        picDto.setPics(hotelPics);
+        try {
+            mapper.insHotelPics(picDto);
+        }catch (Exception e){
+            throw new CustomException(CommonErrorCode.INVALID_PARAMETER);
+        }
+        return null;
+    }
+
     @Transactional(rollbackFor = Exception.class)
     public ResVo insHotelRoom(MultipartFile hotelPic ,InsHotelRoomDto dto){
         dto.setUserPk(authenticationFacade.getLoginUserPk());
@@ -520,7 +549,7 @@ public class HotelService {
             return new ResVo(0);
         }
         if(hotelPic != null){
-            String target = "/board/"+dto.getHotelPk() + "/" + dto.getHotelRoomNm();
+            String target = "/hotel/"+dto.getHotelPk() + "/room" + dto.getHotelRoomNm();
             String saveFileNm = myFileUtils.transferTo(hotelPic,target);
             dto.setRoomPic(saveFileNm);
         }

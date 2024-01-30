@@ -15,7 +15,5 @@ public class HotelInsDto {
     private String businessNum;
     private String hotelCall;
     private List<Integer> hotelOption;
-    @JsonIgnore
-    private List<String> pics;
     private HotelAddressDto addressDto;
 }
