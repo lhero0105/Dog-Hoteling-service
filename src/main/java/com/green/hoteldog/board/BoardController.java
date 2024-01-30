@@ -39,12 +39,13 @@ public class BoardController {
     @Operation(summary = "게시글 등록",description = "게시글 등록<br>이미지 등록은 postman 을 통해서 가능")
     public ResVo insBoard(@RequestPart(required = false) @Schema(hidden = true) List<MultipartFile> pics
             ,@RequestBody @Valid PostBoardDto dto){
-        if (pics.size() > 3){
-            throw new CustomException(BoardErrorCode.PICS_SIZE_OVER);
-        }
+
         log.info("controller insDto : {}",dto);
         if(pics != null){
             dto.setPics(pics);
+            if (dto.getPics().size() > 3){
+                throw new CustomException(BoardErrorCode.PICS_SIZE_OVER);
+            }
         }
         return service.postBoard(dto);
     }
@@ -55,10 +56,12 @@ public class BoardController {
     @Operation(summary = "게시글 수정",description = "게시글 수정<br>이미지 등록은 postman 을 통해서 가능")
     public ResVo putBoard(@RequestPart(required = false) @Schema(hidden = true) List<MultipartFile> pics
             , @RequestBody @Valid PutBoardDto dto){
-        if (pics.size() > 3){
-            throw new CustomException(BoardErrorCode.PICS_SIZE_OVER);
+        if(pics != null){
+            dto.setPics(pics);
+            if (dto.getPics().size() > 3){
+                throw new CustomException(BoardErrorCode.PICS_SIZE_OVER);
+            }
         }
-        dto.setPics(pics);
         return service.putBoard(dto);
     }
     /*

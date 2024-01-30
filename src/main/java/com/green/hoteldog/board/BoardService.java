@@ -1,14 +1,17 @@
 package com.green.hoteldog.board;
 
 import com.green.hoteldog.board.models.*;
+import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.MyFileUtils;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.AuthorizedErrorCode;
+import com.green.hoteldog.exceptions.CommonErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.security.AuthenticationFacade;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
@@ -55,6 +58,7 @@ public class BoardService {
     //게시글 등록 2024-01-18수정
 
     //게시글 수정
+    @Transactional(rollbackFor = Exception.class)
     public ResVo putBoard(PutBoardDto dto){
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0){
@@ -64,14 +68,14 @@ public class BoardService {
         if (result == 0){
             return new ResVo(0);
         }
-        String target = "/board/"+dto.getBoardPk();
-        try {
-            fileUtils.delFolderTrigger(target);
-            mapper.delBoardPics(dto.getBoardPk());
-        }catch (Exception e){
-            return new ResVo(0);
-        }
         if(dto.getPics() != null){
+            String target = "/board/"+dto.getBoardPk();
+            try {
+                fileUtils.delFolderTrigger(target);
+                mapper.delBoardPics(dto.getBoardPk());
+            }catch (Exception e){
+                throw new CustomException(CommonErrorCode.ACCEPTED);
+            }
             List<String> pics = new ArrayList<>();
             for(MultipartFile file : dto.getPics()){
                 String saveFileNm = fileUtils.transferTo(file,target);
@@ -83,9 +87,8 @@ public class BoardService {
             picsDto.setPics(pics);
             try {
                 mapper.postBoardPics(picsDto);
-                return new ResVo(1);
             }catch (Exception e){
-                return new ResVo(0);
+                throw new CustomException(CommonErrorCode.ACCEPTED);
             }
         }
         return new ResVo(1);
@@ -115,7 +118,15 @@ public class BoardService {
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
         int result = mapper.delBoard(dto);
-        return new ResVo(result);
+        if (result != dto.getBoardPkList().size()){
+            throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
+        }
+
+        for(Integer boardPk : dto.getBoardPkList()){
+            String target = "/board/"+boardPk;
+            fileUtils.delAllFolderTrigger(target);
+        }
+        return new ResVo(Const.SUCCESS);
     }
     //게시글 삭제
 
