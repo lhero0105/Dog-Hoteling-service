@@ -3,12 +3,15 @@ package com.green.hoteldog.user;
 import com.green.hoteldog.common.AppProperties;
 import com.green.hoteldog.common.CookieUtils;
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.AuthorizedErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.exceptions.UserErrorCode;
 import com.green.hoteldog.security.AuthenticationFacade;
 import com.green.hoteldog.security.JwtTokenProvider;
+import com.green.hoteldog.security.MyUserDtails;
 import com.green.hoteldog.security.Myprincipal;
 import com.green.hoteldog.user.models.*;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -79,7 +82,7 @@ public class UserService {
         List<UserEntity> userEntityList = mapper.selUserEntity();
         for(UserEntity entity : userEntityList){
             if(entity.getNickname().equals(nickname)){
-                return new ResVo(0);
+                throw new CustomException(UserErrorCode.ALREADY_USED_NICKNAME);
             }
         }
         return new ResVo(1);
@@ -91,14 +94,11 @@ public class UserService {
     public UserInfoVo getUserInfo (UserInfoDto dto){
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0){
-            //예외처리 로그인 안한 유저
+            throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
         UserEntity entity = mapper.userEntityByUserPk(dto.getUserPk());
-        if(entity == null){
-            //예외처리 없는 userPk
-        }
         if(!passwordEncoder.matches(dto.getUpw(), entity.getUpw())){
-            //예외처리 비밀번호 틀림
+            throw new CustomException(UserErrorCode.MISS_MATCH_PASSWORD);
         }
         UserInfoVo vo = new UserInfoVo();
         vo.setUserPk(entity.getUserPk());
@@ -111,7 +111,7 @@ public class UserService {
     public ResVo updUserInfo(UserUpdateDto dto){
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0){
-            //예외처리 로그인 정보 없음
+            throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
         try {
             mapper.updateUserInfo(dto);
@@ -119,6 +119,23 @@ public class UserService {
         }catch (Exception e){
             return new ResVo(0);
         }
+    }
+    public RefreshTokenVo getRefreshToken(HttpServletRequest request){
+        RefreshTokenVo vo = new RefreshTokenVo();
+        Cookie userCoookie = cookie.getCookie(request,"rt");
+        if(userCoookie == null){
+            //예외처리 다시 로그인
+        }
+        String token = userCoookie.getValue();
+        if(!tokenProvider.isValidateToken(token)){
+            //예외처리 토큰 기간 만료 , 다시 로그인
+        }
+        MyUserDtails myUserDtails = (MyUserDtails)tokenProvider.getUserDetailsFromToken(token);
+        Myprincipal myprincipal = myUserDtails.getMyprincipal();
+        String at = tokenProvider.generateAccessToken(myprincipal);
+        vo.setUserPk(facade.getLoginUserPk());
+        vo.setAccessToken(at);
+        return vo;
     }
 
 }

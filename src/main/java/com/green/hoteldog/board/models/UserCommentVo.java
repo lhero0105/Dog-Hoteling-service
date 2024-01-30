@@ -2,17 +2,15 @@ package com.green.hoteldog.board.models;
 
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class GetBoardInfoVo {
+public class UserCommentVo {
     private int boardPk;
     private String title;
+    private int boardCategoryPk;
+    private String categoryNm;
+    private String comment;
     private int userPk;
     private String nickname;
     private String createdAt;
     private int boardViewCount;
-    private List<String> pics;
-    private int commentMaxPage;
-    private List<CommentInfoVo> comments;
 }

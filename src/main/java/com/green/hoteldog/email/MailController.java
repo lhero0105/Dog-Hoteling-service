@@ -2,6 +2,9 @@ package com.green.hoteldog.email;
 
 import com.green.hoteldog.common.RedisUtil;
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.CustomException;
+import com.green.hoteldog.exceptions.EmailErrorCode;
+import com.green.hoteldog.exceptions.UserErrorCode;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +26,7 @@ public class MailController {
     @Operation(summary = "이메일 인증 보내기",description = "이메일 인증 보내기")
     public ResVo sendEmail(@RequestBody @Valid EmailRequestDto dto){
         if(mailSendService.checkDuplicationEmail(dto.getEmail())){
-            return new ResVo(0);//이미 db에 등록된 email
+            throw new CustomException(UserErrorCode.ALREADY_USED_EMAIL);
         }
         redisUtil.deleteData(dto.getEmail());
         System.out.println(dto.getEmail());
@@ -36,17 +39,11 @@ public class MailController {
     public EmailResponseVo checkMail(@RequestBody @Valid EmailCheckDto dto){
         Boolean checked = mailSendService.checkAuthNum(dto.getEmail(), dto.getAuthNum());
         EmailResponseVo vo = new EmailResponseVo();
-        if(checked){
-            vo.setEmail(dto.getEmail());
-            vo.setResult(1);
-            return vo;
+        if(!checked){
+            throw new CustomException(EmailErrorCode.MISS_MATCH_CODE);
         }
-        else {
-            vo.setEmail(dto.getEmail());
-            vo.setResult(0);
-            return vo;
-        }
+        vo.setEmail(dto.getEmail());
+        vo.setResult(1);
+        return vo;
     }
-
-
 }

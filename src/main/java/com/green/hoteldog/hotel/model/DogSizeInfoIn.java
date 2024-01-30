@@ -9,5 +9,5 @@ import java.util.List;
 public class DogSizeInfoIn {
     private int dogSize;
     private int dogCount;
-    private List<LocalDate> date;
+    private List<String> dates;
 }

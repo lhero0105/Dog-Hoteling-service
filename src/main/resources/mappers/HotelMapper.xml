@@ -6,7 +6,10 @@
     <select id="selHotelAdvertiseList">
         SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
         , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
-        , F.address_name AS addressName, IF(H.hotel_pk IS NULL, 0, 1) AS bookMark
+        , F.address_name AS addressName
+        <if test="userPk > 0">
+            , IF(H.hotel_pk IS NULL, 0, 1) AS bookMark
+        </if>
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -321,7 +324,9 @@
     <select id="selHotelListToFilter">
         SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost
         , avgStar, A.discount_per AS discountPer, G.address_name AS addressName
-        , IF(K.hotel_pk IS NULL, 0, 1) AS bookMark
+        <if test="userPk > 0">
+            , IF(K.hotel_pk IS NULL, 0, 1) AS bookMark
+        </if>
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -348,15 +353,15 @@
         ON A.hotel_pk = G.hotel_pk
         LEFT JOIN t_hotel_option H
         ON A.hotel_pk = H.hotel_pk
-        <if test="hotelOptionPk.size != 0">
+        <if test="hotelOptionPk != null">
             JOIN(
             SELECT A.hotel_pk, COUNT(A.hotel_pk)
             FROM t_hotel A
             JOIN t_hotel_option B
             ON A.hotel_pk = B.hotel_pk
             WHERE B.option_pk IN
-            <foreach collection="list" item="hotelOptionPk" separator="," open="(" close=")">
-                #{hotelOptionPk}
+            <foreach collection="hotelOptionPk" item="item" separator="," open="(" close=")">
+                #{item}
             </foreach>
             GROUP BY A.hotel_pk
             HAVING COUNT(A.hotel_pk) = #{optionPkSize}
@@ -370,16 +375,16 @@
             ON A.hotel_pk = K.hotel_pk AND K.user_pk = #{userPk}
         </if>
         <where>
-            <if test="address > 0">
-                G.region_1depth_name = '#{address}'
+            <if test="address != null">
+                G.region_1depth_name = #{address}
             </if>
             <if test="dogInfo.size != 0">
-                <if test="address > 0">
+                <if test="address != null">
                     AND
                 </if>
                 A.hotel_pk in
-                <foreach collection="list" item="filteredPk" separator="," open="(" close=")">
-                    #{filteredPk}
+                <foreach collection="filteredPk" item="item" separator="," open="(" close=")">
+                    #{item}
                 </foreach>
             </if>
         </where>
@@ -405,10 +410,10 @@
         ON A.hotel_room_pk = B.hotel_room_pk
         WHERE A.maximum = 1
         AND A.size_pk = #{dogSize}
-        AND B.room_left_ea >= #{dogCount}
+        AND B.room_left_ea <![CDATA[ >= ]]> #{dogCount}
         AND B.room_date IN
-        <foreach collection="list" item="date" separator="," open="(" close=")">
-            '#{date}'
+        <foreach collection="dates" item="date" separator="," open="(" close=")">
+            #{date}
         </foreach>
     </select>
 
@@ -420,10 +425,10 @@
         WHERE A.maximum > 1
         AND #{allDogCount} >= A.maximum
         AND A.size_pk >= #{biggestDogSize}
-        AND B.room_left_ea >= 1
+        AND B.room_left_ea <![CDATA[ >= ]]> 1
         AND B.room_date IN
-        <foreach collection="list" item="date" separator="," open="(" close=")">
-            '#{date}'
+        <foreach collection="date" item="item" separator="," open="(" close=")">
+            #{item}
         </foreach>
     </select>
 

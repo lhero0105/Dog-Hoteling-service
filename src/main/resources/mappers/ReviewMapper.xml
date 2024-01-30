@@ -102,6 +102,10 @@
         FROM t_reservation
         WHERE user_pk = #{userPK} AND res_pk = #{resPk}
     </select>
+    <delete id="delReview">
+        DELETE t_review
+        WHERE user_pk = #{userPk} AND review_pk = #{reviewPk} AND res_pk = #{reviewPk}
+    </delete>
     <!--재웅-->
 
 </mapper>
