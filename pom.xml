@@ -17,6 +17,13 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+        <!--java8이후 typehandlers 추가 할 필요 x-->
+        <!--<dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-typehandlers-jsr310</artifactId>
+            <version>1.0.2</version>
+        </dependency>-->
+        <!-- https://mvnrepository.com/artifact/com.optimizely.ab/core-api -->
         <dependency>
             <groupId>org.openkoreantext</groupId>
             <artifactId>open-korean-text</artifactId>

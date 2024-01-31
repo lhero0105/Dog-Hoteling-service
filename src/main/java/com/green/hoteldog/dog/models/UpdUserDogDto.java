@@ -7,7 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class UpdUserDogDto {
-    @JsonProperty(value = "user_pk")
+    @JsonIgnore
     private int userPk;
     @JsonProperty(value = "user_dog_pk")
     private int userDogPk;

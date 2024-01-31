@@ -12,5 +12,5 @@ public class DogSizeInfoIn {
     private int dogSize;
     @JsonProperty(value = "dog_count")
     private int dogCount;
-    private List<LocalDate> date;
+    private List<String> dates;
 }

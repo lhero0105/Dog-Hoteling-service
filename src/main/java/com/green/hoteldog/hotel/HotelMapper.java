@@ -36,7 +36,8 @@ public interface HotelMapper {
 
     int insHotel(HotelInsDto dto);
     int insHotelWhere(HotelAddressDto dto);
-    int insHotelPics(HotelInsDto dto);
+    int insHotelPics(HotelInsPicDto dto);
+    int delHotelPic(HotelInsPicDto dto);
     int insHotelOption(HotelInsDto dto);
 
     int insHotelRoomInfo(InsHotelRoomDto dto);

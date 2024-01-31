@@ -1,13 +1,14 @@
 package com.green.hoteldog.dog.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
-public class DelUserDogDto {
+public class PatchUserDogPicDto {
     @JsonIgnore
     private int userPk;
-    @JsonProperty(value = "user_dog_pk")
+    @JsonIgnore
+    private MultipartFile pic;
     private int userDogPk;
 }

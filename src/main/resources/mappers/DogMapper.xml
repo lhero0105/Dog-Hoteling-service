@@ -31,13 +31,14 @@
         ,dog_etc AS dogEtc
         ,created_at AS createdAt
         WHERE user_pk = #{userPk}
+        LIMIT #{startIdx},#{rowCount}
     </select>
     <insert id="insResDog">
         INSERT INTO t_res_dog_info
         SET size_pk = #{sizePk}
-            ,age = #{age}
-            ,information = #{information}
-            ,dog_nm = #{dogNm}
+        ,age = #{age}
+        ,information = #{information}
+        ,dog_nm = #{dogNm}
     </insert>
     <update id="setUserDogPic">
         UPDATE t_user_dog

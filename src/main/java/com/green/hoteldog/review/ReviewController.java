@@ -1,6 +1,7 @@
 package com.green.hoteldog.review;
 
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.BoardErrorCode;
 import com.green.hoteldog.exceptions.CommonErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.review.models.*;
@@ -24,9 +25,9 @@ public class ReviewController {
     @PostMapping
     @Operation(summary = "리뷰 등록", description = "리뷰 등록<br>사진 등록은 postman으로 테스트")
     public ResVo postReview(@RequestPart(required = false) List<MultipartFile> pics,
-                            @RequestBody @Valid ReviewInsDto dto) {
-        if (pics.size() > 3) {
-            return new ResVo(0);
+                            @RequestPart @Valid ReviewInsDto dto) {
+        if (pics.size() > 3){
+            throw new CustomException(BoardErrorCode.PICS_SIZE_OVER);
         }
         dto.setPics(pics);
         return service.insReview(dto);
@@ -35,9 +36,9 @@ public class ReviewController {
     @PutMapping
     @Operation(summary = "리뷰 수정", description = "리뷰 수정<br>사진 등록은 postman으로 테스트")
     public ResVo putReview(@RequestPart(required = false) List<MultipartFile> pics,
-                           @RequestBody @Valid ReviewUpdDto dto) {
-        if (pics.size() > 3) {
-            return new ResVo(0);
+                           @RequestPart @Valid ReviewUpdDto dto) {
+        if (pics.size() > 3){
+            throw new CustomException(BoardErrorCode.PICS_SIZE_OVER);
         }
         dto.setPics(pics);
         return service.putReview(dto);
@@ -53,10 +54,15 @@ public class ReviewController {
     //--------------------------------------------------리뷰 좋아요-------------------------------------------------------
     @GetMapping("/fav")
     @Operation(summary = "리뷰 좋아요", description = "좋아요 토글 처리<br>result = 1 좋아요 성공<br>result = 2 좋아요 취소")
-    public ResVo getReviewFav(int reviewPk) {
-        return service.patchReviewFav(reviewPk);
+    public ResVo getReviewFav(ReviewFavDto dto) {
+        return service.patchReviewFav(dto);
     }
-
+    //--------------------------------------------------리뷰 삭제--------------------------------------------------------
+    @DeleteMapping
+    @Operation(summary = "리뷰 삭제",description = "리뷰 삭제처리")
+    public ResVo delReview(DelReviewDto dto){
+        return service.delReview(dto);
+    }
     //-------------------------------------------상세페이지 리뷰 페이지네이션-------------------------------------------------
     @GetMapping("/{hotel_pk}/review/{page}")
     public List<HotelReviewSelVo> getHotelReview(@RequestParam("hotel_pk") int hotelPk, @RequestParam int page) {

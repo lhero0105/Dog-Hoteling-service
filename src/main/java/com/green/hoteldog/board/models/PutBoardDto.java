@@ -21,5 +21,5 @@ public class PutBoardDto {
     @NotEmpty(message = "contetns값은 필수 입력값 입니다.")
     private String contents;
     @JsonIgnore
-    private List<MultipartFile> pisc;
+    private List<MultipartFile> pics;
 }

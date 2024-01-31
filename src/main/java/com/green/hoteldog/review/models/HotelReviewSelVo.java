@@ -14,8 +14,6 @@ import java.util.List;
 public class HotelReviewSelVo {
     @JsonProperty(value = "nick_name")
     private String nickName;
-    @JsonProperty(value = "user_pic")
-    private String userPic;
     @JsonProperty(value = "review_pk")
     private int reviewPk;
     private String comment;
@@ -25,6 +23,4 @@ public class HotelReviewSelVo {
     @JsonProperty(value = "fav_count")
     private int favCount;
     private List<String> pics = new ArrayList<>(); // 사진
-
-
 }
