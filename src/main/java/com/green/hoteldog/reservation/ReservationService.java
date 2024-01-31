@@ -77,6 +77,23 @@ public class ReservationService {
             }
         }
 
+        /* stream 이용한 코드 3중for문X 2024-01-31*/
+
+//        List<HotelReservationUpdProcDto> procDtoList=new ArrayList<>();
+//        dto.stream()
+//                .flatMap(hotelReservationInsDto ->
+//                    hotelReservationInsDto.getDogInfo().stream()
+//                            .map(dogInfo -> {
+//                                HotelReservationUpdProcDto procDto=new HotelReservationUpdProcDto();
+//                                procDto.setHotelRoomPk(dogInfo.getHotelRoomPk());
+//                                List<LocalDate> dateList=hotelReservationInsDto
+//                                        .getToDate()
+//                                        .datesUntil(hotelReservationInsDto.getToDate().plusDays(1)).collect(Collectors.toList());
+//                                procDto.setDate(dateList);
+//                                return procDtoList.add(procDto);
+//                            })
+//                ).collect(Collectors.toList());
+
         int affectedRows3 = mapper.updRemainedHotelRoom(updList);
         if(affectedRows3 == 0){
             throw new CustomException(CommonErrorCode.INVALID_PARAMETER);
