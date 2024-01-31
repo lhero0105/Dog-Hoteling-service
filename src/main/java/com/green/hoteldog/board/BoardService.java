@@ -166,7 +166,11 @@ public class BoardService {
     public GetSimpleBoardVo getBoardList(GetBoardListDto dto){
         GetSimpleBoardVo vo = new GetSimpleBoardVo();
         vo.setSimpleBoardVoList(mapper.getBoardList(dto));
-        int maxPage = this.maxPage(mapper.selBoardCount(dto),dto.getRowCount());
+        int boardCount = mapper.selBoardCount(dto);
+        int maxPage = 1;
+        if (boardCount != 0){
+            maxPage = this.maxPage(boardCount,dto.getRowCount());
+        }
         vo.setMaxPage(maxPage);
 
         return vo;
@@ -196,7 +200,11 @@ public class BoardService {
         }
         GetSimpleBoardVo vo = new GetSimpleBoardVo();
         vo.setSimpleBoardVoList(mapper.myPostingBoardList(dto));
-        int userBoardMaxPage = this.maxPage(mapper.selUserBoardCount(dto.getUserPk()),dto.getRowCount());
+        int userBoardCount = mapper.selUserBoardCount(dto.getUserPk());
+        int userBoardMaxPage = 1;
+        if(userBoardCount != 0){
+            userBoardMaxPage = this.maxPage(userBoardCount,dto.getRowCount());
+        }
         vo.setMaxPage(userBoardMaxPage);
         return vo;
     }
@@ -210,7 +218,11 @@ public class BoardService {
         }
         GetUserCommentVo vo = new GetUserCommentVo();
         vo.setUserCommentVoList(mapper.myPostingCommentList(dto));
-        int userCommentMaxPage = this.maxPage(mapper.selUserCommentCount(dto.getUserPk()),dto.getRowCount());
+        int userCommentCount = mapper.selUserCommentCount(dto.getUserPk());
+        int userCommentMaxPage = 1;
+        if(userCommentCount != 0){
+            userCommentMaxPage = this.maxPage(mapper.selUserCommentCount(dto.getUserPk()),dto.getRowCount());
+        }
         vo.setMaxPage(userCommentMaxPage);
         return vo;
     }

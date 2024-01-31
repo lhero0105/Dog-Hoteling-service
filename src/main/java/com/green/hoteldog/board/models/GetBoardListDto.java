@@ -12,7 +12,6 @@ public class GetBoardListDto {
     @Min(value = 0,message = "boardCategoryPk 값은 0 이상이어야 합니다.")
     @Schema(description = "게시글 카테고리 pk",defaultValue = "0")
     private int boardCategoryPk;
-    @Min(value = 1, message = "페이지 값은 최소 1이어야 합니다.")
     @Schema(description = "게시글 페이지 번호",defaultValue = "1")
     private int page;
     @JsonIgnore
@@ -26,7 +25,10 @@ public class GetBoardListDto {
     @JsonIgnore
     private int startIdx;
 
-    public void setStartIdx(int startIdx){
-        this.startIdx = (this.page - 1) * this.rowCount;
+    public void setPage(int page){
+        if(page == 0){
+            page = 1;
+        }
+        this.startIdx = (page - 1) * this.rowCount;
     }
 }

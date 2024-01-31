@@ -30,8 +30,9 @@
         ,dog_pic AS dogPic
         ,dog_etc AS dogEtc
         ,created_at AS createdAt
+        FROM t_user_dog
         WHERE user_pk = #{userPk}
-        LIMIT #{startIdx},#{rowCount}
+        <!--LIMIT #{startIdx},#{rowCount}-->
     </select>
     <insert id="insResDog">
         INSERT INTO t_res_dog_info
@@ -42,7 +43,7 @@
     </insert>
     <update id="setUserDogPic">
         UPDATE t_user_dog
-        SET pic = #{pic}
+        SET dog_pic = #{pic}
         WHERE user_dog_pk = #{userDogPk} AND user_pk = #{userPk}
     </update>
 </mapper>
