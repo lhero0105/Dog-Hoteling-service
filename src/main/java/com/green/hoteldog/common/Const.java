@@ -8,4 +8,5 @@ public class Const {
     public static final int RES_LIST_COUNT_PER_PAGE = 6;
     public static final int BOARD_COUNT_PER_PAGE = 8;
     public static final int COMMENT_COUNT_PER_PAGE = 5;
+    public static final int HOTEL_FAV_COUNT_PER_PAGE=6;
 }

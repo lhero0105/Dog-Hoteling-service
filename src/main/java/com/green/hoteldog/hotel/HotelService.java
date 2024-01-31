@@ -227,10 +227,10 @@ public class HotelService {
         int result2= mapper.insHotelBookMark(userPk,hotelPk);
         return new ResVo(result2);
     }
-
+    //----------------------------------------------북마크 한 호텔 리스트---------------------------------------------------
     public List<HotelBookMarkListVo> getHotelBookmarkList(int userPk,int page){
-        int fromPage=(page-1)*6;
-        int toPage=page*6;
+        int fromPage=(page-1)*Const.HOTEL_FAV_COUNT_PER_PAGE;
+        int toPage=page*Const.HOTEL_FAV_COUNT_PER_PAGE;
         List<HotelBookMarkListVo> getBookMarkList=mapper.getHotelBookMark(userPk,fromPage,toPage);
         return getBookMarkList;
 
@@ -279,9 +279,6 @@ public class HotelService {
             ableListDto.setHotelPk(hotelPk);
             //메인페이지 첫화면은 호텔pk만 보내고 정리해서 줌.
             List<HotelRoomResInfoByMonth> hotelResInfoVos = iWillShowYouAbleDatesWithRoom(ableListDto);
-            if(hotelResInfoVos.size()==0){
-
-            }
             //박스갈이 & 데이터빼내기&검증
             List<HotelRoomEaByDate> eaByDates = new ArrayList<>();
 
@@ -335,10 +332,10 @@ public class HotelService {
 
     //----------------------------------------날짜 선택했을때 가능한 방 리스트------------------------------------------------
     public List<HotelRoomEaByDate> whenYouChooseDates(int hotelPk,LocalDate startDate,LocalDate endDate){
+        if (hotelPk == 0 || startDate == null || endDate == null) {
+            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+        }
         if(hotelPk>0) {
-            if (hotelPk == 0 || startDate == null || endDate == null) {
-                throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
-            }
             HotelRoomAbleListDto ableListDto = new HotelRoomAbleListDto();
             ableListDto.setHotelPk(hotelPk);
             ableListDto.setEndDate(endDate.toString());
@@ -488,7 +485,6 @@ public class HotelService {
         }
         return monthDateList;
     }
-    //승준
 
     // 호텔 더미데이터 작성
     @Transactional(rollbackFor = Exception.class)

@@ -1,5 +1,6 @@
 package com.green.hoteldog.hotel;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.CommonErrorCode;
@@ -72,17 +73,17 @@ public class HotelController {
     }
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
     @GetMapping("/info")
-    public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam("hotel_pk") int hotelPk,
-                                                      @RequestParam("start_date") LocalDate startDate,
-                                                      @RequestParam("end_date") LocalDate endDate){
+    public List<HotelRoomEaByDate> whenYouChooseDates(@JsonProperty int hotelPk,
+                                                      @JsonProperty LocalDate startDate,
+                                                      @JsonProperty LocalDate endDate){
 
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
     //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
     @GetMapping("/info/dogs")
-    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam("hotel_pk") int hotelPk,
-                                                             @RequestParam("start_date") LocalDate startDate,
-                                                             @RequestParam("end_date") LocalDate endDate,
+    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@JsonProperty int hotelPk,
+                                                             @JsonProperty LocalDate startDate,
+                                                             @JsonProperty LocalDate endDate,
                                                              @RequestParam List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
@@ -100,7 +101,7 @@ public class HotelController {
     }
     //-----------------------------------------------------호텔 북마크 리스트----------------------------------------------
     @GetMapping("/like")
-    public List<HotelBookMarkListVo> getHotelBookmarkList(int page){
+    public List<HotelBookMarkListVo> getHotelBookmarkList(@RequestParam int page){
         checkUser();
         int userPk=authenticationFacade.getLoginUserPk();
         return service.getHotelBookmarkList(userPk,page);

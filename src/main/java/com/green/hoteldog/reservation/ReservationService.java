@@ -66,6 +66,7 @@ public class ReservationService {
             }
         }
 
+
         int affectedRows3 = mapper.updRemainedHotelRoom(updList);
         if(affectedRows3 == 0){
             return new ResVo(Const.FAIL);
