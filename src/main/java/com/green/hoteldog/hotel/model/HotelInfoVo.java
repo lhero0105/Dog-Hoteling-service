@@ -9,8 +9,7 @@ import java.util.List;
 
 @Data
 @Schema(name = "호텔 정보 + 리뷰<br>",description = "호텔 상세페이지에 뿌릴<br>" +
-        "호텔 정보.(방 정보,옵션 포함.)")
-//승준
+        "호텔 정보.(방 정보,옵션,리뷰(3개까지))")
 public class HotelInfoVo {
     @NotNull
     @JsonProperty(value = "hotel_nm")
@@ -23,9 +22,9 @@ public class HotelInfoVo {
     private String hotelDetailInfo;
 
     @NotNull
-    @JsonProperty(value = "buisiness_num")
-    @Schema(name = "사장님의 비밀스런 사업자번호")
-    private String buisinessNum;
+    @JsonProperty(value = "business_num")
+    @Schema(name = "사장님의 사업자번호")
+    private String businessNum;
 
     @NotNull
     @JsonProperty(value = "hotel_call")
@@ -51,13 +50,16 @@ public class HotelInfoVo {
 
     @NotNull
     @Schema(name = "호텔 방 정보 리스트.")
+    @JsonProperty(value = "room_list")
     private List<HotelRoomInfoVo> roomList;
 
     @Schema(name = "유저들이 정성스럽게 쓴 호텔 리뷰")
+    @JsonProperty(value = "review_list")
     private List<HotelReviewVo> reviewList;
 
     @Schema(name = "리뷰 더있니?",description = "리뷰 더 없음=0,리뷰 더 있음=1"
             ,defaultValue = "0")
+    @JsonProperty(value = "is_more_review")
     private int isMoreReview=0;
 
 }

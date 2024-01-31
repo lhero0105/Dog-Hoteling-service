@@ -3,7 +3,7 @@ package com.green.hoteldog.reservation.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-//영웅
+
 @Data
 public class DogInfo {
     @JsonIgnore

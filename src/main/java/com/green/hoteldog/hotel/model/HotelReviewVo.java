@@ -21,7 +21,6 @@ public class HotelReviewVo {
     @JsonProperty(value = "nick_name")
     @Schema(name = "리뷰 작성한 유저 닉네임",type = "String")
     private String nickName;
-    @JsonProperty(value = "comment")
     @Schema(name = "유저가 작성한 호텔 리뷰 글",type = "String")
     private String comment;
     @NotNull
@@ -36,4 +35,4 @@ public class HotelReviewVo {
     @JsonProperty(value = "review_fav_count")
     private int reviewFavCount=0;
 }
-//승준
+

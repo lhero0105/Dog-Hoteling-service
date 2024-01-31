@@ -243,18 +243,19 @@ public class HotelService {
 
 
     //----------------------------------------------호텔 북마크-----------------------------------------------------------
-    public ResVo toggleHotelBookMark(UserHotelFavDto dto){
-        dto.setUserPk(authenticationFacade.getLoginUserPk());
-        int result=mapper.delHotelBookMark(dto);
+    public ResVo toggleHotelBookMark(int hotelPk,int userPk){
+        int result=mapper.delHotelBookMark(userPk,hotelPk);
         if(result==1){
             return new ResVo(3);
         }
-        int result2= mapper.insHotelBookMark(dto);
+        int result2= mapper.insHotelBookMark(userPk,hotelPk);
         return new ResVo(result2);
     }
-
-    public List<HotelBookMarkListVo> getHotelBookmarkList(int userPk){
-        List<HotelBookMarkListVo> getBookMarkList=mapper.getHotelBookMark(userPk);
+    //----------------------------------------------북마크 한 호텔 리스트---------------------------------------------------
+    public List<HotelBookMarkListVo> getHotelBookmarkList(int userPk,int page){
+        int fromPage=(page-1)*Const.HOTEL_FAV_COUNT_PER_PAGE;
+        int toPage=page*Const.HOTEL_FAV_COUNT_PER_PAGE;
+        List<HotelBookMarkListVo> getBookMarkList=mapper.getHotelBookMark(userPk,fromPage,toPage);
         return getBookMarkList;
 
     }
@@ -302,9 +303,6 @@ public class HotelService {
             ableListDto.setHotelPk(hotelPk);
             //메인페이지 첫화면은 호텔pk만 보내고 정리해서 줌.
             List<HotelRoomResInfoByMonth> hotelResInfoVos = iWillShowYouAbleDatesWithRoom(ableListDto);
-            if(hotelResInfoVos.size()==0){
-
-            }
             //박스갈이 & 데이터빼내기&검증
             List<HotelRoomEaByDate> eaByDates = new ArrayList<>();
 
@@ -352,53 +350,55 @@ public class HotelService {
             }
             return hotelInfoEntity;
         }
-        return null;
+        throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
     }
 
 
     //----------------------------------------날짜 선택했을때 가능한 방 리스트------------------------------------------------
     public List<HotelRoomEaByDate> whenYouChooseDates(int hotelPk,LocalDate startDate,LocalDate endDate){
-        if(hotelPk==0||startDate==null||endDate==null){
+        if (hotelPk == 0 || startDate == null || endDate == null) {
             throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
         }
-        HotelRoomAbleListDto ableListDto=new HotelRoomAbleListDto();
+        if(hotelPk>0) {
+            HotelRoomAbleListDto ableListDto = new HotelRoomAbleListDto();
             ableListDto.setHotelPk(hotelPk);
             ableListDto.setEndDate(endDate.toString());
             ableListDto.setStartDate(startDate.toString());
-        List<HotelRoomResInfoByMonth> areYouChooseDates=iWillShowYouAbleDatesWithRoom(ableListDto);
+            List<HotelRoomResInfoByMonth> areYouChooseDates = iWillShowYouAbleDatesWithRoom(ableListDto);
 
-        List<HotelRoomEaByDate> whenYouSelDates=new ArrayList<>();
-        List<LocalDate> getList=startDate.datesUntil(endDate.plusDays(1)).collect(Collectors.toList());
-        List<String> getDateList=getList
-                .stream()
-                .map(date->date.toString())
-                .collect(Collectors.toList());
-
-        getList.forEach(System.out::println);
-        List<HotelRoomEaByDate> updatedList = new ArrayList<>();
-
-        getDateList.forEach(date -> {
-            List<HotelRoomEa> eaList = areYouChooseDates
+            List<HotelRoomEaByDate> whenYouSelDates = new ArrayList<>();
+            List<LocalDate> getList = startDate.datesUntil(endDate.plusDays(1)).collect(Collectors.toList());
+            List<String> getDateList = getList
                     .stream()
-                    .filter(s -> s.getRoomDate().equals(date.toString()))
-                    .map(roomInfo -> {
-                        HotelRoomEa roomEa = new HotelRoomEa();
-                        roomEa.setHotelRoomNm(roomInfo.getHotelRoomNm());
-                        roomEa.setRoomLeftEa(roomInfo.getRoomLeftEa());
-                        return roomEa;
-                    })
+                    .map(date -> date.toString())
                     .collect(Collectors.toList());
 
-            HotelRoomEaByDate eaByDate = new HotelRoomEaByDate();
-            eaByDate.setDate(date.toString());
-            eaByDate.setRoomEas(eaList);
-            log.info("eaList : {}",eaList);
-            updatedList.add(eaByDate);
-        });
+            getList.forEach(System.out::println);
+            List<HotelRoomEaByDate> updatedList = new ArrayList<>();
 
-        whenYouSelDates.addAll(updatedList);
-        return whenYouSelDates;
+            getDateList.forEach(date -> {
+                List<HotelRoomEa> eaList = areYouChooseDates
+                        .stream()
+                        .filter(s -> s.getRoomDate().equals(date.toString()))
+                        .map(roomInfo -> {
+                            HotelRoomEa roomEa = new HotelRoomEa();
+                            roomEa.setHotelRoomNm(roomInfo.getHotelRoomNm());
+                            roomEa.setRoomLeftEa(roomInfo.getRoomLeftEa());
+                            return roomEa;
+                        })
+                        .collect(Collectors.toList());
 
+                HotelRoomEaByDate eaByDate = new HotelRoomEaByDate();
+                eaByDate.setDate(date.toString());
+                eaByDate.setRoomEas(eaList);
+                log.info("eaList : {}", eaList);
+                updatedList.add(eaByDate);
+            });
+
+            whenYouSelDates.addAll(updatedList);
+            return whenYouSelDates;
+        }
+        throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
     }
     //------------------------------------날짜랑 강아지 선택했을 때 가능한 방 리스트--------------------------------------------
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(int hotelPk,LocalDate startDate,LocalDate endDate,List<Integer> dogs){
@@ -427,7 +427,7 @@ public class HotelService {
 
             List<HotelRoomEaByDate> whenYouChooseDatesAndDogs=new ArrayList<>();
             List<HotelRoomResInfoByMonth> areYouSure =mapper.getHotelFilterRoomResInfo(hotelPk,startDate.toString(),endDate.toString(),howMany,large);
-
+            
             getListDates.forEach(date -> {
                 List<HotelRoomEa> eaList = areYouSure
                         .stream()
@@ -455,7 +455,7 @@ public class HotelService {
 
     public List<HotelRoomResInfoByMonth> iWillShowYouAbleDatesWithRoom(HotelRoomAbleListDto dto) {
         if (dto.getHotelPk() == 0) {
-            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+            throw new CustomException(HotelErrorCode.NON_EXIST_HOTEL_PK);
         }
         //시작 끝 날짜만 입력 되어있는 상태.(예약 2단계)
         if (!(dto.getEndDate() == null && dto.getStartDate() == null)) {
@@ -463,7 +463,9 @@ public class HotelService {
             log.info("startDate : {}", dto.getStartDate());
             log.info("endDate : {}", dto.getEndDate());
             List<HotelRoomResInfoByMonth> resInfoByMonths=mapper.getHotelRoomResInfo(dto.getHotelPk(), dto.getStartDate(), dto.getEndDate());
-
+            if(resInfoByMonths.size()==0){
+                throw new CustomException(HotelErrorCode.NON_EXIST_ROOM_DATE);
+            }
             return resInfoByMonths;
             // 시작 , 끝 날짜 설정X, (예약 1단계 or 상세페이지)
         } else {
@@ -474,7 +476,7 @@ public class HotelService {
 
             List<HotelRoomResInfoByMonth> infoByMonths=mapper.getHotelRoomResInfo(dto.getHotelPk(), startDate, endDate);
             if(infoByMonths.size()==0){
-                throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+                throw new CustomException(HotelErrorCode.NON_EXIST_ROOM_DATE);
             }
             return infoByMonths;
         }
@@ -507,7 +509,6 @@ public class HotelService {
         }
         return monthDateList;
     }
-    //승준
 
     // 호텔 더미데이터 작성
     @Transactional(rollbackFor = Exception.class)

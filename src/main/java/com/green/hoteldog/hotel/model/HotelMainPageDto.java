@@ -12,7 +12,7 @@ public class HotelMainPageDto {
     @NotNull
     @Schema(name = "호텔 pk",minimum = "0",description = "호텔 상세 페이지<br>" +
             "출력 시 필요한 호텔 pk")
-    @JsonProperty(required = true,value = "hotel_pk")
+    @JsonProperty(value = "hotel_pk")
     private int hotelPk;
 
     @Schema(name = "유저 pk",minimum = "0",description = "호텔 상세 페이지<br>" +
@@ -23,4 +23,3 @@ public class HotelMainPageDto {
     private int userPk=0;
 
 }
-//승준

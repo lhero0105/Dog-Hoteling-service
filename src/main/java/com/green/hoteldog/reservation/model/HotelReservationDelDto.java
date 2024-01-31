@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-//영웅
+
 @Data
 public class HotelReservationDelDto {
     private int resPk;

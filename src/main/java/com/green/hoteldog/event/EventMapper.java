@@ -8,5 +8,5 @@ import java.util.List;
 @Mapper
 public interface EventMapper {
     List<EventInfoVo> getEvents();
-    //승준
+
 }

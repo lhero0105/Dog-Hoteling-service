@@ -12,7 +12,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping()
+@RequestMapping("/event")
 public class EventController {
     private final EventService eventService;
     @GetMapping()
@@ -21,5 +21,4 @@ public class EventController {
         getHotelEvents=eventService.getEvent();
         return getHotelEvents;
     }
-    //승준
 }

@@ -8,7 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.List;
-//영웅
+
 @Data
 public class HotelReservationInsDto{
     @Min(0)

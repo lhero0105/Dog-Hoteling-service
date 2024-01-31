@@ -1,5 +1,6 @@
 package com.green.hoteldog.hotel;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.CommonErrorCode;
@@ -30,7 +31,7 @@ public class HotelController {
     private final AuthenticationFacade authenticationFacade;
     public void checkUser(){
         if(authenticationFacade.getLoginUserPk()==0){
-            throw new CustomException(CommonErrorCode.RESOURCE_NOT_FOUND);
+            throw new CustomException(CommonErrorCode.UNAUTHORIZED);
         }
     }
     // 0-1 광고+호텔 리스트 api/hotel/{page}
@@ -65,8 +66,6 @@ public class HotelController {
         dto.setPage(page);
         return service.getHotelList(dto);
     }
-    //영웅
-
     //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
     @GetMapping()
     public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
@@ -78,17 +77,17 @@ public class HotelController {
     }
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
     @GetMapping("/info")
-    public List<HotelRoomEaByDate> whenYouChooseDates(@RequestParam("hotel_pk") int hotelPk,
-                                                      @RequestParam("start_date") LocalDate startDate,
-                                                      @RequestParam("end_date") LocalDate endDate){
+    public List<HotelRoomEaByDate> whenYouChooseDates(@JsonProperty int hotelPk,
+                                                      @JsonProperty LocalDate startDate,
+                                                      @JsonProperty LocalDate endDate){
 
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
     //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
     @GetMapping("/info/dogs")
-    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@RequestParam("hotel_pk") int hotelPk,
-                                                             @RequestParam("start_date") LocalDate startDate,
-                                                             @RequestParam("end_date") LocalDate endDate,
+    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@JsonProperty int hotelPk,
+                                                             @JsonProperty LocalDate startDate,
+                                                             @JsonProperty LocalDate endDate,
                                                              @RequestParam List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
@@ -99,15 +98,17 @@ public class HotelController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "좋아요 처리: result(1), 좋아요 취소: result(2)")
     })
-    public ResVo toggleHotelBookMark(UserHotelFavDto dto){
+    public ResVo toggleHotelBookMark(int hotelPk){
         checkUser();
-        return service.toggleHotelBookMark(dto);
-    }
-    //승준
-    @GetMapping("/like")
-    public List<HotelBookMarkListVo> getHotelBookmarkList(){
         int userPk=authenticationFacade.getLoginUserPk();
-        return service.getHotelBookmarkList(userPk);
+        return service.toggleHotelBookMark(hotelPk,userPk);
+    }
+    //-----------------------------------------------------호텔 북마크 리스트----------------------------------------------
+    @GetMapping("/like")
+    public List<HotelBookMarkListVo> getHotelBookmarkList(@RequestParam int page){
+        checkUser();
+        int userPk=authenticationFacade.getLoginUserPk();
+        return service.getHotelBookmarkList(userPk,page);
     }
 
     //호텔 더미데이터 작성
