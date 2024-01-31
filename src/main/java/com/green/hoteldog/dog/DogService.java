@@ -4,10 +4,12 @@ import com.green.hoteldog.common.MyFileUtils;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.dog.models.*;
 import com.green.hoteldog.exceptions.AuthorizedErrorCode;
+import com.green.hoteldog.exceptions.CommonErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.security.AuthenticationFacade;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,6 +30,7 @@ public class DogService {
     }
 
     //유저 강아지 등록
+    @Transactional(rollbackFor = Exception.class)
     public ResVo insUserDog(InsUserDogDto dto){
         dto.setUserPk(facade.getLoginUserPk());
         if (dto.getUserPk() == 0){
@@ -46,7 +49,7 @@ public class DogService {
             }
             return new ResVo(1);
         }catch (Exception e){
-            return new ResVo(0);
+            throw new CustomException(CommonErrorCode.INVALID_PARAMETER);
         }
 
     }
@@ -79,7 +82,9 @@ public class DogService {
         }
         return new ResVo(1);
 
+
     }
+
     //유저 강아지 삭제
     public ResVo delUserDog(DelUserDogDto dto){
         dto.setUserPk(facade.getLoginUserPk());

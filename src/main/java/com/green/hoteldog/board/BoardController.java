@@ -23,7 +23,7 @@ public class BoardController {
     //게시글 리스트
     @GetMapping
     @Operation(summary = "게시글 리스트", description = "게시글 리스트<br>searchType : 0 = 제목 검색<br>searchType : 1 = 내용 검색<br>searchType : 2 = 닉네임 검색")
-    public GetSimpleBoardVo getBoardList(GetBoardListDto dto){
+    public GetSimpleBoardVo getBoardList(@Valid GetBoardListDto dto){
         log.info("GetBoardListDto dto : {}",dto);
         return service.getBoardList(dto);
     }
@@ -74,9 +74,7 @@ public class BoardController {
     //게시글 삭제
     @DeleteMapping
     @Operation(summary = "게시글 삭제",description = "게시글 삭제")
-    public ResVo deleteBoard(@RequestBody List<Integer> boardPkList){
-        DeleteBoardDto dto = new DeleteBoardDto();
-        dto.setBoardPkList(boardPkList);
+    public ResVo deleteBoard(@Valid DeleteBoardDto dto){
         return service.deleteBoard(dto);
     }
     //댓글 작성
@@ -88,9 +86,7 @@ public class BoardController {
     //댓글 삭제
     @DeleteMapping("/comment")
     @Operation(summary = "댓글 삭제",description = "댓글 삭제")
-    public ResVo deleteComment(@RequestBody List<Integer> commentPkList){
-        DeleteCommentDto dto = new DeleteCommentDto();
-        dto.setCommentPkList(commentPkList);
+    public ResVo deleteComment(@Valid DeleteCommentDto dto){
         return service.deleteComment(dto);
     }
 
@@ -104,13 +100,13 @@ public class BoardController {
     //내가 쓴 글 보기
     @GetMapping("/my-board")
     @Operation(summary = "내가 쓴 글 보기",description = "내가 쓴 글 보기")
-    public GetSimpleBoardVo myBoardList(GetUserBoardListDto dto){
+    public GetSimpleBoardVo myBoardList(@Valid GetUserBoardListDto dto){
         return service.userPostingBoardList(dto);
     }
     //내가 작성한 댓글 보기
     @GetMapping("/my-comment")
     @Operation(summary = "내가 쓴 댓글 보기",description = "내가 쓴 댓글 보기")
-    public GetUserCommentVo myCommentList(GetUserCommentListDto dto){
+    public GetUserCommentVo myCommentList(@Valid GetUserCommentListDto dto){
         return service.userPostingCommentList(dto);
     }
 }

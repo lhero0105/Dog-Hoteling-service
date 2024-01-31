@@ -60,14 +60,15 @@ public class HotelController {
     // 상세 정렬방식 - 리뷰 많은 순, 별점 높은 순 : XML에서 정의
     //--------------------------------------------------호텔 리스트-------------------------------------------------------
     // 0128 get방식 RequestParam으로 HotelListSelDto객체 받을 때 DogSizeEa를 String에서 int로 컨버트하여 mapping하려 했지만 실패
-    @PostMapping("/{page}")
+    @PostMapping
     public HotelListSelAllVo getHotelList(@RequestParam int page, @RequestBody @Valid HotelListSelDto dto) {
         log.info("HotelListSelDto dto : {}",dto);
+        dto.setRowCount(Const.HOTEL_LIST_COUNT_PER_PAGE);
         dto.setPage(page);
         return service.getHotelList(dto);
     }
     //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
-    @GetMapping()
+    @GetMapping
     public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
         HotelMainPageDto dto=new HotelMainPageDto();
         dto.setHotelPk(hotelPk);
@@ -93,7 +94,7 @@ public class HotelController {
     }
 
     //-----------------------------------------------------호텔 북마크----------------------------------------------------
-    @GetMapping("/mark/{page}")
+    @GetMapping("/mark")
     @Operation(summary = "좋아요 toggle", description = "toggle로 처리함<br>")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "좋아요 처리: result(1), 좋아요 취소: result(2)")

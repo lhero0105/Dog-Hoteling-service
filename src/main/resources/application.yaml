@@ -14,7 +14,7 @@ spring:
       host: 127.0.0.1 # 임시 방편으로 로컬에서 테스트를 위해 설정
       port: 3306
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
     url: jdbc:mariadb://127.0.0.1:3306/doghotel?allowMultiQueries=true
     username: root
     password:
@@ -37,8 +37,8 @@ server:
 
 spring:
   datasource:
-    driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://192.168.0.144:3306/db_even_last_2?allowMultiQueries=true
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mariadb://localhost:3306/doghotel?allowMultiQueries=true
     username: even_last_2
     password: cache
   data:
@@ -57,3 +57,13 @@ file:
   dir: /home/download/
 server:
   port: 8080
+
+logging:
+  level:
+    jdbc:
+      sqlonly: off
+      sqltiming: info
+      resultsettable: info
+      audit: off
+      resultset: off
+      connection: off

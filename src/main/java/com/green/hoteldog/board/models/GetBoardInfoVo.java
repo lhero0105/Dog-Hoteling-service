@@ -9,6 +9,7 @@ public class GetBoardInfoVo {
     private int boardPk;
     private String title;
     private int userPk;
+    private String contents;
     private String nickname;
     private String createdAt;
     private int boardViewCount;

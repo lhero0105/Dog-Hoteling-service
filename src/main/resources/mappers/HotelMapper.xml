@@ -77,10 +77,10 @@
         ON A.hotel_pk = F.hotel_pk
         GROUP BY A.hotel_pk
         <choose>
-            <when test="filterType = 0">
+            <when test="filterType == 0">
                 ORDER BY A.created_at DESC
             </when>
-            <when test="filterType = 1">
+            <when test="filterType == 1">
                 ORDER BY avgStar DESC
             </when>
             <otherwise>
@@ -92,14 +92,14 @@
 
     <!--회원 정보 셀렉트-->
     <select id="selUserInfoToUserPk">
-        SELECT B.region_1depth_name AS region1depthName , C.size_pk AS sizePk
+        SELECT B.region_1depth_name AS address , C.size_pk AS dogSizePks
         FROM t_user A
         JOIN t_user_where B
-        JOIN t_user_dog C
         ON A.user_pk = B.user_pk
+        LEFT JOIN t_user_dog C
         ON A.user_pk = C.user_pk
         WHERE A.user_pk = #{userPk}
-        GROUP BY  C.size_pk
+        GROUP BY C.size_pk
     </select>
 
     <!--회원 첫 화면 호텔 리스트 1-->
@@ -131,19 +131,17 @@
         ON A.hotel_pk = E.hotel_pk
         LEFT JOIN t_hotel_where G
         ON A.hotel_pk = G.hotel_pk
-        <if test="userPk > 0">
-            LEFT JOIN t_user H
-            ON A.user_pk = H.user_pk
-            LEFT JOIN t_hotel_favorites I
-            ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
-        </if>
-        WHERE G.region_1depth_name = '#{address}'
+        LEFT JOIN t_user H
+        ON A.user_pk = H.user_pk
+        LEFT JOIN t_hotel_favorites I
+        ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
+        WHERE G.region_1depth_name = #{address}
         GROUP BY A.hotel_pk
         <choose>
-            <when test="filterType = 0">
+            <when test="filterType == 0">
                 ORDER BY A.created_at DESC
             </when>
-            <when test="filterType = 1">
+            <when test="filterType == 1">
                 ORDER BY avgStar DESC
             </when>
             <otherwise>
@@ -186,9 +184,11 @@
         JOIN t_hotel_room_info B
         ON A.hotel_pk = B.hotel_pk
         WHERE B.size_pk IN
-        <foreach collection="list" item="dogSizePks" separator="," open="(" close=")">
-            #{dogSizePks}
+        <foreach collection="dogSizePks" item="item" separator="," open="(" close=")">
+            #{item}
         </foreach>
+        GROUP BY A.hotel_pk
+        HAVING COUNT(A.hotel_pk) <![CDATA[ >= ]]> #{dogPkSize}
         ) F
         ON A.hotel_pk = F.hotel_pk
         LEFT JOIN t_hotel_where G
@@ -199,13 +199,13 @@
             LEFT JOIN t_hotel_favorites I
             ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
         </if>
-        WHERE G.region_1depth_name = '#{address}'
+        WHERE G.region_1depth_name = #{address}
         GROUP BY A.hotel_pk
         <choose>
-            <when test="filterType = 0">
+            <when test="filterType == 0">
                 ORDER BY A.created_at DESC
             </when>
-            <when test="filterType = 1">
+            <when test="filterType == 1">
                 ORDER BY avgStar DESC
             </when>
             <otherwise>
@@ -218,7 +218,7 @@
     <!--검색 시 호텔 리스트-->
     <select id="selHotelListToSearch">
         SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
-        , hotelRoomCost, avgStar, A.discount_per AS discountPer, G.address_name AS addressName
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
         , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
@@ -244,23 +244,22 @@
         ON A.hotel_pk = E.hotel_pk
         LEFT JOIN t_hotel_where F
         ON A.hotel_pk = F.hotel_pk
-        <if test="userPk > 0">
-            LEFT JOIN t_user H
-            ON A.user_pk = H.user_pk
-            LEFT JOIN t_hotel_favorites I
-            ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
-        </if>
+        LEFT JOIN t_user H
+        ON A.user_pk = H.user_pk
+        LEFT JOIN t_hotel_favorites I
+        ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
         WHERE A.hotel_nm
-        REGEXP
-        <foreach collection="list" item="tokensToStrList" separator="|" open="'" close="'">
-            #{tokensToStrList}
+        REGEXP replace(
+        <foreach collection="tokensToStrList" item="item" separator="|" open="'" close="'">
+            ${item}
         </foreach>
+        , ' ', '')
         GROUP BY A.hotel_pk
         <choose>
-            <when test="filterType = 0">
+            <when test="filterType == 0">
                 ORDER BY A.created_at DESC
             </when>
-            <when test="filterType = 1">
+            <when test="filterType == 1">
                 ORDER BY avgStar DESC
             </when>
             <otherwise>
@@ -307,10 +306,10 @@
         WHERE A.hotel_nm = #{search}
         GROUP BY A.hotel_pk
         <choose>
-            <when test="filterType = 0">
+            <when test="filterType == 0">
                 ORDER BY A.created_at DESC
             </when>
-            <when test="filterType = 1">
+            <when test="filterType == 1">
                 ORDER BY avgStar DESC
             </when>
             <otherwise>
@@ -378,7 +377,7 @@
             <if test="address != null">
                 G.region_1depth_name = #{address}
             </if>
-            <if test="dogInfo.size != 0">
+            <if test="dogInfo != null">
                 <if test="address != null">
                     AND
                 </if>
@@ -390,10 +389,10 @@
         </where>
         GROUP BY A.hotel_pk
         <choose>
-            <when test="filterType = 0">
+            <when test="filterType == 0">
                 ORDER BY A.created_at DESC
             </when>
-            <when test="filterType = 1">
+            <when test="filterType == 1">
                 ORDER BY avgStar DESC
             </when>
             <otherwise>

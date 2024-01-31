@@ -11,7 +11,6 @@ public class GetBoardInfoDto {
     @Min(value = 1,message = "boardPk 값은 1 이상이어야 합니다.")
     @Schema(description = "게시글pk",defaultValue = "1")
     private int boardPk;
-    @Min(value = 1,message = "page값은 최소 1이어야 합니다.")
     @Schema(description = "게시글에 등록된 댓글 페이지 번호",defaultValue = "1")
     private int page;
     @JsonIgnore
@@ -19,7 +18,11 @@ public class GetBoardInfoDto {
     @JsonIgnore
     private int startIdx;
 
-    public void setStartIdx(int startIdx){
-        this.startIdx = (this.page - 1) * this.rowCount;
+    public void setPage(int page){
+        if(page == 0){
+            page = 1;
+        }
+        this.startIdx = (page - 1) * this.rowCount;
+        this.page = page;
     }
 }

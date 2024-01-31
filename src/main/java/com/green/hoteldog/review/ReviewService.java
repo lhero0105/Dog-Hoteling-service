@@ -125,7 +125,6 @@ public class ReviewService {
     }
 
 
-
     //------------------------------------------------호텔 리뷰-----------------------------------------------------------
     public List<HotelReviewSelVo> getHotelReview(HotelReviewSelDto dto){
         // n+1 이슈 해결
@@ -134,7 +133,7 @@ public class ReviewService {
             dto.getReviewPk().add(vo.getReviewPk());
         }
         List<HotelReviewPicsSelVo> pics = mapper.selHotelReviewPics(dto);
-        // 사진이 있을 때만 실행되도록 성능이슈
+
         // pk를 담을 list, pk 및 해당 객체 주솟 값을 담을 map 생성
         List<Integer> revPk = new ArrayList<>();
         Map<Integer, HotelReviewSelVo> hashMap = new HashMap<>();
@@ -153,5 +152,4 @@ public class ReviewService {
         }
         return list;
     }
-
 }

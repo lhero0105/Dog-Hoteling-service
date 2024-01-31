@@ -37,9 +37,9 @@ public class UserController {
         if(dto.getEmailResponseVo().getResult() == 1){
             vo = service.userSignup(dto);
         }
-        /*if(vo.getResult() == 1){
+        if(vo.getResult() == 1){
             redisUtil.deleteData(dto.getEmailResponseVo().getEmail());
-        }*/
+        }
         return vo;
     }
     //유저 로그인

@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
+@RequestMapping("/api/reservation")
 public class ReservationController {
     private final ReservationService service;
     private final AuthenticationFacade authenticationFacade;
@@ -26,18 +26,17 @@ public class ReservationController {
         }
     }
     //---------------------------------------------------호텔 예약--------------------------------------------------------
-    @PostMapping("/hotel/res")
+    @PostMapping
     public ResVo postHotelReservation(@RequestBody List<HotelReservationInsDto> dto){
         return service.postHotelReservation(dto);
     }
     //---------------------------------------------------예약 취소--------------------------------------------------------
-    @DeleteMapping("/hotel/res")
+    @DeleteMapping
     public ResVo delHotelReservation(HotelReservationDelDto dto){
         return service.delHotelReservation(dto);
     }
-
     //-------------------------------------------------예약내역 출력-------------------------------------------------------
-    @GetMapping("/reservation")
+    @GetMapping
     public List<ResInfoVo> getUserReservation(int page){
         checkUser();
         int userPk= authenticationFacade.getLoginUserPk();

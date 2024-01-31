@@ -1,7 +1,6 @@
 package com.green.hoteldog.user.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.green.hoteldog.email.EmailResponseVo;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
@@ -26,11 +25,10 @@ public class UserSignupDto {
     @Size(min = 2,message = "닉네임은 최소 2글자 입니다.")
     private String nickname;
     @Pattern(regexp = "^01[0-1|6-9]{1}[\\d]{3,4}[\\d]{4}",message = "올바른 전화번호 입력이 아닙니다.")
-    @JsonProperty(value = "phone_num")
     private String phoneNum;
     @JsonIgnore
     private String userAddress;
 
-    @JsonProperty(value = "address_entity")
+
     private UserAddressEntity addressEntity;
 }
