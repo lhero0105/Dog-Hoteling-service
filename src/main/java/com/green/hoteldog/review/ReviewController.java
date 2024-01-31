@@ -65,8 +65,8 @@ public class ReviewController {
         return service.delReview(dto);
     }
     //-------------------------------------------상세페이지 리뷰 페이지네이션-------------------------------------------------
-    @GetMapping("/{hotel_pk}/review/{page}")
-    public List<HotelReviewSelVo> getHotelReview(@RequestParam ("hotel_pk") int hotelPk, @RequestParam int page){
+    @GetMapping("/review/{hotel_pk}")
+    public List<HotelReviewSelVo> getHotelReview(@PathVariable ("hotel_pk") int hotelPk, @RequestParam int page){
         HotelReviewSelDto dto = new HotelReviewSelDto();
         dto.setRowCount(Const.REVIEW_COUNT_PER_PAGE);
         dto.setHotelPk(hotelPk);
