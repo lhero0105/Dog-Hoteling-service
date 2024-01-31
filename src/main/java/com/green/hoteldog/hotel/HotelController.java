@@ -113,7 +113,7 @@ public class HotelController {
     }
 
     //호텔 더미데이터 작성
-    @PostMapping
+    @PostMapping("/registration")
     public ResVo hotelRegistration(@RequestPart(required = false) @Schema(hidden = true) List<MultipartFile> pics, @RequestBody HotelInsDto dto){
         log.info("hotelDto : {}",dto);
         return service.hotelRegistration(pics, dto);
