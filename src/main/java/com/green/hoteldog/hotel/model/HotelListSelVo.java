@@ -1,9 +1,11 @@
 package com.green.hoteldog.hotel.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
+@Schema(title = "리스트 출력 VO")
 public class HotelListSelVo {
     @JsonProperty(value = "hotel_pk")
     private int hotelPk;

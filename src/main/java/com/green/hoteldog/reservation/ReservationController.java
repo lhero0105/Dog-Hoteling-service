@@ -7,6 +7,7 @@ import com.green.hoteldog.reservation.model.HotelReservationDelDto;
 import com.green.hoteldog.reservation.model.HotelReservationInsDto;
 import com.green.hoteldog.reservation.model.ResInfoVo;
 import com.green.hoteldog.security.AuthenticationFacade;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -26,12 +27,14 @@ public class ReservationController {
         }
     }
     //---------------------------------------------------호텔 예약--------------------------------------------------------
-    @PostMapping
+    @PostMapping("/hotel/res")
+    @Operation(summary = "호텔 예약",description = "호텔 예약 관련 처리")
     public ResVo postHotelReservation(@RequestBody List<HotelReservationInsDto> dto){
         return service.postHotelReservation(dto);
     }
     //---------------------------------------------------예약 취소--------------------------------------------------------
-    @DeleteMapping
+    @DeleteMapping("/hotel/res")
+    @Operation(summary = "호텔 예약 취소",description = "호텔 예약 취소 관련 처리")
     public ResVo delHotelReservation(HotelReservationDelDto dto){
         return service.delHotelReservation(dto);
     }

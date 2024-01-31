@@ -249,11 +249,7 @@
         LEFT JOIN t_hotel_favorites I
         ON A.hotel_pk = I.hotel_pk AND I.user_pk = #{userPk}
         WHERE A.hotel_nm
-        REGEXP replace(
-        <foreach collection="tokensToStrList" item="item" separator="|" open="'" close="'">
-            ${item}
-        </foreach>
-        , ' ', '')
+        REGEXP replace(<foreach collection="tokensToStrList" item="item" separator="|" open="'" close="'">${item}</foreach>, ' ', '')
         GROUP BY A.hotel_pk
         <choose>
             <when test="filterType == 0">
@@ -421,9 +417,9 @@
         FROM t_hotel_room_info A
         JOIN t_hotel_room_info_date B
         ON A.hotel_room_pk = B.hotel_room_pk
-        WHERE A.maximum > 1
-        AND #{allDogCount} >= A.maximum
-        AND A.size_pk >= #{biggestDogSize}
+        WHERE A.maximum <![CDATA[ > ]]> 1
+        AND #{allDogCount} <![CDATA[ >= ]]> A.maximum
+        AND A.size_pk <![CDATA[ >= ]]> #{biggestDogSize}
         AND B.room_left_ea <![CDATA[ >= ]]> 1
         AND B.room_date IN
         <foreach collection="date" item="item" separator="," open="(" close=")">
