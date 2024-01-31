@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@Tag(name = "호텔 API",description = "호텔 관련 처리")
 @RequestMapping("/api/hotel")
 public class HotelController {
     private final HotelService service;
@@ -40,6 +42,7 @@ public class HotelController {
     //----------------------------------------------- 호텔 광고 리스트-----------------------------------------------------
     // 새로고침 시 적용
     @GetMapping("/ad")
+    @Operation(summary = "호텔 광고 리스트", description = "호텔 광고 리스트 출력 기능")
     public List<HotelListSelVo> getHotelAdvertiseList(HotelListSelDto dto){
         return service.getHotelAdvertiseList(dto);
     }
@@ -61,6 +64,7 @@ public class HotelController {
     //--------------------------------------------------호텔 리스트-------------------------------------------------------
     // 0128 get방식 RequestParam으로 HotelListSelDto객체 받을 때 DogSizeEa를 String에서 int로 컨버트하여 mapping하려 했지만 실패
     @PostMapping
+    @Operation(summary = "호텔 리스트 출력", description = "검색, 필터링, 하단 필터링, 사용자화 기능")
     public HotelListSelAllVo getHotelList(@RequestParam int page, @RequestBody @Valid HotelListSelDto dto) {
         log.info("HotelListSelDto dto : {}",dto);
         dto.setRowCount(Const.HOTEL_LIST_COUNT_PER_PAGE);

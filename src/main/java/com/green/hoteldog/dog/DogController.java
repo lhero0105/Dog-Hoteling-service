@@ -2,6 +2,7 @@ package com.green.hoteldog.dog;
 
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.dog.models.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/dog")
+@Tag(name = "강아지 API",description = "강아지 관련 처리")
 public class DogController {
     private final DogService service;
 

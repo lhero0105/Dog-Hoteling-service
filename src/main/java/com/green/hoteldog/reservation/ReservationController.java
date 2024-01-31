@@ -8,6 +8,7 @@ import com.green.hoteldog.reservation.model.HotelReservationInsDto;
 import com.green.hoteldog.reservation.model.ResInfoVo;
 import com.green.hoteldog.security.AuthenticationFacade;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@Tag(name = "예약 API",description = "예약 관련 처리")
 @RequestMapping("/api/reservation")
 public class ReservationController {
     private final ReservationService service;

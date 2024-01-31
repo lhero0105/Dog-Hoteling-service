@@ -4,6 +4,7 @@ import com.green.hoteldog.common.RedisUtil;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.user.models.*;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
+@Tag(name = "유저 API",description = "유저 관련 처리")
 @RequestMapping("/api/user")
 public class UserController {
     private final UserService service;

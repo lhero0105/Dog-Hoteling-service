@@ -1,6 +1,7 @@
 package com.green.hoteldog.event;
 
 import com.green.hoteldog.event.model.EventInfoVo;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/event")
+@Tag(name = "이벤트 API",description = "이벤트 관련 처리")
 public class EventController {
     private final EventService eventService;
     @GetMapping()
