@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 public class HotelListSelDto {
     // @JsonProperty(required = false) 기본
-    @Min(0)@Max(1)@Positive
+    @Min(0)
     @JsonProperty(value = "main_filter")
     private int mainFilter; // 필터 했는지 유무
     private String address;
@@ -29,17 +29,16 @@ public class HotelListSelDto {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String toDate;
     @JsonProperty(value = "dog_info")
-    private List<DogSizeEa> dogInfo = new ArrayList<>();
+    private List<DogSizeEa> dogInfo;
     private String search; // 호텔 이름 검색
-    @Min(0)
-    @JsonProperty(required = true, value = "row_count") @Positive
-    private int rowCount;
     // 호텔 이용 테마
     @JsonProperty(value = "hotel_option_pk")
     private List<Integer> hotelOptionPk;
-    @Min(0)@Max(2)@Positive
+    @Min(0)
     @JsonProperty(value = "filter_type")
     private int filterType; // default(0) : 적용 x, 1 : 별점 높은 순, 2 : 리뷰 많은 순
+    @JsonIgnore
+    private int rowCount;
     @JsonIgnore
     private int userPk;
     @JsonIgnore
@@ -48,6 +47,8 @@ public class HotelListSelDto {
     private int startIdx;
     @JsonIgnore
     private int page;
+    @JsonIgnore
+    private List<Integer> dogSizePks = new ArrayList<>();
     @JsonIgnore
     private List<String> tokensToStrList;
     @JsonIgnore

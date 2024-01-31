@@ -63,6 +63,7 @@ public class HotelController {
     @PostMapping("/{page}")
     public HotelListSelAllVo getHotelList(@RequestParam int page, @RequestBody @Valid HotelListSelDto dto) {
         log.info("HotelListSelDto dto : {}",dto);
+        dto.setRowCount(Const.HOTEL_LIST_COUNT_PER_PAGE);
         dto.setPage(page);
         return service.getHotelList(dto);
     }

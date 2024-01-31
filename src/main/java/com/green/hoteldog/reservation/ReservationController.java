@@ -35,7 +35,6 @@ public class ReservationController {
     public ResVo delHotelReservation(HotelReservationDelDto dto){
         return service.delHotelReservation(dto);
     }
-
     //-------------------------------------------------예약내역 출력-------------------------------------------------------
     @GetMapping("/reservation")
     public List<ResInfoVo> getUserReservation(int page){

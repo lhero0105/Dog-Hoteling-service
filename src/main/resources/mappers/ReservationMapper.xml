@@ -103,7 +103,7 @@
     <update id="updRemainedHotelRoom2">
         <foreach collection="hotelRoomPk" item="item">
             UPDATE t_hotel_room_info_date
-            SET room_left_ea = room_left_ea + 1
+            SET room_left_ea = room_left_ea - 1
             WHERE
             <foreach collection="date" item="item2" open="(" close=")" separator="OR">
                 (room_date = #{item2} AND hotel_room_pk = #{item})

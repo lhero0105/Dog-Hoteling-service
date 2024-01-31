@@ -77,7 +77,6 @@ public class ReservationService {
             }
         }
 
-
         int affectedRows3 = mapper.updRemainedHotelRoom(updList);
         if(affectedRows3 == 0){
             throw new CustomException(CommonErrorCode.INVALID_PARAMETER);
