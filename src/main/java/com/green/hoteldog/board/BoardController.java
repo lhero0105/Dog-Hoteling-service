@@ -5,7 +5,6 @@ import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.BoardErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,13 +17,19 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("/api/board")
-@Tag(name = "게시판 API",description = "게시판 관련 처리")
 public class BoardController {
     private final BoardService service;
 
     //게시글 리스트
     @GetMapping
-    @Operation(summary = "게시글 리스트", description = "게시글 리스트<br>searchType : 0 = 제목 검색<br>searchType : 1 = 내용 검색<br>searchType : 2 = 닉네임 검색")
+    @Operation(summary = "게시글 리스트", description =
+            "게시글 리스트<br>searchType : 0 = 제목 검색" +
+            "<br>searchType : 1 = 내용 검색" +
+            "<br>searchType : 2 = 닉네임 검색" +
+            "<br> boardCategoryPk : 0 = 전체 카테고리 게시글 " +
+            "<br> boardCategoryPk : 1 = 공지 게시글 " +
+            "<br> boardCategoryPk : 2 = 자유게시판 게시글 " +
+            "<br> boardCategoryPk : 3 = 정보 게시글 ")
     public GetSimpleBoardVo getBoardList(@Valid GetBoardListDto dto){
         log.info("GetBoardListDto dto : {}",dto);
         return service.getBoardList(dto);

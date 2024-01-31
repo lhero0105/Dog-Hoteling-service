@@ -26,7 +26,8 @@ public class ReviewController {
 
     //----------------------------------------------------리뷰등록--------------------------------------------------------
     @PostMapping
-    @Operation(summary = "리뷰 등록", description = "리뷰 등록<br>사진 등록은 postman으로 테스트")
+    @Operation(summary = "리뷰 등록", description = "리뷰 등록<br>사진 등록은 postman으로 테스트" +
+            "유저가 예약한 예약상태가 체크아웃 상태일 경우만 가능")
     public ResVo postReview(@RequestPart(required = false) List<MultipartFile> pics,
                             @RequestPart @Valid ReviewInsDto dto) {
         if (pics.size() > 3){
@@ -57,15 +58,16 @@ public class ReviewController {
     //--------------------------------------------------리뷰 좋아요-------------------------------------------------------
     @GetMapping("/fav")
     @Operation(summary = "리뷰 좋아요", description = "좋아요 토글 처리<br>result = 1 좋아요 성공<br>result = 2 좋아요 취소")
-    public ResVo getReviewFav(ReviewFavDto dto) {
+    public ResVo getReviewFav(@Valid ReviewFavDto dto) {
         return service.patchReviewFav(dto);
     }
     //--------------------------------------------------리뷰 삭제--------------------------------------------------------
     @DeleteMapping
     @Operation(summary = "리뷰 삭제",description = "리뷰 삭제처리")
-    public ResVo delReview(DelReviewDto dto){
+    public ResVo delReview(@Valid DelReviewDto dto){
         return service.delReview(dto);
     }
+
     //-------------------------------------------상세페이지 리뷰 페이지네이션-------------------------------------------------
     @GetMapping("/{hotel_pk}")
     @Operation(summary = "미디어 등록",description = "미디어 등록 관련 처리")

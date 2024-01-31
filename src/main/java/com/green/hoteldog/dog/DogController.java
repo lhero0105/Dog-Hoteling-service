@@ -2,7 +2,7 @@ package com.green.hoteldog.dog;
 
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.dog.models.*;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/dog")
-@Tag(name = "강아지 API",description = "강아지 관련 처리")
 public class DogController {
     private final DogService service;
 
@@ -24,25 +23,25 @@ public class DogController {
     //유저 강아지 등록
     @PostMapping
     public ResVo postUserDog(@RequestPart MultipartFile pic,
-                             @RequestPart InsUserDogDto dto){
+                             @RequestPart @Valid InsUserDogDto dto){
         dto.setDogPic(pic);
         return service.insUserDog(dto);
     }
     //유저 강아지 정보 수정
     @PutMapping
-    public ResVo putUserDog(@RequestBody UpdUserDogDto dto){
+    public ResVo putUserDog(@RequestBody @Valid UpdUserDogDto dto){
         return service.updUserDog(dto);
     }
     //유저 강아지 사진 수정
     @PatchMapping
     public ResVo patchUserDogPic(@RequestPart MultipartFile pic
-                                 ,@RequestPart PatchUserDogPicDto dto){
+                                 ,@RequestPart @Valid PatchUserDogPicDto dto){
         dto.setPic(pic);
         return service.updUserDogPic(dto);
     }
     //유저 강아지 삭제
     @DeleteMapping
-    public ResVo delUserDog(DelUserDogDto dto){
+    public ResVo delUserDog(@Valid DelUserDogDto dto){
         return service.delUserDog(dto);
     }
 

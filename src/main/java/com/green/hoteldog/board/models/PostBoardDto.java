@@ -19,8 +19,10 @@ public class PostBoardDto {
     @Schema(description = "게시글 카테고리 pk",defaultValue = "1")
     private int boardCategoryPk;
     @NotEmpty(message = "title은 필수 입력값 입니다.")
+    @Schema(description = "게시글 제목")
     private String title;
     @NotEmpty(message = "contetns값은 필수 입력값 입니다.")
+    @Schema(description = "게시글 내용")
     private String contents;
     @JsonIgnore
     private List<MultipartFile> pics;
