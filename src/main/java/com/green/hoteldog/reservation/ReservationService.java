@@ -34,8 +34,8 @@ public class ReservationService {
             if(dtos.getUserPk() == 0){
                 throw new CustomException(ReservationErrorCode.UNKNOWN_USER_PK);
             }
-            int respk = mapper.insHotelReservation(dtos);
-            dtos.setResPk(respk);
+            int affectedrows = mapper.insHotelReservation(dtos);
+            dtos.setResPk(dtos.getResPk());
             if (dtos.getResPk() == null){
                 throw new CustomException(ReservationErrorCode.RESERVATION_TABLE_REGISTRATION_FAILED); // 예약 테이블에 등록 실패
             }
