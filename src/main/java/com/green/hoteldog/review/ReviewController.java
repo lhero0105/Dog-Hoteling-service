@@ -70,7 +70,7 @@ public class ReviewController {
 
     //-------------------------------------------상세페이지 리뷰 페이지네이션-------------------------------------------------
     @GetMapping("/{hotel_pk}")
-    @Operation(summary = "미디어 등록",description = "미디어 등록 관련 처리")
+    @Operation(summary = "상세페이지 리뷰 페이지네이션",description = "상세페이지 리뷰 페이지네이션 기능")
     public List<HotelReviewSelVo> getHotelReview(@RequestParam ("hotel_pk") int hotelPk, int page){
         HotelReviewSelDto dto = new HotelReviewSelDto();
         dto.setRowCount(Const.REVIEW_COUNT_PER_PAGE);

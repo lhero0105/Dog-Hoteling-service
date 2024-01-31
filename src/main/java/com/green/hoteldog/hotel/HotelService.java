@@ -575,7 +575,7 @@ public class HotelService {
             return new ResVo(0);
         }
         if(hotelPic != null){
-            String target = "/hotel/"+dto.getHotelPk() + "/room" + dto.getHotelRoomNm();
+            String target = "/hotel/"+dto.getHotelPk() + "/room/" + dto.getHotelRoomNm();
             String saveFileNm = myFileUtils.transferTo(hotelPic,target);
             dto.setRoomPic(saveFileNm);
         }
