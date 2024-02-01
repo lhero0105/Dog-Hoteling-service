@@ -16,7 +16,8 @@ public enum ReservationErrorCode implements ErrorCode{
     ROOM_PK_SELECT_FAILURE(HttpStatus.BAD_REQUEST, "방pk 셀렉트 실패"),
     FAILED_TO_DELETE_HOTEL_ROOM_DOG_TABLE(HttpStatus.BAD_REQUEST, "호텔방 강아지 테이블 삭제 실패"),
     FAILED_TO_DELETE_RESERVED_DOG_TABLE(HttpStatus.BAD_REQUEST, "예약 강아지 테이블 삭제 실패"),
-    FAILED_TO_DELETE_HOTEL_RESERVATION_TABLE(HttpStatus.BAD_REQUEST, "호텔 예약 테이블 삭제 실패"),;
+    FAILED_TO_DELETE_HOTEL_RESERVATION_TABLE(HttpStatus.BAD_REQUEST, "호텔 예약 테이블 삭제 실패"),
+    NO_ROOMS_AVAILABLE_FOR_THIS_DATE(HttpStatus.BAD_REQUEST, "해당 날짜에 방을 예약 할 수 없습니다.");
 
     private final HttpStatus httpStatus;
     private final String message;

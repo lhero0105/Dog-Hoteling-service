@@ -96,7 +96,7 @@ public class ReservationService {
 
         int affectedRows3 = mapper.updRemainedHotelRoom(updList);
         if(affectedRows3 == 0){
-            throw new CustomException(CommonErrorCode.INVALID_PARAMETER);
+            throw new CustomException(ReservationErrorCode.NO_ROOMS_AVAILABLE_FOR_THIS_DATE);
         }
         return new ResVo(Const.SUCCESS);
     }
