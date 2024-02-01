@@ -68,11 +68,11 @@
     </delete>
     <insert id="insReviewFav">
         INSERT INTO t_review_fav
-        SET user_pk = #{userPk}
-        ,review_pk = #{reviewPk}
+        SET review_pk = #{reviewPk}
+        ,user_pk = #{userPk}
     </insert>
     <delete id="delReviewFav">
-        DELETE t_review_fav
+        DELETE FROM t_review_fav
         WHERE user_pk = #{userPk} AND review_pk = #{reviewPk}
     </delete>
     <select id="checkResStatus">
@@ -81,9 +81,14 @@
         WHERE user_pk = #{userPK} AND res_pk = #{resPk}
     </select>
     <delete id="delReview">
-        DELETE t_review
-        WHERE user_pk = #{userPk} AND review_pk = #{reviewPk} AND res_pk = #{reviewPk}
+        DELETE FROM t_review
+        WHERE review_pk = #{reviewPk} AND res_pk = #{resPk}
     </delete>
+    <select id="checkResUser">
+        SELECT user_pk
+        FROM t_reservation
+        WHERE user_pk = #{userPk} AND res_pk = #{resPk}
+    </select>
     <!--재웅-->
 
 </mapper>

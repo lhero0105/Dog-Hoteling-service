@@ -15,7 +15,7 @@
         ON A.hotel_pk = B.hotel_pk
         LEFT JOIN t_reservation C
         ON A.hotel_pk = C.hotel_pk
-        LEFT JOIN (
+        JOIN (
         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
         FROM t_review A
         JOIN t_reservation B
@@ -56,7 +56,7 @@
         ON A.hotel_pk = B.hotel_pk
         LEFT JOIN t_reservation C
         ON A.hotel_pk = C.hotel_pk
-        LEFT JOIN (
+        JOIN (
         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
         FROM t_review A
         JOIN t_reservation B
@@ -94,7 +94,7 @@
     <select id="selUserInfoToUserPk">
         SELECT B.region_1depth_name AS address , C.size_pk AS dogSizePks
         FROM t_user A
-        JOIN t_user_where B
+        LEFT JOIN t_user_where B
         ON A.user_pk = B.user_pk
         LEFT JOIN t_user_dog C
         ON A.user_pk = C.user_pk
@@ -112,7 +112,7 @@
         ON A.hotel_pk = B.hotel_pk
         LEFT JOIN t_reservation C
         ON A.hotel_pk = C.hotel_pk
-        LEFT JOIN (
+        JOIN (
         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
         FROM t_review A
         join t_reservation B
@@ -161,7 +161,7 @@
         ON A.hotel_pk = B.hotel_pk
         LEFT JOIN t_reservation C
         ON A.hotel_pk = C.hotel_pk
-        LEFT JOIN (
+        JOIN (
         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
         FROM t_review A
         join t_reservation B
@@ -219,13 +219,13 @@
     <select id="selHotelListToSearch">
         SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
         , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
-        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark
+        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
         LEFT JOIN t_reservation C
         ON A.hotel_pk = C.hotel_pk
-        LEFT JOIN (
+        JOIN (
         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
         FROM t_review A
         join t_reservation B
@@ -268,13 +268,13 @@
     <select id="selHotelListToAccurateSearch">
         SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
         , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
-        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark
+        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
         LEFT JOIN t_reservation C
         ON A.hotel_pk = C.hotel_pk
-        LEFT JOIN (
+        JOIN (
         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
         FROM t_review A
         join t_reservation B
@@ -318,7 +318,7 @@
     <!--필터링 시 호텔 리스트-->
     <select id="selHotelListToFilter">
         SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost
-        , avgStar, A.discount_per AS discountPer, G.address_name AS addressName
+        , avgStar, A.discount_per AS discountPer, G.address_name AS addressName, reviewCount
         <if test="userPk > 0">
             , IF(K.hotel_pk IS NULL, 0, 1) AS bookMark
         </if>
@@ -327,7 +327,7 @@
         ON A.hotel_pk = B.hotel_pk
         LEFT JOIN t_reservation C
         ON A.hotel_pk = C.hotel_pk
-        LEFT JOIN (
+        JOIN (
         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
         FROM t_review A
         join t_reservation B

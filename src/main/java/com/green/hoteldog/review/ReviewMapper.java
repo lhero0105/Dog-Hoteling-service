@@ -20,4 +20,5 @@ public interface ReviewMapper {
     int delReview(DelReviewDto dto);
     List<HotelReviewSelVo> selHotelReview(HotelReviewSelDto dto);
     List<HotelReviewPicsSelVo> selHotelReviewPics(HotelReviewSelDto dto);
+    Integer checkResUser(DelReviewDto dto);
 }

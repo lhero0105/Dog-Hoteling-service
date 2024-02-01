@@ -16115,3 +16115,25 @@ BY A.hotel_pk ORDER BY A.created_at DESC LIMIT 0, 6  {executed in 10 ms}[0;39m
 [2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
 [2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
 [2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=32, hotelNm=인천 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=7, bookMark=0), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0)], hotelList=[HotelListSelVo(hotelPk=33, hotelNm=대구 그린아트아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=6, bookMark=0), HotelListSelVo(hotelPk=32, hotelNm=인천 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=7, bookMark=0), HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0)])[0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m1. Connection closed. {executed in 1ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m1. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m2. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m2. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m3. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m3. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m4. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m4. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m5. Connection closed. {executed in 1ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m5. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m6. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m6. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m7. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m7. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m8. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m8. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m9. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m9. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m10. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m10. Connection.close() returned [0;39m
+[2024-02-01 16:22:49 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m

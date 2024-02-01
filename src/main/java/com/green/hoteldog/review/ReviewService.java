@@ -2,10 +2,7 @@ package com.green.hoteldog.review;
 
 import com.green.hoteldog.common.MyFileUtils;
 import com.green.hoteldog.common.ResVo;
-import com.green.hoteldog.exceptions.AuthorizedErrorCode;
-import com.green.hoteldog.exceptions.CommonErrorCode;
-import com.green.hoteldog.exceptions.CustomException;
-import com.green.hoteldog.exceptions.ReviewErrorCode;
+import com.green.hoteldog.exceptions.*;
 import com.green.hoteldog.review.models.*;
 import com.green.hoteldog.security.AuthenticationFacade;
 import lombok.RequiredArgsConstructor;
@@ -116,9 +113,13 @@ public class ReviewService {
     }
     //--------------------------------------------------리뷰 삭제---------------------------------------------------
     public ResVo delReview(DelReviewDto dto){
+        log.info("DelReviewDto : {}",dto);
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
+        }
+        if(mapper.checkResUser(dto) == null || mapper.checkResUser(dto) != dto.getUserPk()){
+            throw new CustomException(ReviewErrorCode.MIS_MATCH_USER_PK);
         }
         int result = mapper.delReview(dto);
         return new ResVo(result);
