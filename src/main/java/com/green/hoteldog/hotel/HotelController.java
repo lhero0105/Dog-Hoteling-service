@@ -78,7 +78,7 @@ public class HotelController {
     @GetMapping
     @Operation(summary = "호텔 상세페이지 전체화면", description = "호텔 상세페이지 전체화면 부분")
     public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
-        HotelMainPageDto dto=new HotelMainPageDto();
+        HotelMainPageDto dto= new HotelMainPageDto();
         dto.setHotelPk(hotelPk);
 
         HotelInfoEntity mainPage=service.getHotelDetail(hotelPk);

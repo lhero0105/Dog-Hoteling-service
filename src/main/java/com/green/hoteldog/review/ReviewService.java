@@ -1,5 +1,6 @@
 package com.green.hoteldog.review;
 
+import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.MyFileUtils;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.*;
@@ -24,7 +25,17 @@ public class ReviewService {
     private final AuthenticationFacade facade;
     private final MyFileUtils fileUtils;
 
+
     //-----------------------------------------------------리뷰 등록------------------------------------------------------
+    private void checkResUser(int resPk, int userPk) {
+        CheckResUserDto checkResUserDto = new CheckResUserDto();
+        checkResUserDto.setResPk(resPk);
+        checkResUserDto.setUserPk(userPk);
+        if(mapper.checkResUser(checkResUserDto) == null || mapper.checkResUser(checkResUserDto) != userPk){
+            throw new CustomException(ReviewErrorCode.MIS_MATCH_USER_PK);
+        }
+    }
+
     public ResVo insReview(ReviewInsDto dto) {
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0 ){
@@ -54,21 +65,22 @@ public class ReviewService {
         }
         return new ResVo(1);
     }
-
     //--------------------------------------------------리뷰 전체 수정-----------------------------------------------------
+
     @Transactional(rollbackFor = Exception.class)
     public ResVo putReview(ReviewUpdDto dto) {
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
+        checkResUser(dto.getResPk(), dto.getUserPk());
         try {
             mapper.updReview(dto);
-            mapper.delReviewPics(dto);
         } catch (Exception e) {
             throw new CustomException(CommonErrorCode.INVALID_PARAMETER);
         }
         if(dto.getPics() != null){
+            mapper.delReviewPics(dto);
             ReviewInsPicsDto picsDto = new ReviewInsPicsDto();
             List<String> pics = new ArrayList<>();
             String target = "/review/"+dto.getReviewPk();
@@ -84,13 +96,15 @@ public class ReviewService {
         return new ResVo(1);
 
     }
-
     //--------------------------------------------------리뷰 코멘트 수정---------------------------------------------------
+
     public ResVo patchReviewComment(ReviewPatchDto dto) {
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
+
+        checkResUser(dto.getResPk(), dto.getUserPk());
         try {
             mapper.updReviewComment(dto);
             return new ResVo(1);
@@ -111,20 +125,27 @@ public class ReviewService {
         }
         return new ResVo(2);
     }
+
     //--------------------------------------------------리뷰 삭제---------------------------------------------------
+
+    @Transactional(rollbackFor = Exception.class)
     public ResVo delReview(DelReviewDto dto){
-        log.info("DelReviewDto : {}",dto);
         dto.setUserPk(facade.getLoginUserPk());
+        log.info("DelReviewDto : {}",dto);
         if(dto.getUserPk() == 0){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
-        if(mapper.checkResUser(dto) == null || mapper.checkResUser(dto) != dto.getUserPk()){
-            throw new CustomException(ReviewErrorCode.MIS_MATCH_USER_PK);
+        checkResUser(dto.getResPk(), dto.getUserPk());
+        try {
+            mapper.delReviewFavAll(dto);
+            mapper.delReviewPicsAll(dto);
+            mapper.delReview(dto);
+            return new ResVo(Const.SUCCESS);
+        }catch (Exception e){
+            throw new CustomException(CommonErrorCode.CONFLICT);
         }
-        int result = mapper.delReview(dto);
-        return new ResVo(result);
-    }
 
+    }
 
     //------------------------------------------------호텔 리뷰-----------------------------------------------------------
     public List<HotelReviewSelVo> getHotelReview(HotelReviewSelDto dto){

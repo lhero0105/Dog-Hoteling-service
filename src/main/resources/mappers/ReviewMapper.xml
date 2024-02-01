@@ -60,7 +60,7 @@
     <update id="updReviewComment">
         UPDATE t_review
         SET comment = #{comment}
-        WHERE review_pk = #{reviewPk}
+        WHERE review_pk = #{reviewPk} AND res_pk = #{resPk}
     </update>
     <delete id="delReviewPics">
         DELETE FROM t_review_pic
@@ -89,6 +89,15 @@
         FROM t_reservation
         WHERE user_pk = #{userPk} AND res_pk = #{resPk}
     </select>
+    <delete id="delReviewPicsAll">
+        DELETE FROM t_review_pic
+        WHERE review_pk = #{reviewPk}
+    </delete>
+    <delete id="delReviewFavAll">
+        DELETE FROM t_review_fav
+        WHERE review_pk = #{reviewPk}
+    </delete>
+
     <!--재웅-->
 
 </mapper>
