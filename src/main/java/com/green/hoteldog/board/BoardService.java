@@ -5,6 +5,7 @@ import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.MyFileUtils;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.AuthorizedErrorCode;
+import com.green.hoteldog.exceptions.BoardErrorCode;
 import com.green.hoteldog.exceptions.CommonErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.security.AuthenticationFacade;
@@ -111,14 +112,17 @@ public class BoardService {
     //게시글 좋아요*/
 
     //게시글 삭제
+    @Transactional(rollbackFor = Exception.class)
     public ResVo deleteBoard(DeleteBoardDto dto){
         dto.setUserPk(facade.getLoginUserPk());
+        log.info("DeleteBoardDto : {}",dto);
         if(dto.getUserPk() == 0){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
         int result = mapper.delBoard(dto);
+        log.info("result : {} , dto.getBoardPkList().size() : {}",result,dto.getBoardPkList().size());
         if (result != dto.getBoardPkList().size()){
-            throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
+            throw new CustomException(BoardErrorCode.BAD_REQUEST_BOARD_PK);
         }
 
         for(Integer boardPk : dto.getBoardPkList()){
@@ -141,13 +145,17 @@ public class BoardService {
     //댓글 등록
 
     //댓글 삭제
+    @Transactional(rollbackFor = Exception.class)
     public ResVo deleteComment(DeleteCommentDto dto){
         dto.setUserPk(facade.getLoginUserPk());
         if(dto.getUserPk() == 0){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
         int result = mapper.delComment(dto);
-        return new ResVo(result);
+        if (result != dto.getCommentPkList().size()){
+            throw new CustomException(BoardErrorCode.BAD_REQUEST_BOARD_PK);
+        }
+        return new ResVo(Const.SUCCESS);
     }
     //댓글 삭제
 

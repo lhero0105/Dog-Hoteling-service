@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -106,7 +107,9 @@ public class BoardController {
     //게시글 삭제
     @DeleteMapping
     @Operation(summary = "게시글 삭제",description = "게시글 삭제")
-    public ResVo deleteBoard(@Valid DeleteBoardDto dto){
+    public ResVo deleteBoard(@RequestParam(name = "boardPkList") List<Integer> boardPkList){
+        DeleteBoardDto dto = new DeleteBoardDto();
+        dto.setBoardPkList(boardPkList);
         return service.deleteBoard(dto);
     }
     //댓글 작성
@@ -116,9 +119,12 @@ public class BoardController {
         return service.postComment(dto);
     }
     //댓글 삭제
+
     @DeleteMapping("/comment")
     @Operation(summary = "댓글 삭제",description = "댓글 삭제")
-    public ResVo deleteComment(@Valid DeleteCommentDto dto){
+    public ResVo deleteComment(@RequestParam(name = "commentPkList")List<Integer> commentPkList){
+        DeleteCommentDto dto = new DeleteCommentDto();
+        dto.setCommentPkList(commentPkList);
         return service.deleteComment(dto);
     }
 
