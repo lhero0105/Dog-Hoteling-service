@@ -43,9 +43,9 @@ public class HotelController {
     //----------------------------------------------- 호텔 광고 리스트-----------------------------------------------------
     // 새로고침 시 적용
     @GetMapping("/ad")
-    @Operation(summary = "호텔 광고 리스트", description = "호텔 광고 리스트 출력 기능")
-    public List<HotelListSelVo> getHotelAdvertiseList(HotelListSelDto dto){
-        return service.getHotelAdvertiseList(dto);
+    @Operation(summary = "호텔 광고 리스트", description = "광고만 바뀌어야 할 때 광고 3개를 랜덤하게 출력하는 기능")
+    public List<HotelListSelVo> getHotelAdvertiseList(){
+        return service.getHotelAdvertiseList();
     }
 
     // 광고 + 호텔 리스트
@@ -65,7 +65,9 @@ public class HotelController {
     //--------------------------------------------------호텔 리스트-------------------------------------------------------
     // 0128 get방식 RequestParam으로 HotelListSelDto객체 받을 때 DogSizeEa를 String에서 int로 컨버트하여 mapping하려 했지만 실패
     @PostMapping
-    @Operation(summary = "호텔 리스트 출력", description = "검색, 필터링, 하단 필터링, 사용자화 기능")
+    @Operation(summary = "호텔 + 광고 리스트 출력", description = "<h1>검색, 필터링, 하단 필터링, 사용자화 기능</h1>\n" +
+            "<h3><b>mainFilter(상단필터 사용여부)</b>, <b>filterType(하단필터 여부)</b> 값은 항상 필요하며, 이외의 값은 기능에 따라 추가적으로 보내주세요.</h3>\n" +
+    "단, 사용자가 입력한 기능 이외의 변수명과 값이 들어 온다면 잘못 입력 에러 리턴")
     public HotelListSelAllVo getHotelList(@RequestParam int page, @RequestBody @Valid HotelListSelDto dto) {
         log.info("HotelListSelDto dto : {}",dto);
         dto.setRowCount(Const.HOTEL_LIST_COUNT_PER_PAGE);

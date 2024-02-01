@@ -31,7 +31,7 @@ public class ReservationController {
     }
     //---------------------------------------------------호텔 예약--------------------------------------------------------
     @PostMapping("/hotel/res")
-    @Operation(summary = "호텔 예약",description = "호텔 예약 관련 처리")
+    @Operation(summary = "호텔 예약",description = "호텔 예약 처리 기능")
     public ResVo postHotelReservation(@RequestBody List<HotelReservationInsDto> dto){
         return service.postHotelReservation(dto);
     }

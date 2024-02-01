@@ -24,9 +24,9 @@ public class HotelReviewSelVo {
     private String comment;
     @Schema(title = "별점 (1~10)")
     private int score;
-    @JsonProperty(value = "created-at")
+    @JsonProperty(value = "updated_at")
     @Schema(title = "리뷰 작성일")
-    private String createdAt;
+    private String updatedAt;
     @JsonProperty(value = "fav_count")
     @Schema(title = "좋아요 수")
     private int favCount;

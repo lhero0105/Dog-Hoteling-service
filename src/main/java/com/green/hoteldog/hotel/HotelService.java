@@ -40,8 +40,8 @@ public class HotelService {
 
 
     //-----------------------------------------------호텔 광고 리스트 셀렉트------------------------------------------------
-    public List<HotelListSelVo> getHotelAdvertiseList(HotelListSelDto dto){
-        return mapper.selHotelAdvertiseList(dto);
+    public List<HotelListSelVo> getHotelAdvertiseList(){
+        return mapper.selHotelAdvertiseList();
     }
     //-----------------------------------------------호텔 리스트 셀렉트----------------------------------------------------
     public HotelListSelAllVo getHotelList(HotelListSelDto dto){
@@ -54,7 +54,7 @@ public class HotelService {
         }
         dto.setUserPk(authenticationFacade.getLoginUserPk());
         // 0. 랜덤 광고 리스트 셀렉
-        List<HotelListSelVo> hotelAdvertiseList = mapper.selHotelAdvertiseList(dto);
+        List<HotelListSelVo> hotelAdvertiseList = mapper.selHotelAdvertiseList();
         log.info("hotelAdvertiseList : {}", hotelAdvertiseList);
         HotelListSelAllVo allVo = new HotelListSelAllVo();
         allVo.setHotelAdvertiseList(hotelAdvertiseList);

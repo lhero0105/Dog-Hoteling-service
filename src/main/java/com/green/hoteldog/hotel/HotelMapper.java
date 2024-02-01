@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface HotelMapper {
-    List<HotelListSelVo> selHotelAdvertiseList(HotelListSelDto dto);
+    List<HotelListSelVo> selHotelAdvertiseList();
     List<HotelListSelVo> selHotelListToNonMember(HotelListSelDto dto);
     List<HotelListSelProcDto> selUserInfoToUserPk(HotelListSelDto dto);
     List<HotelListSelVo> selHotelListAsUserAddress(HotelListSelDto pDto);
