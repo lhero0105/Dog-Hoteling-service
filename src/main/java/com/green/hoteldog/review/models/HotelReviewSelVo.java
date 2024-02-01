@@ -2,24 +2,22 @@ package com.green.hoteldog.review.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Builder
 @Getter
 @Setter
 @Schema(title = "호텔 리뷰 페이지네이션 VO")
 public class HotelReviewSelVo {
-    @JsonProperty(value = "nick_name")
-    @Schema(title = "닉네임")
-    private String nickName;
     @JsonProperty(value = "review_pk")
     @Schema(title = "리뷰pk")
     private int reviewPk;
+    @JsonProperty(value = "nick_name")
+    @Schema(title = "닉네임")
+    private String nickName;
     @Schema(title = "코멘트")
     private String comment;
     @Schema(title = "별점 (1~10)")
