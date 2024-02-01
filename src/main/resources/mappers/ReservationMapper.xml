@@ -41,7 +41,7 @@
             WHERE
             <foreach collection="item.date" item="subItem" open="(" close=")" separator="OR">
                 (room_date = #{subItem} AND hotel_room_pk = #{item.hotelRoomPk})
-            </foreach>
+            </foreach>;
         </foreach>
     </update>
     <!---->
