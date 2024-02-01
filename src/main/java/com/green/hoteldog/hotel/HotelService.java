@@ -75,7 +75,7 @@ public class HotelService {
             log.info("allVo : {}", allVo);
             return allVo;
             // 1-2. 회원 첫화면 - 주소, 반려견 강아지 사이즈(개별방 단체방 모두 고려)
-        } else if (dto.getMainFilter() == 0 && dto.getUserPk() > 0 && dto.getAddress() != null && dto.getFromDate() == null
+        } else if (dto.getMainFilter() == 0 && dto.getUserPk() > 0 && dto.getAddress() == null && dto.getFromDate() == null
                 && dto.getToDate() == null && dto.getDogInfo() == null && dto.getSearch() == null
                 && dto.getHotelOptionPk() == null){
 

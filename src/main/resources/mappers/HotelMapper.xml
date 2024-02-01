@@ -94,7 +94,7 @@
     <select id="selUserInfoToUserPk">
         SELECT B.region_1depth_name AS address , C.size_pk AS dogSizePks
         FROM t_user A
-        JOIN t_user_where B
+        LEFT JOIN t_user_where B
         ON A.user_pk = B.user_pk
         LEFT JOIN t_user_dog C
         ON A.user_pk = C.user_pk
