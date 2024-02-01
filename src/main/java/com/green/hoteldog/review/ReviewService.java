@@ -128,28 +128,32 @@ public class ReviewService {
     //------------------------------------------------호텔 리뷰-----------------------------------------------------------
     public List<HotelReviewSelVo> getHotelReview(HotelReviewSelDto dto){
         // n+1 이슈 해결
-        List<HotelReviewSelVo> list = mapper.selHotelReview(dto);
-        for ( HotelReviewSelVo vo : list ) {
-            dto.getReviewPk().add(vo.getReviewPk());
-        }
-        List<HotelReviewPicsSelVo> pics = mapper.selHotelReviewPics(dto);
-
-        // pk를 담을 list, pk 및 해당 객체 주솟 값을 담을 map 생성
-        List<Integer> revPk = new ArrayList<>();
-        Map<Integer, HotelReviewSelVo> hashMap = new HashMap<>();
-        for ( HotelReviewSelVo vo : list ) {
-            revPk.add(vo.getReviewPk());
-            hashMap.put(vo.getReviewPk(), vo);
-        }
-        for ( HotelReviewPicsSelVo vo : pics ) {
-            hashMap.get(vo.getReviewPk()).getPics().add(vo.getPic());
-        }
-        // 사진 3개까지 제거
-        for ( HotelReviewSelVo vo : list ) {
-            while(vo.getPics().size() > 3){
-                vo.getPics().remove(vo.getPics().size() - 1);
+        try {
+            List<HotelReviewSelVo> list = mapper.selHotelReview(dto);
+            for ( HotelReviewSelVo vo : list ) {
+                dto.getReviewPk().add(vo.getReviewPk());
             }
+            List<HotelReviewPicsSelVo> pics = mapper.selHotelReviewPics(dto);
+
+            // pk를 담을 list, pk 및 해당 객체 주솟 값을 담을 map 생성
+            List<Integer> revPk = new ArrayList<>();
+            Map<Integer, HotelReviewSelVo> hashMap = new HashMap<>();
+            for ( HotelReviewSelVo vo : list ) {
+                revPk.add(vo.getReviewPk());
+                hashMap.put(vo.getReviewPk(), vo);
+            }
+            for ( HotelReviewPicsSelVo vo : pics ) {
+                hashMap.get(vo.getReviewPk()).getPics().add(vo.getPic());
+            }
+            // 사진 3개까지 제거
+            for ( HotelReviewSelVo vo : list ) {
+                while(vo.getPics().size() > 3){
+                    vo.getPics().remove(vo.getPics().size() - 1);
+                }
+            }
+            return list;
+        }catch (Exception e){
+            throw new CustomException(ReviewErrorCode.PAGE_COUNT_EXEEDED_ERROR);
         }
-        return list;
     }
 }
