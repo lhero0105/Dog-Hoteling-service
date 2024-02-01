@@ -91,7 +91,7 @@ public class HotelService {
                 dto.setDogPkSize(dto.getDogSizePks().size());
             }
 
-            // 1-2-1-1. 등록 된 강아지가 없을 때
+            // 1-2-1-1. 등록된 강아지가 없을 때
             if(dto.getDogSizePks().size() == 0){
                 allVo.setHotelList(mapper.selHotelListAsUserAddress(dto));
                 log.info("allVo : {}", allVo);
