@@ -21,4 +21,6 @@ public class HotelListSelVo {
     private int discountPer;
     @JsonProperty(value = "book_mark")
     private int bookMark;
+    @JsonProperty(value = "review_count")
+    private int reviewCount;
 }
