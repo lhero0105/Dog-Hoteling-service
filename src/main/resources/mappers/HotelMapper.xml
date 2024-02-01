@@ -395,7 +395,7 @@
                 ORDER BY reviewCount DESC
             </otherwise>
         </choose>
-        LIMIT 0,12
+        LIMIT #{startIdx}, #{rowCount}
     </select>
 
     <select id="selHotelPkToIndividualDogInfo">

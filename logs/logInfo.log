@@ -14526,3 +14526,1592 @@ This generated password is for development use only. Your security configuration
 [2024-02-01 14:47:23 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
 [2024-02-01 14:47:23 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 0.501 seconds (process running for 256.232)[0;39m
 [2024-02-01 14:47:23 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6MX0iLCJpYXQiOjE3MDY3NjYyNDksImV4cCI6MTcwNjc3MzQ0OX0.r6ouwyvyVotHwkikZk3tZKZ45UoTXX85XzRnyuo7a8o[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.hotel.HotelController] [36mHotelListSelDto dto : HotelListSelDto(mainFilter=1, address=대구, fromDate=null, toDate=null, dogInfo=null, search=null, hotelOptionPk=null, filterType=0, rowCount=0, userPk=0, date=null, startIdx=0, page=0, dogSizePks=[], tokensToStrList=null, optionPkSize=0, dogPkSize=0, filteredPk=null)[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Starting...[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection opened. {executed in 5ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.getNetworkTimeout() returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.isValid(1) returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.getTransactionIsolation() returned 4[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-2 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4940daee[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Start completed.[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        JOIN t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.advertise = 1
+        GROUP BY A.hotel_pk
+        ORDER BY RAND()
+        LIMIT 3) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@1c0f528[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, reviewCount , F.address_name AS addressName FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A JOIN t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.advertise 
+= 1 GROUP BY A.hotel_pk ORDER BY RAND() LIMIT 3  {executed in 1 ms}[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@7fe093fd[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@12869170[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 31[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 광주 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 33[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 대구 그린아트아카데미 호텔[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 6[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m
+|---------|---------------|----|--------------|---------|-------------|------------|-------------|
+|hotel_pk |hotel_nm       |pic |hotelroomcost |avgstar  |discount_per |reviewcount |address_name |
+|---------|---------------|----|--------------|---------|-------------|------------|-------------|
+|31       |광주 그린아카데미 호텔   |null|[unread]      |[unread] |3            |[unread]    |a            |
+|28       |대전 그린아카데미 호텔   |null|[unread]      |[unread] |20           |[unread]    |a            |
+|33       |대구 그린아트아카데미 호텔 |null|[unread]      |[unread] |6            |[unread]    |a            |
+|---------|---------------|----|--------------|---------|-------------|------------|-------------|
+[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.close() returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@5b316942[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.hotel.HotelService] [36mhotelAdvertiseList : [HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=33, hotelNm=대구 그린아트아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=6, bookMark=0)][0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=33, hotelNm=대구 그린아트아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=6, bookMark=0)], hotelList=[])[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost
+        , avgStar, A.discount_per AS discountPer, G.address_name AS addressName
+         
+            , IF(K.hotel_pk IS NULL, 0, 1) AS bookMark
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where G
+        ON A.hotel_pk = G.hotel_pk
+        LEFT JOIN t_hotel_option H
+        ON A.hotel_pk = H.hotel_pk
+         
+         
+            LEFT JOIN t_user J
+            ON A.user_pk = J.user_pk
+            LEFT JOIN t_hotel_favorites K
+            ON A.hotel_pk = K.hotel_pk AND K.user_pk = ?
+         
+         WHERE G.region_1depth_name = ? 
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT 0,12) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@26e2c07b[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.setInt(1, 1) returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.setString(2, "대구") returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost , avgStar, 
+A.discount_per AS discountPer, G.address_name AS addressName , IF(K.hotel_pk IS NULL, 0, 1) 
+AS bookMark FROM t_hotel A LEFT JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation 
+C ON A.hotel_pk = C.hotel_pk LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, 
+COUNT(A.review_pk) AS reviewCount FROM t_review A join t_reservation B ON A.res_pk = B.res_pk 
+GROUP BY B.hotel_pk ) D ON C.res_pk = D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) 
+AS hotelRoomCost FROM t_hotel_room_info A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost 
+GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where G ON A.hotel_pk 
+= G.hotel_pk LEFT JOIN t_hotel_option H ON A.hotel_pk = H.hotel_pk LEFT JOIN t_user J ON A.user_pk 
+= J.user_pk LEFT JOIN t_hotel_favorites K ON A.hotel_pk = K.hotel_pk AND K.user_pk = 1 WHERE 
+G.region_1depth_name = '대구' GROUP BY A.hotel_pk ORDER BY A.created_at DESC LIMIT 0,12  {executed in 2 ms}[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@5efb5cb8[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@1c55b1f5[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 27[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 부산 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 5[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 26[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 구미 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 25[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 대구 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 10[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 19[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 몬드리안 서울 이태원[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 4[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 트리니티 종합학원[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 18[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 노보텔 스위트 앰배서더 서울[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 2[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 게헨나 학원[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 16[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 호텔 신라[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 15[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 조선 팰리스 서울 강남, 럭셔리 컬렉션 호텔[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 20[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned JW 메리어트 동대문스퀘어 서울[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 6[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 산해경 고급중학교[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 17[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 그랜드 머큐어 앰버서더 호텔[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m
+|---------|-------------------------|----|--------------|---------|-------------|-------------|---------|
+|hotel_pk |hotel_nm                 |pic |hotelroomcost |avgstar  |discount_per |address_name |bookmark |
+|---------|-------------------------|----|--------------|---------|-------------|-------------|---------|
+|27       |부산 그린아카데미 호텔             |null|[unread]      |[unread] |5            |a            |0        |
+|26       |구미 그린아카데미 호텔             |null|[unread]      |[unread] |9            |a            |0        |
+|25       |대구 그린아카데미 호텔             |null|[unread]      |[unread] |10           |a            |0        |
+|19       |몬드리안 서울 이태원              |null|[unread]      |[unread] |1            |a            |0        |
+|4        |트리니티 종합학원                |null|[unread]      |[unread] |1            |a            |0        |
+|18       |노보텔 스위트 앰배서더 서울          |null|[unread]      |[unread] |1            |a            |0        |
+|2        |게헨나 학원                   |null|[unread]      |[unread] |1            |a            |0        |
+|16       |호텔 신라                    |null|[unread]      |[unread] |1            |a            |0        |
+|15       |조선 팰리스 서울 강남, 럭셔리 컬렉션 호텔 |null|[unread]      |[unread] |1            |a            |0        |
+|20       |JW 메리어트 동대문스퀘어 서울        |null|[unread]      |[unread] |1            |a            |0        |
+|6        |산해경 고급중학교                |null|[unread]      |[unread] |1            |a            |1        |
+|17       |그랜드 머큐어 앰버서더 호텔          |null|[unread]      |[unread] |1            |a            |1        |
+|---------|-------------------------|----|--------------|---------|-------------|-------------|---------|
+[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.next() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. ResultSet.close() returned void[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@6f67c6df[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [log4jdbc.log4j2] [36m11. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=33, hotelNm=대구 그린아트아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=6, bookMark=0)], hotelList=[HotelListSelVo(hotelPk=27, hotelNm=부산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=5, bookMark=0), HotelListSelVo(hotelPk=26, hotelNm=구미 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0), HotelListSelVo(hotelPk=25, hotelNm=대구 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=10, bookMark=0), HotelListSelVo(hotelPk=19, hotelNm=몬드리안 서울 이태원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=4, hotelNm=트리니티 종합학원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=18, hotelNm=노보텔 스위트 앰배서더 서울, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=2, hotelNm=게헨나 학원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=16, hotelNm=호텔 신라, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=15, hotelNm=조선 팰리스 서울 강남, 럭셔리 컬렉션 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=20, hotelNm=JW 메리어트 동대문스퀘어 서울, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=6, hotelNm=산해경 고급중학교, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=1), HotelListSelVo(hotelPk=17, hotelNm=그랜드 머큐어 앰버서더 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=1)])[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m12. Connection opened. {executed in 3ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m12. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m12. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m12. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m13. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m13. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m13. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m13. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m14. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m14. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m14. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m14. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m15. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m15. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m15. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m15. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m16. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m16. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m16. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m16. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m17. Connection opened. {executed in 3ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m17. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m17. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m17. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m18. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m18. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m18. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m18. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m19. Connection opened. {executed in 3ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m19. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m19. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m19. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m20. Connection opened. {executed in 1ms} [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m20. Connection.new Connection returned [0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m20. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:48:15 [32mINFO [0;39m HikariPool-2 connection adder] [log4jdbc.log4j2] [36m20. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6MX0iLCJpYXQiOjE3MDY3NjYyNDksImV4cCI6MTcwNjc3MzQ0OX0.r6ouwyvyVotHwkikZk3tZKZ45UoTXX85XzRnyuo7a8o[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.hotel.HotelController] [36mHotelListSelDto dto : HotelListSelDto(mainFilter=1, address=대구, fromDate=null, toDate=null, dogInfo=null, search=null, hotelOptionPk=null, filterType=0, rowCount=0, userPk=0, date=null, startIdx=0, page=0, dogSizePks=[], tokensToStrList=null, optionPkSize=0, dogPkSize=0, filteredPk=null)[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. Connection.isValid(5) returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        JOIN t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.advertise = 1
+        GROUP BY A.hotel_pk
+        ORDER BY RAND()
+        LIMIT 3) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@3bb99612[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, reviewCount , F.address_name AS addressName FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A JOIN t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.advertise 
+= 1 GROUP BY A.hotel_pk ORDER BY RAND() LIMIT 3  {executed in 4 ms}[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@357e7f15[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@3141fd62[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 32[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 인천 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 7[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 31[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 광주 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+|hotel_pk |hotel_nm     |pic |hotelroomcost |avgstar  |discount_per |reviewcount |address_name |
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+|28       |대전 그린아카데미 호텔 |null|[unread]      |[unread] |20           |[unread]    |a            |
+|32       |인천 그린아카데미 호텔 |null|[unread]      |[unread] |7            |[unread]    |a            |
+|31       |광주 그린아카데미 호텔 |null|[unread]      |[unread] |3            |[unread]    |a            |
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.close() returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@7281af46[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.hotel.HotelService] [36mhotelAdvertiseList : [HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=32, hotelNm=인천 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=7, bookMark=0), HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0)][0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=32, hotelNm=인천 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=7, bookMark=0), HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0)], hotelList=[])[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost
+        , avgStar, A.discount_per AS discountPer, G.address_name AS addressName
+         
+            , IF(K.hotel_pk IS NULL, 0, 1) AS bookMark
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where G
+        ON A.hotel_pk = G.hotel_pk
+        LEFT JOIN t_hotel_option H
+        ON A.hotel_pk = H.hotel_pk
+         
+         
+            LEFT JOIN t_user J
+            ON A.user_pk = J.user_pk
+            LEFT JOIN t_hotel_favorites K
+            ON A.hotel_pk = K.hotel_pk AND K.user_pk = ?
+         
+         WHERE G.region_1depth_name = ? 
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT 0,12) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@7c7845df[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.setInt(1, 1) returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.setString(2, "대구") returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost , avgStar, 
+A.discount_per AS discountPer, G.address_name AS addressName , IF(K.hotel_pk IS NULL, 0, 1) 
+AS bookMark FROM t_hotel A LEFT JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation 
+C ON A.hotel_pk = C.hotel_pk LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, 
+COUNT(A.review_pk) AS reviewCount FROM t_review A join t_reservation B ON A.res_pk = B.res_pk 
+GROUP BY B.hotel_pk ) D ON C.res_pk = D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) 
+AS hotelRoomCost FROM t_hotel_room_info A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost 
+GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where G ON A.hotel_pk 
+= G.hotel_pk LEFT JOIN t_hotel_option H ON A.hotel_pk = H.hotel_pk LEFT JOIN t_user J ON A.user_pk 
+= J.user_pk LEFT JOIN t_hotel_favorites K ON A.hotel_pk = K.hotel_pk AND K.user_pk = 1 WHERE 
+G.region_1depth_name = '대구' GROUP BY A.hotel_pk ORDER BY A.created_at DESC LIMIT 0,12  {executed in 5 ms}[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@7fcc2f36[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@772dc47c[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 27[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 부산 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 5[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 26[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 구미 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 25[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 대구 그린아카데미 호텔[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 10[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 4[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 트리니티 종합학원[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 18[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 노보텔 스위트 앰배서더 서울[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 2[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 게헨나 학원[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 16[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 호텔 신라[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 15[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 조선 팰리스 서울 강남, 럭셔리 컬렉션 호텔[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 20[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned JW 메리어트 동대문스퀘어 서울[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 6[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 산해경 고급중학교[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 17[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 그랜드 머큐어 앰버서더 호텔[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 19[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 몬드리안 서울 이태원[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m
+|---------|-------------------------|----|--------------|---------|-------------|-------------|---------|
+|hotel_pk |hotel_nm                 |pic |hotelroomcost |avgstar  |discount_per |address_name |bookmark |
+|---------|-------------------------|----|--------------|---------|-------------|-------------|---------|
+|27       |부산 그린아카데미 호텔             |null|[unread]      |[unread] |5            |a            |0        |
+|26       |구미 그린아카데미 호텔             |null|[unread]      |[unread] |9            |a            |0        |
+|25       |대구 그린아카데미 호텔             |null|[unread]      |[unread] |10           |a            |0        |
+|4        |트리니티 종합학원                |null|[unread]      |[unread] |1            |a            |0        |
+|18       |노보텔 스위트 앰배서더 서울          |null|[unread]      |[unread] |1            |a            |0        |
+|2        |게헨나 학원                   |null|[unread]      |[unread] |1            |a            |0        |
+|16       |호텔 신라                    |null|[unread]      |[unread] |1            |a            |0        |
+|15       |조선 팰리스 서울 강남, 럭셔리 컬렉션 호텔 |null|[unread]      |[unread] |1            |a            |0        |
+|20       |JW 메리어트 동대문스퀘어 서울        |null|[unread]      |[unread] |1            |a            |0        |
+|6        |산해경 고급중학교                |null|[unread]      |[unread] |1            |a            |1        |
+|17       |그랜드 머큐어 앰버서더 호텔          |null|[unread]      |[unread] |1            |a            |1        |
+|19       |몬드리안 서울 이태원              |null|[unread]      |[unread] |1            |a            |0        |
+|---------|-------------------------|----|--------------|---------|-------------|-------------|---------|
+[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.next() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. ResultSet.close() returned void[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@286a6856[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m11. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:48:28 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=32, hotelNm=인천 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=7, bookMark=0), HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0)], hotelList=[HotelListSelVo(hotelPk=27, hotelNm=부산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=5, bookMark=0), HotelListSelVo(hotelPk=26, hotelNm=구미 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0), HotelListSelVo(hotelPk=25, hotelNm=대구 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=10, bookMark=0), HotelListSelVo(hotelPk=4, hotelNm=트리니티 종합학원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=18, hotelNm=노보텔 스위트 앰배서더 서울, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=2, hotelNm=게헨나 학원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=16, hotelNm=호텔 신라, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=15, hotelNm=조선 팰리스 서울 강남, 럭셔리 컬렉션 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=20, hotelNm=JW 메리어트 동대문스퀘어 서울, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=6, hotelNm=산해경 고급중학교, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=1), HotelListSelVo(hotelPk=17, hotelNm=그랜드 머큐어 앰버서더 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=1), HotelListSelVo(hotelPk=19, hotelNm=몬드리안 서울 이태원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0)])[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-10] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:33 [32mINFO [0;39m http-nio-8080-exec-2] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 242 ms[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. Connection.isValid(5) returned true[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. Connection.prepareStatement(SELECT user_pk AS userPk
+        , user_type_pk AS userTypePk
+        , user_email AS userEmail
+        , upw
+        , nickname
+        , phone_num AS phoneNum
+        , user_address AS userAddress
+        FROM t_user
+        WHERE user_email = ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@2cc93ce2[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. PreparedStatement.setString(1, "gravida.non@google.com") returned [0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. SELECT user_pk AS userPk , user_type_pk AS userTypePk , user_email AS userEmail , upw , nickname 
+, phone_num AS phoneNum , user_address AS userAddress FROM t_user WHERE user_email = 'gravida.non@google.com'  {executed in 0 ms}[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@69cba71f[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@45eaf073[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.getInt(userPk) returned 1[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.getInt(userTypePk) returned 2[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.getString(userEmail) returned gravida.non@google.com[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.getString(upw) returned $2a$10$VZOd82mqdXAqEZHbqwOu9.gR8/d/1fBuoMGDVrmx5oFSxTRtzFoqC[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.getString(nickname) returned SG와사비[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.getString(phoneNum) returned 085-567-2753[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.getString(userAddress) returned #f4b1b0[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m
+|--------|-------------|-----------------------|-------------------------------------------------------------|---------|-------------|-------------|
+|user_pk |user_type_pk |user_email             |upw                                                          |nickname |phone_num    |user_address |
+|--------|-------------|-----------------------|-------------------------------------------------------------|---------|-------------|-------------|
+|1       |2            |gravida.non@google.com |$2a$10$VZOd82mqdXAqEZHbqwOu9.gR8/d/1fBuoMGDVrmx5oFSxTRtzFoqC |SG와사비    |085-567-2753 |#f4b1b0      |
+|--------|-------------|-----------------------|-------------------------------------------------------------|---------|-------------|-------------|
+[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.next() returned false[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. ResultSet.close() returned void[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@5868ea67[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:48:49 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m11. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6MX0iLCJpYXQiOjE3MDY3NjY1MjksImV4cCI6MTcwNjc3MzcyOX0.B1SqCE-dGQoC2NDDlmdqsMqY-Or3sgLM8QufKRdyTGc[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.hotel.HotelController] [36mHotelListSelDto dto : HotelListSelDto(mainFilter=1, address=대구, fromDate=null, toDate=null, dogInfo=null, search=null, hotelOptionPk=null, filterType=0, rowCount=0, userPk=0, date=null, startIdx=0, page=0, dogSizePks=[], tokensToStrList=null, optionPkSize=0, dogPkSize=0, filteredPk=null)[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. Connection.isValid(5) returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        JOIN t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.advertise = 1
+        GROUP BY A.hotel_pk
+        ORDER BY RAND()
+        LIMIT 3) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@20f1802f[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, reviewCount , F.address_name AS addressName FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A JOIN t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.advertise 
+= 1 GROUP BY A.hotel_pk ORDER BY RAND() LIMIT 3  {executed in 3 ms}[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@2e367a41[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@2a09eb5f[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 31[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 광주 그린아카데미 호텔[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 29[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 울산 그린아카데미 호텔[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+|hotel_pk |hotel_nm     |pic |hotelroomcost |avgstar  |discount_per |reviewcount |address_name |
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+|31       |광주 그린아카데미 호텔 |null|[unread]      |[unread] |3            |[unread]    |a            |
+|28       |대전 그린아카데미 호텔 |null|[unread]      |[unread] |20           |[unread]    |a            |
+|29       |울산 그린아카데미 호텔 |null|[unread]      |[unread] |9            |[unread]    |a            |
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.close() returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@6f0b707a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.hotel.HotelService] [36mhotelAdvertiseList : [HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0)][0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0)], hotelList=[])[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost
+        , avgStar, A.discount_per AS discountPer, G.address_name AS addressName
+         
+            , IF(K.hotel_pk IS NULL, 0, 1) AS bookMark
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where G
+        ON A.hotel_pk = G.hotel_pk
+        LEFT JOIN t_hotel_option H
+        ON A.hotel_pk = H.hotel_pk
+         
+         
+            LEFT JOIN t_user J
+            ON A.user_pk = J.user_pk
+            LEFT JOIN t_hotel_favorites K
+            ON A.hotel_pk = K.hotel_pk AND K.user_pk = ?
+         
+         WHERE G.region_1depth_name = ? 
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT 0,12) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@4357654c[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.setInt(1, 1) returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.setString(2, "대구") returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost , avgStar, 
+A.discount_per AS discountPer, G.address_name AS addressName , IF(K.hotel_pk IS NULL, 0, 1) 
+AS bookMark FROM t_hotel A LEFT JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation 
+C ON A.hotel_pk = C.hotel_pk LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, 
+COUNT(A.review_pk) AS reviewCount FROM t_review A join t_reservation B ON A.res_pk = B.res_pk 
+GROUP BY B.hotel_pk ) D ON C.res_pk = D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) 
+AS hotelRoomCost FROM t_hotel_room_info A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost 
+GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where G ON A.hotel_pk 
+= G.hotel_pk LEFT JOIN t_hotel_option H ON A.hotel_pk = H.hotel_pk LEFT JOIN t_user J ON A.user_pk 
+= J.user_pk LEFT JOIN t_hotel_favorites K ON A.hotel_pk = K.hotel_pk AND K.user_pk = 1 WHERE 
+G.region_1depth_name = '대구' GROUP BY A.hotel_pk ORDER BY A.created_at DESC LIMIT 0,12  {executed in 6 ms}[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@5eaefb15[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@3b18b08c[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 27[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 부산 그린아카데미 호텔[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 5[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 26[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 구미 그린아카데미 호텔[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 25[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 대구 그린아카데미 호텔[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 10[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 4[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 트리니티 종합학원[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 18[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 노보텔 스위트 앰배서더 서울[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 2[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 게헨나 학원[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 16[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 호텔 신라[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 15[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 조선 팰리스 서울 강남, 럭셔리 컬렉션 호텔[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 20[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned JW 메리어트 동대문스퀘어 서울[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 6[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 산해경 고급중학교[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 17[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 그랜드 머큐어 앰버서더 호텔[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned true[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(hotelPk) returned 19[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelNm) returned 몬드리안 서울 이태원[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m
+|---------|-------------------------|----|--------------|---------|-------------|-------------|---------|
+|hotel_pk |hotel_nm                 |pic |hotelroomcost |avgstar  |discount_per |address_name |bookmark |
+|---------|-------------------------|----|--------------|---------|-------------|-------------|---------|
+|27       |부산 그린아카데미 호텔             |null|[unread]      |[unread] |5            |a            |0        |
+|26       |구미 그린아카데미 호텔             |null|[unread]      |[unread] |9            |a            |0        |
+|25       |대구 그린아카데미 호텔             |null|[unread]      |[unread] |10           |a            |0        |
+|4        |트리니티 종합학원                |null|[unread]      |[unread] |1            |a            |0        |
+|18       |노보텔 스위트 앰배서더 서울          |null|[unread]      |[unread] |1            |a            |0        |
+|2        |게헨나 학원                   |null|[unread]      |[unread] |1            |a            |0        |
+|16       |호텔 신라                    |null|[unread]      |[unread] |1            |a            |0        |
+|15       |조선 팰리스 서울 강남, 럭셔리 컬렉션 호텔 |null|[unread]      |[unread] |1            |a            |0        |
+|20       |JW 메리어트 동대문스퀘어 서울        |null|[unread]      |[unread] |1            |a            |0        |
+|6        |산해경 고급중학교                |null|[unread]      |[unread] |1            |a            |1        |
+|17       |그랜드 머큐어 앰버서더 호텔          |null|[unread]      |[unread] |1            |a            |1        |
+|19       |몬드리안 서울 이태원              |null|[unread]      |[unread] |1            |a            |0        |
+|---------|-------------------------|----|--------------|---------|-------------|-------------|---------|
+[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.next() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. ResultSet.close() returned void[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@f248f35[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m11. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:49:32 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0)], hotelList=[HotelListSelVo(hotelPk=27, hotelNm=부산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=5, bookMark=0), HotelListSelVo(hotelPk=26, hotelNm=구미 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0), HotelListSelVo(hotelPk=25, hotelNm=대구 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=10, bookMark=0), HotelListSelVo(hotelPk=4, hotelNm=트리니티 종합학원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=18, hotelNm=노보텔 스위트 앰배서더 서울, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=2, hotelNm=게헨나 학원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=16, hotelNm=호텔 신라, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=15, hotelNm=조선 팰리스 서울 강남, 럭셔리 컬렉션 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=20, hotelNm=JW 메리어트 동대문스퀘어 서울, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=6, hotelNm=산해경 고급중학교, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=1), HotelListSelVo(hotelPk=17, hotelNm=그랜드 머큐어 앰버서더 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=1), HotelListSelVo(hotelPk=19, hotelNm=몬드리안 서울 이태원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0)])[0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown initiated...[0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m11. Connection closed. {executed in 1ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m11. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m12. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m12. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m13. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m13. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m14. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m14. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m15. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m15. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m16. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m16. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m17. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m17. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m18. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m18. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m19. Connection closed. {executed in 0ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m19. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m20. Connection closed. {executed in 2ms} [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m20. Connection.close() returned [0;39m
+[2024-02-01 14:51:15 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown completed.[0;39m
+[2024-02-01 14:51:17 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.9 with PID 23948 (C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write\target\classes started by 이영웅 in C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write)[0;39m
+[2024-02-01 14:51:17 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-02-01 14:51:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-02-01 14:51:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-02-01 14:51:18 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1138 ms[0;39m
+[2024-02-01 14:51:19 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: b6968e37-b646-42c1-b0ff-4eea2968d922
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-02-01 14:51:19 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6ba5a93b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2403f0a0, org.springframework.security.web.context.SecurityContextHolderFilter@21733620, org.springframework.security.web.header.HeaderWriterFilter@1bc528ec, org.springframework.web.filter.CorsFilter@1a66cfdc, org.springframework.security.web.authentication.logout.LogoutFilter@77b83fc7, com.green.hoteldog.security.JwtAuthenticationFilter@f21f1d8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6764f93a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f556872, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@16f7fc45, org.springframework.security.web.session.SessionManagementFilter@4eb68d8e, org.springframework.security.web.access.ExceptionTranslationFilter@4526f5bd, org.springframework.security.web.access.intercept.AuthorizationFilter@5203bd42][0;39m
+[2024-02-01 14:51:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-02-01 14:51:19 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-01 14:51:19 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-02-01 14:51:19 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 2.504 seconds (process running for 2.973)[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6MX0iLCJpYXQiOjE3MDY3NjY1MjksImV4cCI6MTcwNjc3MzcyOX0.B1SqCE-dGQoC2NDDlmdqsMqY-Or3sgLM8QufKRdyTGc[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelController] [36mHotelListSelDto dto : HotelListSelDto(mainFilter=1, address=대구, fromDate=null, toDate=null, dogInfo=null, search=null, hotelOptionPk=null, filterType=0, rowCount=0, userPk=0, date=null, startIdx=0, page=0, dogSizePks=[], tokensToStrList=null, optionPkSize=0, dogPkSize=0, filteredPk=null)[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection opened. {executed in 38ms} [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getNetworkTimeout() returned 0[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.isValid(1) returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getTransactionIsolation() returned 4[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3fbb923[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        JOIN t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.advertise = 1
+        GROUP BY A.hotel_pk
+        ORDER BY RAND()
+        LIMIT 3) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@1a72512[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, reviewCount , F.address_name AS addressName FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A JOIN t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.advertise 
+= 1 GROUP BY A.hotel_pk ORDER BY RAND() LIMIT 3  {executed in 2 ms}[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@5da61d57[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@3aba4f39[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 30[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 서울 그린아카데미 호텔[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 29[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 울산 그린아카데미 호텔[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+|hotel_pk |hotel_nm     |pic |hotelroomcost |avgstar  |discount_per |reviewcount |address_name |
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+|28       |대전 그린아카데미 호텔 |null|[unread]      |[unread] |20           |[unread]    |a            |
+|30       |서울 그린아카데미 호텔 |null|[unread]      |[unread] |3            |[unread]    |a            |
+|29       |울산 그린아카데미 호텔 |null|[unread]      |[unread] |9            |[unread]    |a            |
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@5c7367d0[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelService] [36mhotelAdvertiseList : [HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0)][0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0)], hotelList=[])[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost
+        , avgStar, A.discount_per AS discountPer, G.address_name AS addressName
+         
+            , IF(K.hotel_pk IS NULL, 0, 1) AS bookMark
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where G
+        ON A.hotel_pk = G.hotel_pk
+        LEFT JOIN t_hotel_option H
+        ON A.hotel_pk = H.hotel_pk
+         
+         
+            LEFT JOIN t_user J
+            ON A.user_pk = J.user_pk
+            LEFT JOIN t_hotel_favorites K
+            ON A.hotel_pk = K.hotel_pk AND K.user_pk = ?
+         
+         WHERE G.region_1depth_name = ? 
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT ?, ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@e895aee[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(1, 1) returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setString(2, "대구") returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(3, 0) returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(4, 6) returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost , avgStar, 
+A.discount_per AS discountPer, G.address_name AS addressName , IF(K.hotel_pk IS NULL, 0, 1) 
+AS bookMark FROM t_hotel A LEFT JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation 
+C ON A.hotel_pk = C.hotel_pk LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, 
+COUNT(A.review_pk) AS reviewCount FROM t_review A join t_reservation B ON A.res_pk = B.res_pk 
+GROUP BY B.hotel_pk ) D ON C.res_pk = D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) 
+AS hotelRoomCost FROM t_hotel_room_info A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost 
+GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where G ON A.hotel_pk 
+= G.hotel_pk LEFT JOIN t_hotel_option H ON A.hotel_pk = H.hotel_pk LEFT JOIN t_user J ON A.user_pk 
+= J.user_pk LEFT JOIN t_hotel_favorites K ON A.hotel_pk = K.hotel_pk AND K.user_pk = 1 WHERE 
+G.region_1depth_name = '대구' GROUP BY A.hotel_pk ORDER BY A.created_at DESC LIMIT 0, 6  {executed in 7 ms}[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@4cad8ff1[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@7fead933[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 27[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 부산 그린아카데미 호텔[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 5[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 26[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 구미 그린아카데미 호텔[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 25[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 대구 그린아카데미 호텔[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 10[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 19[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 몬드리안 서울 이태원[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 4[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 트리니티 종합학원[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 18[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 노보텔 스위트 앰배서더 서울[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m
+|---------|----------------|----|--------------|---------|-------------|-------------|---------|
+|hotel_pk |hotel_nm        |pic |hotelroomcost |avgstar  |discount_per |address_name |bookmark |
+|---------|----------------|----|--------------|---------|-------------|-------------|---------|
+|27       |부산 그린아카데미 호텔    |null|[unread]      |[unread] |5            |a            |0        |
+|26       |구미 그린아카데미 호텔    |null|[unread]      |[unread] |9            |a            |0        |
+|25       |대구 그린아카데미 호텔    |null|[unread]      |[unread] |10           |a            |0        |
+|19       |몬드리안 서울 이태원     |null|[unread]      |[unread] |1            |a            |0        |
+|4        |트리니티 종합학원       |null|[unread]      |[unread] |1            |a            |0        |
+|18       |노보텔 스위트 앰배서더 서울 |null|[unread]      |[unread] |1            |a            |0        |
+|---------|----------------|----|--------------|---------|-------------|-------------|---------|
+[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@498a2dde[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:51:24 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0)], hotelList=[HotelListSelVo(hotelPk=27, hotelNm=부산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=5, bookMark=0), HotelListSelVo(hotelPk=26, hotelNm=구미 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0), HotelListSelVo(hotelPk=25, hotelNm=대구 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=10, bookMark=0), HotelListSelVo(hotelPk=19, hotelNm=몬드리안 서울 이태원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=4, hotelNm=트리니티 종합학원, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0), HotelListSelVo(hotelPk=18, hotelNm=노보텔 스위트 앰배서더 서울, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=1, bookMark=0)])[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection opened. {executed in 3ms} [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection opened. {executed in 3ms} [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection opened. {executed in 4ms} [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection opened. {executed in 3ms} [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection opened. {executed in 2ms} [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.new Connection returned [0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.isReadOnly() returned false[0;39m
+[2024-02-01 14:51:25 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-10] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:30 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:31 [32mINFO [0;39m http-nio-8080-exec-10] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 299 ms[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. Connection.isValid(5) returned true[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT user_pk AS userPk
+        , user_type_pk AS userTypePk
+        , user_email AS userEmail
+        , upw
+        , nickname
+        , phone_num AS phoneNum
+        , user_address AS userAddress
+        FROM t_user
+        WHERE user_email = ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@76c53c25[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. PreparedStatement.setString(1, "gravida.non@google.com") returned [0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. SELECT user_pk AS userPk , user_type_pk AS userTypePk , user_email AS userEmail , upw , nickname 
+, phone_num AS phoneNum , user_address AS userAddress FROM t_user WHERE user_email = 'gravida.non@google.com'  {executed in 0 ms}[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@42e20477[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@7ba86a9e[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.getInt(userPk) returned 1[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.getInt(userTypePk) returned 2[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.getString(userEmail) returned gravida.non@google.com[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.getString(upw) returned $2a$10$VZOd82mqdXAqEZHbqwOu9.gR8/d/1fBuoMGDVrmx5oFSxTRtzFoqC[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.getString(nickname) returned SG와사비[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.getString(phoneNum) returned 085-567-2753[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.getString(userAddress) returned #f4b1b0[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m
+|--------|-------------|-----------------------|-------------------------------------------------------------|---------|-------------|-------------|
+|user_pk |user_type_pk |user_email             |upw                                                          |nickname |phone_num    |user_address |
+|--------|-------------|-----------------------|-------------------------------------------------------------|---------|-------------|-------------|
+|1       |2            |gravida.non@google.com |$2a$10$VZOd82mqdXAqEZHbqwOu9.gR8/d/1fBuoMGDVrmx5oFSxTRtzFoqC |SG와사비    |085-567-2753 |#f4b1b0      |
+|--------|-------------|-----------------------|-------------------------------------------------------------|---------|-------------|-------------|
+[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@7f0dc835[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:51:48 [32mINFO [0;39m http-nio-8080-exec-8] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6MX0iLCJpYXQiOjE3MDY3NjY3MDgsImV4cCI6MTcwNjc3MzkwOH0.Fb4uQ0SFLueKfmIvj7ujccn-OMZKRlyl5ROUy8asK7g[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.hotel.HotelController] [36mHotelListSelDto dto : HotelListSelDto(mainFilter=1, address=null, fromDate=null, toDate=null, dogInfo=null, search=대구, hotelOptionPk=null, filterType=0, rowCount=0, userPk=0, date=null, startIdx=0, page=0, dogSizePks=[], tokensToStrList=null, optionPkSize=0, dogPkSize=0, filteredPk=null)[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.isValid(5) returned true[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        JOIN t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.advertise = 1
+        GROUP BY A.hotel_pk
+        ORDER BY RAND()
+        LIMIT 3) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@4e9dee08[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, reviewCount , F.address_name AS addressName FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A JOIN t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.advertise 
+= 1 GROUP BY A.hotel_pk ORDER BY RAND() LIMIT 3  {executed in 4 ms}[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@7b9a77c5[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@36771fe1[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 32[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 인천 그린아카데미 호텔[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 7[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 30[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 서울 그린아카데미 호텔[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+|hotel_pk |hotel_nm     |pic |hotelroomcost |avgstar  |discount_per |reviewcount |address_name |
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+|28       |대전 그린아카데미 호텔 |null|[unread]      |[unread] |20           |[unread]    |a            |
+|32       |인천 그린아카데미 호텔 |null|[unread]      |[unread] |7            |[unread]    |a            |
+|30       |서울 그린아카데미 호텔 |null|[unread]      |[unread] |3            |[unread]    |a            |
+|---------|-------------|----|--------------|---------|-------------|------------|-------------|
+[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@2ab527d8[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.hotel.HotelService] [36mhotelAdvertiseList : [HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=32, hotelNm=인천 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=7, bookMark=0), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0)][0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=32, hotelNm=인천 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=7, bookMark=0), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0)], hotelList=[])[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost
+        , avgStar, A.discount_per AS discountPer, G.address_name AS addressName
+         
+            , IF(K.hotel_pk IS NULL, 0, 1) AS bookMark
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        LEFT JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where G
+        ON A.hotel_pk = G.hotel_pk
+        LEFT JOIN t_hotel_option H
+        ON A.hotel_pk = H.hotel_pk
+         
+         
+            LEFT JOIN t_user J
+            ON A.user_pk = J.user_pk
+            LEFT JOIN t_hotel_favorites K
+            ON A.hotel_pk = K.hotel_pk AND K.user_pk = ?
+         
+          
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT ?, ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@b797128[0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(1, 1) returned [0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(2, 0) returned [0;39m
+[2024-02-01 14:52:27 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(3, 6) returned [0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic, hotelRoomCost , avgStar, 
+A.discount_per AS discountPer, G.address_name AS addressName , IF(K.hotel_pk IS NULL, 0, 1) 
+AS bookMark FROM t_hotel A LEFT JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation 
+C ON A.hotel_pk = C.hotel_pk LEFT JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, 
+COUNT(A.review_pk) AS reviewCount FROM t_review A join t_reservation B ON A.res_pk = B.res_pk 
+GROUP BY B.hotel_pk ) D ON C.res_pk = D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) 
+AS hotelRoomCost FROM t_hotel_room_info A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost 
+GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where G ON A.hotel_pk 
+= G.hotel_pk LEFT JOIN t_hotel_option H ON A.hotel_pk = H.hotel_pk LEFT JOIN t_user J ON A.user_pk 
+= J.user_pk LEFT JOIN t_hotel_favorites K ON A.hotel_pk = K.hotel_pk AND K.user_pk = 1 GROUP 
+BY A.hotel_pk ORDER BY A.created_at DESC LIMIT 0, 6  {executed in 10 ms}[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@23751bdd[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@2d739045[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 33[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 대구 그린아트아카데미 호텔[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 6[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 32[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 인천 그린아카데미 호텔[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 7[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 31[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 광주 그린아카데미 호텔[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 30[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 서울 그린아카데미 호텔[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 29[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 울산 그린아카데미 호텔[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m
+|---------|---------------|----|--------------|---------|-------------|-------------|---------|
+|hotel_pk |hotel_nm       |pic |hotelroomcost |avgstar  |discount_per |address_name |bookmark |
+|---------|---------------|----|--------------|---------|-------------|-------------|---------|
+|33       |대구 그린아트아카데미 호텔 |null|[unread]      |[unread] |6            |a            |0        |
+|32       |인천 그린아카데미 호텔   |null|[unread]      |[unread] |7            |a            |0        |
+|31       |광주 그린아카데미 호텔   |null|[unread]      |[unread] |3            |a            |0        |
+|30       |서울 그린아카데미 호텔   |null|[unread]      |[unread] |3            |a            |0        |
+|29       |울산 그린아카데미 호텔   |null|[unread]      |[unread] |9            |a            |0        |
+|28       |대전 그린아카데미 호텔   |null|[unread]      |[unread] |20           |a            |0        |
+|---------|---------------|----|--------------|---------|-------------|-------------|---------|
+[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@53832a91[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-01 14:52:28 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0), HotelListSelVo(hotelPk=32, hotelNm=인천 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=7, bookMark=0), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0)], hotelList=[HotelListSelVo(hotelPk=33, hotelNm=대구 그린아트아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=6, bookMark=0), HotelListSelVo(hotelPk=32, hotelNm=인천 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=7, bookMark=0), HotelListSelVo(hotelPk=31, hotelNm=광주 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=3, bookMark=0), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=9, bookMark=0), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, star=0.0, price=null, discountPer=20, bookMark=0)])[0;39m
