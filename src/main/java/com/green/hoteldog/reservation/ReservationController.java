@@ -3,6 +3,7 @@ package com.green.hoteldog.reservation;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.CommonErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
+import com.green.hoteldog.exceptions.HotelErrorCode;
 import com.green.hoteldog.reservation.model.HotelReservationDelDto;
 import com.green.hoteldog.reservation.model.HotelReservationInsDto;
 import com.green.hoteldog.reservation.model.ResInfoVo;
@@ -42,7 +43,11 @@ public class ReservationController {
     }
     //-------------------------------------------------예약내역 출력-------------------------------------------------------
     @GetMapping
+    @Operation(summary = "마이페이지 예약목록 출력",description = "호텔 예약목록출력(Page 당 6개씩 출력)")
     public List<ResInfoVo> getUserReservation(int page){
+        if(page<=0){
+            throw new CustomException(HotelErrorCode.NON_EXIST_PAGE_DATA);
+        }
         checkUser();
         int userPk= authenticationFacade.getLoginUserPk();
         return service.getUserReservation(userPk,page);

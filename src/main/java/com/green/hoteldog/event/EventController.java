@@ -1,6 +1,7 @@
 package com.green.hoteldog.event;
 
 import com.green.hoteldog.event.model.EventInfoVo;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +19,7 @@ import java.util.List;
 public class EventController {
     private final EventService eventService;
     @GetMapping()
+    @Schema(name = "이벤트")
     public List<EventInfoVo> getEvent(){
         List<EventInfoVo> getHotelEvents;
         getHotelEvents=eventService.getEvent();
