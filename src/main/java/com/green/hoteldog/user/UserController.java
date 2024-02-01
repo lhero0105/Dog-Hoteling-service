@@ -2,12 +2,15 @@ package com.green.hoteldog.user;
 
 import com.green.hoteldog.common.RedisUtil;
 import com.green.hoteldog.common.ResVo;
+import com.green.hoteldog.exceptions.CustomException;
+import com.green.hoteldog.exceptions.UserErrorCode;
 import com.green.hoteldog.user.models.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Pattern;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +37,7 @@ public class UserController {
 
         ResVo vo = new ResVo(0);
         if(dto.getEmailResponseVo().getResult() == 0){
-            //예외처리
+            throw new CustomException(UserErrorCode.NOT_CERTIFICATION_EMAIL);
         }
         if(dto.getEmailResponseVo().getResult() == 1){
             vo = service.userSignup(dto);

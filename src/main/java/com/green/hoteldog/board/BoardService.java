@@ -179,6 +179,7 @@ public class BoardService {
 
     //게시글 정보
     public GetBoardInfoVo getBoardInfo(GetBoardInfoDto dto){
+        mapper.boardViewCount(dto.getBoardPk());
         GetBoardInfoVo vo = mapper.getBoardInfo(dto.getBoardPk());
         vo.setPics(mapper.selBoardPics(dto.getBoardPk()));
         vo.setComments(mapper.selBoardComment(dto));
@@ -187,7 +188,6 @@ public class BoardService {
             commentMaxPage = 1;
         }
         vo.setCommentMaxPage(commentMaxPage);
-        mapper.boardViewCount(dto.getBoardPk());
         return vo;
     }
     //게시글 정보
