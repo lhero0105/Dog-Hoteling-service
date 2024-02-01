@@ -94,8 +94,10 @@ public class ReservationService {
 //                            })
 //                ).collect(Collectors.toList());
 
-        int affectedRows3 = mapper.updRemainedHotelRoom(updList);
-        if(affectedRows3 == 0){
+        try {
+            int affectedRows3 = mapper.updRemainedHotelRoom(updList);
+            log.info("affectedRows3 : {}", affectedRows3);
+        }catch (Exception e){
             throw new CustomException(ReservationErrorCode.NO_ROOMS_AVAILABLE_FOR_THIS_DATE);
         }
         return new ResVo(Const.SUCCESS);

@@ -107,7 +107,7 @@
             WHERE
             <foreach collection="date" item="item2" open="(" close=")" separator="OR">
                 (room_date = #{item2} AND hotel_room_pk = #{item})
-            </foreach>
+            </foreach>;
         </foreach>
     </update>
     <!--예약강아지 리스트-->
