@@ -14,7 +14,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class CursorService {
     private final CursorMapper cursorMapper;
-
     public List<Item> getItemsByCursor(Long cursorId, int pageSize) {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("cursorId", cursorId);

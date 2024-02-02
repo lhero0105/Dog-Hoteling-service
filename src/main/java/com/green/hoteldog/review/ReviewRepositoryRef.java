@@ -1,12 +1,10 @@
 package com.green.hoteldog.review;
 
 import com.green.hoteldog.review.models.*;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface ReviewMapper {
+public interface ReviewRepositoryRef {
     Integer checkResStatus(ReviewInsDto dto);
     Integer insReview(ReviewInsDto dto);
     Integer insReviewPics(ReviewInsPicsDto dto);

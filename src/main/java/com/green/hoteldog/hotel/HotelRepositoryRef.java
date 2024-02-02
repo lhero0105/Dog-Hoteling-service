@@ -1,13 +1,9 @@
 package com.green.hoteldog.hotel;
 
 import com.green.hoteldog.hotel.model.*;
-import com.green.hoteldog.user.models.UserHotelFavDto;
-import org.apache.ibatis.annotations.Mapper;
-
 import java.util.List;
 
-@Mapper
-public interface HotelMapper {
+public interface HotelRepositoryRef {
     List<HotelListSelVo> selHotelAdvertiseList();
     List<HotelListSelVo> selHotelListToNonMember(HotelListSelDto dto);
     List<HotelListSelProcDto> selUserInfoToUserPk(HotelListSelDto dto);

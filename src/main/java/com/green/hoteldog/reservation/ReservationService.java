@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class ReservationService {
-    private final ReservationMapper mapper;
+    private final ReservationRepositoryRef reservationRepository;
     private final AuthenticationFacade authenticationFacade;
     //--------------------------------------------------호텔 예약---------------------------------------------------------
     @Transactional(rollbackFor = Exception.class)
@@ -34,20 +34,20 @@ public class ReservationService {
             if(dtos.getUserPk() == 0){
                 throw new CustomException(ReservationErrorCode.UNKNOWN_USER_PK);
             }
-            int affectedrows = mapper.insHotelReservation(dtos);
+            int affectedrows = reservationRepository.insHotelReservation(dtos);
             dtos.setResPk(dtos.getResPk());
             if (dtos.getResPk() == null){
                 throw new CustomException(ReservationErrorCode.RESERVATION_TABLE_REGISTRATION_FAILED); // 예약 테이블에 등록 실패
             }
             for ( DogInfo info : dtos.getDogInfo() ) {
-                int affectedRows1 = mapper.insHotelReservationDogInfo(info);
+                int affectedRows1 = reservationRepository.insHotelReservationDogInfo(info);
                 if(affectedRows1 == 0){
                     throw new CustomException(ReservationErrorCode.RESERVATION_DOG_TABLE_REGISTRATION_FAILED); // 예약 강아지 정보 등록 실패
                 }
             }
         }
         for ( HotelReservationInsDto dtos : dto ) {
-            int affectedRows2 = mapper.insHotelReservationInfo(dtos);
+            int affectedRows2 = reservationRepository.insHotelReservationInfo(dtos);
             if(affectedRows2 == 0){
                 throw new CustomException(ReservationErrorCode.ROOM_AND_DOG_RESERVATION_TABLE_REGISTRATION_FAILED); // 예약방강아지 예약정보 등록 실패
             }
@@ -76,40 +76,20 @@ public class ReservationService {
                 updList.add(updProcDto);
             }
         }
-
-        /* stream 이용한 코드 3중for문X 2024-01-31*/
-
-//        List<HotelReservationUpdProcDto> procDtoList=new ArrayList<>();
-//        dto.stream()
-//                .flatMap(hotelReservationInsDto ->
-//                    hotelReservationInsDto.getDogInfo().stream()
-//                            .map(dogInfo -> {
-//                                HotelReservationUpdProcDto procDto=new HotelReservationUpdProcDto();
-//                                procDto.setHotelRoomPk(dogInfo.getHotelRoomPk());
-//                                List<LocalDate> dateList=hotelReservationInsDto
-//                                        .getToDate()
-//                                        .datesUntil(hotelReservationInsDto.getToDate().plusDays(1)).collect(Collectors.toList());
-//                                procDto.setDate(dateList);
-//                                return procDtoList.add(procDto);
-//                            })
-//                ).collect(Collectors.toList());
-
         try {
-            int affectedRows3 = mapper.updRemainedHotelRoom(updList);
+            int affectedRows3 = reservationRepository.updRemainedHotelRoom(updList);
             log.info("affectedRows3 : {}", affectedRows3);
         }catch (Exception e){
             throw new CustomException(ReservationErrorCode.NO_ROOMS_AVAILABLE_FOR_THIS_DATE);
         }
         return new ResVo(Const.SUCCESS);
     }
-
-
     //---------------------------------------------------예약 취소--------------------------------------------------------
     @Transactional(rollbackFor = Exception.class)
     public ResVo delHotelReservation(HotelReservationDelDto dto){
         dto.setUserPk(authenticationFacade.getLoginUserPk());
         // 먼저 유저가 예약 했는지 셀렉트
-        List<HotelReservationSelProcVo> procVo = mapper.selHotelReservation(dto);
+        List<HotelReservationSelProcVo> procVo = reservationRepository.selHotelReservation(dto);
         if(procVo.size() == 0){
             throw new CustomException(ReservationErrorCode.NO_RESERVATION_INFORMATION);  // 예약 정보 없음
         }
@@ -117,26 +97,26 @@ public class ReservationService {
             dto.setResPk(vo.getResPk()); // 다 같은 pk
             dto.getResDogPkList().add(vo.getResDogPk());
         }
-        List<Integer> roomPk = mapper.selHotelRoomPk(dto);
+        List<Integer> roomPk = reservationRepository.selHotelRoomPk(dto);
         if (roomPk == null){
             throw new CustomException(ReservationErrorCode.ROOM_PK_SELECT_FAILURE);
         }
         dto.setHotelRoomPk(roomPk);
 
         // 호텔방강아지테이블 삭제
-        int affectedRows1 = mapper.delHotelReservationInfo(dto);
+        int affectedRows1 = reservationRepository.delHotelReservationInfo(dto);
         log.info("affectedRowsHotelReservationInfoDel : {}", affectedRows1);
         if(affectedRows1 == 0){
             throw new CustomException(ReservationErrorCode.FAILED_TO_DELETE_HOTEL_ROOM_DOG_TABLE);
         }
         // 예약 강아지 테이블 삭제
-        int affectedRows2 = mapper.delHotelReservationDogInfo(dto);
+        int affectedRows2 = reservationRepository.delHotelReservationDogInfo(dto);
         log.info("affectedRowsHotelDogInfoDel : {}", affectedRows2);
         if(affectedRows2 == 0){
             throw new CustomException(ReservationErrorCode.FAILED_TO_DELETE_RESERVED_DOG_TABLE);
         }
         // 호텔 예약 테이블 삭제
-        int affectedRows3 = mapper.delHotelReservation(dto);
+        int affectedRows3 = reservationRepository.delHotelReservation(dto);
         log.info("affectedRowsHotelReservationDel : {}", affectedRows3);
         if(affectedRows3 == 0){
             throw new CustomException(ReservationErrorCode.FAILED_TO_DELETE_HOTEL_RESERVATION_TABLE);
@@ -153,11 +133,10 @@ public class ReservationService {
             } // 여러번 돌아도 같은값
             dto.setDateRange(dateRange);
         }
-
         HotelReservationUpdProc2Dto pDtoList = new HotelReservationUpdProc2Dto();
         pDtoList.setDate(dateRange);
         pDtoList.setHotelRoomPk(dto.getHotelRoomPk());
-        int affectedRows4 = mapper.updRemainedHotelRoom2(pDtoList);
+        int affectedRows4 = reservationRepository.updRemainedHotelRoom2(pDtoList);
         log.info("affectedRowsHotelRoomUpd : {}", affectedRows4);
         if(affectedRows4 == 0){
             throw new CustomException(ReservationErrorCode.HOTEL_ROOM_MANAGEMENT_TABLE_UPDATE_FAILED);
@@ -168,12 +147,12 @@ public class ReservationService {
     public List<ResInfoVo> getUserReservation(int userPk,int page){
         int perPage=Const.RES_LIST_COUNT_PER_PAGE;
         int pages=(page-1)*Const.RES_LIST_COUNT_PER_PAGE;
-        List<ResInfoVo> resInfoVos = mapper.getUserReservation(userPk,perPage,pages);
+        List<ResInfoVo> resInfoVos = reservationRepository.getUserReservation(userPk,perPage,pages);
         List<Integer> resPkList = resInfoVos
                 .stream()
                 .map(ResInfoVo::getResPk)
                 .collect(Collectors.toList());
-        List<ResDogInfoVo> resDogInfo = mapper.getDogInfoReservation(resPkList);
+        List<ResDogInfoVo> resDogInfo = reservationRepository.getDogInfoReservation(resPkList);
 
         resInfoVos.forEach(resInfoVo -> {
             List<ResDogInfoVo> resDogInfoVoList = resDogInfo

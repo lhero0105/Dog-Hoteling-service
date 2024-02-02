@@ -1,21 +1,14 @@
 package com.green.hoteldog.board;
 
 import com.green.hoteldog.board.models.*;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface BoardMapper {
+public interface BoardRepositoryRef {
     Integer postBoard(PostBoardDto dto);
     Integer postBoardPics(PostBoardPicDto dto);
     Integer delBoardPics(int boardPk);
     Integer putBoard(PutBoardDto dto);
-    /*
-    임시중단
-    int postFav(BoardFavDto dto);
-    int delFav(BoardFavDto dto);
-    */
     Integer delBoard(DeleteBoardDto dto);
     Integer postComment(PostCommentDto dto);
     Integer delComment(DeleteCommentDto dto);
