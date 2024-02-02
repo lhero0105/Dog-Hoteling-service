@@ -124,7 +124,7 @@
     <select id="selBoardComment">
         SELECT A.comment_pk AS commentPk
         ,A.user_pk AS userPk
-        ,B.nickname AS nickname
+        ,B.nickname AS userNickname
         ,A.comment
         ,A.created_at AS createdAt
         FROM t_board_comment A

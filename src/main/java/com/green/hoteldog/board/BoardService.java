@@ -191,7 +191,9 @@ public class BoardService {
         GetBoardInfoVo vo = mapper.getBoardInfo(dto.getBoardPk());
         vo.setPics(mapper.selBoardPics(dto.getBoardPk()));
         vo.setComments(mapper.selBoardComment(dto));
-        int commentMaxPage = this.maxPage(mapper.selBoardCommentCount(dto.getBoardPk()),dto.getRowCount());
+        int commentCount = mapper.selBoardCommentCount(dto.getBoardPk());
+        vo.setCommentCount(commentCount);
+        int commentMaxPage = this.maxPage(commentCount,dto.getRowCount());
         if(commentMaxPage == 0){
             commentMaxPage = 1;
         }

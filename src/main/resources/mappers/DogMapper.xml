@@ -31,6 +31,7 @@
         ,dog_etc AS dogEtc
         ,created_at AS createdAt
         FROM t_user_dog
+        ORDER BY user_dog_pk DESC
         WHERE user_pk = #{userPk}
         <!--LIMIT #{startIdx},#{rowCount}-->
     </select>
