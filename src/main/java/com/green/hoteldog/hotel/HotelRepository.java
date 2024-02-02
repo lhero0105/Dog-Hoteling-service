@@ -52,7 +52,7 @@ public class HotelRepository implements HotelRepositoryRef{
         return hotelMapper.getHotelPics(hotelPk);
     }
     public List<String> hotelOptionInfo(int hotelPk) {
-        return hotelMapper.getHotelPics(hotelPk);
+        return hotelMapper.hotelOptionInfo(hotelPk);
     }
     public List<MyDog> getMyDogs(int userPk) {
         return hotelMapper.getMyDogs(userPk);
@@ -79,7 +79,7 @@ public class HotelRepository implements HotelRepositoryRef{
         return hotelMapper.getHotelRoomResInfo(hotelPk, startDate, endDate);
     }
     public List<HotelRoomResInfoByMonth> getHotelFilterRoomResInfo(int hotelPk, String startDate, String endDate, int howMany, int large) {
-        return hotelMapper.getHotelRoomResInfo(hotelPk, startDate, endDate);
+        return hotelMapper.getHotelFilterRoomResInfo(hotelPk, startDate, endDate, howMany, large);
     }
     public Integer insHotel(HotelInsDto dto) {
         return hotelMapper.insHotel(dto);
