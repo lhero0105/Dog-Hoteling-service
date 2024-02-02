@@ -102,5 +102,4 @@ public class HotelRepository implements HotelRepositoryRef{
     public Integer insHotelRoomInfoDate(InsHotelRoomDateInfoDto dto) {
         return hotelMapper.insHotelRoomInfoDate(dto);
     }
-
 }

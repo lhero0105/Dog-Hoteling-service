@@ -219,5 +219,4 @@ public class BoardService {
     public int maxPage (int columnCount,int rowCount){
         return (int)Math.ceil((double) columnCount / rowCount);
     }
-
 }
