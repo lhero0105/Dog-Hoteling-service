@@ -487,6 +487,7 @@
     <select id="getHotelRoomInfo">
         SELECT hotel_room_nm AS hotelRoomNm
         ,hotel_room_ea AS hotelRoomEA
+        ,hotel_room_pk AS hotelRoomPk
         ,hotel_room_cost AS hotelRoomCost
         ,maximum ,room_pic AS roomPic
         FROM t_hotel_room_info
