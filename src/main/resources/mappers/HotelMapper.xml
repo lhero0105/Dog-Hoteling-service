@@ -524,21 +524,26 @@
     <insert id="insHotelBookMark">
         INSERT INTO t_hotel_favorites
         <set>
-            user_pk=#{userPK}
+            user_pk=#{userPk}
             ,   hotel_pk=#{hotelPk}
         </set>
     </insert>
     <select id="getHotelBookMark">
-        SELECT A.hotel_nm AS hotelNm,D.hotel_pk AS hotelPic,A.hotel_pk AS hotelPk
-        FROM t_hotel A
-        JOIN t_hotel_favorites B
+        SELECT B.hotel_pk AS hotelPk, B.hotel_nm AS hotelNm
+        FROM t_hotel_favorites A
+        JOIN t_hotel B
         ON A.hotel_pk=B.hotel_pk
-        JOIN t_user C
-        ON B.user_pk=C.user_pk
-        JOIN t_hotel_pic D
-        ON A.hotel_pk=D.hotel_pk
-        WHERE B.user_pk=#{userPk}
-        LIMIT #{fromPage}, #{endPage}
+        WHERE A.user_pk=#{userPk}
+        LIMIT #{pages} , #{perPage}
+    </select>
+    <select id="getHotelBookMarkPic" parameterType="java.util.List">
+        SELECT hotel_pk AS hotelPk,pic
+        FROM t_hotel_pic
+        WHERE hotel_pk IN (
+        <foreach collection="pkList" item="hotelPk" separator=",">
+            #{hotelPk}
+        </foreach>
+        )
     </select>
     <!--승준-->
 

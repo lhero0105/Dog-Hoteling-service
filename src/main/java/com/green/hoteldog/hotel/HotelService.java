@@ -247,16 +247,29 @@ public class HotelService {
     public ResVo toggleHotelBookMark(int hotelPk,int userPk){
         int result=mapper.delHotelBookMark(userPk,hotelPk);
         if(result==1){
-            return new ResVo(3);
+            return new ResVo(2);
         }
         int result2= mapper.insHotelBookMark(userPk,hotelPk);
         return new ResVo(result2);
     }
     //----------------------------------------------북마크 한 호텔 리스트---------------------------------------------------
     public List<HotelBookMarkListVo> getHotelBookmarkList(int userPk,int page){
-        int fromPage=(page-1)*Const.HOTEL_FAV_COUNT_PER_PAGE;
-        int toPage=page*Const.HOTEL_FAV_COUNT_PER_PAGE;
-        List<HotelBookMarkListVo> getBookMarkList=mapper.getHotelBookMark(userPk,fromPage,toPage);
+        int perPage=Const.HOTEL_LIST_COUNT_PER_PAGE;
+        int pages=page*Const.HOTEL_FAV_COUNT_PER_PAGE;
+        List<HotelBookMarkListVo> getBookMarkList=mapper.getHotelBookMark(userPk,pages,perPage);
+        List<Integer> pkList=getBookMarkList
+                .stream()
+                .map(HotelBookMarkListVo::getHotelPk)
+                .collect(Collectors.toList());
+
+        List<HotelBookMarkPicVo> picVoList=mapper.getHotelBookMarkPic(pkList);
+
+        getBookMarkList.forEach(vo ->
+                picVoList.stream()
+                        .filter(picVo -> vo.getHotelPk() == picVo.getHotelPk())
+                        .findFirst()
+                        .ifPresent(picVo -> vo.setHotelPic(picVo.getPic()))
+        );
         return getBookMarkList;
 
     }
