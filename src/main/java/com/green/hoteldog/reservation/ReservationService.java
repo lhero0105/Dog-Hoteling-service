@@ -166,9 +166,9 @@ public class ReservationService {
     }
     //--------------------------------------------------예약 정보---------------------------------------------------------
     public List<ResInfoVo> getUserReservation(int userPk,int page){
-        int fromPage=(page-1)*Const.RES_LIST_COUNT_PER_PAGE;
-        int toPage=page*Const.RES_LIST_COUNT_PER_PAGE;
-        List<ResInfoVo> resInfoVos = mapper.getUserReservation(userPk,fromPage,toPage);
+        int perPage=Const.RES_LIST_COUNT_PER_PAGE;
+        int pages=(page-1)*Const.RES_LIST_COUNT_PER_PAGE;
+        List<ResInfoVo> resInfoVos = mapper.getUserReservation(userPk,perPage,pages);
         List<Integer> resPkList = resInfoVos
                 .stream()
                 .map(ResInfoVo::getResPk)

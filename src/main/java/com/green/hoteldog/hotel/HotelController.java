@@ -87,9 +87,9 @@ public class HotelController {
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
     @GetMapping("/info")
     @Operation(summary = "호텔 상세페이지->날짜 선택 시", description = "상세페이지에서 날짜 선택했을 때 그 날짜별로 가능한 방 리스트")
-    public List<HotelRoomEaByDate> whenYouChooseDates(@JsonProperty int hotelPk,
-                                                      @JsonProperty LocalDate startDate,
-                                                      @JsonProperty LocalDate endDate){
+    public List<HotelRoomEaByDate> whenYouChooseDates(int hotelPk,
+                                                      LocalDate startDate,
+                                                      LocalDate endDate){
 
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
@@ -97,10 +97,10 @@ public class HotelController {
     @GetMapping("/info/dogs")
     @Operation(summary = "호텔 상세페이지->날짜선택->강아지 선택 시", description = "상세페이지에서 날짜 선택하고 강아지 선택 할 시에 나오는 방 리스트<br>" +
             "등록한 강아지들의 사이즈Pk만 입력.")
-    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(@JsonProperty int hotelPk,
-                                                             @JsonProperty LocalDate startDate,
-                                                             @JsonProperty LocalDate endDate,
-                                                             @RequestParam List<Integer> dogs){
+    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(int hotelPk,
+                                                             LocalDate startDate,
+                                                             LocalDate endDate,
+                                                             List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
 
@@ -115,7 +115,7 @@ public class HotelController {
     //-----------------------------------------------------호텔 북마크 리스트----------------------------------------------
     @GetMapping("/like")
     @Operation(summary = "좋아요 한 호텔 리스트", description = "좋아요 한 호텔 리스트 Page별로 6개씩 출력")
-    public List<HotelBookMarkListVo> getHotelBookmarkList(@RequestParam int page){
+    public List<HotelBookMarkListVo> getHotelBookmarkList(int page){
         if(page<=0){
             throw new CustomException(HotelErrorCode.NON_EXIST_PAGE_DATA);
         }

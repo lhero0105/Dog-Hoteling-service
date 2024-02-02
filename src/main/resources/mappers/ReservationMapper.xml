@@ -126,6 +126,7 @@
         SELECT D.hotel_nm AS hotelNm,D.hotel_call AS hotelCall
         ,   C.hotel_room_nm AS hotelRoomNm ,A.from_date AS fromDate
         ,   A.to_date AS toDate,C.room_pic AS roomPic ,A.res_pk AS resPk
+        ,	A.res_status AS resStatus
         FROM t_reservation A
         JOIN t_res_comprehensive_info B
         ON A.res_pk=B.res_pk
@@ -133,7 +134,7 @@
         ON B.hotel_room_pk=C.hotel_room_pk
         JOIN t_hotel D
         ON A.hotel_pk=D.hotel_pk
-        WHERE A.user_pk=#{userPk} AND A.res_status=1
-        LIMIT #{fromPage} , #{toPage}
+        WHERE A.user_pk=#{userPk}
+        LIMIT #{pages} , #{perPage}
     </select>
 </mapper>
