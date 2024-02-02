@@ -15,9 +15,4 @@ public class MockTestDto {
     private int startIdx;
     @JsonIgnore
     private List<MultipartFile> pics;
-
-    public void setPage(int page){
-        this.startIdx = (page - 1)* rowCount;
-        this.page = page;
-    }
 }

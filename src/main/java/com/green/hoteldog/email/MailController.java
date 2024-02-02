@@ -29,7 +29,6 @@ public class MailController {
             throw new CustomException(UserErrorCode.ALREADY_USED_EMAIL);
         }
         redisUtil.deleteData(dto.getEmail());
-        System.out.println(dto.getEmail());
         mailSendService.joinEmail(dto.getEmail());
         return new ResVo(1);
 

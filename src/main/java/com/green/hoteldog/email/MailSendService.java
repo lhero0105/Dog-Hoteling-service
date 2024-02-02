@@ -82,6 +82,7 @@ public class MailSendService {
     }
     public void mailSend(String setFrom,String toMail,String title,String content){
         MimeMessage message = mailSender.createMimeMessage();
+        redisUtil.setDataExpire(toMail,authNumber,60*5L);
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message,true,"UTF-8");
             helper.setFrom(setFrom);
@@ -92,6 +93,5 @@ public class MailSendService {
         }catch (MessagingException e){
             e.printStackTrace();
         }
-        redisUtil.setDataExpire(toMail,authNumber,60*5L);
     }
 }

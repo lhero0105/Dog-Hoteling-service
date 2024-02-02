@@ -18,11 +18,11 @@ public class RedisConfig {
     private int port;// 레디스 포트번호
     @Bean
     public RedisConnectionFactory redisConnectionFactory(){
-        //LettuceConnectionFactory 빈 등록
+        //RedisConnectionFactory 빈 등록
         return new LettuceConnectionFactory(host,port);
     }
 
-    @Bean(name = "redisTemplate")
+    @Bean
     public StringRedisTemplate redisTemplate(){
         //StringRedisTemplate은 key 값과 value 값은 둘다 String으로 받을 때 사용한다.
         StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();

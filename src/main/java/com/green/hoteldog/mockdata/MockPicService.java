@@ -30,7 +30,10 @@ public class MockPicService {
         if (dto.getType() == 3){
             return insRoomMockPic(dto);
         }
-        return insDogMockPic(dto);
+        if (dto.getType() == 4){
+            return insDogMockPic(dto);
+        }
+        return null;
     }
 
 
@@ -115,6 +118,7 @@ public class MockPicService {
         return new ResVo(1);
     }
     public ResVo insDogMockPic(MockTestDto dto) {
+        log.info("MockTestDtoDog : {}",dto);
         List<Integer> pkList = mapper.selDogPk(dto);
         if(pkList == null){
             throw new RuntimeException();

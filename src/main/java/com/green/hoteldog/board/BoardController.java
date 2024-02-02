@@ -78,6 +78,7 @@ public class BoardController {
                 throw new CustomException(BoardErrorCode.PICS_SIZE_OVER);
             }
         }
+        log.info("controller insDto : {}",dto);
         return service.postBoard(dto);
     }
     //게시글 검색
@@ -107,9 +108,8 @@ public class BoardController {
     //게시글 삭제
     @DeleteMapping
     @Operation(summary = "게시글 삭제",description = "게시글 삭제")
-    public ResVo deleteBoard(@RequestParam(name = "boardPkList") List<Integer> boardPkList){
-        DeleteBoardDto dto = new DeleteBoardDto();
-        dto.setBoardPkList(boardPkList);
+    public ResVo deleteBoard(@RequestBody DeleteBoardDto dto){
+
         return service.deleteBoard(dto);
     }
     //댓글 작성
@@ -122,9 +122,7 @@ public class BoardController {
 
     @DeleteMapping("/comment")
     @Operation(summary = "댓글 삭제",description = "댓글 삭제")
-    public ResVo deleteComment(@RequestParam(name = "commentPkList")List<Integer> commentPkList){
-        DeleteCommentDto dto = new DeleteCommentDto();
-        dto.setCommentPkList(commentPkList);
+    public ResVo deleteComment(@RequestBody DeleteCommentDto dto){
         return service.deleteComment(dto);
     }
 

@@ -22,6 +22,7 @@ public class MockPicController {
     public ResVo testMockPics(@RequestPart List<MultipartFile> pics
             ,@RequestPart MockTestDto dto){
         dto.setPics(pics);
+        dto.setStartIdx((dto.getPage()-1)*dto.getRowCount());
         return service.insMockPic(dto);
     }
 }

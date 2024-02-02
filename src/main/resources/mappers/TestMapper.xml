@@ -5,21 +5,25 @@
     <select id="selReviewPk">
         SELECT review_pk
         FROM t_review
+        ORDER BY review_pk
         LIMIT #{startIdx}, #{rowCount}
     </select>
     <select id="selHotelPk">
         SELECT hotel_pk
         FROM t_hotel
+        ORDER BY hotel_pk
         LIMIT #{startIdx}, #{rowCount}
     </select>
     <select id="selRoomPk">
         SELECT hotel_room_pk
         FROM t_hotel_room_info
+        ORDER BY hotel_room_pk
         LIMIT #{startIdx}, #{rowCount}
     </select>
     <select id="selDogPk">
         SELECT user_dog_pk
         FROM t_user_dog
+        ORDER BY user_dog_pk
         LIMIT #{startIdx}, #{rowCount}
     </select>
 

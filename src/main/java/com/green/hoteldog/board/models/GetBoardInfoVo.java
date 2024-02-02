@@ -9,6 +9,8 @@ import java.util.List;
 public class GetBoardInfoVo {
     @Schema(description = "게시글 pk")
     private int boardPk;
+    @Schema(description = "게시글 카테고리 pk")
+    private int boardCategoryPk;
     @Schema(description = "게시글 제목")
     private String title;
     @Schema(description = "게시글 작성자 pk")
