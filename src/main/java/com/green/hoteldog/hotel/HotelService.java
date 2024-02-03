@@ -255,21 +255,24 @@ public class HotelService {
     //----------------------------------------------북마크 한 호텔 리스트---------------------------------------------------
     public List<HotelBookMarkListVo> getHotelBookmarkList(int userPk,int page){
         int perPage=Const.HOTEL_LIST_COUNT_PER_PAGE;
-        int pages=page*Const.HOTEL_FAV_COUNT_PER_PAGE;
+        int pages=(page-1)*Const.HOTEL_FAV_COUNT_PER_PAGE;
         List<HotelBookMarkListVo> getBookMarkList=mapper.getHotelBookMark(userPk,pages,perPage);
+        log.info("getBookMarkList {}",getBookMarkList);
         List<Integer> pkList=getBookMarkList
                 .stream()
                 .map(HotelBookMarkListVo::getHotelPk)
                 .collect(Collectors.toList());
+        log.info("pkList {}",pkList);
 
-        List<HotelBookMarkPicVo> picVoList=mapper.getHotelBookMarkPic(pkList);
+        /*List<HotelBookMarkPicVo> picVoList=mapper.getHotelBookMarkPic(pkList);
+        log.info("picVoList {}", picVoList);
 
         getBookMarkList.forEach(vo ->
                 picVoList.stream()
                         .filter(picVo -> vo.getHotelPk() == picVo.getHotelPk())
                         .findFirst()
                         .ifPresent(picVo -> vo.setHotelPic(picVo.getPic()))
-        );
+        );*/
         return getBookMarkList;
 
     }
