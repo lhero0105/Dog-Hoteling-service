@@ -16,4 +16,22 @@ public class HotelBookMarkListVo {
     @Schema(name = "호텔Pk")
     @JsonProperty(value = "hotel_pk")
     private int hotelPk;
+    @Schema(name = "호텔 최저가")
+    @JsonProperty(value = "hotel_room_cost")
+    private int hotelRoomCost;
+    @Schema(name = "평균별점")
+    @JsonProperty(value = "avg_star")
+    private float avgStar;
+    @Schema(name = "할인율")
+    @JsonProperty(value = "discount_per")
+    private String discountPer;
+    @Schema(name = "리뷰수")
+    @JsonProperty(value = "review_count")
+    private int reviewCount;
+    @Schema(name = "주소")
+    @JsonProperty(value = "address_name")
+    private String addressName;
+    @Schema(name = "북마크")
+    @JsonProperty(value = "book_mark")
+    private int bookMark;
 }
