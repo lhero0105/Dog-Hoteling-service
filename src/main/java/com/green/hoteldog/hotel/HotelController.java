@@ -32,15 +32,16 @@ import java.util.List;
 public class HotelController {
     private final HotelService service;
     private final AuthenticationFacade authenticationFacade;
+    //--------------------------------------------------유저 체크--------------------------------------------------------
     public void checkUser(){
         if(authenticationFacade.getLoginUserPk()==0){
             throw new CustomException(CommonErrorCode.UNAUTHORIZED);
         }
     }
+    //----------------------------------------------- 호텔 광고 리스트----------------------------------------------------
+
     // 0-1 광고+호텔 리스트 api/hotel/{page}
     // 0-2 광고 리스트 api/hotel/ad
-
-    //----------------------------------------------- 호텔 광고 리스트-----------------------------------------------------
     // 새로고침 시 적용
     @GetMapping("/ad")
     @Operation(summary = "호텔 광고 리스트", description = "광고만 바뀌어야 할 때 광고 3개를 랜덤하게 출력하는 기능")
@@ -74,7 +75,7 @@ public class HotelController {
         dto.setPage(page);
         return service.getHotelList(dto);
     }
-    //-------------------------------------------------호텔 상세페이지 출력-------------------------------------------------
+    //-------------------------------------------------호텔 상세페이지 출력------------------------------------------------
     @GetMapping
     @Operation(summary = "호텔 상세페이지 전체화면", description = "호텔 상세페이지 전체화면 부분")
     public HotelInfoEntity getHotelDetail(@RequestParam("hotel_pk") int hotelPk){
@@ -84,7 +85,7 @@ public class HotelController {
         HotelInfoEntity mainPage=service.getHotelDetail(hotelPk);
         return mainPage;
     }
-    //------------------------------------------호텔 상세페이지에서 날짜 선택했을때--------------------------------------------
+    //------------------------------------------호텔 상세페이지에서 날짜 선택했을때------------------------------------------
     @GetMapping("/info")
     @Operation(summary = "호텔 상세페이지->날짜 선택 시", description = "상세페이지에서 날짜 선택했을 때 그 날짜별로 가능한 방 리스트")
     public List<HotelRoomEaByDate> whenYouChooseDates(int hotelPk,
@@ -93,20 +94,20 @@ public class HotelController {
 
         return service.whenYouChooseDates(hotelPk, startDate, endDate);
     }
-    //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-------------------------------------
+    //--------------------------------------호텔 상세페이지에서 날짜 선택, 강아지 선택했을때-----------------------------------
     @GetMapping("/info/dogs")
-    @Operation(summary = "호텔 상세페이지->날짜선택->강아지 선택 시", description = "상세페이지에서 날짜 선택하고 강아지 선택 할 시에 나오는 방 리스트<br>" +
-            "등록한 강아지들의 사이즈Pk만 입력.")
+    @Operation(summary = "호텔 상세페이지->날짜선택->강아지 선택 시"
+            , description = "상세페이지에서 날짜 선택하고 강아지 선택 할 시에 나오는 방 리스트<br>등록한 강아지들의 사이즈Pk만 입력.")
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(int hotelPk,
                                                              LocalDate startDate,
                                                              LocalDate endDate,
                                                              List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
-
     //-----------------------------------------------------호텔 북마크----------------------------------------------------
     @GetMapping("/mark")
-    @Operation(summary = "호텔 북마크(좋아요)", description = "toggle로 처리함<br>. 북마크 등록 시 result : 1 , 북마크 등록 해제 시 : 2")
+    @Operation(summary = "호텔 북마크(좋아요)"
+            , description = "toggle로 처리함<br>.북마크 등록 시 result : 1 ,북마크 등록 해제 시 : 2")
     public ResVo toggleHotelBookMark(int hotelPk){
         checkUser();
         int userPk=authenticationFacade.getLoginUserPk();
@@ -123,25 +124,21 @@ public class HotelController {
         int userPk=authenticationFacade.getLoginUserPk();
         return service.getHotelBookmarkList(userPk,page);
     }
-
-    //호텔 더미데이터 작성
+    //--------------------------------------------------호텔 더미데이터 작성-----------------------------------------------
     @PostMapping("/registration")
     public ResVo hotelRegistration(@RequestPart(required = false) @Schema(hidden = true) List<MultipartFile> pics, @RequestBody HotelInsDto dto){
         log.info("hotelDto : {}",dto);
         return service.hotelRegistration(pics, dto);
     }
-    //호텔 사진 수정
+    //--------------------------------------------------호텔 사진 수정----------------------------------------------------
     @PutMapping("/pic")
     public ResVo putHotelPic(@RequestPart @Schema(hidden = true)List<MultipartFile> pics,@RequestPart HotelPutPicDto dto){
         dto.setPics(pics);
         return null;
     }
-    //호텔 방 등록
+    //--------------------------------------------------호텔 방 등록------------------------------------------------------
     @PostMapping("/room")
     public ResVo hotelRoomRegistration (@RequestPart(required = false) @Schema(hidden = true) MultipartFile roomPic, @RequestBody InsHotelRoomDto dto){
         return service.insHotelRoom(roomPic, dto);
     }
-
-
-
 }

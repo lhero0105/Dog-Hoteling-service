@@ -41,7 +41,7 @@ public class ReservationController {
     public ResVo delHotelReservation(HotelReservationDelDto dto){
         return service.delHotelReservation(dto);
     }
-    //-------------------------------------------------예약내역 출력-------------------------------------------------------
+    //-------------------------------------------------예약내역 출력------------------------------------------------------
     @GetMapping
     @Operation(summary = "마이페이지 예약목록 출력",description = "호텔 예약목록출력(Page 당 6개씩 출력)")
     public List<ResInfoVo> getUserReservation(int page){
@@ -52,5 +52,4 @@ public class ReservationController {
         int userPk= authenticationFacade.getLoginUserPk();
         return service.getUserReservation(userPk,page);
     }
-
 }

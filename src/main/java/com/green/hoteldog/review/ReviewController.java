@@ -23,7 +23,6 @@ import java.util.List;
 @Tag(name = "리뷰 API",description = "리뷰 관련 처리")
 public class ReviewController {
     private final ReviewService service;
-
     //----------------------------------------------------리뷰등록--------------------------------------------------------
     @PostMapping
     @Operation(summary = "리뷰 등록", description = "리뷰 등록<br>사진 등록은 postman으로 테스트" +
@@ -51,7 +50,6 @@ public class ReviewController {
         dto.setPics(pics);
         return service.putReview(dto);
     }
-
     //------------------------------------------------리뷰 코멘트 수정-----------------------------------------------------
     @PatchMapping
     @Operation(summary = "리뷰 코멘트 수정", description = "리뷰 코멘트만 수정")
@@ -82,5 +80,4 @@ public class ReviewController {
         dto.setPage(page);
         return service.getHotelReview(dto);
     }
-
 }
