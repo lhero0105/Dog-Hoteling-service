@@ -165,6 +165,7 @@
         ,B.title
         ,B.board_category_pk AS boardCategoryPk
         ,D.category_nm AS categoryNm
+        ,A.comment_pk AS commentPk
         ,A.comment
         ,A.user_pk AS userPk
         ,C.nickname

@@ -7,6 +7,7 @@ import java.util.List;
 @Data
 public class UserReviewVo {
     private int reviewPk;
+    private int resPk;
     private List<String> pics;
     private List<String> roomNm;
     private int score;

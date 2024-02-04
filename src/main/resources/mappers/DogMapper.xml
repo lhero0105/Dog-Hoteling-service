@@ -31,8 +31,8 @@
         ,dog_etc AS dogEtc
         ,created_at AS createdAt
         FROM t_user_dog
-        ORDER BY user_dog_pk DESC
         WHERE user_pk = #{userPk}
+        ORDER BY user_dog_pk DESC
         <!--LIMIT #{startIdx},#{rowCount}-->
     </select>
     <insert id="insResDog">

@@ -136,6 +136,14 @@ public class ReviewService {
             throw new CustomException(CommonErrorCode.CONFLICT);
         }
     }
+    //------------------------------------------------유저가 등록한 리뷰 목록--------------------------------------------
+    public List<UserReviewVo> userReviewList(){
+        int userPk = facade.getLoginUserPk();
+        if(userPk == 0 ){
+            throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
+        }
+        return null;
+    }
     //------------------------------------------------호텔 리뷰-----------------------------------------------------------
     public List<HotelReviewSelVo> getHotelReview(HotelReviewSelDto dto){
         // n+1 이슈 해결
