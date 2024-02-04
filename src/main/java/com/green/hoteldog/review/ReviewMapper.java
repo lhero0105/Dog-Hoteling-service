@@ -26,4 +26,5 @@ public interface ReviewMapper {
     Integer delReviewPicsAll(DelReviewDto dto);
     List<UserReviewVo> selUserResPk(int userPk);
     List<UserResRoomVo> selUserResRoomInfo(List<Integer> resPkList);
+    List<UserReviewPic>selUserReviewPics(List<Integer> reviewPkList);
 }

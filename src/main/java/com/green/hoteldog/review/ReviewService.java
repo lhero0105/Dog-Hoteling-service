@@ -6,6 +6,7 @@ import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.*;
 import com.green.hoteldog.review.models.*;
 import com.green.hoteldog.security.AuthenticationFacade;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ReviewService {
     private final ReviewRepositoryRef reviewRepository;
+    private final ReviewMapper mapper;
     private final AuthenticationFacade facade;
     private final MyFileUtils fileUtils;
 
@@ -142,7 +144,32 @@ public class ReviewService {
         if(userPk == 0 ){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
-        return null;
+        List<UserReviewVo> userReviewVoList = mapper.selUserResPk(userPk);
+        if(userReviewVoList != null){
+            List<Integer> resPkList = new ArrayList<>();
+            List<Integer> reviewPkList = new ArrayList<>();
+            HashMap<Integer , UserReviewVo> resRoomInfoMap = new HashMap<>();
+            HashMap<Integer , UserReviewVo> reviewPicMap = new HashMap<>();
+            for (UserReviewVo vo : userReviewVoList){
+                resPkList.add(vo.getResPk());
+                resRoomInfoMap.put(vo.getResPk() , vo);
+                reviewPkList.add(vo.getReviewPk());
+                reviewPicMap.put(vo.getReviewPk() , vo);
+            }
+            List<UserResRoomVo> userResRoomVoList = mapper.selUserResRoomInfo(resPkList);
+            for(UserResRoomVo vo : userResRoomVoList ){
+                resRoomInfoMap.get(vo.getResPk()).getRoomNm().add(vo.getHotelRoomNm());
+            }
+            List<UserReviewPic> userReviewPicList = mapper.selUserReviewPics(reviewPkList);
+            if(userReviewPicList != null){
+                for(UserReviewPic pic : userReviewPicList){
+                    reviewPicMap.get(pic.getReviewPk()).getPics().add(pic.getReviewPic());
+                }
+            }
+        }
+
+
+        return userReviewVoList;
     }
     //------------------------------------------------호텔 리뷰-----------------------------------------------------------
     public List<HotelReviewSelVo> getHotelReview(HotelReviewSelDto dto){

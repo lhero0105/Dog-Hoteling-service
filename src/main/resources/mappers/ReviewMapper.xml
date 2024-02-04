@@ -98,7 +98,7 @@
         WHERE review_pk = #{reviewPk}
     </delete>
     <select id="selUserReviewPics">
-        SELECT review_pic AS reviewPic, review_pk AS reviewPk
+        SELECT pic AS reviewPic, review_pk AS reviewPk
         FROM t_review_pic
         WHERE review_pk in
         <foreach collection="reviewPkList" item="reviewPk" open="(" close=")" separator=",">
@@ -124,6 +124,7 @@
         JOIN t_hotel C
         ON A.hotel_pk = C.hotel_pk
         WHERE A.user_pk = #{userPk}
+        ORDER BY B.created_at DESC
     </select>
     <!--재웅-->
 
