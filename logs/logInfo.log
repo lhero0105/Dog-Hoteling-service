@@ -6903,3 +6903,1691 @@ GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON 
 [2024-02-03 14:08:20 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m20. Connection closed. {executed in 0ms} [0;39m
 [2024-02-03 14:08:20 [32mINFO [0;39m HikariPool-2 connection closer] [log4jdbc.log4j2] [36m20. Connection.close() returned [0;39m
 [2024-02-03 14:08:20 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-2 - Shutdown completed.[0;39m
+[2024-02-04 18:41:27 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.9 with PID 27096 (C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write\target\classes started by 이영웅 in C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write)[0;39m
+[2024-02-04 18:41:27 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-02-04 18:41:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-02-04 18:41:27 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-02-04 18:41:28 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-04 18:41:28 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-04 18:41:28 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-04 18:41:29 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-04 18:41:29 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-04 18:41:29 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-04 18:41:29 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-02-04 18:41:29 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-04 18:41:29 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-02-04 18:41:29 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-02-04 18:41:29 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-02-04 18:41:29 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 2059 ms[0;39m
+[2024-02-04 18:41:30 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 4865293f-21d3-4b95-93ee-c18e57dd673c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-02-04 18:41:30 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@514092ae, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@9ef6a1f, org.springframework.security.web.context.SecurityContextHolderFilter@6df15150, org.springframework.security.web.header.HeaderWriterFilter@6abfe9d3, org.springframework.web.filter.CorsFilter@19f0732, org.springframework.security.web.authentication.logout.LogoutFilter@69afcd93, com.green.hoteldog.security.JwtAuthenticationFilter@46f8e9ee, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@66ce257, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@512fbb1e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d105211, org.springframework.security.web.session.SessionManagementFilter@768f77c4, org.springframework.security.web.access.ExceptionTranslationFilter@1f98e476, org.springframework.security.web.access.intercept.AuthorizationFilter@7dbe59c][0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 4.101 seconds (process running for 5.751)[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:41:31 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:41:32 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:41:32 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:41:32 [32mINFO [0;39m http-nio-8080-exec-8] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 375 ms[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.hotel.HotelController] [36mHotelListSelDto dto : HotelListSelDto(mainFilter=0, address=null, fromDate=null, toDate=null, dogInfo=null, search=금쪽같은내새끼붉은회초리애견호텔, hotelOptionPk=null, filterType=0, rowCount=0, userPk=0, date=null, startIdx=0, page=0, dogSizePks=[], tokensToStrList=null, optionPkSize=0, dogPkSize=0, filteredPk=null)[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection opened. {executed in 109ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getNetworkTimeout() returned 0[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.isValid(1) returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getTransactionIsolation() returned 4[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@79db61c4[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        JOIN t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.advertise = 1
+        GROUP BY A.hotel_pk
+        ORDER BY RAND()
+        LIMIT 3) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@567b4f41[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, reviewCount , F.address_name AS addressName FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A JOIN t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.advertise 
+= 1 GROUP BY A.hotel_pk ORDER BY RAND() LIMIT 3  {executed in 6 ms}[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@377eb8b6[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@64e500ff[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 29[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 울산 그린아카데미 호텔[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 9845[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 7.1[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 9[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 48550[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 6.2[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 9[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 30[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 서울 그린아카데미 호텔[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 48484[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 4.0[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 3[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+|hotel_pk |hotel_nm     |pic |hotelroomcost |avgstar |discount_per |reviewcount |address_name |
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+|29       |울산 그린아카데미 호텔 |null|9845          |7.1     |9            |9           |a            |
+|28       |대전 그린아카데미 호텔 |null|48550         |6.2     |20           |9           |a            |
+|30       |서울 그린아카데미 호텔 |null|48484         |4.0     |3            |3           |a            |
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@3f7b1d07[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.hotel.HotelService] [36mhotelAdvertiseList : [HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=7.1, hotelRoomCost=9845, discountPer=9, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=6.2, hotelRoomCost=48550, discountPer=20, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=4.0, hotelRoomCost=48484, discountPer=3, bookMark=0, reviewCount=3)][0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=7.1, hotelRoomCost=9845, discountPer=9, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=6.2, hotelRoomCost=48550, discountPer=20, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=4.0, hotelRoomCost=48484, discountPer=3, bookMark=0, reviewCount=3)], hotelList=[])[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
+        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.hotel_nm = ?
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT ?, ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@10b782be[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.setString(1, "금쪽같은내새끼붉은회초리애견호텔") returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(2, 0) returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(3, 6) returned [0;39m
+[2024-02-04 18:42:41 [33mWARN [0;39m http-nio-8080-exec-5] [org.mariadb.jdbc.message.server.ErrorPacket] [36mError: 1054-42S22: Unknown column 'I.hotel_pk' in 'field list'[0;39m
+[2024-02-04 18:42:41 [31mERROR[0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() FAILED! SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, F.address_name AS addressName , IF(I.hotel_pk IS NULL, 0, 1) 
+AS bookMark, reviewCount FROM t_hotel A LEFT JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk 
+LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk JOIN ( SELECT A.res_pk, round(AVG(A.score),1) 
+AS avgStar, COUNT(A.review_pk) AS reviewCount FROM t_review A join t_reservation B ON A.res_pk 
+= B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk = D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) 
+AS hotelRoomCost FROM t_hotel_room_info A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost 
+GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk 
+= F.hotel_pk WHERE A.hotel_nm = '금쪽같은내새끼붉은회초리애견호텔' GROUP BY A.hotel_pk ORDER BY A.created_at 
+DESC LIMIT 0, 6  {FAILED after 2 ms}[0;39m
+java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:282)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:134)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:883)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:822)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:741)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:665)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:92)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:271)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	at jdk.proxy2/jdk.proxy2.$Proxy99.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy3/jdk.proxy3.$Proxy108.selHotelListToAccurateSearch(Unknown Source)
+	at com.green.hoteldog.hotel.HotelService.getHotelList(HotelService.java:109)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713)
+	at com.green.hoteldog.hotel.HotelService$$SpringCGLIB$$0.getHotelList(<generated>)
+	at com.green.hoteldog.hotel.HotelController.getHotelList(HotelController.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:262)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection opened. {executed in 15ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection opened. {executed in 4ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection opened. {executed in 4ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection opened. {executed in 4ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection opened. {executed in 5ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection opened. {executed in 3ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection opened. {executed in 3ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection opened. {executed in 4ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection opened. {executed in 4ms} [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.new Connection returned [0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@1b29dbca[0;39m
+[2024-02-04 18:42:41 [32mINFO [0;39m http-nio-8080-exec-5] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:42:41 [31mERROR[0;39m http-nio-8080-exec-5] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mException[0;39m
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'
+### The error may exist in file [C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write\target\classes\mappers\HotelMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic         , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName         , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount         FROM t_hotel A         LEFT JOIN t_hotel_pic B         ON A.hotel_pk = B.hotel_pk         LEFT JOIN t_reservation C         ON A.hotel_pk = C.hotel_pk         JOIN (         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount         FROM t_review A         join t_reservation B         ON A.res_pk = B.res_pk         GROUP BY B.hotel_pk         ) D         ON C.res_pk = D.res_pk         LEFT JOIN (         SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost         FROM t_hotel_room_info A         JOIN t_hotel B         ON A.hotel_pk = B.hotel_pk         WHERE A.hotel_room_cost         GROUP BY A.hotel_pk         ) E         ON A.hotel_pk = E.hotel_pk         LEFT JOIN t_hotel_where F         ON A.hotel_pk = F.hotel_pk                   WHERE A.hotel_nm = ?         GROUP BY A.hotel_pk                           ORDER BY A.created_at DESC                       LIMIT ?, ?
+### Cause: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'
+; bad SQL grammar []
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy99.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy3/jdk.proxy3.$Proxy108.selHotelListToAccurateSearch(Unknown Source)
+	at com.green.hoteldog.hotel.HotelService.getHotelList(HotelService.java:109)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713)
+	at com.green.hoteldog.hotel.HotelService$$SpringCGLIB$$0.getHotelList(<generated>)
+	at com.green.hoteldog.hotel.HotelController.getHotelList(HotelController.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:262)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:282)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:134)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:883)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:822)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:741)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:665)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:92)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:271)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 119 common frames omitted
+[2024-02-04 18:42:41 [33mWARN [0;39m http-nio-8080-exec-5] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [org.springframework.jdbc.BadSqlGrammarException: <EOL><EOL>### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'<EOL><EOL>### The error may exist in file [C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write\target\classes\mappers\HotelMapper.xml]<EOL><EOL>### The error may involve defaultParameterMap<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic         , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName         , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount         FROM t_hotel A         LEFT JOIN t_hotel_pic B         ON A.hotel_pk = B.hotel_pk         LEFT JOIN t_reservation C         ON A.hotel_pk = C.hotel_pk         JOIN (         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount         FROM t_review A         join t_reservation B         ON A.res_pk = B.res_pk         GROUP BY B.hotel_pk         ) D         ON C.res_pk = D.res_pk         LEFT JOIN (         SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost         FROM t_hotel_room_info A         JOIN t_hotel B         ON A.hotel_pk = B.hotel_pk         WHERE A.hotel_room_cost         GROUP BY A.hotel_pk         ) E         ON A.hotel_pk = E.hotel_pk         LEFT JOIN t_hotel_where F         ON A.hotel_pk = F.hotel_pk                   WHERE A.hotel_nm = ?         GROUP BY A.hotel_pk                           ORDER BY A.created_at DESC                       LIMIT ?, ?<EOL><EOL>### Cause: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'<EOL>; bad SQL grammar []][0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. Connection.isValid(5) returned true[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT user_pk AS userPk
+        , user_type_pk AS userTypePk
+        , user_email AS userEmail
+        , upw
+        , nickname
+        , phone_num AS phoneNum
+        , user_address AS userAddress
+        FROM t_user
+        WHERE user_email = ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@5798ccc7[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. PreparedStatement.setString(1, "gravida.non@google.com") returned [0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. SELECT user_pk AS userPk , user_type_pk AS userTypePk , user_email AS userEmail , upw , nickname 
+, phone_num AS phoneNum , user_address AS userAddress FROM t_user WHERE user_email = 'gravida.non@google.com'  {executed in 0 ms}[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@3265e96a[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@177ee380[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.getInt(userPk) returned 1[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.getInt(userTypePk) returned 2[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.getString(userEmail) returned gravida.non@google.com[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.getString(upw) returned $2a$10$VZOd82mqdXAqEZHbqwOu9.gR8/d/1fBuoMGDVrmx5oFSxTRtzFoqC[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.getString(nickname) returned SG와사비[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.getString(phoneNum) returned 085-567-2753[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.getString(userAddress) returned #f4b1b0[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m
+|--------|-------------|-----------------------|-------------------------------------------------------------|---------|-------------|-------------|
+|user_pk |user_type_pk |user_email             |upw                                                          |nickname |phone_num    |user_address |
+|--------|-------------|-----------------------|-------------------------------------------------------------|---------|-------------|-------------|
+|1       |2            |gravida.non@google.com |$2a$10$VZOd82mqdXAqEZHbqwOu9.gR8/d/1fBuoMGDVrmx5oFSxTRtzFoqC |SG와사비    |085-567-2753 |#f4b1b0      |
+|--------|-------------|-----------------------|-------------------------------------------------------------|---------|-------------|-------------|
+[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@17e0731f[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:44:49 [32mINFO [0;39m http-nio-8080-exec-4] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6MX0iLCJpYXQiOjE3MDcwMzk4ODksImV4cCI6MTcwNzA0NzA4OX0.boDL1_F0XRiSI6pDH-lCicKH2s9IK0Nej-JQlxFaYyE[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.hotel.HotelController] [36mHotelListSelDto dto : HotelListSelDto(mainFilter=0, address=null, fromDate=null, toDate=null, dogInfo=null, search=금쪽같은내새끼붉은회초리애견호텔, hotelOptionPk=null, filterType=0, rowCount=0, userPk=0, date=null, startIdx=0, page=0, dogSizePks=[], tokensToStrList=null, optionPkSize=0, dogPkSize=0, filteredPk=null)[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.isValid(5) returned true[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        JOIN t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.advertise = 1
+        GROUP BY A.hotel_pk
+        ORDER BY RAND()
+        LIMIT 3) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@1d7fde7[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, reviewCount , F.address_name AS addressName FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A JOIN t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.advertise 
+= 1 GROUP BY A.hotel_pk ORDER BY RAND() LIMIT 3  {executed in 2 ms}[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@3f56bc14[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@1b65b6d2[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 29[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 울산 그린아카데미 호텔[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 9845[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 7.1[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 9[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 30[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 서울 그린아카데미 호텔[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 48484[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 4.0[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 3[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 48550[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 6.2[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 9[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+|hotel_pk |hotel_nm     |pic |hotelroomcost |avgstar |discount_per |reviewcount |address_name |
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+|29       |울산 그린아카데미 호텔 |null|9845          |7.1     |9            |9           |a            |
+|30       |서울 그린아카데미 호텔 |null|48484         |4.0     |3            |3           |a            |
+|28       |대전 그린아카데미 호텔 |null|48550         |6.2     |20           |9           |a            |
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@7feca55e[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.hotel.HotelService] [36mhotelAdvertiseList : [HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=7.1, hotelRoomCost=9845, discountPer=9, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=4.0, hotelRoomCost=48484, discountPer=3, bookMark=0, reviewCount=3), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=6.2, hotelRoomCost=48550, discountPer=20, bookMark=0, reviewCount=9)][0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=7.1, hotelRoomCost=9845, discountPer=9, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=4.0, hotelRoomCost=48484, discountPer=3, bookMark=0, reviewCount=3), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=6.2, hotelRoomCost=48550, discountPer=20, bookMark=0, reviewCount=9)], hotelList=[])[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
+        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+            LEFT JOIN t_user H
+            ON A.user_pk = H.user_pk
+            LEFT JOIN t_hotel_favorites I
+            ON A.hotel_pk = I.hotel_pk AND I.user_pk = ?
+         
+        WHERE A.hotel_nm = ?
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT ?, ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@41ea4781[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(1, 1) returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.setString(2, "금쪽같은내새끼붉은회초리애견호텔") returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(3, 0) returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(4, 6) returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, F.address_name AS addressName , IF(I.hotel_pk IS NULL, 0, 1) 
+AS bookMark, reviewCount FROM t_hotel A LEFT JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk 
+LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk JOIN ( SELECT A.res_pk, round(AVG(A.score),1) 
+AS avgStar, COUNT(A.review_pk) AS reviewCount FROM t_review A join t_reservation B ON A.res_pk 
+= B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk = D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) 
+AS hotelRoomCost FROM t_hotel_room_info A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost 
+GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk 
+= F.hotel_pk LEFT JOIN t_user H ON A.user_pk = H.user_pk LEFT JOIN t_hotel_favorites I ON A.hotel_pk 
+= I.hotel_pk AND I.user_pk = 1 WHERE A.hotel_nm = '금쪽같은내새끼붉은회초리애견호텔' GROUP BY A.hotel_pk ORDER 
+BY A.created_at DESC LIMIT 0, 6  {executed in 2 ms}[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@4b56f5b4[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@7db3192a[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m
+|---------|---------|----|--------------|--------|-------------|-------------|---------|------------|
+|hotel_pk |hotel_nm |pic |hotelroomcost |avgstar |discount_per |address_name |bookmark |reviewcount |
+|---------|---------|----|--------------|--------|-------------|-------------|---------|------------|
+|---------|---------|----|--------------|--------|-------------|-------------|---------|------------|
+[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@67ef9597[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.hotel.HotelService] [36maccurateHotelList.size() : 0[0;39m
+[2024-02-04 18:45:02 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.hotel.HotelService] [36msearch : 금쪽같은내새끼붉은회초리[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.hotel.HotelService] [36mtokensToStrList : [금쪽, 같은, 내, 새끼, 붉은, 회초리][0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.isValid(5) returned true[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
+        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+        LEFT JOIN t_user H
+        ON A.user_pk = H.user_pk
+        LEFT JOIN t_hotel_favorites I
+        ON A.hotel_pk = I.hotel_pk AND I.user_pk = ?
+        WHERE A.hotel_nm
+        REGEXP replace( '  금쪽 | 같은 | 내 | 새끼 | 붉은 | 회초리 ' , ' ', '')
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT ?, ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@6ffcc940[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(1, 1) returned [0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(2, 0) returned [0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(3, 6) returned [0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, F.address_name AS addressName , IF(I.hotel_pk IS NULL, 0, 1) 
+AS bookMark, reviewCount FROM t_hotel A LEFT JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk 
+LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk JOIN ( SELECT A.res_pk, round(AVG(A.score),1) 
+AS avgStar, COUNT(A.review_pk) AS reviewCount FROM t_review A join t_reservation B ON A.res_pk 
+= B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk = D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) 
+AS hotelRoomCost FROM t_hotel_room_info A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost 
+GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk 
+= F.hotel_pk LEFT JOIN t_user H ON A.user_pk = H.user_pk LEFT JOIN t_hotel_favorites I ON A.hotel_pk 
+= I.hotel_pk AND I.user_pk = 1 WHERE A.hotel_nm REGEXP replace( ' 금쪽 | 같은 | 내 | 새끼 | 붉은 | 회초리 
+' , ' ', '') GROUP BY A.hotel_pk ORDER BY A.created_at DESC LIMIT 0, 6  {executed in 3 ms}[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@d8d9615[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@5eed5928[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 7[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 붉은겨울 연방학원[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 31355[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 5.4[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(bookMark) returned 0[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.wasNull() returned false[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 15[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m
+|---------|----------|----|--------------|--------|-------------|-------------|---------|------------|
+|hotel_pk |hotel_nm  |pic |hotelroomcost |avgstar |discount_per |address_name |bookmark |reviewcount |
+|---------|----------|----|--------------|--------|-------------|-------------|---------|------------|
+|7        |붉은겨울 연방학원 |null|31355         |5.4     |1            |a            |0        |15          |
+|---------|----------|----|--------------|--------|-------------|-------------|---------|------------|
+[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@51f31ca1[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:45:04 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.hotel.HotelService] [36mhotelList = [HotelListSelVo(hotelPk=7, hotelNm=붉은겨울 연방학원, addressName=a, hotelPic=null, avgStar=5.4, hotelRoomCost=31355, discountPer=1, bookMark=0, reviewCount=15)][0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-10] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:19 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.hotel.HotelController] [36mHotelListSelDto dto : HotelListSelDto(mainFilter=0, address=null, fromDate=null, toDate=null, dogInfo=null, search=금쪽같은내새끼붉은회초리애견호텔, hotelOptionPk=null, filterType=0, rowCount=0, userPk=0, date=null, startIdx=0, page=0, dogSizePks=[], tokensToStrList=null, optionPkSize=0, dogPkSize=0, filteredPk=null)[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. Connection.isValid(5) returned true[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        JOIN t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.advertise = 1
+        GROUP BY A.hotel_pk
+        ORDER BY RAND()
+        LIMIT 3) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@2220481a[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, reviewCount , F.address_name AS addressName FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A JOIN t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.advertise 
+= 1 GROUP BY A.hotel_pk ORDER BY RAND() LIMIT 3  {executed in 2 ms}[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@74fcbfbc[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@2107167c[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 48550[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 6.2[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 9[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 30[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 서울 그린아카데미 호텔[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 48484[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 4.0[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 3[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 29[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 울산 그린아카데미 호텔[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 9845[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 7.1[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 9[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+|hotel_pk |hotel_nm     |pic |hotelroomcost |avgstar |discount_per |reviewcount |address_name |
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+|28       |대전 그린아카데미 호텔 |null|48550         |6.2     |20           |9           |a            |
+|30       |서울 그린아카데미 호텔 |null|48484         |4.0     |3            |3           |a            |
+|29       |울산 그린아카데미 호텔 |null|9845          |7.1     |9            |9           |a            |
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@57ac892e[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.hotel.HotelService] [36mhotelAdvertiseList : [HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=6.2, hotelRoomCost=48550, discountPer=20, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=4.0, hotelRoomCost=48484, discountPer=3, bookMark=0, reviewCount=3), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=7.1, hotelRoomCost=9845, discountPer=9, bookMark=0, reviewCount=9)][0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=6.2, hotelRoomCost=48550, discountPer=20, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=4.0, hotelRoomCost=48484, discountPer=3, bookMark=0, reviewCount=3), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=7.1, hotelRoomCost=9845, discountPer=9, bookMark=0, reviewCount=9)], hotelList=[])[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
+        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.hotel_nm = ?
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT ?, ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@77ec7b59[0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.setString(1, "금쪽같은내새끼붉은회초리애견호텔") returned [0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(2, 0) returned [0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(3, 6) returned [0;39m
+[2024-02-04 18:45:51 [33mWARN [0;39m http-nio-8080-exec-7] [org.mariadb.jdbc.message.server.ErrorPacket] [36mError: 1054-42S22: Unknown column 'I.hotel_pk' in 'field list'[0;39m
+[2024-02-04 18:45:51 [31mERROR[0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() FAILED! SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, F.address_name AS addressName , IF(I.hotel_pk IS NULL, 0, 1) 
+AS bookMark, reviewCount FROM t_hotel A LEFT JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk 
+LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk JOIN ( SELECT A.res_pk, round(AVG(A.score),1) 
+AS avgStar, COUNT(A.review_pk) AS reviewCount FROM t_review A join t_reservation B ON A.res_pk 
+= B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk = D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) 
+AS hotelRoomCost FROM t_hotel_room_info A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost 
+GROUP BY A.hotel_pk ) E ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk 
+= F.hotel_pk WHERE A.hotel_nm = '금쪽같은내새끼붉은회초리애견호텔' GROUP BY A.hotel_pk ORDER BY A.created_at 
+DESC LIMIT 0, 6  {FAILED after 1 ms}[0;39m
+java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:282)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:134)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:883)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:822)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:741)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:665)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:92)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:271)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	at jdk.proxy2/jdk.proxy2.$Proxy99.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy3/jdk.proxy3.$Proxy108.selHotelListToAccurateSearch(Unknown Source)
+	at com.green.hoteldog.hotel.HotelService.getHotelList(HotelService.java:109)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713)
+	at com.green.hoteldog.hotel.HotelService$$SpringCGLIB$$0.getHotelList(<generated>)
+	at com.green.hoteldog.hotel.HotelController.getHotelList(HotelController.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:262)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:45:51 [32mINFO [0;39m http-nio-8080-exec-7] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:45:51 [31mERROR[0;39m http-nio-8080-exec-7] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mException[0;39m
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'
+### The error may exist in file [C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write\target\classes\mappers\HotelMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic         , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName         , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount         FROM t_hotel A         LEFT JOIN t_hotel_pic B         ON A.hotel_pk = B.hotel_pk         LEFT JOIN t_reservation C         ON A.hotel_pk = C.hotel_pk         JOIN (         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount         FROM t_review A         join t_reservation B         ON A.res_pk = B.res_pk         GROUP BY B.hotel_pk         ) D         ON C.res_pk = D.res_pk         LEFT JOIN (         SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost         FROM t_hotel_room_info A         JOIN t_hotel B         ON A.hotel_pk = B.hotel_pk         WHERE A.hotel_room_cost         GROUP BY A.hotel_pk         ) E         ON A.hotel_pk = E.hotel_pk         LEFT JOIN t_hotel_where F         ON A.hotel_pk = F.hotel_pk                   WHERE A.hotel_nm = ?         GROUP BY A.hotel_pk                           ORDER BY A.created_at DESC                       LIMIT ?, ?
+### Cause: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'
+; bad SQL grammar []
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:246)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:439)
+	at jdk.proxy2/jdk.proxy2.$Proxy99.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:224)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:141)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:86)
+	at jdk.proxy3/jdk.proxy3.$Proxy108.selHotelListToAccurateSearch(Unknown Source)
+	at com.green.hoteldog.hotel.HotelService.getHotelList(HotelService.java:109)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:352)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:713)
+	at com.green.hoteldog.hotel.HotelService$$SpringCGLIB$$0.getHotelList(<generated>)
+	at com.green.hoteldog.hotel.HotelController.getHotelList(HotelController.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:262)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'
+	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:282)
+	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:370)
+	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:134)
+	at org.mariadb.jdbc.client.impl.StandardClient.readPacket(StandardClient.java:883)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResults(StandardClient.java:822)
+	at org.mariadb.jdbc.client.impl.StandardClient.readResponse(StandardClient.java:741)
+	at org.mariadb.jdbc.client.impl.StandardClient.execute(StandardClient.java:665)
+	at org.mariadb.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:92)
+	at org.mariadb.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:271)
+	at net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy.execute(PreparedStatementSpy.java:443)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:65)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:80)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:65)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:336)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:158)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:110)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:90)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:154)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:142)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:425)
+	... 119 common frames omitted
+[2024-02-04 18:45:51 [33mWARN [0;39m http-nio-8080-exec-7] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [org.springframework.jdbc.BadSqlGrammarException: <EOL><EOL>### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'<EOL><EOL>### The error may exist in file [C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write\target\classes\mappers\HotelMapper.xml]<EOL><EOL>### The error may involve defaultParameterMap<EOL><EOL>### The error occurred while setting parameters<EOL><EOL>### SQL: SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic         , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName         , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount         FROM t_hotel A         LEFT JOIN t_hotel_pic B         ON A.hotel_pk = B.hotel_pk         LEFT JOIN t_reservation C         ON A.hotel_pk = C.hotel_pk         JOIN (         SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount         FROM t_review A         join t_reservation B         ON A.res_pk = B.res_pk         GROUP BY B.hotel_pk         ) D         ON C.res_pk = D.res_pk         LEFT JOIN (         SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost         FROM t_hotel_room_info A         JOIN t_hotel B         ON A.hotel_pk = B.hotel_pk         WHERE A.hotel_room_cost         GROUP BY A.hotel_pk         ) E         ON A.hotel_pk = E.hotel_pk         LEFT JOIN t_hotel_where F         ON A.hotel_pk = F.hotel_pk                   WHERE A.hotel_nm = ?         GROUP BY A.hotel_pk                           ORDER BY A.created_at DESC                       LIMIT ?, ?<EOL><EOL>### Cause: java.sql.SQLSyntaxErrorException: (conn=4111) Unknown column 'I.hotel_pk' in 'field list'<EOL>; bad SQL grammar []][0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m1. Connection closed. {executed in 1ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m1. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m2. Connection closed. {executed in 0ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m2. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m3. Connection closed. {executed in 0ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m3. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m4. Connection closed. {executed in 0ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m4. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m5. Connection closed. {executed in 0ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m5. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m6. Connection closed. {executed in 0ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m6. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m7. Connection closed. {executed in 0ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m7. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m8. Connection closed. {executed in 0ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m8. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m9. Connection closed. {executed in 0ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m9. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m10. Connection closed. {executed in 0ms} [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m HikariPool-1 connection closer] [log4jdbc.log4j2] [36m10. Connection.close() returned [0;39m
+[2024-02-04 18:47:46 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.9 with PID 17116 (C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write\target\classes started by 이영웅 in C:\Users\이영웅\Desktop\2차 프로젝트\Dog-Hoteling-service-write)[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-04 18:47:49 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-04 18:47:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-02-04 18:47:50 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-04 18:47:50 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-02-04 18:47:50 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-02-04 18:47:50 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-02-04 18:47:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1150 ms[0;39m
+[2024-02-04 18:47:50 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 8b5b0789-674a-4312-a85a-4d0a944b5317
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-02-04 18:47:50 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-02-04 18:47:50 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2ec75613, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@39bd679c, org.springframework.security.web.context.SecurityContextHolderFilter@73c011b0, org.springframework.security.web.header.HeaderWriterFilter@51ed182b, org.springframework.web.filter.CorsFilter@228d3687, org.springframework.security.web.authentication.logout.LogoutFilter@157a3734, com.green.hoteldog.security.JwtAuthenticationFilter@15a3880b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6540286b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@55f9d575, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5cf879e0, org.springframework.security.web.session.SessionManagementFilter@f477be9, org.springframework.security.web.access.ExceptionTranslationFilter@2780c696, org.springframework.security.web.access.intercept.AuthorizationFilter@3e25290e][0;39m
+[2024-02-04 18:47:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-02-04 18:47:51 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-04 18:47:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-02-04 18:47:51 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 2.547 seconds (process running for 3.007)[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelController] [36mHotelListSelDto dto : HotelListSelDto(mainFilter=0, address=null, fromDate=null, toDate=null, dogInfo=null, search=금쪽같은내새끼붉은회초리애견호텔, hotelOptionPk=null, filterType=0, rowCount=0, userPk=0, date=null, startIdx=0, page=0, dogSizePks=[], tokensToStrList=null, optionPkSize=0, dogPkSize=0, filteredPk=null)[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection opened. {executed in 38ms} [0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getNetworkTimeout() returned 0[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.isValid(1) returned true[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getTransactionIsolation() returned 4[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@637c3856[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, reviewCount
+        , F.address_name AS addressName
+         
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        JOIN t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.advertise = 1
+        GROUP BY A.hotel_pk
+        ORDER BY RAND()
+        LIMIT 3) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@5503a44e[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, reviewCount , F.address_name AS addressName FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A JOIN t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.advertise 
+= 1 GROUP BY A.hotel_pk ORDER BY RAND() LIMIT 3  {executed in 2 ms}[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@2db315aa[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@486d3ac8[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:47:54 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 30[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 서울 그린아카데미 호텔[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 48484[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 4.0[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 3[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 3[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 28[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 대전 그린아카데미 호텔[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 48550[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 6.2[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 20[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 9[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 29[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 울산 그린아카데미 호텔[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 9845[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 7.1[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 9[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 9[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+|hotel_pk |hotel_nm     |pic |hotelroomcost |avgstar |discount_per |reviewcount |address_name |
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+|30       |서울 그린아카데미 호텔 |null|48484         |4.0     |3            |3           |a            |
+|28       |대전 그린아카데미 호텔 |null|48550         |6.2     |20           |9           |a            |
+|29       |울산 그린아카데미 호텔 |null|9845          |7.1     |9            |9           |a            |
+|---------|-------------|----|--------------|--------|-------------|------------|-------------|
+[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@53cd1526[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelService] [36mhotelAdvertiseList : [HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=4.0, hotelRoomCost=48484, discountPer=3, bookMark=0, reviewCount=3), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=6.2, hotelRoomCost=48550, discountPer=20, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=7.1, hotelRoomCost=9845, discountPer=9, bookMark=0, reviewCount=9)][0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelService] [36mallVo : HotelListSelAllVo(hotelAdvertiseList=[HotelListSelVo(hotelPk=30, hotelNm=서울 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=4.0, hotelRoomCost=48484, discountPer=3, bookMark=0, reviewCount=3), HotelListSelVo(hotelPk=28, hotelNm=대전 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=6.2, hotelRoomCost=48550, discountPer=20, bookMark=0, reviewCount=9), HotelListSelVo(hotelPk=29, hotelNm=울산 그린아카데미 호텔, addressName=a, hotelPic=null, avgStar=7.1, hotelRoomCost=9845, discountPer=9, bookMark=0, reviewCount=9)], hotelList=[])[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
+         , reviewCount
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+         
+        WHERE A.hotel_nm = ?
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT ?, ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@4d0f7165[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setString(1, "금쪽같은내새끼붉은회초리애견호텔") returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(2, 0) returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(3, 6) returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, F.address_name AS addressName , reviewCount FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A join t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk WHERE A.hotel_nm 
+= '금쪽같은내새끼붉은회초리애견호텔' GROUP BY A.hotel_pk ORDER BY A.created_at DESC LIMIT 0, 6  {executed in 2 ms}[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@6ad5055b[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@3bf41b22[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m
+|---------|---------|----|--------------|--------|-------------|-------------|------------|
+|hotel_pk |hotel_nm |pic |hotelroomcost |avgstar |discount_per |address_name |reviewcount |
+|---------|---------|----|--------------|--------|-------------|-------------|------------|
+|---------|---------|----|--------------|--------|-------------|-------------|------------|
+[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@40b839c3[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelService] [36maccurateHotelList.size() : 0[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelService] [36msearch : 금쪽같은내새끼붉은회초리[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection opened. {executed in 2ms} [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m2. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection opened. {executed in 1ms} [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m3. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection opened. {executed in 2ms} [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m4. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection opened. {executed in 1ms} [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m5. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection opened. {executed in 2ms} [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m6. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection opened. {executed in 2ms} [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m7. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection opened. {executed in 2ms} [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m8. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection opened. {executed in 1ms} [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m9. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection opened. {executed in 2ms} [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.new Connection returned [0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.isReadOnly() returned false[0;39m
+[2024-02-04 18:47:55 [32mINFO [0;39m HikariPool-1 connection adder] [log4jdbc.log4j2] [36m10. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelService] [36mtokensToStrList : [금쪽, 같은, 내, 새끼, 붉은, 회초리][0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.isValid(5) returned true[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getAutoCommit() returned true[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.new PreparedStatement returned [0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.prepareStatement(SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
+        , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
+         , reviewCount
+        FROM t_hotel A
+        LEFT JOIN t_hotel_pic B
+        ON A.hotel_pk = B.hotel_pk
+        LEFT JOIN t_reservation C
+        ON A.hotel_pk = C.hotel_pk
+        JOIN (
+        SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount
+        FROM t_review A
+        join t_reservation B
+        ON A.res_pk = B.res_pk
+        GROUP BY B.hotel_pk
+        ) D
+        ON C.res_pk = D.res_pk
+        LEFT JOIN (
+        SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost
+        FROM t_hotel_room_info A
+        JOIN t_hotel B
+        ON A.hotel_pk = B.hotel_pk
+        WHERE A.hotel_room_cost
+        GROUP BY A.hotel_pk
+        ) E
+        ON A.hotel_pk = E.hotel_pk
+        LEFT JOIN t_hotel_where F
+        ON A.hotel_pk = F.hotel_pk
+        LEFT JOIN t_user H
+        ON A.user_pk = H.user_pk
+        LEFT JOIN t_hotel_favorites I
+        ON A.hotel_pk = I.hotel_pk AND I.user_pk = ?
+        WHERE A.hotel_nm
+        REGEXP replace( '  금쪽 | 같은 | 내 | 새끼 | 붉은 | 회초리 ' , ' ', '')
+        GROUP BY A.hotel_pk
+         
+                ORDER BY A.created_at DESC
+             
+        LIMIT ?, ?) returned net.sf.log4jdbc.sql.jdbcapi.PreparedStatementSpy@1ca80b55[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(1, 0) returned [0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(2, 0) returned [0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.setInt(3, 6) returned [0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic , hotelRoomCost, avgStar, 
+A.discount_per AS discountPer, F.address_name AS addressName , reviewCount FROM t_hotel A LEFT 
+JOIN t_hotel_pic B ON A.hotel_pk = B.hotel_pk LEFT JOIN t_reservation C ON A.hotel_pk = C.hotel_pk 
+JOIN ( SELECT A.res_pk, round(AVG(A.score),1) AS avgStar, COUNT(A.review_pk) AS reviewCount 
+FROM t_review A join t_reservation B ON A.res_pk = B.res_pk GROUP BY B.hotel_pk ) D ON C.res_pk 
+= D.res_pk LEFT JOIN ( SELECT A.hotel_pk, MIN(A.hotel_room_cost) AS hotelRoomCost FROM t_hotel_room_info 
+A JOIN t_hotel B ON A.hotel_pk = B.hotel_pk WHERE A.hotel_room_cost GROUP BY A.hotel_pk ) E 
+ON A.hotel_pk = E.hotel_pk LEFT JOIN t_hotel_where F ON A.hotel_pk = F.hotel_pk LEFT JOIN t_user 
+H ON A.user_pk = H.user_pk LEFT JOIN t_hotel_favorites I ON A.hotel_pk = I.hotel_pk AND I.user_pk 
+= 0 WHERE A.hotel_nm REGEXP replace( ' 금쪽 | 같은 | 내 | 새끼 | 붉은 | 회초리 ' , ' ', '') GROUP BY A.hotel_pk 
+ORDER BY A.created_at DESC LIMIT 0, 6  {executed in 3 ms}[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.execute() returned true[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.new ResultSet returned [0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getResultSet() returned net.sf.log4jdbc.sql.jdbcapi.ResultSetSpy@1ebe6591[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getMetaData() returned org.mariadb.jdbc.client.result.ResultSetMetaData@2a703587[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getType() returned 1003[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned true[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(hotelPk) returned 7[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelNm) returned 붉은겨울 연방학원[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelPic) returned void[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(hotelRoomCost) returned 31355[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getFloat(avgStar) returned 5.4[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(discountPer) returned 1[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getString(addressName) returned a[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.getInt(reviewCount) returned 15[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.isClosed() returned false[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m
+|---------|----------|----|--------------|--------|-------------|-------------|------------|
+|hotel_pk |hotel_nm  |pic |hotelroomcost |avgstar |discount_per |address_name |reviewcount |
+|---------|----------|----|--------------|--------|-------------|-------------|------------|
+|7        |붉은겨울 연방학원 |null|31355         |5.4     |1            |a            |15          |
+|---------|----------|----|--------------|--------|-------------|-------------|------------|
+[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.next() returned false[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. ResultSet.close() returned void[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.getMetaData() returned org.mariadb.jdbc.DatabaseMetaData@3adebb76[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getMoreResults() returned false[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.getUpdateCount() returned -1[0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. PreparedStatement.close() returned [0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [log4jdbc.log4j2] [36m1. Connection.clearWarnings() returned [0;39m
+[2024-02-04 18:47:56 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.hotel.HotelService] [36mhotelList = [HotelListSelVo(hotelPk=7, hotelNm=붉은겨울 연방학원, addressName=a, hotelPic=null, avgStar=5.4, hotelRoomCost=31355, discountPer=1, bookMark=0, reviewCount=15)][0;39m
