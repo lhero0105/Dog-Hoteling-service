@@ -97,7 +97,13 @@
         DELETE FROM t_review_fav
         WHERE review_pk = #{reviewPk}
     </delete>
-
+    <select id="selUserReview">
+        SELECT
+    </select>
+    <select id="selUserResPk">
+        SELECT res_pk AS resPk
+        FROM t_reservation
+    </select>
     <!--재웅-->
 
 </mapper>

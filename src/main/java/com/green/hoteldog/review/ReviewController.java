@@ -69,6 +69,11 @@ public class ReviewController {
     public ResVo delReview(@Valid DelReviewDto dto){
         return service.delReview(dto);
     }
+    //------------------------------------------유저가 등록한 리뷰 불러오기---------------------------------------------------
+    @GetMapping
+    public List<UserReviewVo> userReviewList(){
+        return null;
+    }
 
     //-------------------------------------------상세페이지 리뷰 페이지네이션-------------------------------------------------
     @GetMapping("/{hotel_pk}")
