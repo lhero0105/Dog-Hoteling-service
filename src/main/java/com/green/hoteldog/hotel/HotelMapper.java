@@ -1,7 +1,6 @@
 package com.green.hoteldog.hotel;
 
 import com.green.hoteldog.hotel.model.*;
-import com.green.hoteldog.user.models.UserHotelFavDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public interface HotelMapper {
     List<HotelReviewVo> getHotelReviewThree(int hotelPk);
     HotelInfoVo getHotelDetail(int hotelPk);
     List<String> getHotelPics(int hotelPk);
-    List<String> hotelOptionInfo(int hotelPk);
+    List<HotelOptionInfoVo> hotelOptionInfo(int hotelPk);
     List<MyDog> getMyDogs(int userPk);
     List<HotelRoomInfoVo> getHotelRoomInfo(int hotelPk);
     Integer delHotelBookMark(int userPk,int hotelPk);
