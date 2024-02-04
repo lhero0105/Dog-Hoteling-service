@@ -6,7 +6,6 @@ import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.*;
 import com.green.hoteldog.review.models.*;
 import com.green.hoteldog.security.AuthenticationFacade;
-import io.swagger.v3.oas.models.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -145,6 +144,7 @@ public class ReviewService {
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
         List<UserReviewVo> userReviewVoList = mapper.selUserResPk(userPk);
+        log.info("userReviewVoList : {}",userReviewVoList);
         if(userReviewVoList != null){
             List<Integer> resPkList = new ArrayList<>();
             List<Integer> reviewPkList = new ArrayList<>();
@@ -157,13 +157,17 @@ public class ReviewService {
                 reviewPicMap.put(vo.getReviewPk() , vo);
             }
             List<UserResRoomVo> userResRoomVoList = mapper.selUserResRoomInfo(resPkList);
+            log.info("userResRoomVoList : {}",userResRoomVoList);
             for(UserResRoomVo vo : userResRoomVoList ){
+                log.info("UserResRoomVo : {}",vo);
                 resRoomInfoMap.get(vo.getResPk()).getRoomNm().add(vo.getHotelRoomNm());
             }
             List<UserReviewPic> userReviewPicList = mapper.selUserReviewPics(reviewPkList);
+            log.info("userReviewPicList : {}",userReviewPicList);
             if(userReviewPicList != null){
                 for(UserReviewPic pic : userReviewPicList){
-                    reviewPicMap.get(pic.getReviewPk()).getPics().add(pic.getReviewPic());
+                    log.info("UserReviewPic : {}",pic);
+                    reviewPicMap.get(pic.getReviewPk()).getReviewPics().add(pic.getReviewPic());
                 }
             }
         }

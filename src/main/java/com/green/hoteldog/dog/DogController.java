@@ -19,8 +19,8 @@ public class DogController {
     @GetMapping
     @Operation(summary = "유저 강아지 리스트"
             ,description = "유저가 등록한 강아지 리스트")
-    public List<GetDogListVo> selUserDogList(GetUserDogDto dto){
-        return service.selUserDogList(dto);
+    public List<GetDogListVo> selUserDogList(){
+        return service.selUserDogList();
     }
     //--------------------------------------------------유저 강아지 등록--------------------------------------------------
     @PostMapping

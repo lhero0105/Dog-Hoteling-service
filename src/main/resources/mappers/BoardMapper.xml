@@ -184,20 +184,24 @@
     </select>
     <!--총 게시글 수 카운트-->
     <select id="selBoardCount">
-        SELECT COUNT(*)
-        FROM t_board
+        SELECT COUNT(A.board_pk)
+        FROM t_board A
+        JOIN t_user C
+        ON A.user_pk = C.user_pk
+        JOIN t_board_category F
+        ON A.board_category_pk = F.board_category_pk
         <where>
             <if test="search != null and searchType == 0">
-                AND title like '%${search}%'
+                AND A.title like '%${search}%'
             </if>
             <if test="search != null and searchType == 1">
-                AND contents like '%${search}%'
+                AND A.contents like '%${search}%'
             </if>
             <if test="search != null and searchType == 2">
-                AND nickname like '%${search}%'
+                AND C.nickname like '%${search}%'
             </if>
             <if test="boardCategoryPk != null and boardCategoryPk != 0">
-                AND board_category_pk = #{boardCategoryPk}
+                AND A.board_category_pk = #{boardCategoryPk}
             </if>
         </where>
     </select>

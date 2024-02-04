@@ -71,6 +71,10 @@ public class ReviewController {
     }
     //------------------------------------------유저가 등록한 리뷰 불러오기---------------------------------------------------
     @GetMapping
+    @Operation(summary = "유저가 작성한 리뷰 리스트",
+            description = "출력데이터" +
+                    "<br>")
+
     public List<UserReviewVo> userReviewList(){
         return service.userReviewList();
     }

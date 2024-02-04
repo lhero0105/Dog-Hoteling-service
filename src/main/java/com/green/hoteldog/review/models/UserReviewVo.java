@@ -9,7 +9,7 @@ import java.util.List;
 public class UserReviewVo {
     private int reviewPk;
     private int resPk;
-    private List<String> pics = new ArrayList<>();
+    private List<String> reviewPics = new ArrayList<>();
     private List<String> roomNm = new ArrayList<>();
     private int score;
     private String comment;
