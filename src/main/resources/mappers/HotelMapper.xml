@@ -482,7 +482,7 @@
         WHERE hotel_pk=#{hotelPk}
     </select>
     <select id="hotelOptionInfo">
-        SELECT A.option_nm AS optionNm
+        SELECT A.option_nm AS optionNm ,  A.option_pk AS optionPk
         FROM t_option A
         JOIN t_hotel_option B
         ON A.option_pk=B.option_pk

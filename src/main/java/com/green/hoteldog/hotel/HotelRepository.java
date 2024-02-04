@@ -51,7 +51,7 @@ public class HotelRepository implements HotelRepositoryRef{
     public List<String> getHotelPics(int hotelPk) {
         return hotelMapper.getHotelPics(hotelPk);
     }
-    public List<String> hotelOptionInfo(int hotelPk) {
+    public List<HotelOptionInfoVo> hotelOptionInfo(int hotelPk) {
         return hotelMapper.hotelOptionInfo(hotelPk);
     }
     public List<MyDog> getMyDogs(int userPk) {
