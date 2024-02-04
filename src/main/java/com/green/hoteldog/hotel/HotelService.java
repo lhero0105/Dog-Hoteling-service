@@ -264,15 +264,15 @@ public class HotelService {
                 .collect(Collectors.toList());
         log.info("pkList {}",pkList);
 
-        List<HotelBookMarkPicVo> picVoList=mapper.getHotelBookMarkPic(pkList);
-        log.info("picVoList {}", picVoList);
-
-        getBookMarkList.forEach(vo ->
-                picVoList.stream()
-                        .filter(picVo -> vo.getHotelPk() == picVo.getHotelPk())
-                        .findFirst()
-                        .ifPresent(picVo -> vo.setHotelPic(picVo.getPic()))
-        );
+//        List<HotelBookMarkPicVo> picVoList=mapper.getHotelBookMarkPic(pkList);
+//        log.info("picVoList {}", picVoList);
+//
+//        getBookMarkList.forEach(vo ->
+//                picVoList.stream()
+//                        .filter(picVo -> vo.getHotelPk() == picVo.getHotelPk())
+//                        .findFirst()
+//                        .ifPresent(picVo -> vo.setHotelPic(picVo.getPic()))
+//        );
         return getBookMarkList;
 
     }
