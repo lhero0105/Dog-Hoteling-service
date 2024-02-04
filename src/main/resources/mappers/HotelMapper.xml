@@ -219,7 +219,9 @@
     <select id="selHotelListToSearch">
         SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
         , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
-        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount
+        <if test="userPk > 0">
+        , IF(H.hotel_pk IS NULL, 0, 1) AS bookMark
+        </if>, reviewCount
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
@@ -268,7 +270,9 @@
     <select id="selHotelListToAccurateSearch">
         SELECT A.hotel_pk AS hotelPk, A.hotel_nm AS hotelNm, B.pic AS hotelPic
         , hotelRoomCost, avgStar, A.discount_per AS discountPer, F.address_name AS addressName
-        , IF(I.hotel_pk IS NULL, 0, 1) AS bookMark, reviewCount
+        <if test="userPk > 0">
+        , IF(H.hotel_pk IS NULL, 0, 1) AS bookMark
+        </if>, reviewCount
         FROM t_hotel A
         LEFT JOIN t_hotel_pic B
         ON A.hotel_pk = B.hotel_pk
