@@ -9,7 +9,7 @@ import lombok.Data;
 public class HotelBookMarkListVo {
     @JsonProperty(value = "avg_star")
     private float avgStar;
-    @JsonProperty(value = "hotel_room_cost")
+    @JsonProperty(value = "hotelRoomCost")
     private int hotelRoomCost;
     @JsonProperty(value = "hotel_pk")
     private int hotelPk;

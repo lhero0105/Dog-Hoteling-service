@@ -565,7 +565,7 @@
         ON A.hotel_pk = F.hotel_pk
         LEFT JOIN t_user G
         ON A.user_pk = G.user_pk
-        LEFT JOIN t_hotel_favorites H
+        JOIN t_hotel_favorites H
         ON A.hotel_pk = H.hotel_pk AND H.user_pk = #{userPk}
         GROUP BY A.hotel_pk
         ORDER BY H.created_at DESC

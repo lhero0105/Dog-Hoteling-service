@@ -21,4 +21,6 @@ public interface UserMapper {
     Integer updateUserInfo(UserUpdateDto dto);
 
     UserAddressEntity getUserAddress(int userPk);
+
+    int updateUserAddress(UserAddressEntity entity);
 }

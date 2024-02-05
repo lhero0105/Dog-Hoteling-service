@@ -70,21 +70,23 @@
         WHERE user_pk = #{userPk}
     </select>
     <update id="updateUserInfo">
-        UPDATE t_user A
-        JOIN t_user_where B
-        ON A.user_pk = B.user_pk
-        SET A.nickname = #{nickname}
-        ,A.phone_num = #{phoneNum}
-        ,A.user_address = #{userAddress}
-        ,B.address_name = #{addressName}
-        ,B.region_1depth_name = #{region1DepthName}
-        ,B.region_2depth_name = #{region2DepthName}
-        ,B.region_3depth_name = #{region3DepthName}
-        ,B.zone_num = #{zoneNum}
-        ,B.x_coordinate = #{x}
-        ,B.y_coordinate = #{y}
-        ,B.detail_address = #{detailAddress}
-        WHERE A.user_pk = #{userPk}
+        UPDATE t_user
+        SET nickname = #{nickname}
+        ,phone_num = #{phoneNum}
+        ,user_address = #{userAddress}
+        WHERE user_pk = #{userPk}
+    </update>
+    <update id="updateUserAddress">
+        UPDATE t_user_where
+        SET address_name = #{addressName}
+        ,region_1depth_name = #{region1DepthName}
+        ,region_2depth_name = #{region2DepthName}
+        ,region_3depth_name = #{region3DepthName}
+        ,zone_num = #{zoneNum}
+        ,x_coordinate = #{x}
+        ,y_coordinate = #{y}
+        ,detail_address = #{detailAddress}
+        WHERE user_pk = #{userPk}
     </update>
     <select id="getUserAddress">
         SELECT address_name AS addressName

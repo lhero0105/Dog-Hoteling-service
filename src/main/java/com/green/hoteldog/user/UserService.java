@@ -1,6 +1,7 @@
 package com.green.hoteldog.user;
 
 import com.green.hoteldog.common.AppProperties;
+import com.green.hoteldog.common.Const;
 import com.green.hoteldog.common.CookieUtils;
 import com.green.hoteldog.common.ResVo;
 import com.green.hoteldog.exceptions.AuthorizedErrorCode;
@@ -120,12 +121,9 @@ public class UserService {
         if(dto.getUserPk() == 0){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
-        try {
-            mapper.updateUserInfo(dto);
-            return new ResVo(1);
-        }catch (Exception e){
-            return new ResVo(0);
-        }
+        mapper.updateUserInfo(dto);
+        mapper.updateUserAddress(dto.getAddressEntity());
+        return new ResVo(Const.SUCCESS);
     }
     //-------------------------------------------------리프레쉬 토큰 재발급------------------------------------------------
     public RefreshTokenVo getRefreshToken(HttpServletRequest request){
