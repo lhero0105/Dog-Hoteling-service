@@ -436,6 +436,7 @@
     <select id="getHotelFilterRoomResInfo">
         SELECT A.hotel_room_nm AS hotelRoomNm
         ,	B.hotel_left_ea AS roomLeftEa,B.room_date AS roomDate
+        ,   A.hotel_room_cost AS hotelRoomCost, A.room_pic AS pic
         FROM t_hotel_room_info A
         JOIN t_hotel_res_room B
         ON A.hotel_room_pk=B.hotel_room_pk
@@ -446,6 +447,7 @@
     <select id="getHotelRoomResInfo">
         SELECT A.hotel_room_nm AS hotelRoomNm
         ,	B.hotel_left_ea AS roomLeftEa,B.room_date AS roomDate
+        ,   A.hotel_room_cost AS hotelRoomCost, A.room_pic AS pic
         FROM t_hotel_room_info A
         LEFT JOIN t_hotel_res_room B
         ON A.hotel_room_pk=B.hotel_room_pk

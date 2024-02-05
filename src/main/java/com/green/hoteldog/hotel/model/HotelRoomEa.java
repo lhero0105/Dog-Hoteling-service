@@ -12,10 +12,14 @@ public class HotelRoomEa{
     @NotNull
     @JsonProperty(value = "hotel_room_nm")
     private String hotelRoomNm;
-
     @Schema(name = "호텔 방 남은 갯수")
     @NotNull
     @JsonProperty(value = "room_left_ea")
     private int roomLeftEa;
+    @Schema(name = "호텔 방 가격")
+    @JsonProperty(value = "hotel_room_cost")
+    @NotNull
+    private int hotelRoomCost;
+    private String pic;
 }
 

@@ -20,8 +20,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import scala.math.Integral;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -32,6 +34,7 @@ import java.util.List;
 public class HotelController {
     private final HotelService service;
     private final AuthenticationFacade authenticationFacade;
+    List<Integer> dogs=new ArrayList<>();
     //--------------------------------------------------유저 체크--------------------------------------------------------
     public void checkUser(){
         if(authenticationFacade.getLoginUserPk()==0){
@@ -88,7 +91,7 @@ public class HotelController {
     //------------------------------------------호텔 상세페이지에서 날짜 선택했을때------------------------------------------
     @GetMapping("/info")
     @Operation(summary = "호텔 상세페이지->날짜 선택 시", description = "상세페이지에서 날짜 선택했을 때 그 날짜별로 가능한 방 리스트")
-    public List<HotelRoomEaByDate> whenYouChooseDates(int hotelPk,
+    public HotelRoooooooomEas whenYouChooseDates(int hotelPk,
                                                       LocalDate startDate,
                                                       LocalDate endDate){
 
@@ -98,7 +101,7 @@ public class HotelController {
     @GetMapping("/info/dogs")
     @Operation(summary = "호텔 상세페이지->날짜선택->강아지 선택 시"
             , description = "상세페이지에서 날짜 선택하고 강아지 선택 할 시에 나오는 방 리스트<br>등록한 강아지들의 사이즈Pk만 입력.")
-    public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(int hotelPk,
+    public HotelRoooooooomEas whenYouChooseDatesAndDogs(int hotelPk,
                                                              LocalDate startDate,
                                                              LocalDate endDate,
                                                              @RequestParam List<Integer> dogs){
