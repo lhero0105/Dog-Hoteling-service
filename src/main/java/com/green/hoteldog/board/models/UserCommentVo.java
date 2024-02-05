@@ -13,6 +13,8 @@ public class UserCommentVo {
     private int boardCategoryPk;
     @Schema(description = "게시글 카테고리 이름")
     private String categoryNm;
+    @Schema(description = "댓글 pk")
+    private int commentPk;
     @Schema(description = "유저가 작성한 댓글")
     private String comment;
     @Schema(description = "게시글 작성 유저pk")

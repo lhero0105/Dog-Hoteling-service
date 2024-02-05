@@ -50,7 +50,7 @@ public class HotelServiceTest {
         HotelInfoVo hotelInfoVo = new HotelInfoVo();
         when(hotelMapper.getHotelDetail(dto.getHotelPk())).thenReturn(hotelInfoVo);
         when(hotelMapper.getHotelPics(dto.getHotelPk())).thenReturn(Arrays.asList("pic1", "pic2"));
-        when(hotelMapper.hotelOptionInfo(dto.getHotelPk())).thenReturn(Arrays.asList("option1", "option2"));
+        //when(hotelMapper.hotelOptionInfo(dto.getHotelPk())).thenReturn(Arrays.asList("option1", "option2"));
 
         HotelInfoEntity result = hotelService.getHotelDetail(dto.getHotelPk());
 

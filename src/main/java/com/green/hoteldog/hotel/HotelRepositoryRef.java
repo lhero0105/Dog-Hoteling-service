@@ -17,7 +17,7 @@ public interface HotelRepositoryRef {
     List<HotelReviewVo> getHotelReviewThree(int hotelPk);
     HotelInfoVo getHotelDetail(int hotelPk);
     List<String> getHotelPics(int hotelPk);
-    List<String> hotelOptionInfo(int hotelPk);
+    List<HotelOptionInfoVo> hotelOptionInfo(int hotelPk);
     List<MyDog> getMyDogs(int userPk);
     List<HotelRoomInfoVo> getHotelRoomInfo(int hotelPk);
     Integer delHotelBookMark(int userPk,int hotelPk);

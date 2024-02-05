@@ -22,6 +22,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ReviewService {
     private final ReviewRepositoryRef reviewRepository;
+    private final ReviewMapper mapper;
     private final AuthenticationFacade facade;
     private final MyFileUtils fileUtils;
 
@@ -135,6 +136,44 @@ public class ReviewService {
         }catch (Exception e){
             throw new CustomException(CommonErrorCode.CONFLICT);
         }
+    }
+    //------------------------------------------------유저가 등록한 리뷰 목록--------------------------------------------
+    public List<UserReviewVo> userReviewList(){
+        int userPk = facade.getLoginUserPk();
+        if(userPk == 0 ){
+            throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
+        }
+        List<UserReviewVo> userReviewVoList = mapper.selUserResPk(userPk);
+        log.info("userReviewVoList : {}",userReviewVoList);
+        if(userReviewVoList != null){
+            List<Integer> resPkList = new ArrayList<>();
+            List<Integer> reviewPkList = new ArrayList<>();
+            HashMap<Integer , UserReviewVo> resRoomInfoMap = new HashMap<>();
+            HashMap<Integer , UserReviewVo> reviewPicMap = new HashMap<>();
+            for (UserReviewVo vo : userReviewVoList){
+                resPkList.add(vo.getResPk());
+                resRoomInfoMap.put(vo.getResPk() , vo);
+                reviewPkList.add(vo.getReviewPk());
+                reviewPicMap.put(vo.getReviewPk() , vo);
+            }
+            List<UserResRoomVo> userResRoomVoList = mapper.selUserResRoomInfo(resPkList);
+            log.info("userResRoomVoList : {}",userResRoomVoList);
+            for(UserResRoomVo vo : userResRoomVoList ){
+                log.info("UserResRoomVo : {}",vo);
+                resRoomInfoMap.get(vo.getResPk()).getRoomNm().add(vo.getHotelRoomNm());
+            }
+            List<UserReviewPic> userReviewPicList = mapper.selUserReviewPics(reviewPkList);
+            log.info("userReviewPicList : {}",userReviewPicList);
+            if(userReviewPicList != null){
+                for(UserReviewPic pic : userReviewPicList){
+                    log.info("UserReviewPic : {}",pic);
+                    reviewPicMap.get(pic.getReviewPk()).getReviewPics().add(pic.getReviewPic());
+                }
+            }
+        }
+
+
+        return userReviewVoList;
     }
     //------------------------------------------------호텔 리뷰-----------------------------------------------------------
     public List<HotelReviewSelVo> getHotelReview(HotelReviewSelDto dto){

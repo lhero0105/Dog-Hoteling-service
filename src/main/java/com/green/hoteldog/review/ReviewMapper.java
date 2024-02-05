@@ -1,6 +1,7 @@
 package com.green.hoteldog.review;
 
 import com.green.hoteldog.review.models.*;
+import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -23,4 +24,7 @@ public interface ReviewMapper {
     Integer checkResUser(CheckResUserDto dto);
     Integer delReviewFavAll(DelReviewDto dto);
     Integer delReviewPicsAll(DelReviewDto dto);
+    List<UserReviewVo> selUserResPk(int userPk);
+    List<UserResRoomVo> selUserResRoomInfo(List<Integer> resPkList);
+    List<UserReviewPic>selUserReviewPics(List<Integer> reviewPkList);
 }

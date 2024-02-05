@@ -20,7 +20,8 @@ public class DogService {
     private final MyFileUtils fileUtils;
     private final AuthenticationFacade facade;
     //-------------------------------------유저가 등록한 강아지 리스트 호출-------------------------------------------------
-    public List<GetDogListVo> selUserDogList(GetUserDogDto dto){
+    public List<GetDogListVo> selUserDogList(){
+        GetUserDogDto dto = new GetUserDogDto();
         dto.setUserPk(facade.getLoginUserPk());
         if (dto.getUserPk() == 0){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
