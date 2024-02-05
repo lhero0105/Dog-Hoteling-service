@@ -148,12 +148,19 @@ public class ReservationService {
         int perPage=Const.RES_LIST_COUNT_PER_PAGE;
         int pages=(page-1)*Const.RES_LIST_COUNT_PER_PAGE;
         List<ResInfoVo> resInfoVos = reservationRepository.getUserReservation(userPk,perPage,pages);
+
         List<Integer> resPkList = resInfoVos
                 .stream()
                 .map(ResInfoVo::getResPk)
                 .collect(Collectors.toList());
-        List<ResDogInfoVo> resDogInfo = reservationRepository.getDogInfoReservation(resPkList);
+        List<Integer> hotelPkList=resInfoVos
+                .stream()
+                .map(ResInfoVo::getHotelPK)
+                .collect(Collectors.toList());
+        log.info("hotelPkList : {}",hotelPkList);
 
+        List<ResDogInfoVo> resDogInfo = reservationRepository.getDogInfoReservation(resPkList);
+        List<ResHotelPicVo> resHotelPicVos=reservationRepository.getHotelResPic(hotelPkList);
         resInfoVos.forEach(resInfoVo -> {
             List<ResDogInfoVo> resDogInfoVoList = resDogInfo
                     .stream()
@@ -161,6 +168,14 @@ public class ReservationService {
                     .collect(Collectors.toList());
             resInfoVo.setResDogInfoVoList(resDogInfoVoList);
         });
+        resHotelPicVos.forEach(picVo ->
+                resInfoVos.stream()
+                        .filter(vo -> picVo.getHotelPk() == vo.getHotelPK())
+                        .findFirst()
+                        .ifPresent(vo -> vo.setPic(picVo.getPic()))
+        );
+        log.info("resHotelPicVos : {}",resHotelPicVos);
+
         return resInfoVos;
     }
 }

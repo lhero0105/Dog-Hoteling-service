@@ -116,27 +116,42 @@
         FROM t_res_comprehensive_info A
         JOIN t_res_dog_info B
         ON A.res_dog_pk=B.res_dog_pk
-        WHERE A.res_pk IN
-        <foreach collection="list" item="resPk" open="(" close=")" separator=",">
+        WHERE A.res_pk IN(
+        <foreach collection="resPkList" item="resPk" separator=",">
             #{resPk}
         </foreach>
+        )
     </select>
     <!--예약 리스트-->
     <select id="getUserReservation">
-        SELECT D.hotel_nm AS hotelNm,D.hotel_call AS hotelCall
-        ,   C.hotel_room_nm AS hotelRoomNm ,A.from_date AS fromDate
-        ,   A.to_date AS toDate,C.room_pic AS roomPic ,A.res_pk AS resPk
-        ,	A.res_status AS resStatus, D.hotel_pk AS hotelPk, E.address_name AS addressName
-        FROM t_reservation A
-        JOIN t_res_comprehensive_info B
+        SELECT E.hotel_pk AS hotelPk, E.hotel_nm AS hotelNm, E.hotel_call AS hotelCall
+        ,	C.hotel_room_nm AS hotelRoomNm, B.res_pk AS resPk, B.res_status AS resStatus
+        ,	B.from_date AS fromDate, B.to_date AS toDate , D.address_name AS addressName
+        FROM t_res_comprehensive_info A
+        JOIN t_reservation B
         ON A.res_pk=B.res_pk
         JOIN t_hotel_room_info C
-        ON B.hotel_room_pk=C.hotel_room_pk
-        JOIN t_hotel D
-        ON A.hotel_pk=D.hotel_pk
-        JOIN t_hotel_where E
-        ON D.hotel_pk= E.hotel_pk
-        WHERE A.user_pk=#{userPk}
+        ON C.hotel_room_pk=A.hotel_room_pk
+        LEFT JOIN t_hotel_where D
+        ON D.hotel_pk=C.hotel_pk
+        LEFT JOIN t_hotel E
+        ON E.hotel_pk=C.hotel_pk
+        WHERE B.user_pk=#{userPk}
         LIMIT #{pages} , #{perPage}
+    </select>
+    <select id="getHotelResPic">
+        SELECT DISTINCT B.hotel_pk AS hotelPk, A.pic
+        FROM t_hotel_pic A
+        JOIN t_reservation B
+        ON A.hotel_pk=B.hotel_pk
+        WHERE B.hotel_pk IN
+        <foreach collection="hotelPkList" item="hotelPk" open="(" close=")" separator=",">
+            #{hotelPk}
+        </foreach>
+    </select>
+    <select id="getHotelPk">
+        SELECT B.hotel_pk AS hotelPk
+        FROM t_reservation B
+        WHERE B.user_pk=#{userPk}
     </select>
 </mapper>

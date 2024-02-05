@@ -16,5 +16,9 @@ public interface ReservationRepositoryRef {
     Integer delHotelReservation(HotelReservationDelDto dto);
     Integer updRemainedHotelRoom2(HotelReservationUpdProc2Dto dto);
     List<ResInfoVo> getUserReservation(int userPk,int perPage,int pages);
-    List<ResDogInfoVo> getDogInfoReservation(List<Integer> resPk);
+    List<ResDogInfoVo> getDogInfoReservation(List<Integer> resPkList);
+    List<ResHotelPicVo> getHotelResPic(List<Integer> hotelPk);
+    List<Integer> getHotelPk(int userPk);
+
+
 }

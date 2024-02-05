@@ -30,9 +30,9 @@ public class ResInfoVo {
     @Schema(name = "예약 끝나는 날짜")
     @JsonProperty(value = "to_date")
     private String toDate;
-    @Schema(name = "방 사진")
-    @JsonProperty(value = "room_pic")
-    private String roomPic;
+    @Schema(name = "호텔사진")
+    @JsonProperty(value = "hotel_pic")
+    private String pic;
     @Schema(name = "예약 Pk")
     @JsonProperty(value = "res_pk")
     private int resPk;
