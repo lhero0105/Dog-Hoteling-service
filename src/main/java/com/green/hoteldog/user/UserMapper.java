@@ -19,4 +19,6 @@ public interface UserMapper {
     String selUserDepthName(int userPk);
     UserEntity userEntityByUserPk(int userPk);
     Integer updateUserInfo(UserUpdateDto dto);
+
+    UserAddressEntity getUserAddress(int userPk);
 }

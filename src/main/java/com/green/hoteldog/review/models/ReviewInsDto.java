@@ -24,7 +24,7 @@ public class ReviewInsDto {
     @Max(value = 10,message = "평점은 최소 1 최대 10의 값을 보내야 합니다")
     @Schema(description = "리뷰 평정 1~10점까지 가능")
     private int score;
-    @Schema(description = "리뷰 사진 3장까지 가능")
+    @JsonIgnore
     private List<MultipartFile> pics;
 
 }

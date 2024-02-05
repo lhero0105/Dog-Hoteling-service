@@ -10,4 +10,5 @@ public class UserInfoVo {
     private String phoneNum;
     private String userAddress;
 
+    private UserAddressEntity addressEntity;
 }
