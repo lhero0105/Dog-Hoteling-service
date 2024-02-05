@@ -86,4 +86,17 @@
         ,B.detail_address = #{detailAddress}
         WHERE A.user_pk = #{userPk}
     </update>
+    <select id="getUserAddress">
+        SELECT address_name AS addressName
+        ,region_1depth_name AS region1DepthName
+        ,region_2depth_name AS region2DepthName
+        ,region_3depth_name AS region3DepthName
+        ,zone_num AS zoneNum
+        ,x_coordinate AS x
+        ,y_coordinate AS y
+        ,detail_address AS detailAddress
+        FROM t_user_where
+        WHERE user_pk = #{userPk}
+    </select>
+
 </mapper>

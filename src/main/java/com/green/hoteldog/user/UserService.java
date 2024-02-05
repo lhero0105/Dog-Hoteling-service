@@ -111,6 +111,7 @@ public class UserService {
         vo.setNickname(entity.getNickname());
         vo.setPhoneNum(entity.getPhoneNum());
         vo.setUserAddress(entity.getUserAddress());
+        vo.setAddressEntity(mapper.getUserAddress(entity.getUserPk()));
         return vo;
     }
     //--------------------------------------------------유저 정보 업데이트-------------------------------------------------
