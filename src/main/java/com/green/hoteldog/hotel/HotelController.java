@@ -101,7 +101,7 @@ public class HotelController {
     public List<HotelRoomEaByDate> whenYouChooseDatesAndDogs(int hotelPk,
                                                              LocalDate startDate,
                                                              LocalDate endDate,
-                                                             List<Integer> dogs){
+                                                             @RequestParam List<Integer> dogs){
         return service.whenYouChooseDatesAndDogs(hotelPk, startDate, endDate, dogs);
     }
     //-----------------------------------------------------호텔 북마크----------------------------------------------------
