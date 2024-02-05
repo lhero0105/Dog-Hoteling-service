@@ -24,12 +24,12 @@ public class ResInfoVo {
     @Schema(name = "예약 시작날짜")
     @JsonProperty(value = "from_date")
     private String fromDate;
-    @Schema(name = "호텔 주소")
-    @JsonProperty(value = "address_name")
-    private String addressName;
     @Schema(name = "예약 끝나는 날짜")
     @JsonProperty(value = "to_date")
     private String toDate;
+    @Schema(name = "호텔 주소")
+    @JsonProperty(value = "address_name")
+    private String addressName;
     @Schema(name = "호텔사진")
     @JsonProperty(value = "hotel_pic")
     private String pic;
