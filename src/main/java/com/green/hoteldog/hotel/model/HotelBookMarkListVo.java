@@ -7,7 +7,9 @@ import lombok.Data;
 @Data
 @Schema(name = "북마크 등록 한 호텔 리스트")
 public class HotelBookMarkListVo {
+    @JsonProperty(value = "avg_star")
     private float avgStar;
+    @JsonProperty(value = "hotel_room_cost")
     private int hotelRoomCost;
     @JsonProperty(value = "hotel_pk")
     private int hotelPk;

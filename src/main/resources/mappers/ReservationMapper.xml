@@ -126,7 +126,7 @@
         SELECT D.hotel_nm AS hotelNm,D.hotel_call AS hotelCall
         ,   C.hotel_room_nm AS hotelRoomNm ,A.from_date AS fromDate
         ,   A.to_date AS toDate,C.room_pic AS roomPic ,A.res_pk AS resPk
-        ,	A.res_status AS resStatus
+        ,	A.res_status AS resStatus, D.hotel_pk AS hotelPk
         FROM t_reservation A
         JOIN t_res_comprehensive_info B
         ON A.res_pk=B.res_pk
