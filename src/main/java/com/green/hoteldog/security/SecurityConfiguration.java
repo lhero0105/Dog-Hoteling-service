@@ -30,7 +30,6 @@ public class SecurityConfiguration {
                                 ,"/user/signup"
                                 ,"/api/email/**"
                                 ,"/api/board"
-                                ,"/api/board"
                                 ,"/board/view"
                                 ,"/board"
                                 ,"/email/**"
