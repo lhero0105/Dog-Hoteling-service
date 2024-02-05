@@ -9,6 +9,9 @@ import java.util.List;
 @Data
 @Schema(name = "호텔 예약 정보 (List)")
 public class ResInfoVo {
+    @Schema(name = "호텔 PK")
+    @JsonProperty(value = "hotel_pk")
+    private int hotelPK;
     @Schema(name = "호텔이름")
     @JsonProperty(value = "hotel_nm")
     private String hotelNm;
