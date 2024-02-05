@@ -21,5 +21,7 @@ public interface ReservationMapper {
     Integer updRemainedHotelRoom2(HotelReservationUpdProc2Dto dto);
     //--------------------------------------------예약 정보 불러오기--------------------------------------------------------
     List<ResInfoVo> getUserReservation(int userPk,int perPage,int pages);
-    List<ResDogInfoVo> getDogInfoReservation(List<Integer> resPk);
+    List<ResDogInfoVo> getDogInfoReservation(List<Integer> resPkList);
+    List<ResHotelPicVo> getHotelResPic(List<Integer> hotelPkList);
+    List<Integer> getHotelPk(int userPk);
 }

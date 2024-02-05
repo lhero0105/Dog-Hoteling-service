@@ -42,10 +42,16 @@ public class ReservationRepository implements ReservationRepositoryRef{
     public Integer updRemainedHotelRoom2(HotelReservationUpdProc2Dto dto) {
         return reservationMapper.updRemainedHotelRoom2(dto);
     }
+    public List<ResHotelPicVo> getHotelResPic(List<Integer> userPk){
+        return reservationMapper.getHotelResPic(userPk);
+    }
     public List<ResInfoVo> getUserReservation(int userPk, int perPage, int pages) {
         return reservationMapper.getUserReservation(userPk, perPage, pages);
     }
-    public List<ResDogInfoVo> getDogInfoReservation(List<Integer> resPk) {
-        return reservationMapper.getDogInfoReservation(resPk);
+    public List<ResDogInfoVo> getDogInfoReservation(List<Integer> resPkList) {
+        return reservationMapper.getDogInfoReservation(resPkList);
+    }
+    public List<Integer> getHotelPk(int userPk){
+        return reservationMapper.getHotelPk(userPk);
     }
 }

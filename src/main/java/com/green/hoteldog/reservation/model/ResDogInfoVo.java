@@ -11,6 +11,6 @@ public class ResDogInfoVo {
     @JsonProperty(value = "res_pk")
     private int resPk;
     @Schema(name = "예약 강아지 이름")
-    @JsonProperty(value = "dot_nm")
+    @JsonProperty(value = "dog_nm")
     private String dogNm;
 }
