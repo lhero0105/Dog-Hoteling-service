@@ -19,7 +19,7 @@ public class HotelRoomInfoVo {
     private int hotelRoomEa;
     @NotNull
     @JsonProperty(value = "hotel_room_cost")
-    private String hotelRoomCost;
+    private int hotelRoomCost;
     private String pic;
     @NotNull
     private int maximum;
