@@ -441,6 +441,7 @@ public class HotelService {
                 ea.setHotelRoomNm(roomInfoVo1.getHotelRoomNm());
                 ea.setRoomLeftEa(roomInfoVo1.getHotelRoomEa());
                 ea.setHotelRoomCost(roomInfoVo1.getHotelRoomCost());
+                ea.setPic(roomInfoVo1.getPic());
                 rooooommInfos.add(ea);
             }
             List<String> datesss=getList.stream()
@@ -511,6 +512,7 @@ public class HotelService {
                 ea.setHotelRoomNm(roomInfoVo1.getHotelRoomNm());
                 ea.setRoomLeftEa(roomInfoVo1.getHotelRoomEa());
                 ea.setHotelRoomCost(roomInfoVo1.getHotelRoomCost());
+                ea.setPic(roomInfoVo1.getPic());
                 rooooommInfos.add(ea);
             }
             List<String> datesss=getList.stream()
