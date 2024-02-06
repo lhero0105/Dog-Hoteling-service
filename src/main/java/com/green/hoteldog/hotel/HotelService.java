@@ -278,7 +278,7 @@ public class HotelService {
     }
     //--------------------------------------------호텔 상세페이지----------------------------------------------------------
     public HotelInfoEntity getHotelDetail(int hotelPk){
-        if(hotelPk>0) {
+        if(hotelPk > 0) {
             int userPk= authenticationFacade.getLoginUserPk();
             log.info("userPk : {}",userPk);
 

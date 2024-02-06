@@ -53,13 +53,16 @@ public class SecurityConfiguration {
                                 ,"/fimg/**"
                                 ,"/css/**"
                                 ,"/static/**"
+                                ,"/static"
+                                ,"/mypage"
                                 ,"/"
                                 ,"/index.html"
-                                ,"/static/**"
                                 ,"/swagger.html"
                                 ,"/swagger-ui/**"
                                 ,"/v3/api-docs/**"
                                 ,"/api/open/**"
+                                ,"/images/**"
+                                ,"/images"
                         ).permitAll()
                         .anyRequest()
                         .authenticated()

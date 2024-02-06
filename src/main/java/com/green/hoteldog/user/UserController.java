@@ -41,6 +41,7 @@ public class UserController {
             vo = service.userSignup(dto);
         }
         if(vo.getResult() == 1){
+
             redisUtil.deleteData(dto.getEmailResponseVo().getEmail());
         }
         return vo;

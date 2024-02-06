@@ -118,10 +118,13 @@ public class UserService {
     //--------------------------------------------------유저 정보 업데이트-------------------------------------------------
     public ResVo updUserInfo(UserUpdateDto dto){
         dto.setUserPk(facade.getLoginUserPk());
+        log.info("UserUpdateDto : {}", dto);
         if(dto.getUserPk() == 0){
             throw new CustomException(AuthorizedErrorCode.NOT_AUTHORIZED);
         }
+        //dto.setUserAddress(dto.getAddressEntity().getAddressName() + " " + dto.getAddressEntity().getDetailAddress());
         mapper.updateUserInfo(dto);
+        dto.getAddressEntity().setUserPk(dto.getUserPk());
         mapper.updateUserAddress(dto.getAddressEntity());
         return new ResVo(Const.SUCCESS);
     }
