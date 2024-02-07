@@ -125,8 +125,8 @@
     <!--예약 리스트-->
     <select id="getUserReservation">
         SELECT E.hotel_pk AS hotelPk, E.hotel_nm AS hotelNm, E.hotel_call AS hotelCall
-        ,	C.hotel_room_nm AS hotelRoomNm, B.res_pk AS resPk, B.res_status AS resStatus
-        ,	B.from_date AS fromDate, B.to_date AS toDate , D.address_name AS addressName
+        ,   C.hotel_room_nm AS hotelRoomNm, B.res_pk AS resPk, B.res_status AS resStatus
+        ,   B.from_date AS fromDate, B.to_date AS toDate , D.address_name AS addressName
         FROM t_res_comprehensive_info A
         JOIN t_reservation B
         ON A.res_pk=B.res_pk
@@ -137,6 +137,7 @@
         LEFT JOIN t_hotel E
         ON E.hotel_pk=C.hotel_pk
         WHERE B.user_pk=#{userPk}
+        ORDER BY B.from_date DESC
         LIMIT #{pages} , #{perPage}
     </select>
     <select id="getHotelResPic">
