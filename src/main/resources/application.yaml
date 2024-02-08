@@ -18,7 +18,10 @@ spring:
     url: jdbc:log4jdbc:mariadb://localhost:3306/doghotel?allowMultiQueries=true
     username: root
     password: green502
-
+  servlet:
+    multipart:
+      max-file-size: 200MB
+      max-request-size: 1024MB
     # 도커 계정
     #url: jdbc:mariadb://192.168.0.144:3306/db_even_last_2
     #username: even_last_2
@@ -60,8 +63,8 @@ spring:
       on-profile: prod
   servlet:
     multipart:
-      max-file-size: 5MB
-      max-request-size: 15MB
+      max-file-size: 200MB
+      max-request-size: 1024MB
 
 file:
   dir: /home/download/
