@@ -52,7 +52,7 @@ public class HotelServiceTest {
         when(hotelMapper.getHotelPics(dto.getHotelPk())).thenReturn(Arrays.asList("pic1", "pic2"));
         //when(hotelMapper.hotelOptionInfo(dto.getHotelPk())).thenReturn(Arrays.asList("option1", "option2"));
 
-        HotelInfoEntity result = hotelService.getHotelDetail(dto.getHotelPk());
+        HotelInfo result = hotelService.getHotelDetail(dto.getHotelPk());
 
         assertThat(hotelInfoVo, is(equalTo(result.getHotelInfoVo())));
         assertThat(Arrays.asList("pic1", "pic2"),
@@ -63,7 +63,7 @@ public class HotelServiceTest {
         when(hotelMapper.isMoreHotelReview(dto.getHotelPk())).thenReturn(4);
         when(hotelMapper.getMyDogs(dto.getUserPk())).thenReturn(Arrays.asList(new MyDog(), new MyDog(), new MyDog()));
 
-        HotelInfoEntity iThink = hotelService.getHotelDetail(dto.getHotelPk());
+        HotelInfo iThink = hotelService.getHotelDetail(dto.getHotelPk());
         assertThat(3, is(equalTo(result.getHotelInfoVo().getReviewList().size())));
         assertThat(1, is(equalTo(result.getHotelInfoVo().getIsMoreReview())));
         assertThat(3, is(equalTo(result.getMyDogList().size())));

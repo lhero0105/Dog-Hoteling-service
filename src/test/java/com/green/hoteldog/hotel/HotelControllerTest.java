@@ -1,6 +1,6 @@
 package com.green.hoteldog.hotel;
 import com.green.hoteldog.common.ResVo;
-import com.green.hoteldog.hotel.model.HotelInfoEntity;
+import com.green.hoteldog.hotel.model.HotelInfo;
 import com.green.hoteldog.hotel.model.HotelMainPageDto;
 import com.green.hoteldog.hotel.model.HotelRoomEaByDate;
 import com.green.hoteldog.user.models.UserHotelFavDto;
@@ -28,10 +28,10 @@ public class HotelControllerTest {
         HotelMainPageDto dto=new HotelMainPageDto();
         dto.setHotelPk(1);
         dto.setUserPk(1);
-        HotelInfoEntity expectEntity=new HotelInfoEntity();
+        HotelInfo expectEntity=new HotelInfo();
         when(hotelService.getHotelDetail(dto.getHotelPk())).thenReturn(expectEntity);
 
-        HotelInfoEntity resultEntity=hotelController.getHotelDetail(1);
+        HotelInfo resultEntity=hotelController.getHotelDetail(1);
         assertThat(resultEntity,is(equalTo(expectEntity)));
     }
     @Test
