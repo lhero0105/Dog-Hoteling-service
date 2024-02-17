@@ -8042,3 +8042,251 @@ This generated password is for development use only. Your security configuration
 [2024-02-16 15:47:55 [32mINFO [0;39m http-nio-8080-exec-4] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection org.mariadb.jdbc.Connection@321553d7[0;39m
 [2024-02-16 15:47:55 [32mINFO [0;39m http-nio-8080-exec-4] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
 [2024-02-16 15:47:55 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.review.ReviewService] [36muserReviewVoList : [][0;39m
+[2024-02-16 16:19:39 [32mINFO [0;39m http-nio-8080-exec-10] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoie1widXNlclBrXCI6OTN9IiwiaWF0IjoxNzA4MDY1Njg5LCJleHAiOjE3MDgwNzI4ODl9.lmp7rWvLRRJPKr1_t7jFws8O3bEdYXmYnhxIQ2KNGGU[0;39m
+[2024-02-16 16:19:39 [32mINFO [0;39m http-nio-8080-exec-10] [com.green.hoteldog.review.ReviewService] [36muserReviewVoList : [][0;39m
+[2024-02-16 16:32:44 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-02-16 16:32:44 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m
+[2024-02-16 16:37:51 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.8.1 with PID 11360 (D:\Dog-Hoteling-service\target\classes started by Administrator in D:\Dog-Hoteling-service)[0;39m
+[2024-02-16 16:37:51 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-02-16 16:37:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable[0;39m
+[2024-02-16 16:37:51 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor] [36mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'[0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-02-16 16:37:52 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 1072 ms[0;39m
+[2024-02-16 16:37:53 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: ab34944e-0d7f-4bd6-880a-f0b698c543be
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-02-16 16:37:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-02-16 16:37:53 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@33e3a319, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7d98c6fb, org.springframework.security.web.context.SecurityContextHolderFilter@ac24116, org.springframework.security.web.header.HeaderWriterFilter@117756e, org.springframework.web.filter.CorsFilter@77c9cf3b, org.springframework.security.web.authentication.logout.LogoutFilter@6aca0fbc, com.green.hoteldog.security.JwtAuthenticationFilter@3e3f42fb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c799907, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6640a529, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6cbaab62, org.springframework.security.web.session.SessionManagementFilter@77d28523, org.springframework.security.web.access.ExceptionTranslationFilter@337ebc33, org.springframework.security.web.access.intercept.AuthorizationFilter@568316c8][0;39m
+[2024-02-16 16:37:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-02-16 16:37:53 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 16:37:53 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-02-16 16:37:53 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 2.368 seconds (process running for 2.8)[0;39m
+[2024-02-16 16:38:14 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)[0;39m
+[2024-02-16 16:38:14 [32mINFO [0;39m Thread-5] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 16:38:14 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.8.1 with PID 11360 (D:\Dog-Hoteling-service\target\classes started by Administrator in D:\Dog-Hoteling-service)[0;39m
+[2024-02-16 16:38:14 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-02-16 16:38:14 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-16 16:38:14 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-16 16:38:14 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 291 ms[0;39m
+[2024-02-16 16:38:15 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: 7f2d6878-679a-4c16-9dca-be5b50add37f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3d5ab18d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@20979e03, org.springframework.security.web.context.SecurityContextHolderFilter@5f0c4d0a, org.springframework.security.web.header.HeaderWriterFilter@360724d3, org.springframework.web.filter.CorsFilter@5ac627a8, org.springframework.security.web.authentication.logout.LogoutFilter@2d5610dd, com.green.hoteldog.security.JwtAuthenticationFilter@7ebcbee8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@8f11fbf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7df93ce, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@ebf9048, org.springframework.security.web.session.SessionManagementFilter@5e7937c1, org.springframework.security.web.access.ExceptionTranslationFilter@4d734b27, org.springframework.security.web.access.intercept.AuthorizationFilter@566059a9][0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 0.592 seconds (process running for 24.582)[0;39m
+[2024-02-16 16:38:15 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m http-nio-8080-exec-9] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m File Watcher] [org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener] [36mRestarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)[0;39m
+[2024-02-16 16:38:16 [32mINFO [0;39m Thread-7] [org.apache.coyote.http11.Http11NioProtocol] [36mStopping ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m http-nio-8080-exec-9] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 305 ms[0;39m
+[2024-02-16 16:38:17 [31mERROR[0;39m http-nio-8080-exec-9] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mException[0;39m
+org.apache.catalina.connector.ClientAbortException: java.nio.channels.ClosedChannelException
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:344)
+	at org.apache.catalina.connector.OutputBuffer.appendByteArray(OutputBuffer.java:743)
+	at org.apache.catalina.connector.OutputBuffer.append(OutputBuffer.java:670)
+	at org.apache.catalina.connector.OutputBuffer.writeBytes(OutputBuffer.java:379)
+	at org.apache.catalina.connector.OutputBuffer.write(OutputBuffer.java:357)
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:97)
+	at org.apache.catalina.connector.CoyoteOutputStream.write(CoyoteOutputStream.java:90)
+	at org.springframework.security.web.util.OnCommittedResponseWrapper$SaveContextServletOutputStream.write(OnCommittedResponseWrapper.java:633)
+	at org.springframework.util.StreamUtils.copy(StreamUtils.java:117)
+	at org.springframework.http.converter.ByteArrayHttpMessageConverter.writeInternal(ByteArrayHttpMessageConverter.java:67)
+	at org.springframework.http.converter.ByteArrayHttpMessageConverter.writeInternal(ByteArrayHttpMessageConverter.java:38)
+	at org.springframework.http.converter.AbstractHttpMessageConverter.write(AbstractHttpMessageConverter.java:236)
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:300)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:190)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:917)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:829)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at com.green.hoteldog.security.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:195)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:225)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:340)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:896)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1744)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.nio.channels.ClosedChannelException: null
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1346)
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:764)
+	at org.apache.tomcat.util.net.SocketWrapperBase.writeBlocking(SocketWrapperBase.java:589)
+	at org.apache.tomcat.util.net.SocketWrapperBase.write(SocketWrapperBase.java:533)
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.doWrite(Http11OutputBuffer.java:540)
+	at org.apache.coyote.http11.filters.IdentityOutputFilter.doWrite(IdentityOutputFilter.java:73)
+	at org.apache.coyote.http11.Http11OutputBuffer.doWrite(Http11OutputBuffer.java:193)
+	at org.apache.coyote.Response.doWrite(Response.java:616)
+	at org.apache.catalina.connector.OutputBuffer.realWriteBytes(OutputBuffer.java:331)
+	... 111 common frames omitted
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarting HoteldogApplication using Java 17.0.8.1 with PID 11360 (D:\Dog-Hoteling-service\target\classes started by Administrator in D:\Dog-Hoteling-service)[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mNo active profile set, falling back to 1 default profile: "default"[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 1 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mMultiple Spring Data modules found, entering strict repository configuration mode[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mBootstrapping Spring Data Redis repositories in DEFAULT mode.[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [36mFinished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat initialized with port 8080 (http)[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mInitializing ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardService] [36mStarting service [Tomcat][0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.StandardEngine] [36mStarting Servlet engine: [Apache Tomcat/10.1.17][0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring embedded WebApplicationContext[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [36mRoot WebApplicationContext: initialization completed in 252 ms[0;39m
+[2024-02-16 16:38:17 [33mWARN [0;39m restartedMain] [org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration] [36m
+
+Using generated security password: f1518ad2-786e-45f0-b77a-48c6ca2b91ca
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] [36mAdding welcome page: class path resource [static/index.html][0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.security.web.DefaultSecurityFilterChain] [36mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6ce15f03, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6349d954, org.springframework.security.web.context.SecurityContextHolderFilter@558b8a18, org.springframework.security.web.header.HeaderWriterFilter@2178f508, org.springframework.web.filter.CorsFilter@49e96587, org.springframework.security.web.authentication.logout.LogoutFilter@2b849467, com.green.hoteldog.security.JwtAuthenticationFilter@3676dc40, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64821582, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2b47caf, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@40e8109e, org.springframework.security.web.session.SessionManagementFilter@7bfb6739, org.springframework.security.web.access.ExceptionTranslationFilter@35d08d16, org.springframework.security.web.access.intercept.AuthorizationFilter@7eaee4c0][0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer] [36mLiveReload server is running on port 35729[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.apache.coyote.http11.Http11NioProtocol] [36mStarting ProtocolHandler ["http-nio-8080"][0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [36mTomcat started on port 8080 (http) with context path ''[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [com.green.hoteldog.HoteldogApplication] [36mStarted HoteldogApplication in 0.497 seconds (process running for 26.966)[0;39m
+[2024-02-16 16:38:17 [32mINFO [0;39m restartedMain] [org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener] [36mCondition evaluation unchanged[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-1] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]] [36mInitializing Spring DispatcherServlet 'dispatcherServlet'[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mInitializing Servlet 'dispatcherServlet'[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-1] [org.springframework.web.servlet.DispatcherServlet] [36mCompleted initialization in 1 ms[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-1] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-2] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-6] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-7] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-5] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-4] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-8] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:38:21 [32mINFO [0;39m http-nio-8080-exec-8] [org.springdoc.api.AbstractOpenApiResource] [36mInit duration for springdoc-openapi is: 117 ms[0;39m
+[2024-02-16 16:40:20 [32mINFO [0;39m http-nio-8080-exec-3] [com.green.hoteldog.security.JwtAuthenticationFilter] [36mtoken : null[0;39m
+[2024-02-16 16:40:20 [32mINFO [0;39m http-nio-8080-exec-3] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Starting...[0;39m
+[2024-02-16 16:40:20 [32mINFO [0;39m http-nio-8080-exec-3] [com.zaxxer.hikari.pool.HikariPool] [36mHikariPool-1 - Added connection org.mariadb.jdbc.Connection@12c035fa[0;39m
+[2024-02-16 16:40:20 [32mINFO [0;39m http-nio-8080-exec-3] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Start completed.[0;39m
+[2024-02-16 16:40:20 [31mERROR[0;39m http-nio-8080-exec-3] [com.green.hoteldog.exceptions.CustomExceptionHandler] [36mUNKNOWN_EMAIL_ADDRESS[0;39m
+[2024-02-16 16:40:20 [33mWARN [0;39m http-nio-8080-exec-3] [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] [36mResolved [com.green.hoteldog.exceptions.CustomException][0;39m
+[2024-02-16 16:42:23 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown initiated...[0;39m
+[2024-02-16 16:42:23 [32mINFO [0;39m SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] [36mHikariPool-1 - Shutdown completed.[0;39m

@@ -6,6 +6,7 @@ import com.green.hoteldog.exceptions.BoardErrorCode;
 import com.green.hoteldog.exceptions.CustomException;
 import com.green.hoteldog.review.models.*;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -69,7 +70,10 @@ public class ReviewController {
     //--------------------------------------------------리뷰 삭제--------------------------------------------------------
     @DeleteMapping
     @Operation(summary = "리뷰 삭제", description = "리뷰 삭제처리")
-    public ResVo delReview(@Valid DelReviewDto dto) {
+    public ResVo delReview(int reviewPk,int resPk) {
+        DelReviewDto dto = new DelReviewDto();
+        dto.setReviewPk(reviewPk);
+        dto.setResPk(resPk);
         return service.delReview(dto);
     }
 
