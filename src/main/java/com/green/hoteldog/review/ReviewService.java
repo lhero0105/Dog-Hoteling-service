@@ -155,21 +155,21 @@ public class ReviewService {
         List<UserReviewVo> userReviewVoList = reviewMapper.selUserResPk(userPk);
         log.info("userReviewVoList : {}", userReviewVoList);
         if (userReviewVoList != null && userReviewVoList.size() > 1) {
-            List<Integer> resPkList = new ArrayList<>();
+            /*List<Integer> resPkList = new ArrayList<>();*/
             List<Integer> reviewPkList = new ArrayList<>();
             HashMap<Integer, UserReviewVo> resRoomInfoMap = new HashMap<>();
             HashMap<Integer, UserReviewVo> reviewPicMap = new HashMap<>();
             for (UserReviewVo vo : userReviewVoList) {
-                resPkList.add(vo.getResPk());
-                resRoomInfoMap.put(vo.getResPk(), vo);
+                /*resPkList.add(vo.getResPk());*/
+                resRoomInfoMap.put(vo.getReviewPk(), vo);
                 reviewPkList.add(vo.getReviewPk());
                 reviewPicMap.put(vo.getReviewPk(), vo);
             }
-            List<UserResRoomVo> userResRoomVoList = reviewMapper.selUserResRoomInfo(resPkList);
+            List<UserResRoomVo> userResRoomVoList = reviewMapper.selUserResRoomInfo(reviewPkList);
             log.info("userResRoomVoList : {}", userResRoomVoList);
             for (UserResRoomVo vo : userResRoomVoList) {
                 log.info("UserResRoomVo : {}", vo);
-                resRoomInfoMap.get(vo.getResPk()).getRoomNm().add(vo.getHotelRoomNm());
+                resRoomInfoMap.get(vo.getReviewPk()).getRoomNm().add(vo.getHotelRoomNm());
             }
             List<UserReviewPic> userReviewPicList = reviewMapper.selUserReviewPics(reviewPkList);
             log.info("userReviewPicList : {}", userReviewPicList);

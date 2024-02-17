@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserResRoomVo {
+    private int reviewPk;
     private int resPk;
     private int hotelRoomPk;
     private String hotelRoomNm;
